@@ -545,5 +545,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7f235713eb51047bd109d94363f7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingRange: 2
+  swingRange: 2.5
   swingSpeed: 15
+  offTime: 5
+  turnOnTime: 0.2
+  keepOffTime: 0.4
+  randomKeepOffTime: 0.05
+  randomKeepOnTime: 0.5
