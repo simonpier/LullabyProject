@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingCamera : MonoBehaviour
+public class FlyingCamera_SP : MonoBehaviour
 {
     float mainSpeed = 50.0f; //regular speed
     float shiftAdd = 250.0f; //multiplied by how long shift is held.  Basically running
