@@ -5,11 +5,19 @@ using UnityEngine;
 public abstract class EnemyController_ML : MonoBehaviour
 {
     //Enemy's range
-    [SerializeField] protected float lookRadius = 10f;
+    [SerializeField, Header("Enemy Look Range")] protected float lookRadius = 10f;
+    //Enemy's attack range
+    [SerializeField, Header("Enemy Attack Range")] protected float attackRange = 5f;
     //Enemy's movement speed
     [SerializeField] protected float speed = 5.0f;
+    //Enemy's health point
+    [SerializeField] protected float hitPoint = 5.0f;
     //Indicates if the enemy can fly
     [SerializeField] protected bool canFly = false;
+    //Indicates if the enemy can die
+    [SerializeField] protected bool canDie = true;
+    //Indicates if the enemy can move
+    [SerializeField] protected bool canMove = true;
 
     protected Transform target;
 
@@ -25,16 +33,15 @@ public abstract class EnemyController_ML : MonoBehaviour
         TargetTracking();
     }
 
-
     //Regulates player tracking
     public virtual void TargetTracking()
     {
         float distance = Vector2.Distance(target.position, transform.position);
 
-        if (distance <= lookRadius)
+        if (canMove && distance <= lookRadius && distance > attackRange)
         {
             //If the enemy can fly allow it to move also in y axis
-            if (canFly == true)
+            if (canFly)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
@@ -43,14 +50,37 @@ public abstract class EnemyController_ML : MonoBehaviour
                 Vector2 targetPos = new Vector2(target.position.x, 0);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             }
-
+        }
+        else if (distance <= attackRange)
+        {
+            Debug.Log("in attack range");
         }
     }
 
-    //Allow to see the enemy's range through in the scene
+    //TODO must be adjusted once the assets will be implemented
+    //To be activated when enemy's hitpoints run out
+    public virtual void DeathChecker()
+    {
+        if (canDie && hitPoint <= 0)
+        {
+            Debug.Log("enemy is died");
+        }
+    }
+
+    //TODO must be adjusted once the light collision will be ready
+    //To be activated when the enemy gets hit by the light
+    public virtual void TakeDamage()
+    {
+        hitPoint -= 1.0f * Time.deltaTime;
+    }
+
+    //Allow to see the enemy's range in the scene
     public virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
     }
 }
