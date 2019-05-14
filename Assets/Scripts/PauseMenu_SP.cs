@@ -8,6 +8,7 @@ public class PauseMenu_SP : MonoBehaviour
     public static bool GameIsPaused = false;
 
     [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject inventoryMenuUI;
 
     // Update is called once per frame
     void Update()
@@ -37,6 +38,7 @@ public class PauseMenu_SP : MonoBehaviour
     {
 
         pauseMenuUI.SetActive(false);
+        inventoryMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
 
