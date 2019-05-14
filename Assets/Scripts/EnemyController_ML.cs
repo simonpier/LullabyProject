@@ -19,13 +19,16 @@ public abstract class EnemyController_ML : MonoBehaviour
     //Indicates if the enemy can move
     [SerializeField] protected bool canMove = true;
 
+    protected Vector2 respawnPoint;
     protected Transform target;
 
     public virtual void Start()
     {
+        respawnPoint = transform.localPosition;
         //TODO Should be replaced with an instance of the player for more optimization
         //Reference to the player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
     }
 
     public virtual void Update()
@@ -47,7 +50,7 @@ public abstract class EnemyController_ML : MonoBehaviour
             }
             else
             {
-                Vector2 targetPos = new Vector2(target.position.x, 0);
+                Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             }
         }
