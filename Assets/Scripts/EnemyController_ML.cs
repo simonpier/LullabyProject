@@ -19,8 +19,13 @@ public abstract class EnemyController_ML : MonoBehaviour
     //Indicates if the enemy can move
     [SerializeField] protected bool canMove = true;
 
+    //Indicates if the enemy is facing right
+    protected bool facingRight = true;
+
     protected Vector2 respawnPoint;
     protected Transform target;
+
+
 
     public virtual void Start()
     {
@@ -40,12 +45,14 @@ public abstract class EnemyController_ML : MonoBehaviour
     public virtual void TargetTracking()
     {
         float distance = Vector2.Distance(target.position, transform.position);
+        Flip();
 
         if (canMove && distance <= lookRadius && distance > attackRange)
         {
             //If the enemy can fly allow it to move also in y axis
             if (canFly)
             {
+                
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
             else
@@ -75,6 +82,19 @@ public abstract class EnemyController_ML : MonoBehaviour
     public virtual void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
+    }
+
+    //Allow the enemy to flip his sprite basing on the position of the player
+    public virtual void Flip()
+    {
+        if (transform.position.x >= target.position.x && facingRight || transform.position.x < target.position.x && !facingRight)
+        {
+            facingRight = !facingRight;
+
+            Vector3 enemyScale = transform.localScale;
+            enemyScale.x *= -1;
+            transform.localScale = enemyScale;
+        }
     }
 
     //Allow to see the enemy's range in the scene
