@@ -24,6 +24,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     protected Vector2 respawnPoint;
     protected Transform target;
+    protected Animator anim;
 
 
 
@@ -33,7 +34,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         //TODO Should be replaced with an instance of the player for more optimization
         //Reference to the player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
+        anim = GetComponent<Animator>();
     }
 
     public virtual void Update()
@@ -49,13 +50,14 @@ public abstract class EnemyController_ML : MonoBehaviour
 
         if (canMove && distance <= lookRadius && distance > attackRange)
         {
+            anim.SetTrigger("transformation");
+            anim.SetBool("attack", false);
             //If the enemy can fly allow it to move also in y axis
-            if (canFly)
+            if (canFly && anim.GetBool("isTransformed"))
             {
-                
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
-            else
+            else if (!canFly && anim.GetBool("isTransformed"))
             {
                 Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -63,7 +65,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
         else if (distance <= attackRange)
         {
-            Debug.Log("in attack range");
+            anim.SetBool("attack", true);
         }
     }
 
