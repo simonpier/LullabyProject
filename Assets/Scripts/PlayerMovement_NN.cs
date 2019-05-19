@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerMovement_NN : MonoBehaviour
 {
     Rigidbody2D rigidbody;
+    SpriteRenderer mainSpriteRenderer;
     GameObject Player;
     //Player's movement speed
     [SerializeField] private float _speed = 2.0f;
+    [SerializeField] private Sprite raisingSprite;
+    [SerializeField] private Sprite loweringSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
+        mainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,8 +42,23 @@ public class PlayerMovement_NN : MonoBehaviour
         {
             Player.GetComponent<Rigidbody2D>().velocity = (Vector3.right * 0.0f);
             GetComponent<Animator>().SetBool("Walking", false);
-        }       
+        }
+        //Change to raising a candle 
+        if (Input.GetKeyDown("w"))
+        {
+            GetComponent<Animator>().SetBool("Raising",true);
+            mainSpriteRenderer.sprite = raisingSprite;
+            Debug.Log(mainSpriteRenderer.sprite);
+        }
+        //Change to lowering a candle
+        else if (Input.GetKeyDown("s"))
+        {
+            GetComponent<Animator>().SetBool("Raising", false);
+            mainSpriteRenderer.sprite = loweringSprite;
+        }
     }
+
+
 
     private void Move(float speed)
     {
