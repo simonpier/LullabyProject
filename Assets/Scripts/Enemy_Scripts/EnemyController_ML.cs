@@ -51,13 +51,13 @@ public abstract class EnemyController_ML : MonoBehaviour
         if (canMove && distance <= lookRadius && distance > attackRange)
         {
             anim.SetTrigger("transformation");
-            anim.SetBool("attack", false);
+
             //If the enemy can fly allow it to move also in y axis
-            if (canFly && anim.GetBool("isTransformed"))
+            if (canFly && anim.GetBool("isTransformed") && !anim.GetBool("attack"))
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             }
-            else if (!canFly && anim.GetBool("isTransformed"))
+            else if (!canFly && anim.GetBool("isTransformed") && !anim.GetBool("attack"))
             {
                 Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -97,6 +97,16 @@ public abstract class EnemyController_ML : MonoBehaviour
             enemyScale.x *= -1;
             transform.localScale = enemyScale;
         }
+    }
+
+    public virtual void Transformation()
+    {
+        anim.SetBool("isTransformed", true);
+    }
+
+    public virtual void AttackReset()
+    {
+        anim.SetBool("attack", false);
     }
 
     //Allow to see the enemy's range in the scene
