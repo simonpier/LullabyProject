@@ -9,8 +9,10 @@ public class PlayerMovement_NN : MonoBehaviour
     GameObject Player;
     //Player's movement speed
     [SerializeField] private float _speed = 2.0f;
-    [SerializeField] private Sprite raisingSprite;
-    [SerializeField] private Sprite loweringSprite;
+    [SerializeField] private Sprite raisingSpriteRight;
+    [SerializeField] private Sprite raisingSpriteLeft;
+    [SerializeField] private Sprite loweringSpriteRight;
+    [SerializeField] private Sprite loweringSpriteLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -47,14 +49,14 @@ public class PlayerMovement_NN : MonoBehaviour
         if (Input.GetKeyDown("w"))
         {
             GetComponent<Animator>().SetBool("Raising",true);
-            mainSpriteRenderer.sprite = raisingSprite;
+            mainSpriteRenderer.sprite = raisingSpriteRight;
             Debug.Log(mainSpriteRenderer.sprite);
         }
         //Change to lowering a candle
         else if (Input.GetKeyDown("s"))
         {
             GetComponent<Animator>().SetBool("Raising", false);
-            mainSpriteRenderer.sprite = loweringSprite;
+            mainSpriteRenderer.sprite = loweringSpriteRight;
         }
     }
 
