@@ -52,15 +52,18 @@ public abstract class EnemyController_ML : MonoBehaviour
         {
             anim.SetTrigger("transformation");
 
-            //If the enemy can fly allow it to move also in y axis
-            if (canFly && anim.GetBool("isTransformed") && !anim.GetBool("attack"))
+            if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            }
-            else if (!canFly && anim.GetBool("isTransformed") && !anim.GetBool("attack"))
-            {
-                Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
-                transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                //If the enemy can fly allow it to move also in y axis
+                if (canFly)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                }
+                else if (!canFly)
+                {
+                    Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                    transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                }
             }
         }
         else if (distance <= attackRange)
@@ -99,6 +102,8 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
     }
 
+    //in this region there are the different methods used through the animation event system
+    #region Animation Manager
     public virtual void Transformation()
     {
         anim.SetBool("isTransformed", true);
@@ -108,6 +113,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         anim.SetBool("attack", false);
     }
+    #endregion
 
     //Allow to see the enemy's range in the scene
     public virtual void OnDrawGizmosSelected()

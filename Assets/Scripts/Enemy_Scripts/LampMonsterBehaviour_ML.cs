@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookMonsterBehaviour_ML : EnemyController_ML
+public class LampMonsterBehaviour_ML : EnemyController_ML
 {
     // Start is called before the first frame update
     public override void Start()
