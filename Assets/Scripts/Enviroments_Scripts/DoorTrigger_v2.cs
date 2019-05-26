@@ -23,9 +23,7 @@ public class DoorTrigger_v2 : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Open");
-            door.DoorOpen();
-            
-            
+            door.DoorOpen();        
         }
 
         
@@ -34,7 +32,6 @@ public class DoorTrigger_v2 : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         
-
         if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
         {
 

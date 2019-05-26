@@ -15,4 +15,28 @@ public class DoorMonsterBehaviour_ML : EnemyController_ML
     {
         base.Update();
     }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetTrigger("transformation");
+        }
+    }
+
+    public override void TargetTracking()
+    {
+        float distance = Vector2.Distance(target.position, transform.position);
+
+        if (distance <= attackRange)
+        {
+            anim.SetBool("attack", true);
+        }
+        else if (!canMove && distance > attackRange)
+        {
+            anim.SetBool("idle", true);
+        }
+    }
+
+
 }

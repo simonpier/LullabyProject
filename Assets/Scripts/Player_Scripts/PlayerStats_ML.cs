@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats_ML : MonoBehaviour
 {
-    private int health = 1;
+    [SerializeField] private int health = 1;
     // Start is called before the first frame update
     void Start()
     {
