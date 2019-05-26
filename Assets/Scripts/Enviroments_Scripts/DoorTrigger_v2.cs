@@ -13,30 +13,18 @@ public class DoorTrigger_v2 : MonoBehaviour
     {
 
         door = doorNormal.GetComponent<EnviromentInteraction_SP>();
-
+        Invoke("OnTriggerStay2d", 2);
     }
 
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-
-        if (other.tag == "Player")
-        {
-            Debug.Log("Open");
-            door.DoorOpen();        
-        }
-
-        
-    }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        
+
         if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
         {
-
-            player.transform.position = destination.transform.position;
-            Debug.Log("telep");
+            Debug.Log("open + telep");
+            door.DoorOpen();
+            Invoke("Teleportation", 1);
         }
 
     }
@@ -48,9 +36,16 @@ public class DoorTrigger_v2 : MonoBehaviour
         {
             Debug.Log("Close");
             door.DoorClose();
-            
+
         }
 
     }
 
+
+    void Teleportation()
+    {
+
+        player.transform.position = destination.transform.position;
+
+    }
 }
