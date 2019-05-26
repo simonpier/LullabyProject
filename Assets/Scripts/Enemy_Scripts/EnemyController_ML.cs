@@ -28,6 +28,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Vector2 respawnPoint;
     protected Transform target;
     protected Animator anim;
+    protected SpriteRenderer spriteRenderer;
 
     public virtual void Start()
     {
@@ -36,6 +37,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         //Reference to the player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public virtual void Update()
@@ -50,7 +52,6 @@ public abstract class EnemyController_ML : MonoBehaviour
         if (!isDied)
         {
             float distance = Vector2.Distance(target.position, transform.position);
-            Flip();
 
             if (distance <= transformRange)
             {
@@ -59,6 +60,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
             if (canMove &&  distance > attackRange)
             {
+                Flip();
                 if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
                 {
                     //If the enemy can fly allow it to move also in y axis
@@ -76,6 +78,10 @@ public abstract class EnemyController_ML : MonoBehaviour
             else if (distance <= attackRange)
             {
                 anim.SetBool("attack", true);
+            }
+            else if (!canMove && distance>attackRange)
+            {
+                anim.SetBool("idle", true);
             }
         }
     }
@@ -96,6 +102,18 @@ public abstract class EnemyController_ML : MonoBehaviour
     public virtual void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
+        StartCoroutine(TakingDamage());
+    }
+
+    private IEnumerator TakingDamage()
+    {
+        while(hitPoint>0)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(.1f);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(.1f);
+        }
     }
 
     //Allow the enemy to flip his sprite basing on the position of the player
