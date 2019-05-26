@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[ExecuteInEditMode, RequireComponent(typeof(CircleCollider2D))]
 public class CandleLight_KT : MonoBehaviour
 {
     //player attack range and first light range
@@ -15,43 +14,59 @@ public class CandleLight_KT : MonoBehaviour
     [Range(0.001f, 100)]
     public float attenuationRange;
 
+    //this parameter is storonger blar as nearly as 1;
+    [SerializeField, Range(0, 1)]
+    public float firstAttenuation;
+
     //under here, the member variable same as normal light 
     public Color lightColor;
     [Range(0.001f, 100)]
     public float lightIntencsity;
 
+    private CircleCollider2D _circle;
 
-    CircleCollider2D _collider;
-    //tentative light created PointLight
-    Light _light;
-
-    void Awake()
+    public void OnEnable()
     {
-        _collider = GetComponent<CircleCollider2D>();
-        _light = GetComponent<Light>();
+        CustomLightSystem_KT.instance.Add(this);
     }
 
-    void Start()
+    public void Start()
     {
-        SetParameter();
+        CustomLightSystem_KT.instance.Add(this);
+        _circle = GetComponent<CircleCollider2D>();
     }
 
-    void OnEnable()
-    {
-        SetParameter();
-    }
-    
     void Update()
     {
-        
+        if (!Application.isPlaying) _circle.radius = colliderRange;
     }
 
-    private void SetParameter()
+    public void OnDisable()
     {
-        _collider.radius = colliderRange;
-        _light.intensity = lightIntencsity;
-        _light.color = lightColor;
-        //tentative magic number 5.0f
-        _light.range = 5.0f * colliderRange;
+        CustomLightSystem_KT.instance.Remove(this);
+    }
+
+    public Color GetLinearColor()
+    {
+        return new Color(
+            Mathf.GammaToLinearSpace(lightColor.r * lightIntencsity),
+            Mathf.GammaToLinearSpace(lightColor.g * lightIntencsity),
+            Mathf.GammaToLinearSpace(lightColor.b * lightIntencsity),
+            1.0f
+        );
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawIcon(transform.position, "PointLight Gizmo", true);
+    }
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(lightColor.r, lightColor.g, lightColor.b, 0.5f);
+        Gizmos.matrix = Matrix4x4.identity;
+        Gizmos.DrawWireSphere(transform.position, colliderRange + bufferRange);
+        Gizmos.color = new Color(lightColor.r, lightColor.g, lightColor.b, 0.2f);
+        Gizmos.matrix = Matrix4x4.identity;
+        Gizmos.DrawWireSphere(transform.position, attenuationRange);
     }
 }
