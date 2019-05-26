@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class EnemyController_ML : MonoBehaviour
 {
-    //Enemy's range
-    [SerializeField, Header("Enemy Look Range")] protected float lookRadius = 10f;
+    //Enemy's transform range
+    [SerializeField] protected float transformRange = 10f;
     //Enemy's attack range
-    [SerializeField, Header("Enemy Attack Range")] protected float attackRange = 5f;
+    [SerializeField] protected float attackRange = 5f;
     //Enemy's movement speed
     [SerializeField] protected float speed = 5.0f;
     //Enemy's health point
@@ -19,14 +19,15 @@ public abstract class EnemyController_ML : MonoBehaviour
     //Indicates if the enemy can move
     [SerializeField] protected bool canMove = true;
 
+    [SerializeField] protected Collider2D AttackCollider;
+
     //Indicates if the enemy is facing right
     protected bool facingRight = true;
+    protected bool isDied = false;
 
     protected Vector2 respawnPoint;
     protected Transform target;
     protected Animator anim;
-
-
 
     public virtual void Start()
     {
@@ -39,36 +40,43 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     public virtual void Update()
     {
+        DeathChecker();
         TargetTracking();
     }
 
     //Regulates player tracking
     public virtual void TargetTracking()
     {
-        float distance = Vector2.Distance(target.position, transform.position);
-        Flip();
-
-        if (canMove && distance <= lookRadius && distance > attackRange)
+        if (!isDied)
         {
-            anim.SetTrigger("transformation");
+            float distance = Vector2.Distance(target.position, transform.position);
+            Flip();
 
-            if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
+            if (distance <= transformRange)
             {
-                //If the enemy can fly allow it to move also in y axis
-                if (canFly)
+                anim.SetTrigger("transformation");
+            }
+
+            if (canMove &&  distance > attackRange)
+            {
+                if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                }
-                else if (!canFly)
-                {
-                    Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
-                    transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                    //If the enemy can fly allow it to move also in y axis
+                    if (canFly)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                    }
+                    else if (!canFly)
+                    {
+                        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                    }
                 }
             }
-        }
-        else if (distance <= attackRange)
-        {
-            anim.SetBool("attack", true);
+            else if (distance <= attackRange)
+            {
+                anim.SetBool("attack", true);
+            }
         }
     }
 
@@ -78,7 +86,8 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         if (canDie && hitPoint <= 0)
         {
-            Debug.Log("enemy is died");
+            anim.SetBool("death", true);
+            isDied = true;
         }
     }
 
@@ -90,7 +99,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     }
 
     //Allow the enemy to flip his sprite basing on the position of the player
-    public virtual void Flip()
+    private void Flip()
     {
         if (transform.position.x >= target.position.x && facingRight || transform.position.x < target.position.x && !facingRight)
         {
@@ -104,14 +113,19 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     //in this region there are the different methods used through the animation event system
     #region Animation Manager
-    public virtual void Transformation()
+    private void Transformation()
     {
         anim.SetBool("isTransformed", true);
     }
 
-    public virtual void AttackReset()
+    private void AttackReset()
     {
         anim.SetBool("attack", false);
+    }
+
+    private void Attack()
+    {
+        AttackCollider.enabled = !AttackCollider.enabled;
     }
     #endregion
 
@@ -119,9 +133,8 @@ public abstract class EnemyController_ML : MonoBehaviour
     public virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawWireSphere(transform.position, transformRange);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-
     }
 }
