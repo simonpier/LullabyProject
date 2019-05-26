@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class InventoryController_NN : MonoBehaviour
 {
+    [SerializeField]
+    public class InvntoryEvent
+    {
+        public string key;
+        //public UnityEvent OnAdd, OnRemove;
+    }
     // Start is called before the first frame update
     void Start()
     {
