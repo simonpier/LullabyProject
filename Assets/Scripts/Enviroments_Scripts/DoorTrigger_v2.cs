@@ -6,6 +6,8 @@ public class DoorTrigger_v2 : MonoBehaviour
 {
     [SerializeField] GameObject doorNormal;
     EnviromentInteraction_SP door;
+    [SerializeField] GameObject destination;
+    [SerializeField] GameObject player;
 
     private void Start()
     {
@@ -23,7 +25,21 @@ public class DoorTrigger_v2 : MonoBehaviour
             Debug.Log("Open");
             door.DoorOpen();
             
+            
+        }
 
+        
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        
+
+        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        {
+
+            player.transform.position = destination.transform.position;
+            Debug.Log("telep");
         }
 
     }
