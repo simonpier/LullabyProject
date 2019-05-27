@@ -32,6 +32,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+    bool isTakingDamage;
 
     public virtual void Start()
     {
@@ -63,30 +64,33 @@ public abstract class EnemyController_ML : MonoBehaviour
                 anim.SetTrigger("transformation");
             }
 
-            if (canMove &&  distance > attackRange)
+            if (anim.GetBool("isTransformed"))
             {
-                Flip();
-                if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
+                if (canMove && distance > attackRange)
                 {
-                    //If the enemy can fly allow it to move also in y axis
-                    if (canFly)
+                    Flip();
+                    if (!anim.GetBool("attack"))
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                    }
-                    else if (!canFly)
-                    {
-                        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
-                        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        //If the enemy can fly allow it to move also in y axis
+                        if (canFly)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                        }
+                        else if (!canFly)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        }
                     }
                 }
-            }
-            else if (distance <= attackRange)
-            {
-                anim.SetBool("attack", true);
-            }
-            else if (!canMove && distance>attackRange)
-            {
-                anim.SetBool("idle", true);
+                else if (distance <= attackRange)
+                {
+                    anim.SetBool("attack", true);
+                }
+                else if (!canMove && distance > attackRange)
+                {
+                    anim.SetBool("idle", true);
+                }
             }
         }
     }
@@ -104,13 +108,25 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     public virtual void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == ("Player_CandleCollider"))
+        if (hitPoint<=0)
         {
+            isTakingDamage = false;
+        }
+        else if (collision.tag == ("Player_CandleCollider") && hitPoint > 0 && anim.GetBool("isTransformed"))
+        {
+            isTakingDamage = true;
             TakeDamage();
         }
     }
 
-    //TODO must be adjusted once the light collision will be ready
+    public virtual void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == ("Player_CandleCollider"))
+        {
+            isTakingDamage = false;
+        }
+    }
+
     //To be activated when the enemy gets hit by the light
     private void TakeDamage()
     {
@@ -120,7 +136,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     private IEnumerator TakingDamage()
     {
-        while(hitPoint>0)
+        while (isTakingDamage)
         {
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.1f);
