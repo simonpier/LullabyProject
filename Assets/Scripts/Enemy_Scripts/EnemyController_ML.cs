@@ -20,6 +20,8 @@ public abstract class EnemyController_ML : MonoBehaviour
     [SerializeField] protected bool canMove = true;
 
     [SerializeField] protected Collider2D AttackCollider;
+    [SerializeField, Header("Lower Left Room Limiter")] protected GameObject sxRoomLimiter;
+    [SerializeField, Header("Top Right Room Limiter")] protected GameObject dxRoomLimiter;
 
     //Indicates if the enemy is facing right
     protected bool facingRight = true;
@@ -30,9 +32,10 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+
     public virtual void Start()
     {
-        respawnPoint = transform.localPosition;
+        respawnPoint = transform.position;
         //TODO Should be replaced with an instance of the player for more optimization
         //Reference to the player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -44,6 +47,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         DeathChecker();
         TargetTracking();
+        Respawn();
     }
 
     //Regulates player tracking
@@ -55,6 +59,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
             if (distance <= transformRange)
             {
+                anim.SetBool("reset", false);
                 anim.SetTrigger("transformation");
             }
 
@@ -97,9 +102,17 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
     }
 
+    public virtual void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == ("Player_CandleCollider"))
+        {
+            TakeDamage();
+        }
+    }
+
     //TODO must be adjusted once the light collision will be ready
     //To be activated when the enemy gets hit by the light
-    public virtual void TakeDamage()
+    private void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
         StartCoroutine(TakingDamage());
@@ -117,7 +130,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     }
 
     //Allow the enemy to flip his sprite basing on the position of the player
-    private void Flip()
+    public virtual void Flip()
     {
         if (transform.position.x >= target.position.x && facingRight || transform.position.x < target.position.x && !facingRight)
         {
@@ -126,6 +139,17 @@ public abstract class EnemyController_ML : MonoBehaviour
             Vector3 enemyScale = transform.localScale;
             enemyScale.x *= -1;
             transform.localScale = enemyScale;
+        }
+    }
+
+    private void Respawn()
+    {
+        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.x < sxRoomLimiter.transform.position.x)
+        {
+            transform.position = respawnPoint;
+            anim.SetBool("reset", true);
+            anim.ResetTrigger("transformation");
+            anim.SetBool("isTransformed", false);
         }
     }
 
