@@ -23,8 +23,9 @@
 		}
 
 		Cull Off
-		Lighting Off
-		Blend One OneMinusSrcAlpha
+		//Lighting Off
+		//Blend One OneMinusSrcAlpha
+		Blend One Zero
 
 		CGPROGRAM
 		#pragma surface surf Standard keepalpha
@@ -55,6 +56,10 @@
 		{
 			fixed4 c = SampleSpriteTexture(IN.uv_MainTex) * IN.color;
 			o.Albedo = c.rgb * c.a;
+			if (o.Normal.z > 0.0f) {
+				o.Normal *= -1.0f;
+			}
+			//o.Albedo = o.Normal;
 			o.Alpha = c.a;
 		}
 		ENDCG
