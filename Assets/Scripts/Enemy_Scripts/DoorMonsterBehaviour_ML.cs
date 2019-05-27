@@ -16,10 +16,14 @@ public class DoorMonsterBehaviour_ML : EnemyController_ML
         base.Update();
     }
 
-    void OnTriggerStay2D(Collider2D other)
+
+    public override void OnTriggerStay2D(Collider2D collision)
     {
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        base.OnTriggerStay2D(collision);
+
+        if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
         {
+            anim.SetBool("reset", false);
             anim.SetTrigger("transformation");
         }
     }

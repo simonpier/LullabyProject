@@ -20,6 +20,8 @@ public abstract class EnemyController_ML : MonoBehaviour
     [SerializeField] protected bool canMove = true;
 
     [SerializeField] protected Collider2D AttackCollider;
+    [SerializeField, Header("Lower Left Room Limiter")] protected GameObject sxRoomLimiter;
+    [SerializeField, Header("Top Right Room Limiter")] protected GameObject dxRoomLimiter;
 
     //Indicates if the enemy is facing right
     protected bool facingRight = true;
@@ -30,9 +32,11 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+    bool isTakingDamage;
+
     public virtual void Start()
     {
-        respawnPoint = transform.localPosition;
+        respawnPoint = transform.position;
         //TODO Should be replaced with an instance of the player for more optimization
         //Reference to the player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -44,6 +48,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         DeathChecker();
         TargetTracking();
+        Respawn();
     }
 
     //Regulates player tracking
@@ -55,33 +60,37 @@ public abstract class EnemyController_ML : MonoBehaviour
 
             if (distance <= transformRange)
             {
+                anim.SetBool("reset", false);
                 anim.SetTrigger("transformation");
             }
 
-            if (canMove &&  distance > attackRange)
+            if (anim.GetBool("isTransformed"))
             {
-                Flip();
-                if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
+                if (canMove && distance > attackRange)
                 {
-                    //If the enemy can fly allow it to move also in y axis
-                    if (canFly)
+                    Flip();
+                    if (!anim.GetBool("attack"))
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                    }
-                    else if (!canFly)
-                    {
-                        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
-                        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        //If the enemy can fly allow it to move also in y axis
+                        if (canFly)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                        }
+                        else if (!canFly)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        }
                     }
                 }
-            }
-            else if (distance <= attackRange)
-            {
-                anim.SetBool("attack", true);
-            }
-            else if (!canMove && distance>attackRange)
-            {
-                anim.SetBool("idle", true);
+                else if (distance <= attackRange)
+                {
+                    anim.SetBool("attack", true);
+                }
+                else if (!canMove && distance > attackRange)
+                {
+                    anim.SetBool("idle", true);
+                }
             }
         }
     }
@@ -97,9 +106,29 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
     }
 
-    //TODO must be adjusted once the light collision will be ready
+    public virtual void OnTriggerStay2D(Collider2D collision)
+    {
+        if (hitPoint<=0)
+        {
+            isTakingDamage = false;
+        }
+        else if (collision.tag == ("Player_CandleCollider") && hitPoint > 0 && anim.GetBool("isTransformed"))
+        {
+            isTakingDamage = true;
+            TakeDamage();
+        }
+    }
+
+    public virtual void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == ("Player_CandleCollider"))
+        {
+            isTakingDamage = false;
+        }
+    }
+
     //To be activated when the enemy gets hit by the light
-    public virtual void TakeDamage()
+    private void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
         StartCoroutine(TakingDamage());
@@ -107,7 +136,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     private IEnumerator TakingDamage()
     {
-        while(hitPoint>0)
+        while (isTakingDamage)
         {
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.1f);
@@ -117,7 +146,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     }
 
     //Allow the enemy to flip his sprite basing on the position of the player
-    private void Flip()
+    public virtual void Flip()
     {
         if (transform.position.x >= target.position.x && facingRight || transform.position.x < target.position.x && !facingRight)
         {
@@ -126,6 +155,17 @@ public abstract class EnemyController_ML : MonoBehaviour
             Vector3 enemyScale = transform.localScale;
             enemyScale.x *= -1;
             transform.localScale = enemyScale;
+        }
+    }
+
+    private void Respawn()
+    {
+        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.x < sxRoomLimiter.transform.position.x)
+        {
+            transform.position = respawnPoint;
+            anim.SetBool("reset", true);
+            anim.ResetTrigger("transformation");
+            anim.SetBool("isTransformed", false);
         }
     }
 

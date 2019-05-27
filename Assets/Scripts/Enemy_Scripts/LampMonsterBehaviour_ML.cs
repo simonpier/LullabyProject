@@ -15,4 +15,58 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
     {
         base.Update();
     }
+
+    public override void TargetTracking()
+    {
+        if (!isDied)
+        {
+            float distance = Vector2.Distance(target.position, transform.position);
+
+            if(anim.GetBool("isTransformed"))
+            {
+                if (canMove && distance > attackRange)
+                {
+                    Flip();
+                    if (anim.GetBool("isTransformed") && !anim.GetBool("attack"))
+                    {
+                        //If the enemy can fly allow it to move also in y axis
+                        if (canFly)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                        }
+                        else if (!canFly)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        }
+                    }
+                }
+                else if (distance <= attackRange)
+                {
+                    anim.SetBool("attack", true);
+                }
+                else if (!canMove && distance > attackRange)
+                {
+                    anim.SetBool("idle", true);
+                }
+            }
+        }
+    }
+
+    public override void OnTriggerStay2D(Collider2D collision)
+    {
+    }
+
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player_CandleCollider")
+        {
+            anim.SetBool("reset", false);
+            anim.SetTrigger("transformation");
+        }
+    }
 }
