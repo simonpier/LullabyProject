@@ -26,13 +26,14 @@ public abstract class EnemyController_ML : MonoBehaviour
     //Indicates if the enemy is facing right
     protected bool facingRight = true;
     protected bool isDied = false;
+    protected bool isTakingDamage = false;
 
     protected Vector2 respawnPoint;
     protected Transform target;
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
-    bool isTakingDamage;
+
 
     public virtual void Start()
     {
@@ -49,6 +50,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         DeathChecker();
         TargetTracking();
         Respawn();
+        Debug.Log(sxRoomLimiter.transform.position);
     }
 
     //Regulates player tracking
@@ -160,7 +162,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     private void Respawn()
     {
-        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.x < sxRoomLimiter.transform.position.x)
+        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
             transform.position = respawnPoint;
             anim.SetBool("reset", true);
