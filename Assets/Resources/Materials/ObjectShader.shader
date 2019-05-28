@@ -17,15 +17,17 @@
 		{
 			"Queue" = "AlphaTest"
 			"IgnoreProjector" = "True"
-			"RenderType" = "TransparentCutoff"
+			"RenderType" = "Opaque"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
 
 		Cull Off
-		//Lighting Off
-		//Blend One OneMinusSrcAlpha
 		Blend One Zero
+		//ZWrite Off
+		ZTest Always
+		//Offset 0, -1
+		//Lighting On
 
 		CGPROGRAM
 		#pragma surface surf Standard keepalpha
