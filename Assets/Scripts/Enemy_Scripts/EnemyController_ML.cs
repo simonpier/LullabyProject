@@ -39,7 +39,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         respawnPoint = transform.position;
         //TODO Should be replaced with an instance of the player for more optimization
         //Reference to the player
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = PlayerStats_ML.instance.player.transform;
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
