@@ -2544,6 +2544,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &528571486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1621316194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562247538
 GameObject:
   m_ObjectHideFlags: 0
@@ -6739,7 +6745,7 @@ PrefabInstance:
     - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4769616876780321499, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
@@ -6765,6 +6771,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 873855349}
+    - target: {fileID: 5337991411122789008, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: candle
+      value: 
+      objectReference: {fileID: 528571486}
+    - target: {fileID: 5337991411122789008, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: backSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da9dfab775420de4ea9c84c084344058,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
 --- !u!1 &1651392007
