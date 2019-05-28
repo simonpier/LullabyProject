@@ -79,6 +79,7 @@ public class PlayerMovement_NN : MonoBehaviour
         {
             ChangeWeapon();
         }
+        Clamp();
     }
 
 
@@ -86,6 +87,15 @@ public class PlayerMovement_NN : MonoBehaviour
     private void Move(float speed)
     {
         Player.GetComponent<Rigidbody2D>().velocity = (Vector3.right * speed);
+    }
+    //Limit the range of movement
+    private void Clamp()
+    {    
+        Vector2 pos = transform.position;
+        // Position restriction
+        pos.x = Mathf.Clamp(pos.x, -28, 20);
+        // Assign the restricted value
+        transform.position = pos;
     }
     private void TurnLight()
     {
