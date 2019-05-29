@@ -5,21 +5,24 @@ using UnityEngine;
 public class Spiderdog_Boss_Behaviour : EnemyController_ML
 {
 
+    [SerializeField] private float landDistance = 3.5f;
     [SerializeField] private Collider2D SlashCollider;
 
-    private int i;
+
+    private int attackRandomizer;
+    float landingPos;
 
 
     public override void Start()
     {
         base.Start();
+        landingPos = transform.position.y - landDistance ;
+
     }
 
     public override void Update()
     {
-        Debug.Log(i);
         base.Update();
-
     }
 
     public override void Flip()
@@ -56,13 +59,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             anim.SetBool("attack", true);
             Debug.Log("inrange");
-            i = (Random.Range (0,2));
-            if (i == 0)
+            attackRandomizer = (Random.Range (0,2));
+            if (attackRandomizer == 0)
             {
                 anim.SetBool("slash", false);
                 anim.SetBool("buttAttack", true);
             }
-            else if (i == 1)
+            else if (attackRandomizer == 1)
             {
                 anim.SetBool("buttAttack", false);
                 anim.SetBool("slash", true);
@@ -92,6 +95,18 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             TakeDamage();
         }
     }
+
+    public override void DeathChecker()
+    {
+        if (canDie && hitPoint <= 0)
+        {
+            anim.SetBool("death", true);
+            isDied = true;
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1f, 1f, 1f), 1f * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, landingPos, 1f * Time.deltaTime), transform.position.z);
+        }
+    }
+
 
 
     #region Animation Manager
