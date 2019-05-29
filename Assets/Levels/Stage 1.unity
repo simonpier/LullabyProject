@@ -519,6 +519,8 @@ Transform:
   - {fileID: 232842528}
   - {fileID: 201930551}
   - {fileID: 2126839668}
+  - {fileID: 2001850228}
+  - {fileID: 787694851}
   m_Father: {fileID: 1065203678}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -639,6 +641,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: sxRoomLimiter
+      value: 
+      objectReference: {fileID: 2001850227}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: dxRoomLimiter
+      value: 
+      objectReference: {fileID: 787694850}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
 --- !u!4 &741311736 stripped
@@ -647,6 +657,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 741311735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &787694850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787694851}
+  m_Layer: 0
+  m_Name: DX Limiter (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787694851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787694850}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 62.76, y: 6.45, z: 78.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 601055559}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &811801725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5337991411122789012, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
@@ -2514,6 +2554,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+--- !u!1 &2001850227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001850228}
+  m_Layer: 0
+  m_Name: SX Limiter (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2001850228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001850227}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.24, y: -5.05, z: 78.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 601055559}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2084588667
 PrefabInstance:
   m_ObjectHideFlags: 0

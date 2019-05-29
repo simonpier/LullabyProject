@@ -33,8 +33,6 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
-
-
     public virtual void Start()
     {
         respawnPoint = transform.position;
@@ -160,7 +158,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    public virtual void Respawn()
     {
         if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
