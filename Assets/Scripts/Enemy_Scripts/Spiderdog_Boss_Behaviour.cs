@@ -9,9 +9,10 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     private int i;
 
+
     public override void Start()
     {
-        base.Start();   
+        base.Start();
     }
 
     public override void Update()
@@ -79,6 +80,18 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         }
     }
 
+    public override void OnTriggerStay2D(Collider2D collision)
+    {
+        if (hitPoint <= 0)
+        {
+            isTakingDamage = false;
+        }
+        else if (collision.tag == ("Player_CandleCollider") && hitPoint > 0)
+        {
+            isTakingDamage = true;
+            TakeDamage();
+        }
+    }
 
 
     #region Animation Manager

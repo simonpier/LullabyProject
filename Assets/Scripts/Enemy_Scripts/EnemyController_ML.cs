@@ -128,7 +128,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     }
 
     //To be activated when the enemy gets hit by the light
-    private void TakeDamage()
+    public virtual void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
         StartCoroutine(TakingDamage());
@@ -141,7 +141,7 @@ public abstract class EnemyController_ML : MonoBehaviour
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.1f);
             spriteRenderer.enabled = true;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
