@@ -4,6 +4,7 @@
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
+		_Cutoff("Cutoff"      , Range(0, 1)) = 0.5
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 		[HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
 		[HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
@@ -24,13 +25,10 @@
 
 		Cull Off
 		Blend One Zero
-		//ZWrite Off
 		ZTest Always
-		//Offset 0, -1
-		//Lighting On
 
 		CGPROGRAM
-		#pragma surface surf Standard keepalpha
+		#pragma surface surf Standard alphatest:_Cutoff
 		#pragma vertex vert
 		#pragma multi_compile_local _ PIXELSNAP_ON
 		#pragma multi_compile _ ETC1_EXTERNAL_ALPHA
@@ -61,7 +59,6 @@
 			if (o.Normal.z > 0.0f) {
 				o.Normal *= -1.0f;
 			}
-			//o.Albedo = o.Normal;
 			o.Alpha = c.a;
 		}
 		ENDCG
