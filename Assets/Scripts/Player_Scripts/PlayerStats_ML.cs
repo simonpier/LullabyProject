@@ -10,6 +10,17 @@ public class PlayerStats_ML : MonoBehaviour
     //Player Health;
     [SerializeField] private int health = 1;
 
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+        protected set
+        {
+        }
+    }
+
     //Reference to the player
     public GameObject player;
     //Player respawnPoint it will be set in Checkpoint_ML
