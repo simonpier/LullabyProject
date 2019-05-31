@@ -20,7 +20,7 @@ public class DoorTrigger_v2 : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("open + telep");
             door.DoorOpen();
