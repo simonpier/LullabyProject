@@ -141,7 +141,7 @@ public abstract class EnemyController_ML : MonoBehaviour
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.1f);
             spriteRenderer.enabled = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(.1f);
         }
     }
 
