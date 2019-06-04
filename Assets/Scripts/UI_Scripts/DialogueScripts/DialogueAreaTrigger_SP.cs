@@ -12,7 +12,7 @@ public class DialogueAreaTrigger_SP : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (check == true)
+        if ((other.gameObject.tag == "Player") && check == true)
         {
 
             FindObjectOfType<DialogueManager_SP>().StartDialogue(dialogue);
