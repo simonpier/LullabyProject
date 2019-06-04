@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Debug_Menu : MonoBehaviour
 {
+    //TODO add enemy reset
+
     [SerializeField] List<GameObject> floorDestination;
     [SerializeField] List<GameObject> enemies;
 
@@ -13,6 +15,7 @@ public class Debug_Menu : MonoBehaviour
 
     [SerializeField] GameObject player;
     [SerializeField] Camera gameCamera;
+    [SerializeField] GameObject debugMenu;
 
     [SerializeField] TMP_Dropdown floorList;
 
@@ -20,17 +23,37 @@ public class Debug_Menu : MonoBehaviour
     FlyingCamera_SP flyCamera;
     CameraController_NN normalCamera;
     PlayerMovement_NN playerMovement;
+    PlayerStats_ML playerStat;
 
     private int selectedFloor;
     private float originalFov;
-
-    //Light
-    //Flight camera
+    private bool activeDebug = false;
 
     void Start()
     {
         floorList.AddOptions(floorName);
         originalFov = gameCamera.fieldOfView;
+    }
+
+    private void Update()
+    {
+        DebugMenuEnabled();
+    }
+
+    private void DebugMenuEnabled()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            activeDebug = !activeDebug;
+        }
+        if (activeDebug == false)
+        {
+            debugMenu.SetActive(false);
+        }
+        else if (activeDebug == true)
+        {
+            debugMenu.SetActive(true);
+        }
     }
 
     #region Teleportation Methods

@@ -21,7 +21,7 @@ public class DoorMonsterBehaviour_ML : EnemyController_ML
     {
         base.OnTriggerStay2D(collision);
 
-        if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
         {
             anim.SetBool("reset", false);
             anim.SetTrigger("transformation");
