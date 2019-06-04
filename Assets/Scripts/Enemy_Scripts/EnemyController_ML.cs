@@ -162,11 +162,16 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
-            transform.position = respawnPoint;
-            anim.SetBool("reset", true);
-            anim.ResetTrigger("transformation");
-            anim.SetBool("isTransformed", false);
+            EnemyReset();
         }
+    }
+
+    public void EnemyReset()
+    {
+        transform.position = respawnPoint;
+        anim.SetBool("reset", true);
+        anim.ResetTrigger("transformation");
+        anim.SetBool("isTransformed", false);
     }
 
     //in this region there are the different methods used through the animation event system
