@@ -656,13 +656,14 @@ GameObject:
   - component: {fileID: 128603482}
   - component: {fileID: 128603484}
   - component: {fileID: 128603483}
+  - component: {fileID: 128603485}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &128603482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -722,6 +723,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128603481}
   m_CullTransparentMesh: 0
+--- !u!95 &128603485
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128603481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d31f620cd3a0684aab22a0077b830e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &175084598
 GameObject:
   m_ObjectHideFlags: 0
@@ -6767,6 +6787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1244787501}
   dialogueText: {fileID: 343846770}
+  animator: {fileID: 128603485}
 --- !u!4 &1212246076
 Transform:
   m_ObjectHideFlags: 0
