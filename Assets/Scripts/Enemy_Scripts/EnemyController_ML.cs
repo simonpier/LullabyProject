@@ -48,7 +48,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         DeathChecker();
         TargetTracking();
         Respawn();
-        Debug.Log(sxRoomLimiter.transform.position);
+        
     }
 
     //Regulates player tracking
