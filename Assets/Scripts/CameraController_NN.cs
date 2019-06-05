@@ -39,10 +39,10 @@ public class CameraController_NN : MonoBehaviour
             Debug.Log("floorsize"+floorSize[progress]);
             Debug.Log("progress"+progress);
         }
-        if (Input.GetKeyDown("i"))
-        {
-            SetMaximum();
-        }
+        //if (Input.GetKeyDown("i"))
+        //{
+        //    SetMaximum();
+        //}
 
 
     }
