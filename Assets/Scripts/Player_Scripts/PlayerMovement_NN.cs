@@ -6,15 +6,13 @@ public class PlayerMovement_NN : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     SpriteRenderer mainSpriteRenderer;
+    PlayerStats_ML playerStatus;
     GameObject Player;
     //public bool checkFlog;
     //Player's movement speed
     [SerializeField] private float _speed = 2.0f;
-
-    [SerializeField] private GameObject candle;
-
-    private bool candleSwitch;
-
+    private Vector3 homePos;
+    
     [SerializeField] private Sprite raisingSpriteRight;
     [SerializeField] private Sprite raisingSpriteLeft;
     [SerializeField] private Sprite loweringSpriteRight;
@@ -26,7 +24,9 @@ public class PlayerMovement_NN : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
+        playerStatus = gameObject.GetComponent<PlayerStats_ML>();
         mainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        homePos = transform.position;
     }
 
     // Update is called once per frame
@@ -36,14 +36,14 @@ public class PlayerMovement_NN : MonoBehaviour
         if (Input.GetKey("d"))
         {
             GetComponent<Animator>().SetBool("Walking", true);
-            this.transform.rotation = new Quaternion(0, 0, 0, 0);
+            this.transform.rotation = new Quaternion(0, 180.0f, 0, 0);
             Move(_speed);
         }
         //Go left and Walking Anim
         else if (Input.GetKey("a"))
         {
             GetComponent<Animator>().SetBool("Walking", true);
-            this.transform.rotation = new Quaternion(0, 180.0f, 0, 0);
+            this.transform.rotation = new Quaternion(0, 0, 0, 0);
             Move(-_speed);
         }
         //Stop Anim
@@ -64,22 +64,13 @@ public class PlayerMovement_NN : MonoBehaviour
         {
             GetComponent<Animator>().SetBool("Raising", false);
             mainSpriteRenderer.sprite = loweringSpriteRight;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            candleSwitch = !candleSwitch;
-            TurnLight();
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            CheckAction();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            ChangeWeapon();
-        }
+        }        
         Clamp();
+        if(playerStatus.Health == 0)
+        {
+            //RetrunPos();
+            Debug.Log("Death");
+        }
     }
 
 
@@ -93,22 +84,16 @@ public class PlayerMovement_NN : MonoBehaviour
     {    
         Vector2 pos = transform.position;
         // Position restriction
-        pos.x = Mathf.Clamp(pos.x, -28, 20);
+        pos.x = Mathf.Clamp(pos.x, -15, 65);
         // Assign the restricted value
         transform.position = pos;
     }
-    private void TurnLight()
-    {
-        Debug.Log("Light");
-        candle.SetActive(candleSwitch);
-    }
-    public void CheckAction()
-    {
-        Debug.Log("Check");
-        mainSpriteRenderer.sprite = backSprite;
-    }
-    private void ChangeWeapon()
-    {
-        Debug.Log("Change");
-    }
+    
+    //If the player's health reaches 0, return to the start position
+
+    //private void RetrunPos()
+    //{
+    //    transform.position = homePos;
+    //    playerStatus.ResetHealth();
+    //}
 }
