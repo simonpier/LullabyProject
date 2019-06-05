@@ -47,7 +47,7 @@ public class CameraController_NN : MonoBehaviour
 
     }
     //Determine the upper limit of the camera
-    private void SetMaximum()
+    public void SetMaximum()
     {
         if (progress < 3)
         {
