@@ -9,7 +9,9 @@ public class Debug_Menu : MonoBehaviour
     //TODO add enemy reset
 
     [SerializeField] List<GameObject> floorDestination;
-    [SerializeField] List<GameObject> enemies;
+    [SerializeField] List<GameObject> lampMonsters;
+    [SerializeField] List<GameObject> doorMonsters;
+    [SerializeField] List<GameObject> spiderDog;
 
     [SerializeField] List<string> floorName;
 
@@ -24,6 +26,7 @@ public class Debug_Menu : MonoBehaviour
     CameraController_NN normalCamera;
     PlayerMovement_NN playerMovement;
     PlayerStats_ML playerStat;
+    Spiderdog_Boss_Behaviour spiderController;
 
     private int selectedFloor;
     private float originalFov;
@@ -71,10 +74,20 @@ public class Debug_Menu : MonoBehaviour
     #region Enemy Reset
     public void EnemyReset()
     {
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < lampMonsters.Count; i++)
         {
-            enemyController = enemies[i].GetComponent<EnemyController_ML>();
+            enemyController = lampMonsters[i].GetComponent<EnemyController_ML>();
             enemyController.EnemyReset();
+        }
+        for (int i = 0; i < doorMonsters.Count; i++)
+        {
+            enemyController = doorMonsters[i].GetComponent<EnemyController_ML>();
+            enemyController.EnemyReset();
+        }
+        for (int i = 0; i < spiderDog.Count; i++)
+        {
+            spiderController = spiderDog[i].GetComponent<Spiderdog_Boss_Behaviour>();
+            spiderController.EnemyReset();
         }
 
     }

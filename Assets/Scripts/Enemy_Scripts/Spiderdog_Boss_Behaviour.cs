@@ -8,7 +8,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     [SerializeField] private float landDistance = 3.5f;
     [SerializeField] private Collider2D SlashCollider;
 
-
+    Vector3 originalBigness;
     private int attackRandomizer;
     float landingPos;
 
@@ -16,7 +16,9 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public override void Start()
     {
         base.Start();
+        originalBigness = transform.localScale;
         landingPos = transform.position.y - landDistance ;
+
 
     }
 
@@ -74,14 +76,26 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         } 
     }
 
+    public override void EnemyReset()
+    {
+        anim.SetBool("reset", true);
+        hitPoint = maxHitPoint;
+        transform.position = respawnPoint;
+        transform.localScale = originalBigness;
+        anim.SetBool("death", false);
+        anim.SetBool("inRange", false);
+
+    }
+
     public override void Respawn()
     {
         if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
-            transform.position = respawnPoint;
-            anim.SetBool("inRange", false);
+            EnemyReset();
         }
     }
+
+
 
     public override void OnTriggerStay2D(Collider2D collision)
     {
@@ -108,7 +122,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     }
 
 
-
     #region Animation Manager
 
     private void ButtAttackReset()
@@ -129,6 +142,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private void SlashAttack()
     {
         SlashCollider.enabled = !SlashCollider.enabled;
+    }
+
+    private void ResetDeathReset()
+    {
+        anim.SetBool("reset", false);
     }
 
     #endregion

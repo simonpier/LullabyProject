@@ -33,6 +33,8 @@ public abstract class EnemyController_ML : MonoBehaviour
     protected Animator anim;
     protected SpriteRenderer spriteRenderer;
 
+    protected float maxHitPoint;
+
     public virtual void Start()
     {
         respawnPoint = transform.position;
@@ -41,6 +43,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         target = PlayerStats_ML.instance.player.transform;
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        maxHitPoint = hitPoint;
     }
 
     public virtual void Update()
@@ -166,12 +169,14 @@ public abstract class EnemyController_ML : MonoBehaviour
         }
     }
 
-    public void EnemyReset()
+    public virtual void EnemyReset()
     {
         transform.position = respawnPoint;
         anim.SetBool("reset", true);
+        anim.SetBool("death", false);
         anim.ResetTrigger("transformation");
         anim.SetBool("isTransformed", false);
+        hitPoint = maxHitPoint;
     }
 
     //in this region there are the different methods used through the animation event system
@@ -189,6 +194,11 @@ public abstract class EnemyController_ML : MonoBehaviour
     private void Attack()
     {
         AttackCollider.enabled = !AttackCollider.enabled;
+    }
+
+    private void ResetDeathReset()
+    {
+        anim.SetBool("reset", false);
     }
     #endregion
 
