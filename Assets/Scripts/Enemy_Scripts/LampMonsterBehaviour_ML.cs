@@ -59,6 +59,14 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
 
     public override void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == "Player_CandleCollider")
+        {
+            anim.SetBool("isTransformed", false);
+            anim.ResetTrigger("transformation");
+            anim.SetBool("attack", false);
+            anim.SetBool("reset", true);
+            anim.SetBool("death", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,7 +74,10 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
         if (collision.tag == "Player_CandleCollider")
         {
             anim.SetBool("reset", false);
+            anim.SetBool("death", false);
             anim.SetTrigger("transformation");
         }
     }
+
+
 }

@@ -200,6 +200,12 @@ public abstract class EnemyController_ML : MonoBehaviour
     {
         anim.SetBool("reset", false);
     }
+
+    private void ResetTransformation()
+    {
+        anim.SetBool("isTransformed", false);
+    }
+
     #endregion
 
     //Allow to see the enemy's range in the scene
