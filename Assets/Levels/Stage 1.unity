@@ -6664,6 +6664,10 @@ PrefabInstance:
       propertyPath: dxRoomLimiter
       value: 
       objectReference: {fileID: 1204920334}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: playerCandle
+      value: 
+      objectReference: {fileID: 1660788435}
     - target: {fileID: 1888040901535193354, guid: bbbae4e7222814747b13330184ccdaae,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10398,6 +10402,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2904716888902798725, guid: e56c277f44ef5e5469052d53931960d4,
     type: 3}
   m_PrefabInstance: {fileID: 1634537754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1660788435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1925118682}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670153126
 GameObject:
