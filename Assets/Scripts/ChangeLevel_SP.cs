@@ -17,7 +17,7 @@ public class ChangeLevel_SP : MonoBehaviour
         {
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("lol");
+            Debug.Log("change level");
         }
     }
 
