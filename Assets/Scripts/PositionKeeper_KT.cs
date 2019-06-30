@@ -11,7 +11,7 @@ public class PositionKeeper_KT : MonoBehaviour
 
     Vector3 _originPos;
     Matrix4x4 _originMat;
-    void OnEnable()
+    void Start()
     {
         if (!(_x || _y || _z)) {
             this.enabled = false;
@@ -48,6 +48,6 @@ public class PositionKeeper_KT : MonoBehaviour
 
     public void Reset()
     {
-        OnEnable();
+        Start();
     }
 }
