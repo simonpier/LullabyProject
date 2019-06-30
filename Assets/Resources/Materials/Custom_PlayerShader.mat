@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Custom_PlayerShader
   m_Shader: {fileID: 4800000, guid: 97d9e6852da314449a5772ae2d6eafed, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

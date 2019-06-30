@@ -52,9 +52,12 @@ TagManager:
   - name: BackObject
     uniqueID: 236661005
     locked: 0
-  - name: FrontObject
-    uniqueID: 2982230013
+  - name: PlayerOutline
+    uniqueID: 1284572217
     locked: 0
   - name: Player
     uniqueID: 4192659465
+    locked: 0
+  - name: FrontObject
+    uniqueID: 2982230013
     locked: 0

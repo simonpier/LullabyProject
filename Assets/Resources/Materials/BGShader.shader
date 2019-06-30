@@ -1,9 +1,10 @@
-﻿Shader "Custom/ObjectShader"
+﻿Shader "Custom/BGShader"
 {
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		_Color("Tint", Color) = (1,1,1,1)
+		_Cutoff("Cutoff"      , Range(0, 1)) = 0.5
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 		[HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
 		[HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
@@ -15,20 +16,20 @@
 	{
 		Tags
 		{
-			"Queue" = "Transparent"
+			"Queue" = "AlphaTest"
 			"IgnoreProjector" = "True"
-			"RenderType" = "Transparent"
+			"RenderType" = "Opaque"
 			"PreviewType" = "Plane"
 			"CanUseSpriteAtlas" = "True"
 		}
 
 		Cull Off
-		Lighting Off
-		ZWrite On
-		Blend One OneMinusSrcAlpha
+		Blend One Zero
+		ZTest Always
 
 		CGPROGRAM
-		#pragma surface surf Lambert vertex:vert nofog nolightmap nodynlightmap keepalpha noinstancing
+		#pragma surface surf Standard alphatest:_Cutoff
+		#pragma vertex vert
 		#pragma multi_compile_local _ PIXELSNAP_ON
 		#pragma multi_compile _ ETC1_EXTERNAL_ALPHA
 		#include "UnitySprites.cginc"
@@ -51,14 +52,15 @@
 			o.color = v.color * _Color * _RendererColor;
 		}
 
-		void surf(Input IN, inout SurfaceOutput o)
+		void surf(Input IN, inout SurfaceOutputStandard o)
 		{
 			fixed4 c = SampleSpriteTexture(IN.uv_MainTex) * IN.color;
 			o.Albedo = c.rgb * c.a;
+			if (o.Normal.z > 0.0f) {
+				o.Normal *= -1.0f;
+			}
 			o.Alpha = c.a;
 		}
 		ENDCG
 	}
-
-	Fallback "Transparent/VertexLit"
 }
