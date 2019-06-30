@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy_AttackCollider
   - Player_CandleCollider
+  - Boss_Fight
   layers:
   - Default
   - TransparentFX
