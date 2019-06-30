@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Spiderdog_Boss_Behaviour : EnemyController_ML
 {
@@ -96,7 +97,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     }
 
 
-
     public override void OnTriggerStay2D(Collider2D collision)
     {
         if (hitPoint <= 0)
@@ -116,8 +116,8 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             anim.SetBool("death", true);
             isDied = true;
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1f, 1f, 1f), 1f * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, landingPos, 1f * Time.deltaTime), transform.position.z);
+            transform.DOScale(1f, 2f);
+            transform.DOMoveY(landingPos, 2f);
         }
     }
 

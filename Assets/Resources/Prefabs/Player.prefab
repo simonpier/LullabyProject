@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4134508400240583880}
   - component: {fileID: 873855355}
   - component: {fileID: 811801733}
+  - component: {fileID: 811801734}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,7 +146,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4134508400240583880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,6 +201,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candle: {fileID: 0}
+--- !u!114 &811801734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337991411122789012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb783e2131a2be44ab497bf9f443d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
+  bossTrigger: {fileID: 0}
+  player: {fileID: 5337991411122789012}
+  spiderBoss: {fileID: 0}
+  bossPosition: 60
+  lerpDuration: 6.5
 --- !u!1 &8301489995467646380
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +473,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 623756196, guid: f9e68718d9ddcc548948401bd5f9451b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e68718d9ddcc548948401bd5f9451b, type: 3}
 --- !u!4 &4769616876780321496 stripped
 Transform:
