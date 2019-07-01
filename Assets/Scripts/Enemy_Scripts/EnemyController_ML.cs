@@ -88,6 +88,7 @@ public abstract class EnemyController_ML : MonoBehaviour
                 }
                 else if (distance <= attackRange)
                 {
+                    anim.SetBool("idle", false);
                     anim.SetBool("attack", true);
                 }
                 else if (!canMove && distance > attackRange)

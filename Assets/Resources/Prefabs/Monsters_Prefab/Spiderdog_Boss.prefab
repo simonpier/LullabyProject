@@ -167,7 +167,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1312737283
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ca304c60b2b247047901b6330b91a32c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4447b0aba6bd941939af624673ea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRange: 10.52
+  transformRange: 14.78
   attackRange: 5.87
   speed: 5
   hitPoint: 5
@@ -239,6 +239,7 @@ MonoBehaviour:
   AttackCollider: {fileID: 766323229}
   sxRoomLimiter: {fileID: 0}
   dxRoomLimiter: {fileID: 0}
+  landDistance: 3.5
   SlashCollider: {fileID: 1324648875}
 --- !u!61 &1143199277
 BoxCollider2D:
