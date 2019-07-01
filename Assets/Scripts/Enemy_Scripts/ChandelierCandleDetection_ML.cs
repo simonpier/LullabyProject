@@ -30,7 +30,7 @@ public class ChandelierCandleDetection_ML : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player_CandleCollider" && !playerCandle.activeSelf)
+        if (collision.tag == "Player_CandleCollider")
         {
             isCandleColliding = false;
         }
