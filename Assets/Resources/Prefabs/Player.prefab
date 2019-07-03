@@ -218,7 +218,7 @@ MonoBehaviour:
   player: {fileID: 5337991411122789012}
   spiderBoss: {fileID: 0}
   bossPosition: 60
-  lerpDuration: 6.5
+  lerpDuration: 5
 --- !u!1 &8301489995467646380
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 7627470499869460362}
   m_Layer: 0
   m_Name: PlayerLantern
-  m_TagString: Untagged
+  m_TagString: Player_CandleCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,11 +397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCandle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4769616875169341714, guid: f9e68718d9ddcc548948401bd5f9451b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_CandleCollider
       objectReference: {fileID: 0}
     - target: {fileID: 4769616875169341726, guid: f9e68718d9ddcc548948401bd5f9451b,
         type: 3}
