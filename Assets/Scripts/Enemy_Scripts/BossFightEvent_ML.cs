@@ -59,5 +59,6 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraController.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
+        spiderBossAnim.SetBool("inRange", true);
     }
 }
