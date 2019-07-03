@@ -2,5 +2,5 @@ Key,Description,Standard,IT
 SAY.gameLocalization.1.,,*strange sound*,*suono sospetto *
 SAY.gameLocalization.4.Anne,,Hello?! Is anybody there?,Salve?! C'e' nessuno?
 SAY.gameLocalization.3.Anne,,AAAAAAAAAAAAH!,AAAAAAAAAAAAH!
-SAY._CommandCopyBuffer.1.Anne,,Hello?! Is anybody there?,Salve?! C'? nessuno?
+SAY._CommandCopyBuffer.1.Anne,,Hello?! Is anybody there?,Salve?! C'e' nessuno?
 CHARACTER.Anne,,Anne,Anne
