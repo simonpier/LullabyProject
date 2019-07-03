@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1901804292685199621}
   - component: {fileID: 1901804292685199619}
-  - component: {fileID: 1901804292685199620}
+  - component: {fileID: 6201702831869526445}
   m_Layer: 0
   m_Name: DialogueTrigger
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0624003, y: 4.9587173}
   m_EdgeRadius: 0
---- !u!114 &1901804292685199620
+--- !u!114 &6201702831869526445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,13 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901804292685199622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a123f5591d9c694dadb01887a3f33c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5391f33c8263f1345bbf4b3fb9bcfa86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  dialogue:
-    name: Little Girl
-    senteces:
-    - I'm so...
-    - '...scared.'
-    - I want my mama and daddy...
+  flowchart: {fileID: 0}

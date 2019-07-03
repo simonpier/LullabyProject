@@ -7,6 +7,7 @@ public class FungusDialogue_SP : MonoBehaviour
 {
 
     [SerializeField] Flowchart flowchart;
+    [SerializeField] string dialogue;
 
     private bool check = true;
 
@@ -16,7 +17,7 @@ public class FungusDialogue_SP : MonoBehaviour
         if ((other.gameObject.tag == "Player") && check == true)
         {
 
-            flowchart.ExecuteBlock("FirstDialogue");
+            flowchart.ExecuteBlock(dialogue);
             check = false;
         }
 
