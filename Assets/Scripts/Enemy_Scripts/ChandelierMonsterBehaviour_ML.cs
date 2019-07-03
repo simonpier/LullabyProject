@@ -34,7 +34,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("death", true);
         }
 
-        if (candleDetection.IsCandleColliding)
+        if (candleDetection.IsCandleColliding && hitPoint >= 0)
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);

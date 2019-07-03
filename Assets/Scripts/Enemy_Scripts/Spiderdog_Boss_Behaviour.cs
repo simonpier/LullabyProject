@@ -19,8 +19,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         base.Start();
         originalBigness = transform.localScale;
         landingPos = transform.position.y - landDistance ;
-
-
     }
 
     public override void Update()
@@ -43,10 +41,10 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public override void TargetTracking()
     {
         float distance = Vector2.Distance(target.position, transform.position);
-        if (distance <= transformRange)
-        {
-            anim.SetBool("inRange", true);
-        }
+        //if (distance <= transformRange)
+        //{
+        //    anim.SetBool("inRange", true);
+        //}
 
         if (distance > attackRange && anim.GetBool("inRange"))
         {
