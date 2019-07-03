@@ -54,7 +54,6 @@ public class BossFightEvent_ML : MonoBehaviour
         spiderBossAnim.Play("Spiderdog_Attack");
         yield return new WaitForSeconds(1f);
 
-
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
         yield return new WaitForSeconds(lerpDuration);
         cameraController.enabled = true;
