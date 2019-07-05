@@ -7,11 +7,13 @@ public class PlayerAnimator : MonoBehaviour
     Animator animator;
     PlayerMove_KT move;
     ChangeWeapon_NN weapon;
+    PlayerStats_ML stats;
     void Start()
     {
         animator = GetComponent<Animator>();
         move = GetComponent<PlayerMove_KT>();
         weapon = GetComponent<ChangeWeapon_NN>();
+        stats = GetComponent<PlayerStats_ML>();
     }
 
     void Update()
@@ -19,5 +21,7 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetFloat("Speed", move.Speed);
         animator.SetBool("Candle", weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Candle);
         animator.SetBool("Lantern", weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Lantern);
+        animator.SetBool("Raise", weapon.LightRaise);
+        animator.SetBool("Dead", stats.Health < 0);
     }
 }

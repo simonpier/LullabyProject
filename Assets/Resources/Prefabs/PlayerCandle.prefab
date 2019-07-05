@@ -9,13 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4769616875169341726}
-  - component: {fileID: 623756196}
   - component: {fileID: 4769616875169341725}
-  - component: {fileID: 4062965784343310892}
   - component: {fileID: 5956450683184123302}
   m_Layer: 0
   m_Name: PlayerCandle
-  m_TagString: Untagged
+  m_TagString: Player_CandleCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,24 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623756196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4769616875169341714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c57ed0f4f66bd74a8245c5a5aaf481c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderRange: 2
-  bufferRange: 0.4
-  attenuationRange: 10
-  firstAttenuation: 0.576
-  lightColor: {r: 1, g: 0.73138225, b: 0.56078434, a: 1}
-  lightIntencsity: 1.5
 --- !u!58 &4769616875169341725
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -67,22 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
---- !u!114 &4062965784343310892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4769616875169341714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d754c72597d7e04897cbabfbd494a9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _x: 0
-  _y: 0
-  _z: 1
+  m_Radius: 6
 --- !u!108 &5956450683184123302
 Light:
   m_ObjectHideFlags: 0
@@ -95,7 +60,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.6828413, b: 0.56078434, a: 1}
   m_Intensity: 3.2
-  m_Range: 3.6
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

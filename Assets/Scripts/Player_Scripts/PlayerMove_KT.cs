@@ -25,6 +25,8 @@ public class PlayerMove_KT : MonoBehaviour
 
     Rigidbody2D _rb;
 
+    PlayerStats_ML stats;
+
     void Awake()
     {
         Instance = this;
@@ -34,13 +36,21 @@ public class PlayerMove_KT : MonoBehaviour
     {
         _ifLookRight = true;
         _rb = GetComponent<Rigidbody2D>();
+        stats = GetComponent<PlayerStats_ML>();
         CheckRoomSize(startRoom);
         Speed = 0;
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (stats.Health > 0)
+        {
+            Move();
+        }
+        else
+        {
+            //Dead
+        }
     }
 
     void Move()

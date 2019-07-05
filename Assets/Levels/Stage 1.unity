@@ -13178,20 +13178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_CandleCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 5337991411122789011, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.505661
+      value: -11.2
       objectReference: {fileID: 0}
     - target: {fileID: 5337991411122789011, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
@@ -13259,10 +13249,14 @@ PrefabInstance:
       propertyPath: lerpDuration
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 1160927330, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4062965784878967274, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
-      propertyPath: offset_x
-      value: 0.3
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
@@ -13270,7 +13264,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 327905996}
     m_RemovedComponents:
-    - {fileID: 5337991411122789008, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
 --- !u!1 &1933989963
 GameObject:
