@@ -13,12 +13,12 @@ public class PositionKeeper_KT : MonoBehaviour
     Matrix4x4 _originMat;
     void Start()
     {
+        _originPos = transform.position;
+        SetOriginMat();
         if (!(_x || _y || _z)) {
             this.enabled = false;
             return;
         }
-        _originPos = transform.position;
-        SetOriginMat();
     }
     
     void Update()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5337991411122789011}
   - component: {fileID: 5337991411122789010}
   - component: {fileID: 5337991411122789013}
-  - component: {fileID: 5337991411122789008}
+  - component: {fileID: 8721089491360648436}
   - component: {fileID: 5337991411122789009}
   - component: {fileID: 873855355}
   - component: {fileID: 811801733}
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5337991411122789012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3, y: -1.2, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.1}
+  m_LocalScale: {x: -0.2, y: 0.2, z: 0.1}
   m_Children:
   - {fileID: 4769616876780321496}
   - {fileID: 1015892969124567987}
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5337991411122789008
+--- !u!114 &8721089491360648436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,16 +116,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5337991411122789012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad16867cd4267214f92e896656ae2540, type: 3}
+  m_Script: {fileID: 11500000, guid: 422936b19bb4f8041a077ca884799d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
-  raisingSpriteRight: {fileID: 21300000, guid: 1e973d96b5e47d7408e036a1d9c57ee1, type: 3}
-  raisingSpriteLeft: {fileID: 21300000, guid: 695f439d3cc4868428836a7bdfd95b2e, type: 3}
-  loweringSpriteRight: {fileID: 21300000, guid: f223bd2b3a1514c4d9748b4c7d5b2b6e,
-    type: 3}
-  loweringSpriteLeft: {fileID: 21300000, guid: e0a5a84e1baf96143b8b5ba19a6739fa, type: 3}
-  backSprite: {fileID: 21300000, guid: da9dfab775420de4ea9c84c084344058, type: 3}
+  startRoom: {fileID: 0}
+  offset_x: 0.3
+  speed: 0.15
 --- !u!50 &5337991411122789009
 Rigidbody2D:
   serializedVersion: 4
