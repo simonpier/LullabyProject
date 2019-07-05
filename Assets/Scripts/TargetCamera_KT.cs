@@ -13,12 +13,14 @@ public class TargetCamera_KT : MonoBehaviour
     Camera cam;
 
     Vector2 offset;
+    float _z;
     
     void Start()
     {
         player = PlayerMove_KT.Instance;
         constraint = GetComponent<PositionConstraint>();
         cam = GetComponent<Camera>();
+        _z = -transform.position.z;
         
         ConstraintSource source = new ConstraintSource();
         source.sourceTransform = player.transform;
@@ -35,7 +37,7 @@ public class TargetCamera_KT : MonoBehaviour
     {
         if (constraint.enabled)
         {
-            var pos = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 10));
+            var pos = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _z));
             Vector2 distance = new Vector2(pos.x, pos.y) - player.SXLimite;
             if (distance.x < 0)
             {
@@ -43,7 +45,7 @@ public class TargetCamera_KT : MonoBehaviour
                 transform.position = new Vector3(transform.position.x - distance.x, transform.position.y, transform.position.z);
             }
 
-            pos = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 10));
+            pos = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, _z));
             distance = new Vector2(pos.x, pos.y) - player.DXLimite;
             if (distance.x > 0)
             {

@@ -17,7 +17,8 @@ public class PlayerMove_KT : MonoBehaviour
     [SerializeField] float offset_x;
 
     //Player's movement speed;
-    [SerializeField] float speed = 0.15f;
+    [SerializeField] float maxSpeed = 0.15f;
+    public float Speed { get; private set; }
 
     //player look right is true. [SerializeField] is attached this if level types is diffelent
     bool _ifLookRight;
@@ -34,6 +35,7 @@ public class PlayerMove_KT : MonoBehaviour
         _ifLookRight = true;
         _rb = GetComponent<Rigidbody2D>();
         CheckRoomSize(startRoom);
+        Speed = 0;
     }
 
     void FixedUpdate()
@@ -48,13 +50,13 @@ public class PlayerMove_KT : MonoBehaviour
         if (Input.GetKey("d"))
         {
             _nowDirection = true;
-            _velocity += speed * Vector3.right;
+            _velocity += maxSpeed * Vector3.right;
         }
 
         if (Input.GetKey("a"))
         {
             _nowDirection = false;
-            _velocity += speed * Vector3.left;
+            _velocity += maxSpeed * Vector3.left;
         }
 
         if (_nowDirection != _ifLookRight)
@@ -65,6 +67,7 @@ public class PlayerMove_KT : MonoBehaviour
         futurePos.x = Mathf.Min(Mathf.Max(SXLimite.x + offset_x, futurePos.x), DXLimite.x - offset_x);
         futurePos.y = Mathf.Min(Mathf.Max(SXLimite.y, futurePos.y), DXLimite.y);
         transform.position = new Vector3(futurePos.x, futurePos.y, transform.position.z);
+        Speed = Mathf.Abs(_velocity.x);
 
         _ifLookRight = _nowDirection;
     }

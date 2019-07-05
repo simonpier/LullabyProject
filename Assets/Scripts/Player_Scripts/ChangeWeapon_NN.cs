@@ -4,30 +4,50 @@ using UnityEngine;
 
 public class ChangeWeapon_NN : MonoBehaviour
 {
+    public enum WEAPON
+    {
+        Candle,
+        Lantern,
+        None,
+    }
+
     [SerializeField] private GameObject candle;
     [SerializeField] private GameObject lantern;
 
-    GameObject _nowWeapon;
+    GameObject _nowSelectInstance;
+
+    public WEAPON NowWeapon { get; set; }
 
     void Start()
     {
-        _nowWeapon = candle;
+        _nowSelectInstance = candle;
+        NowWeapon = WEAPON.None;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            candle.gameObject.SetActive(_nowWeapon == candle && !_nowWeapon.active);
-            lantern.gameObject.SetActive(_nowWeapon == lantern && !_nowWeapon.active);
+            candle.gameObject.SetActive(_nowSelectInstance == candle && !_nowSelectInstance.active);
+            lantern.gameObject.SetActive(_nowSelectInstance == lantern && !_nowSelectInstance.active);
+
+            WeaponStateUpdate();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            bool temp = _nowWeapon.active;
-            _nowWeapon.SetActive(false);
-            _nowWeapon = (_nowWeapon == candle) ? lantern : candle;
-            _nowWeapon.SetActive(temp);
+            bool temp = _nowSelectInstance.active;
+            _nowSelectInstance.SetActive(false);
+            _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
+            _nowSelectInstance.SetActive(temp);
+
+            WeaponStateUpdate();
         }
+    }
+
+    void WeaponStateUpdate()
+    {
+        NowWeapon = _nowSelectInstance == candle ? WEAPON.Candle : WEAPON.Lantern;
+        NowWeapon = _nowSelectInstance.active ? NowWeapon : WEAPON.None;
     }
 }
