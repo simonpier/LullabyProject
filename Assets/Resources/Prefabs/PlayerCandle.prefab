@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4769616875169341726}
   - component: {fileID: 4769616875169341725}
   - component: {fileID: 5956450683184123302}
+  - component: {fileID: 7900262559239108372}
   m_Layer: 0
   m_Name: PlayerCandle
   m_TagString: Player_CandleCollider
@@ -108,3 +109,17 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7900262559239108372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769616875169341714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ed0252805a14e41abacc8453e22591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnAngle: 0
+  raisingPosition: {x: 3.47, y: 4.72, z: 0}

@@ -16,6 +16,8 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     GameObject _nowSelectInstance;
 
+    Dictionary<GameObject, LightRotate_KT> pair;
+
     //if light raise
     public bool LightRaise { get; private set; }
 
@@ -23,21 +25,31 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     void Start()
     {
-        _nowSelectInstance = candle;
-        NowWeapon = WEAPON.None;
+        pair = new Dictionary<GameObject, LightRotate_KT>();
+        pair[candle] = candle.GetComponent<LightRotate_KT>();
+        pair[lantern] = lantern.GetComponent<LightRotate_KT>();
+        ResetAllLight();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w"))
         {
-            LightRaise = NowWeapon != WEAPON.None && !LightRaise;
+            LightRaise = true;
+            pair[_nowSelectInstance].Raise();
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("s"))
+        {
+            LightRaise = false;
+            pair[_nowSelectInstance].Drop();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             candle.gameObject.SetActive(_nowSelectInstance == candle && !_nowSelectInstance.active);
             lantern.gameObject.SetActive(_nowSelectInstance == lantern && !_nowSelectInstance.active);
 
+            LightRaise = false;
+            pair[_nowSelectInstance].Drop();
             WeaponStateUpdate();
         }
 
@@ -50,6 +62,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
             //For now, anne drop light when switching weapon
             LightRaise = false;
+            pair[_nowSelectInstance].Drop();
 
             WeaponStateUpdate();
         }
@@ -59,5 +72,13 @@ public class ChangeWeapon_NN : MonoBehaviour
     {
         NowWeapon = _nowSelectInstance == candle ? WEAPON.Candle : WEAPON.Lantern;
         NowWeapon = _nowSelectInstance.active ? NowWeapon : WEAPON.None;
+    }
+
+    public void ResetAllLight()
+    {
+        _nowSelectInstance = candle;
+        candle.SetActive(false);
+        lantern.SetActive(false);
+        NowWeapon = WEAPON.None;
     }
 }
