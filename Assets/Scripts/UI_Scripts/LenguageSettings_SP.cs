@@ -27,7 +27,7 @@ public class LenguageSettings_SP : MonoBehaviour
         local = localization.GetComponent<Localization>();
         local.SetActiveLanguage("IT", true);
 
-        #region Menu translation
+        #region Menu translation IT
         text = PMItems.GetComponent<TextMeshProUGUI>();
         text.SetText("Oggetti");
 
@@ -60,7 +60,7 @@ public class LenguageSettings_SP : MonoBehaviour
         local = localization.GetComponent<Localization>(); //English Translation function
         local.SetActiveLanguage("Standard", true);
 
-        #region Menu translation
+        #region Menu translation ENG
         text = PMItems.GetComponent<TextMeshProUGUI>();
         text.SetText("Items");
 
@@ -92,7 +92,7 @@ public class LenguageSettings_SP : MonoBehaviour
         local = localization.GetComponent<Localization>(); //Japanese Translation function
         local.SetActiveLanguage("JP", true);
 
-        #region Menu translation
+        #region Menu translation JNP
         text = PMItems.GetComponent<TextMeshProUGUI>();
         text.SetText("Items");
 
