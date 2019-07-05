@@ -4,45 +4,30 @@ using UnityEngine;
 
 public class ChangeWeapon_NN : MonoBehaviour
 {
-    private bool candleSwitch;
     [SerializeField] private GameObject candle;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject lantern;
+
+    GameObject _nowWeapon;
+
     void Start()
     {
-        
+        _nowWeapon = candle;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            candleSwitch = !candleSwitch;
-            TurnLight();
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            CheckAction();
+            candle.gameObject.SetActive(_nowWeapon == candle && !_nowWeapon.active);
+            lantern.gameObject.SetActive(_nowWeapon == lantern && !_nowWeapon.active);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            ChangeWeapon();
+            bool temp = _nowWeapon.active;
+            _nowWeapon.SetActive(false);
+            _nowWeapon = (_nowWeapon == candle) ? lantern : candle;
+            _nowWeapon.SetActive(temp);
         }
-    }
-    private void TurnLight()
-    {
-        Debug.Log("Light");
-        candle.SetActive(candleSwitch);
-        GetComponent<Animator>().SetBool("Candle",candleSwitch);
-    }
-    public void CheckAction()
-    {
-        Debug.Log("Check");
-        //mainSpriteRenderer.sprite = backSprite;
-    }
-    private void ChangeWeapon()
-    {
-        //Debug.Log(playerStatus.Health);
     }
 }
