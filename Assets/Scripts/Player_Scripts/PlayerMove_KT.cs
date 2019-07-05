@@ -26,6 +26,7 @@ public class PlayerMove_KT : MonoBehaviour
     Rigidbody2D _rb;
 
     PlayerStats_ML stats;
+    ChangeWeapon_NN weapon;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerMove_KT : MonoBehaviour
         _ifLookRight = true;
         _rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<PlayerStats_ML>();
+        weapon = GetComponent<ChangeWeapon_NN>();
         CheckRoomSize(startRoom);
         Speed = 0;
     }
@@ -50,6 +52,8 @@ public class PlayerMove_KT : MonoBehaviour
         else
         {
             //Dead
+            weapon.ResetAllLight();
+            weapon.enabled = false;
         }
     }
 
