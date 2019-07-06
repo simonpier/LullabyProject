@@ -22,6 +22,6 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("Candle", weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Candle);
         animator.SetBool("Lantern", weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Lantern);
         animator.SetBool("Raise", weapon.LightRaise);
-        animator.SetBool("Dead", stats.Health < 0);
+        animator.SetBool("Dead", stats.Health <= 0);
     }
 }

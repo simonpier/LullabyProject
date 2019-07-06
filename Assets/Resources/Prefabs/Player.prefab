@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startRoom: {fileID: 0}
-  offset_x: 0.3
+  offset_x: 0.6
   maxSpeed: 0.15
 --- !u!50 &5337991411122789009
 Rigidbody2D:
