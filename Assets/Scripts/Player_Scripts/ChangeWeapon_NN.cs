@@ -50,6 +50,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
             LightRaise = false;
             pair[_nowSelectInstance].Drop();
+
             WeaponStateUpdate();
         }
 
@@ -80,5 +81,18 @@ public class ChangeWeapon_NN : MonoBehaviour
         candle.SetActive(false);
         lantern.SetActive(false);
         NowWeapon = WEAPON.None;
+    }
+
+    //return light value in 0.0f~1.0f
+    public float LightAmount(WEAPON key)
+    {
+        switch (key)
+        {
+            case WEAPON.Candle:
+                return pair[candle].NowAmount;
+            case WEAPON.Lantern:
+                return pair[lantern].NowAmount;
+        }
+        return 0.0f;
     }
 }

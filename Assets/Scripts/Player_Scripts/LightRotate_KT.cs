@@ -8,13 +8,25 @@ public class LightRotate_KT : MonoBehaviour
     [SerializeField] float turnAngle = -90.0f;
     [SerializeField] Vector3 raisingPosition = new Vector3(0, 0, 0);
 
+    [SerializeField] float maxFuel = 100.0f;
+    [SerializeField] float cost = 2.0f;
+    
+    //this value in 0.0f~1.0f 
+    public float NowAmount { get; set; }
+
     Quaternion _originQuaternion;
     Vector3 _originPos;
 
-    void Start()
+    void Awake()
     {
         _originPos = transform.localPosition;
         _originQuaternion = transform.localRotation;
+        NowAmount = 1.0f;
+    }
+
+    void Update()
+    {
+        NowAmount -= (cost * Time.deltaTime) / maxFuel;
     }
 
     public void Raise()
@@ -28,4 +40,6 @@ public class LightRotate_KT : MonoBehaviour
         transform.localRotation = _originQuaternion;
         transform.localPosition = _originPos;
     }
+
+
 }
