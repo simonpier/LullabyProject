@@ -4,7 +4,7 @@ using UnityEngine;
 using Fungus;
 using TMPro;
 
-public class LenguageSettings_SP : MonoBehaviour
+public class LanguageSettings_SP : MonoBehaviour
 {
 
     [SerializeField] GameObject localization;
@@ -55,9 +55,9 @@ public class LenguageSettings_SP : MonoBehaviour
 
     }
 
-    public void SetLanguageEng()
+    public void SetLanguageEng() //English Translation function
     {
-        local = localization.GetComponent<Localization>(); //English Translation function
+        local = localization.GetComponent<Localization>(); 
         local.SetActiveLanguage("Standard", true);
 
         #region Menu translation ENG
@@ -87,9 +87,9 @@ public class LenguageSettings_SP : MonoBehaviour
         #endregion
     }
 
-    public void SetLanguageJpn()
+    public void SetLanguageJpn() //Japanese Translation function
     {
-        local = localization.GetComponent<Localization>(); //Japanese Translation function
+        local = localization.GetComponent<Localization>(); 
         local.SetActiveLanguage("JP", true);
 
         #region Menu translation JNP
