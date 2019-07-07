@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Animations;
 
 public class BossFightEvent_ML : MonoBehaviour
 {
@@ -13,18 +14,20 @@ public class BossFightEvent_ML : MonoBehaviour
     [SerializeField] float bossPosition;
     [SerializeField] float lerpDuration;
 
-    CameraController_NN cameraController;
-    PlayerMovement_NN playerScript;
+    TargetCamera_KT cameraController;
+    PlayerMove_KT playerScript;
     Animator spiderBossAnim;
     Animator playerAnim;
     Rigidbody2D playerRB;
+    PositionConstraint cameraCon;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraController = gameCamera.GetComponent<CameraController_NN>();
+        cameraCon = gameCamera.GetComponent<PositionConstraint>();
+        cameraController = gameCamera.GetComponent<TargetCamera_KT>();
         spiderBossAnim = spiderBoss.GetComponent<Animator>();
-        playerScript = player.GetComponent<PlayerMovement_NN>();
+        playerScript = player.GetComponent<PlayerMove_KT>();
         playerRB = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
     }
@@ -41,10 +44,10 @@ public class BossFightEvent_ML : MonoBehaviour
     private IEnumerator BossEvent()
     {
         playerScript.enabled = false;
-        playerAnim.SetBool("Walking", false);
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         bossTrigger.SetActive(false);
         float tmpGameCameraPos = gameCamera.transform.position.x;
+        cameraCon.enabled = false;
         cameraController.enabled = false;
         gameCamera.transform.DOMoveX(bossPosition, lerpDuration);
         yield return new WaitForSeconds(lerpDuration);
@@ -54,8 +57,10 @@ public class BossFightEvent_ML : MonoBehaviour
         spiderBossAnim.Play("Spiderdog_Attack");
         yield return new WaitForSeconds(1f);
 
+        playerAnim.SetFloat("Speed", 0.0f);
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
         yield return new WaitForSeconds(lerpDuration);
+        cameraCon.enabled = true;
         cameraController.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
