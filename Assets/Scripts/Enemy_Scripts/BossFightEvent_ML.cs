@@ -10,6 +10,7 @@ public class BossFightEvent_ML : MonoBehaviour
     [SerializeField] GameObject bossTrigger;
     [SerializeField] GameObject player;
     [SerializeField] GameObject spiderBoss;
+    [SerializeField] GameObject cinematicBar;
     
     [SerializeField] float bossPosition;
     [SerializeField] float lerpDuration;
@@ -20,6 +21,7 @@ public class BossFightEvent_ML : MonoBehaviour
     Animator playerAnim;
     Rigidbody2D playerRB;
     PositionConstraint cameraCon;
+    CinematicBar_ML cinBar;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class BossFightEvent_ML : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerRB = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
+        cinBar = cinematicBar.GetComponent<CinematicBar_ML>();
     }
 
 
@@ -51,6 +54,7 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraController.enabled = false;
         gameCamera.transform.DOMoveX(bossPosition, lerpDuration);
         yield return new WaitForSeconds(lerpDuration);
+        cinBar.Show(170, 0.7f);
 
         spiderBossAnim.Play("Spiderdog_Attack");
         yield return new WaitForSeconds(1f);
@@ -59,11 +63,13 @@ public class BossFightEvent_ML : MonoBehaviour
 
         playerAnim.SetFloat("Speed", 0.0f);
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
+        cinBar.Hide(0.1f);
         yield return new WaitForSeconds(lerpDuration);
         cameraCon.enabled = true;
         cameraController.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
+
     }
 }

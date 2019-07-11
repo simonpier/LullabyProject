@@ -59,7 +59,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         else if (distance <= attackRange)
         {
             anim.SetBool("attack", true);
-            Debug.Log("inrange");
             attackRandomizer = (Random.Range (0,2));
             if (attackRandomizer == 0)
             {
@@ -71,8 +70,16 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 anim.SetBool("buttAttack", false);
                 anim.SetBool("slash", true);
             }
-
-        } 
+        }
+        
+        if (target.position.y > transform.position.y && !anim.GetBool("lookUp") && distance >= transformRange)
+        {
+            anim.SetBool("lookUp", true);
+        }
+        else if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
+        {
+            anim.SetBool("lookUp", false);
+        }
     }
 
     public override void EnemyReset()
@@ -93,7 +100,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             EnemyReset();
         }
     }
-
 
     public override void OnTriggerStay2D(Collider2D collision)
     {
@@ -118,7 +124,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             transform.DOMoveY(landingPos, 2f);
         }
     }
-
 
     #region Animation Manager
 
