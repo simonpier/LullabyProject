@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemTable
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
   _Items:
-  - _id: 1
-    _name: "\u9285\u306E\u30AB\u30AE"
-  - _id: 2
-    _name: "\u9280\u306E\u30AB\u30AE"
-  - _id: 3
-    _name: "\u91D1\u306E\u30AB\u30AE"
-  - _id: 4
-    _name: "\u30DC\u30B9\u306E\u8A18\u61B6"
+  - _name: BronzeKey
+    _id: 1
+  - _name: SilverKey
+    _id: 2
+  - _name: GoldKey
+    _id: 3
+  - _name: BossMemory
+    _id: 4

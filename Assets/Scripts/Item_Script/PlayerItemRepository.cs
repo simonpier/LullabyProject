@@ -1,38 +1,74 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class PlayerItemRepository : MonoBehaviour
+public static class PlayerItemRepository
 {
-    private static List<PlayerItem> _itemList;
+    //Store the items owned by the player
     private static Dictionary<int, PlayerItem> _itemDic = new Dictionary<int, PlayerItem>();
-    PlayerItemRepository()
+
+    //
+    public static void AddItem(int id)
     {
-        _itemList = new List<PlayerItem>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        _itemList.Add(new PlayerItem(1,100));
-        foreach (var item in _itemList)
+        PlayerItem item = null;
+
+        //Still in possession
+        if (!_itemDic.TryGetValue(id, out item))
         {
-            Debug.Log(item);
+            item = new PlayerItem(id, 0);
+            _itemDic.Add(id, item);
+        }
+
+        item.Counter += 1;
+
+        foreach (var tempItem in _itemDic.Values)
+        {
+            Debug.Log(tempItem);
         }
     }
 
-    public static PlayerItem RetrieveById(int id)
+    //Return all items in possession
+    public static PlayerItem[] OwnItemAll()
     {
-        PlayerItem item = null;
-        if (!_itemDic.TryGetValue(id, out item))
+        return _itemDic.Values.ToArray();
+    }
+
+    private static List<string> ItemInformationList;
+
+    public static void SaveItem()
+    {
+        ItemInformationList = new List<string>();
+        foreach (var playerItem in _itemDic.Values)
         {
-            item = _itemList.Where(x => x.Id == id).FirstOrDefault();
-            if (item != null)
+            ItemInformationList.Add(String.Join("_", playerItem.ItemId, playerItem.Counter));
+            foreach (var i in ItemInformationList)
             {
-                _itemList.Remove(item);
+                Debug.Log("list:" + i);
             }
-            _itemDic.Add(id, item);
         }
-        return item;
+        var csv = String.Join(",", ItemInformationList);
+
+        Debug.Log("csv:" + csv);
+
+        PlayerPrefs.SetString("HAVE_ITEM_CSV", csv);
+    }
+
+    public static void LoadItem()
+    {
+        _itemDic = new Dictionary<int, PlayerItem>();
+        var csv = PlayerPrefs.GetString("HAVE_ITEM_CSV");
+
+        foreach (var chunk in csv.Split(','))
+        {
+            var itemStatus = chunk.Split('_');
+
+            int tempId = int.Parse(itemStatus[0]);
+            int tempCount = int.Parse(itemStatus[1]);
+
+            var playerItem = new PlayerItem(tempId, tempCount);
+            _itemDic.Add(tempId, playerItem);
+        }
     }
 }

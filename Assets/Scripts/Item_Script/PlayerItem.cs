@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class PlayerItem : MonoBehaviour
+public class PlayerItem
 {
-    private int _id;
-    public int Id { get { return _id; } }
+    private int _itemId;
+    public int ItemId { get { return _itemId; } }
     private int _counter;//個数をカウントする
-    public int Counter { get { return _counter; } }
+    public int Counter { get; set; }
 
-    public PlayerItem(int id,int counter)
+    public PlayerItem(int id, int counter)
     {
-        _id = id;
-        _counter = counter;
+        _itemId = id;
+        Counter = counter;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-   
     public override string ToString()
     {
-        return string.Format("Id:{0}, Counter:{1}", Id, Counter);
+        return string.Format("Id:{0}, Counter:{1}", ItemId, Counter);
     }
 }

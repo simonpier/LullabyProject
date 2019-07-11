@@ -15,18 +15,12 @@ public class ItemTable : ScriptableObject
 public class Item
 {
     [SerializeField]
+    private string _name;
+    [SerializeField]
     private int _id;
 
-    [SerializeField]
-    private string _name;
-
-    public enum Type
-    {
-        consume,collect
-    }
-
-    public int Id { get { return _id; } }
     public string Name { get { return _name; } }
+    public int Id { get { return _id; } }
     
 
     public override string ToString()
