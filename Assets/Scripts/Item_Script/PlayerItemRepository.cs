@@ -13,19 +13,21 @@ public static class PlayerItemRepository
     public static void AddItem(int id)
     {
         PlayerItem item = null;
-
+        
         //Still in possession
         if (!_itemDic.TryGetValue(id, out item))
         {
             item = new PlayerItem(id, 0);
             _itemDic.Add(id, item);
         }
-
-        item.Counter += 1;
-
-        foreach (var tempItem in _itemDic.Values)
+        //Check the item ownership limit
+        else if (item.QuantityCounter < ItemRepository.RetrieveById(id).PossessionLimit)
         {
-            Debug.Log(tempItem);
+            item.QuantityCounter += 1;
+        }
+        else
+        {
+            Debug.Log("上限に達しています。");//over limit
         }
     }
 
@@ -39,18 +41,13 @@ public static class PlayerItemRepository
 
     public static void SaveItem()
     {
+        //Change all item information to a string and save
         ItemInformationList = new List<string>();
         foreach (var playerItem in _itemDic.Values)
         {
-            ItemInformationList.Add(String.Join("_", playerItem.ItemId, playerItem.Counter));
-            foreach (var i in ItemInformationList)
-            {
-                Debug.Log("list:" + i);
-            }
+            ItemInformationList.Add(String.Join("_", playerItem.ItemId, playerItem.QuantityCounter));
         }
         var csv = String.Join(",", ItemInformationList);
-
-        Debug.Log("csv:" + csv);
 
         PlayerPrefs.SetString("HAVE_ITEM_CSV", csv);
     }
@@ -60,6 +57,7 @@ public static class PlayerItemRepository
         _itemDic = new Dictionary<int, PlayerItem>();
         var csv = PlayerPrefs.GetString("HAVE_ITEM_CSV");
 
+        //Divide the stringed information and save it in the dictionary
         foreach (var chunk in csv.Split(','))
         {
             var itemStatus = chunk.Split('_');

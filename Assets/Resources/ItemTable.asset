@@ -9,15 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0543bfb3ce42a7a4cbd3c2f563d04e1e, type: 3}
   m_Name: ItemTable
-  m_EditorClassIdentifier: Assembly-CSharp::ItemTable
+  m_EditorClassIdentifier: 
   _Items:
   - _name: BronzeKey
     _id: 1
+    _possessionLimit: 10
   - _name: SilverKey
     _id: 2
+    _possessionLimit: 5
   - _name: GoldKey
     _id: 3
+    _possessionLimit: 1
   - _name: BossMemory
     _id: 4
+    _possessionLimit: 1
+  - _name: RecoveryCandle
+    _id: 5
+    _possessionLimit: 10

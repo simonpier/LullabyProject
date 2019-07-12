@@ -7,17 +7,17 @@ public class PlayerItem
 {
     private int _itemId;
     public int ItemId { get { return _itemId; } }
-    private int _counter;//個数をカウントする
-    public int Counter { get; set; }
+    private int _quantityCounter;//個数をカウントする
+    public int QuantityCounter { get; set; }
 
-    public PlayerItem(int id, int counter)
+    public PlayerItem(int id, int quantityCounter)
     {
         _itemId = id;
-        Counter = counter;
+        QuantityCounter = quantityCounter;
     }
 
     public override string ToString()
     {
-        return string.Format("Id:{0}, Counter:{1}", ItemId, Counter);
+        return string.Format("Id:{0}, Counter:{1}", ItemId, QuantityCounter);
     }
 }

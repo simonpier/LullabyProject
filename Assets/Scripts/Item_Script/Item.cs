@@ -3,14 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ItemTable : ScriptableObject
-{
-    [SerializeField]
-    private Item[] _Items;
-    public Item[] Items { get { return _Items; } }
-}
-
 [Serializable]
 public class Item
 {
@@ -18,10 +10,13 @@ public class Item
     private string _name;
     [SerializeField]
     private int _id;
+    [SerializeField]
+    private int _possessionLimit;
 
     public string Name { get { return _name; } }
     public int Id { get { return _id; } }
-    
+    public int PossessionLimit {get { return _possessionLimit; } }
+
 
     public override string ToString()
     {
