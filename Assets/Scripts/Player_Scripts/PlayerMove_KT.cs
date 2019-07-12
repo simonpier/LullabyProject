@@ -23,6 +23,11 @@ public class PlayerMove_KT : MonoBehaviour
     //player look right is true. [SerializeField] is attached this if level types is diffelent
     bool _ifLookRight;
 
+    [SerializeField] AudioManager audio; //To get the audio managers sounds
+    public Random rdms = new Random(); //randomiser number for the sounds
+
+    [SerializeField] GameObject gameOver;
+
     Rigidbody2D _rb;
 
     PlayerStats_ML stats;
@@ -54,6 +59,8 @@ public class PlayerMove_KT : MonoBehaviour
             //Dead
             weapon.ResetAllLight();
             weapon.enabled = false;
+            gameOver.SetActive(true);
+
         }
     }
 
@@ -65,12 +72,16 @@ public class PlayerMove_KT : MonoBehaviour
         {
             _nowDirection = true;
             _velocity += maxSpeed * Vector3.right;
+            int r = Random.Range(1, 8);//footsteps sound
+            //audio.PlaySound("footsteps_" + r );
         }
 
         if (Input.GetKey("a"))
         {
             _nowDirection = false;
             _velocity += maxSpeed * Vector3.left;
+            int r = Random.Range(1, 8);//footsteps sound
+            //audio.PlaySound("footsteps_" + r);
         }
 
         if (_nowDirection != _ifLookRight)

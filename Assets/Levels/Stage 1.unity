@@ -6561,8 +6561,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.07891846}
-  m_SizeDelta: {x: 800, y: 449.8}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.0008773804}
+  m_SizeDelta: {x: 800, y: 540.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975725302
 MonoBehaviour:
@@ -8711,6 +8711,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3597560782186771313, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!4 &1218597076 stripped
@@ -10678,26 +10683,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: footsteps_1
+    clip: {fileID: 8300000, guid: 1c54cf06720bab6458aae3de70fe4db9, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_2
+    clip: {fileID: 8300000, guid: fb90a8eb9f49935479e642d534f18d87, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_3
+    clip: {fileID: 8300000, guid: bc8c2813613302e48a5234a6b2cd9fcb, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_4
+    clip: {fileID: 8300000, guid: dccf2082f23680245b5f310be9577def, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_5
+    clip: {fileID: 8300000, guid: 270b579b700c6f74a9bb510b593e201b, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_6
+    clip: {fileID: 8300000, guid: 9ea00cb04ac2c404d8d48519200c89d1, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_7
+    clip: {fileID: 8300000, guid: 68237d99962d53345b472f2dc4ef160c, type: 3}
     volume: 0
     pitch: 0.5
-  - name: 
-    clip: {fileID: 0}
+  - name: footsteps_8
+    clip: {fileID: 8300000, guid: df5671f4c2641c94d9a3694d0fdad3f0, type: 3}
     volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    pitch: 0.5
+  - name: lantern_Pick_up
+    clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: lantern_on/off
+    clip: {fileID: 8300000, guid: 41d88371f78ba6f43945286760860eb5, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: candle_on
+    clip: {fileID: 8300000, guid: ceee7c838e1346042b1beeb81183d722, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: open_door
+    clip: {fileID: 8300000, guid: 1e72c321814c6784699f0061e615aa9d, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: close_door
+    clip: {fileID: 8300000, guid: dc71eb8b5a63ec44b914353f550e9584, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: open/close_door
+    clip: {fileID: 8300000, guid: 14f872d6d8d8a564d89960a3408a1018, type: 3}
+    volume: 1
+    pitch: 0.5
 --- !u!4 &1573921554
 Transform:
   m_ObjectHideFlags: 0
@@ -10881,6 +10922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorNormal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3597560782186770575, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3597560782186770574, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10961,6 +11007,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3597560782186771313, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!1 &1630649941
@@ -11527,6 +11578,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3597560782186771313, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!4 &1730782096 stripped
@@ -13493,10 +13549,24 @@ PrefabInstance:
       propertyPath: startRoom
       value: 
       objectReference: {fileID: 327905996}
+    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
+    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 975725300}
     - target: {fileID: 873855355, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
@@ -14168,6 +14238,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3597560782186771313, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!1 &2109034169

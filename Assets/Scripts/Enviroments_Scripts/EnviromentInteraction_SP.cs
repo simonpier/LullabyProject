@@ -6,6 +6,7 @@ public class EnviromentInteraction_SP : MonoBehaviour
 {
 
     Animator anim;
+    [SerializeField] AudioManager audio;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class EnviromentInteraction_SP : MonoBehaviour
     {
 
         anim.SetBool("Opens", true);
+        audio.PlaySound("open/close_door");
 
     }
 

@@ -13,6 +13,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     [SerializeField] private GameObject candle;
     [SerializeField] private GameObject lantern;
+    [SerializeField] AudioManager audio;
 
     GameObject _nowSelectInstance;
 
@@ -52,6 +53,8 @@ public class ChangeWeapon_NN : MonoBehaviour
             pair[_nowSelectInstance].Drop();
 
             WeaponStateUpdate();
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -61,11 +64,18 @@ public class ChangeWeapon_NN : MonoBehaviour
             _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
             _nowSelectInstance.SetActive(temp);
 
+            
             //For now, anne drop light when switching weapon
             LightRaise = false;
             pair[_nowSelectInstance].Drop();
 
             WeaponStateUpdate();
+
+            if (lantern.activeSelf == true) //lantern on sound
+                audio.PlaySound("lantern_on/off");
+
+            if (lantern.activeSelf == false && candle.activeSelf == true) //candle on sound
+                audio.PlaySound("candle_on");
         }
     }
 
