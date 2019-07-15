@@ -7,12 +7,20 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 {
 
     [SerializeField] private float landDistance = 3.5f;
+    [SerializeField] private float walkTime = 10f;
     [SerializeField] private Collider2D SlashCollider;
+    [SerializeField] GameObject bossRoomPosDX;
+    [SerializeField] GameObject bossRoomPosSX;
 
     Vector3 originalBigness;
     private int attackRandomizer;
-    float landingPos;
+    private bool isTriggered;
+    private bool isLighted;
+    [SerializeField] private bool changeDirection;
+    private float landingPos;
 
+
+    public bool IsTriggered { get => isTriggered; set => isTriggered = value; }
 
     public override void Start()
     {
@@ -41,11 +49,56 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public override void TargetTracking()
     {
         float distance = Vector2.Distance(target.position, transform.position);
-        //if (distance <= transformRange)
-        //{
-        //    anim.SetBool("inRange", true);
-        //}
 
+        if(isTriggered)
+        {         
+            if(!isLighted)
+            {
+                if (changeDirection == false)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, bossRoomPosSX.transform.position, speed * Time.deltaTime);
+                }
+                else if (changeDirection == true)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, bossRoomPosDX.transform.position, speed * Time.deltaTime);
+                }
+            }
+
+            if (isLighted)
+            {
+                anim.SetBool("inRange", true);
+                if (target.position.y <= transform.position.y)
+                {
+                    NormalBehaviour(distance);
+                    if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
+                    {
+                        anim.SetBool("lookUp", false);
+                    }
+                }
+                else if (target.position.y > transform.position.y)
+                {
+                    if (!anim.GetBool("lookUp") && distance >= transformRange)
+                    {
+                        anim.SetBool("lookUp", true);
+                    }
+                }
+            }
+        }
+    }
+
+    private IEnumerator BossPatrol()
+    {
+        while (!isLighted)
+        {
+            transform.DOMoveX(bossRoomPosSX.transform.position.x, walkTime);
+            yield return new WaitForSeconds(walkTime);
+            transform.DOMoveX(bossRoomPosDX.transform.position.x, walkTime);
+            yield return new WaitForSeconds(walkTime);
+        }
+    }
+
+    private void NormalBehaviour(float distance)
+    {
         if (distance > attackRange && anim.GetBool("inRange"))
         {
             anim.SetBool("attack", false);
@@ -59,7 +112,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         else if (distance <= attackRange)
         {
             anim.SetBool("attack", true);
-            attackRandomizer = (Random.Range (0,2));
+            attackRandomizer = (Random.Range(0, 2));
             if (attackRandomizer == 0)
             {
                 anim.SetBool("slash", false);
@@ -71,15 +124,19 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 anim.SetBool("slash", true);
             }
         }
-        
-        if (target.position.y > transform.position.y && !anim.GetBool("lookUp") && distance >= transformRange)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+        if (collision.tag == ("Player_CandleCollider") || collision.tag == ("Player_LanternCollider"))
         {
-            anim.SetBool("lookUp", true);
+            isLighted = true;
         }
-        else if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
-        {
-            anim.SetBool("lookUp", false);
-        }
+
+
+
     }
 
     public override void EnemyReset()
@@ -107,10 +164,16 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             isTakingDamage = false;
         }
-        else if (collision.tag == ("Player_CandleCollider") && hitPoint > 0)
+        else if (collision.tag == ("Player_LanternCollider") && hitPoint > 0)
         {
             isTakingDamage = true;
             TakeDamage();
+        }
+
+        if (collision.tag == ("Edge"))
+        {
+            Debug.Log("aa");
+            changeDirection = !changeDirection;
         }
     }
 
@@ -124,6 +187,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             transform.DOMoveY(landingPos, 2f);
         }
     }
+
 
     #region Animation Manager
 

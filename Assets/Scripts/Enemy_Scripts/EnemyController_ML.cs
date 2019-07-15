@@ -12,6 +12,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     [SerializeField] protected float speed = 5.0f;
     //Enemy's health point
     [SerializeField] protected float hitPoint = 5.0f;
+    [SerializeField] protected float yDistance;
     //Indicates if the enemy can fly
     [SerializeField] protected bool canFly = false;
     //Indicates if the enemy can die
@@ -77,7 +78,8 @@ public abstract class EnemyController_ML : MonoBehaviour
                         //If the enemy can fly allow it to move also in y axis
                         if (canFly)
                         {
-                            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                            Vector2 targetPos = new Vector2(target.position.x, target.position.y + yDistance);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
                         }
                         else if (!canFly)
                         {
@@ -103,7 +105,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     //To be activated when enemy's hitpoints run out
     public virtual void DeathChecker()
     {
-        if (canDie && hitPoint <= 0)
+        if (canDie && hitPoint <= 0 && !canFly)
         {
             anim.SetBool("death", true);
             isDied = true;
@@ -116,7 +118,7 @@ public abstract class EnemyController_ML : MonoBehaviour
         {
             isTakingDamage = false;
         }
-        else if (collision.tag == ("Player_CandleCollider") && hitPoint > 0 && anim.GetBool("isTransformed"))
+        else if (collision.tag == ("Player_LanternCollider") && hitPoint > 0 && anim.GetBool("isTransformed"))
         {
             isTakingDamage = true;
             TakeDamage();
@@ -125,7 +127,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     public virtual void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == ("Player_CandleCollider"))
+        if (collision.tag == ("Player_LanternCollider"))
         {
             isTakingDamage = false;
         }

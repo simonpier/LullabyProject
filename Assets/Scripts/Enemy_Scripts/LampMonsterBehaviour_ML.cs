@@ -5,6 +5,7 @@ using UnityEngine;
 public class LampMonsterBehaviour_ML : EnemyController_ML
 {
     [SerializeField] GameObject playerCandle;
+    [SerializeField] GameObject playerLantern;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -20,7 +21,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
 
     private void CandleCheck()
     {
-        if (!playerCandle.activeSelf)
+        if (!playerCandle.activeSelf && !playerLantern.activeSelf)
         {
             anim.SetBool("isTransformed", false);
             anim.ResetTrigger("transformation");
@@ -78,7 +79,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player_CandleCollider")
+        if (collision.tag == "Player_CandleCollider" || collision.tag ==  "Player_LanternCollider")
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CinematicBar_ML : MonoBehaviour
 {
+    [SerializeField] GameObject UIElements;
 
     private RectTransform topBar, bottomBar;
     private float changeSizeAmount;
@@ -59,9 +60,11 @@ public class CinematicBar_ML : MonoBehaviour
 
     public void Show(float targetSize, float time)
     {
+        UIElements.SetActive(false);
         this.targetSize = targetSize;
         changeSizeAmount = (targetSize - topBar.sizeDelta.y) / time;
         isActive = true;
+
     }
 
     public void Hide(float time)
@@ -69,5 +72,6 @@ public class CinematicBar_ML : MonoBehaviour
         targetSize = 0f;
         changeSizeAmount = (targetSize - topBar.sizeDelta.y) / time;
         isActive = true;
+        UIElements.SetActive(true);
     }
 }

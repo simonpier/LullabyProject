@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 {
     [SerializeField] GameObject playerCandle;
+    [SerializeField] GameObject playerLantern;
     [SerializeField] GameObject candleColliderDetector;
 
     ChandelierCandleDetection_ML candleDetection;
@@ -25,7 +26,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     private void CandleCheck()
     {
-        if (!playerCandle.activeSelf)
+        if (!playerCandle.activeSelf && !playerLantern.activeSelf)
         {
             anim.SetBool("isTransformed", false);
             anim.ResetTrigger("transformation");
@@ -34,7 +35,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("death", true);
         }
 
-        if (candleDetection.IsCandleColliding && hitPoint >= 0)
+        if (candleDetection.IsCandleColliding || candleDetection.IsLanternColliding && hitPoint >= 0)
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
@@ -45,7 +46,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player_CandleCollider")
+        if (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider")
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);

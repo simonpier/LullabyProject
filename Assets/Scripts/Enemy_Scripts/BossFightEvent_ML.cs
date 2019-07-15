@@ -22,6 +22,7 @@ public class BossFightEvent_ML : MonoBehaviour
     Rigidbody2D playerRB;
     PositionConstraint cameraCon;
     CinematicBar_ML cinBar;
+    Spiderdog_Boss_Behaviour spiderbossBehaviour;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class BossFightEvent_ML : MonoBehaviour
         playerRB = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
         cinBar = cinematicBar.GetComponent<CinematicBar_ML>();
+        spiderbossBehaviour = spiderBoss.GetComponent<Spiderdog_Boss_Behaviour>();
     }
 
 
@@ -70,6 +72,6 @@ public class BossFightEvent_ML : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
-
+        spiderbossBehaviour.IsTriggered = true;
     }
 }

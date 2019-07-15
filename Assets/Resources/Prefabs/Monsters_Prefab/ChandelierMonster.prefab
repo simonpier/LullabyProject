@@ -107,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1288342577545101372
 Transform:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6df8d19e2179419add301e06a6742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLanter: {fileID: 0}
   playerCandle: {fileID: 0}
 --- !u!1 &1288342579048401777
 GameObject:
@@ -348,6 +349,7 @@ MonoBehaviour:
   sxRoomLimiter: {fileID: 0}
   dxRoomLimiter: {fileID: 0}
   playerCandle: {fileID: 0}
+  playerLantern: {fileID: 0}
   candleColliderDetector: {fileID: 1288342578358014607}
 --- !u!61 &1288342579048401780
 BoxCollider2D:
