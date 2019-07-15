@@ -1686,7 +1686,7 @@ GameObject:
   - component: {fileID: 188219353}
   m_Layer: 0
   m_Name: BossFightSX
-  m_TagString: Edge
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1715,7 +1715,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.21489905, y: -0.5050125}
@@ -5168,6 +5168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spiderdog_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543202721652900865, guid: 4f54f7803fc4dc34f8dc99ba585048f8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6543202721652900926, guid: 4f54f7803fc4dc34f8dc99ba585048f8,
         type: 3}
@@ -11427,7 +11432,7 @@ GameObject:
   - component: {fileID: 1660180613}
   m_Layer: 0
   m_Name: BossFightDX
-  m_TagString: Edge
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

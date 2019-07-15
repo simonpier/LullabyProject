@@ -16,7 +16,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private int attackRandomizer;
     private bool isTriggered;
     private bool isLighted;
-    [SerializeField] private bool changeDirection;
+    private bool changeDirection;
     private float landingPos;
 
 
@@ -32,6 +32,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public override void Update()
     {
         base.Update();
+
+        if (transform.position.x <= bossRoomPosSX.transform.position.x || transform.position.x >= bossRoomPosDX.transform.position.x)
+        {
+            changeDirection = !changeDirection;
+        }
     }
 
     public override void Flip()
@@ -128,15 +133,15 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
         if (collision.tag == ("Player_CandleCollider") || collision.tag == ("Player_LanternCollider"))
         {
             isLighted = true;
         }
+        else if (collision.tag == ("Edge"))
+        {
+            Debug.Log("aa");
 
-
-
+        }
     }
 
     public override void EnemyReset()
@@ -168,12 +173,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             isTakingDamage = true;
             TakeDamage();
-        }
-
-        if (collision.tag == ("Edge"))
-        {
-            Debug.Log("aa");
-            changeDirection = !changeDirection;
         }
     }
 
