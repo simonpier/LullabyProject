@@ -10855,8 +10855,8 @@ MonoBehaviour:
     pitch: 0.5
   - name: lantern_on/off
     clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
-    volume: 1
-    pitch: 0.764
+    volume: 0.057
+    pitch: 1
   - name: candle_on
     clip: {fileID: 8300000, guid: ceee7c838e1346042b1beeb81183d722, type: 3}
     volume: 1
