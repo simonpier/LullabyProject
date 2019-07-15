@@ -24,7 +24,7 @@ public class PlayerMove_KT : MonoBehaviour
     bool _ifLookRight;
 
     [SerializeField] AudioManager audioM; //To get the audio managers sounds
-    
+
 
     [SerializeField] GameObject gameOver;
 
@@ -73,7 +73,7 @@ public class PlayerMove_KT : MonoBehaviour
     }
 
 
-        
+
 
     void Move()
     {
@@ -106,7 +106,7 @@ public class PlayerMove_KT : MonoBehaviour
 
             }
             //if (source.isPlaying == false)
-               //audio.PlaySound("footsteps_1");
+            //audio.PlaySound("footsteps_1");
         }
 
         if (_nowDirection != _ifLookRight)

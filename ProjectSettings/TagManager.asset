@@ -8,7 +8,6 @@ TagManager:
   - Player_CandleCollider
   - Boss_Fight
   - Player_LanternCollider
-  - Edge
   layers:
   - Default
   - TransparentFX
