@@ -134,7 +134,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             isLighted = true;
         }
-
+        else if (collision.tag == ("Edge"))
+        {
+            Debug.Log("aa");
+            changeDirection = !changeDirection;
+        }
 
 
     }
@@ -170,11 +174,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             TakeDamage();
         }
 
-        if (collision.tag == ("Edge"))
-        {
-            Debug.Log("aa");
-            changeDirection = !changeDirection;
-        }
+        //if (collision.tag == ("Edge"))
+       // {
+          //  Debug.Log("aa");
+         //   changeDirection = !changeDirection;
+       // }
     }
 
     public override void DeathChecker()

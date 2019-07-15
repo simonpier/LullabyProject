@@ -23,8 +23,8 @@ public class PlayerMove_KT : MonoBehaviour
     //player look right is true. [SerializeField] is attached this if level types is diffelent
     bool _ifLookRight;
 
-    [SerializeField] AudioManager audio; //To get the audio managers sounds
-    public Random rdms = new Random(); //randomiser number for the sounds
+    [SerializeField] AudioManager audioM; //To get the audio managers sounds
+    
 
     [SerializeField] GameObject gameOver;
 
@@ -32,6 +32,10 @@ public class PlayerMove_KT : MonoBehaviour
 
     PlayerStats_ML stats;
     ChangeWeapon_NN weapon;
+
+    [SerializeField] AudioSource source;
+
+    GameObject audioSource;
 
     void Awake()
     {
@@ -46,7 +50,11 @@ public class PlayerMove_KT : MonoBehaviour
         weapon = GetComponent<ChangeWeapon_NN>();
         CheckRoomSize(startRoom);
         Speed = 0;
+
+        //audioSource = GameObject.Find("Sound_0_footsteps_1");
+        //source = audioSource.GetComponent<AudioSource>();
     }
+
 
     void FixedUpdate()
     {
@@ -64,6 +72,9 @@ public class PlayerMove_KT : MonoBehaviour
         }
     }
 
+
+        
+
     void Move()
     {
         bool _nowDirection = _ifLookRight;
@@ -72,16 +83,30 @@ public class PlayerMove_KT : MonoBehaviour
         {
             _nowDirection = true;
             _velocity += maxSpeed * Vector3.right;
-            int r = Random.Range(1, 8);//footsteps sound
-            //audio.PlaySound("footsteps_" + r );
+            if (source.isPlaying == false)
+            {
+                source.volume = Random.Range(0.1f, 0.15f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+
+            }
+            //if(source.isPlaying == false)
+            // audio.PlaySound("footsteps_1");
         }
 
         if (Input.GetKey("a"))
         {
             _nowDirection = false;
             _velocity += maxSpeed * Vector3.left;
-            int r = Random.Range(1, 8);//footsteps sound
-            //audio.PlaySound("footsteps_" + r);
+            if (source.isPlaying == false)
+            {
+                source.volume = Random.Range(0.1f, 0.15f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+
+            }
+            //if (source.isPlaying == false)
+               //audio.PlaySound("footsteps_1");
         }
 
         if (_nowDirection != _ifLookRight)
