@@ -129,7 +129,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             }
-            pickedSound = 2;
+            pickedSound = 3;
             source.clip = sounds[pickedSound];
         }
         else if (distance <= attackRange)
@@ -157,7 +157,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 anim.SetBool("slash", true);
                 if (source.isPlaying == false) //attack sound
                 {
-                    pickedSound = 1;
+                    pickedSound = Random.Range(1 , 3);
                     gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                     source.clip = sounds[pickedSound];
                     source.pitch = Random.Range(0.8f, 1.5f);
@@ -230,6 +230,8 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             isDied = true;
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
+            pickedSound = 4;
+            source.clip = sounds[pickedSound];
         }
     }
 
