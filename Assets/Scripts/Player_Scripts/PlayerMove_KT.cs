@@ -35,7 +35,7 @@ public class PlayerMove_KT : MonoBehaviour
 
     [SerializeField] AudioSource source;
 
-    GameObject audioSource;
+    
 
     void Awake()
     {

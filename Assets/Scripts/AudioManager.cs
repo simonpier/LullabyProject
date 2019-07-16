@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string soundName)
+    public bool PlaySound(string soundName)
     {
 
         for (int i = 0; i < sounds.Length; i++)
@@ -70,14 +70,15 @@ public class AudioManager : MonoBehaviour
             {
 
                 sounds[i].Play();
-                return;
+                return true;
 
             }
-
+     
         }
 
         //In case the audio file is not found
         Debug.LogWarning("AudioManager: Sound not found in list: " + soundName);
+        return false;
     }
 
 }
