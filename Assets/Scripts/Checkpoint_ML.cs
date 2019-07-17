@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Checkpoint_ML : MonoBehaviour
 {
@@ -12,9 +13,20 @@ public class Checkpoint_ML : MonoBehaviour
     Transform player;
     PlayerStats_ML playerStat;
 
+    [SerializeField] GameObject candleBar;
+    InGameUI_SP ui;
+
+    [SerializeField] GameObject lanternBar;
+    InGameUILantern_SP uiL;
+
+    [SerializeField] Image contentCandle;
+    [SerializeField] Image contentLantern;
+
     // Start is called before the first frame update
     void Start()
     {
+        uiL = lanternBar.GetComponent<InGameUILantern_SP>();
+        ui = candleBar.GetComponent<InGameUI_SP>();
         anim = GetComponent<Animator>();
         player = PlayerStats_ML.instance.player.transform;
         playerStat = PlayerStats_ML.instance;
@@ -28,6 +40,11 @@ public class Checkpoint_ML : MonoBehaviour
         {
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
             anim.SetBool("activated", true);
+
+            ui.Light = 100f;
+            uiL.Light = 100f;
+
+
         }
     }
 

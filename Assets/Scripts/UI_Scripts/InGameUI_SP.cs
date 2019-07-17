@@ -18,6 +18,8 @@ public class InGameUI_SP : MonoBehaviour
     private float light = 100.0f; //max light 
     private bool check = true;
 
+    public float Light { get => light; set => light = value; }
+
     // Start is called before the first frame update
     void Start()
     {

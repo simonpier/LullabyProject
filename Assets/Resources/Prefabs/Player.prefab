@@ -139,6 +139,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   ui: {fileID: 0}
   uiL: {fileID: 0}
+  lanternCollider: {fileID: 0}
   check: 1
 --- !u!114 &8721089491360648436
 MonoBehaviour:
@@ -361,7 +362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1015892969124567987
 Transform:
   m_ObjectHideFlags: 0
