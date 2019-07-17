@@ -19,13 +19,15 @@ public abstract class EnemyController_ML : MonoBehaviour
     [SerializeField] protected bool canDie = true;
     //Indicates if the enemy can move
     [SerializeField] protected bool canMove = true;
+    //Indicates if the enemy is facing right
+
+    [SerializeField] protected bool facingRight = true;
 
     [SerializeField] protected Collider2D AttackCollider;
     [SerializeField, Header("Lower Left Room Limiter")] protected GameObject sxRoomLimiter;
     [SerializeField, Header("Top Right Room Limiter")] protected GameObject dxRoomLimiter;
 
-    //Indicates if the enemy is facing right
-    protected bool facingRight = true;
+
     protected bool isDied = false;
     protected bool isTakingDamage = false;
 
