@@ -361,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1015892969124567987
 Transform:
   m_ObjectHideFlags: 0
@@ -523,6 +523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCandle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769616875169341714, guid: f9e68718d9ddcc548948401bd5f9451b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4769616875169341726, guid: f9e68718d9ddcc548948401bd5f9451b,
         type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class DoorTrigger_v2 : MonoBehaviour
 {
@@ -8,10 +9,15 @@ public class DoorTrigger_v2 : MonoBehaviour
     EnviromentInteraction_SP door;
     [SerializeField] GameObject destination;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject gameCamera;
+    PositionConstraint cameraCon;
+  
+
+
 
     private void Start()
     {
-
+        cameraCon = gameCamera.GetComponent<PositionConstraint>();
         door = doorNormal.GetComponent<EnviromentInteraction_SP>();
         Invoke("OnTriggerStay2d", 2);
     }
@@ -47,5 +53,11 @@ public class DoorTrigger_v2 : MonoBehaviour
 
         player.transform.position = destination.transform.position;
         player.GetComponent<PlayerMove_KT>().CheckRoomSize(destination.transform.parent.gameObject);
+        Invoke("CameraConstraints", 0.5f);
+    }
+
+    void CameraConstraints()
+    {
+        cameraCon.enabled = true;
     }
 }
