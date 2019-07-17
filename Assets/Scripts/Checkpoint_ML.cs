@@ -53,6 +53,9 @@ public class Checkpoint_ML : MonoBehaviour
             ui.Light = 100f;
             uiL.Light = 100f;
 
+            contentCandle.fillAmount = 1f;
+            contentLantern.fillAmount = 1f;
+
             if (ui.candleOn_Off == false)
             {
 

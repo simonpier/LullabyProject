@@ -14428,6 +14428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881748496}
   - component: {fileID: 1881748495}
+  - component: {fileID: 1881748497}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -14479,6 +14480,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881748497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881748494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dff203dd818d2f40a9cdf7176f9370f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanternTaken: 1
 --- !u!1 &1886892562
 GameObject:
   m_ObjectHideFlags: 1
@@ -14932,6 +14946,10 @@ PrefabInstance:
       propertyPath: lanternCollider
       value: 
       objectReference: {fileID: 523316851}
+    - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1881748494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
 --- !u!1 &1925118683 stripped
