@@ -35,7 +35,13 @@ public class PlayerMove_KT : MonoBehaviour
 
     [SerializeField] AudioSource source;
 
-    
+    public enum VertAnimationType
+    {
+        Default,
+        Climb,
+        Dismount
+    }
+    public VertAnimationType MovingVertAnimation { get; private set; }
 
     void Awake()
     {
@@ -51,6 +57,8 @@ public class PlayerMove_KT : MonoBehaviour
         CheckRoomSize(startRoom);
         Speed = 0;
 
+        MovingVertAnimation = VertAnimationType.Default;
+
         //audioSource = GameObject.Find("Sound_0_footsteps_1");
         //source = audioSource.GetComponent<AudioSource>();
     }
@@ -60,7 +68,8 @@ public class PlayerMove_KT : MonoBehaviour
     {
         if (stats.Health > 0)
         {
-            Move();
+            if (MovingVertAnimation == VertAnimationType.Default) Move();
+            else VerticalAnimation();
         }
         else
         {
@@ -143,5 +152,52 @@ public class PlayerMove_KT : MonoBehaviour
 
         SXLimite = new Vector2(_sx.position.x, _sx.position.y);
         DXLimite = new Vector2(_dx.position.x, _dx.position.y);
+    }
+
+
+    //function about climbing animation
+    [SerializeField] float verticalAnimateTime;
+    float verticalTimer = 0;
+    float startHeight;
+    float goalHeight;
+
+    public void StartVerticalAnimate(float height, VertAnimationType type)
+    {
+        if (verticalTimer > 0 || type == VertAnimationType.Default) return;
+        MovingVertAnimation = type;
+        verticalTimer = verticalAnimateTime;
+        startHeight = transform.position.y;
+        goalHeight = height;
+    }
+
+    void VerticalAnimation()
+    {
+        verticalTimer -= Time.deltaTime;
+        if (verticalTimer <= 0.0f)
+        {
+            MovingVertAnimation = VertAnimationType.Default;
+            transform.position = new Vector3(transform.position.x, goalHeight, transform.position.z);
+        }
+        else
+        {
+            if (MovingVertAnimation == VertAnimationType.Climb)
+            {
+                //linear
+                float _t = 1.0f - (verticalTimer / verticalAnimateTime);
+                float _y = _t;
+                float dist_y = _y * (goalHeight - startHeight);
+                transform.position = new Vector3(transform.position.x, startHeight + dist_y, transform.position.z);
+            }
+
+            if (MovingVertAnimation == VertAnimationType.Dismount)
+            {
+                //y = (x-1)*(x-1) - 1
+                float _t = 1.0f - (verticalTimer / verticalAnimateTime);
+                float param1 = 0.2f;
+                float _y = ((_t - param1) * (_t - param1) - param1 * param1) / (1.0f - param1) / (1.0f - param1);
+                float dist_y = _y * (goalHeight - startHeight);
+                transform.position = new Vector3(transform.position.x, startHeight + dist_y, transform.position.z);
+            }
+        }
     }
 }
