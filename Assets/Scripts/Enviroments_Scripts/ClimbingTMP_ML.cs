@@ -7,15 +7,17 @@ public class ClimbingTMP_ML : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject mainCamera;
+    [SerializeField] private bool check = false;
+
 
     [SerializeField] private float endingDistanceY = 4.7f;
 
     PositionConstraint cameraCon;
 
     private float endingPositionY;
-    private float climbedPosY;
-    private float originalPosY;
-    private bool check;
+    private static float climbedPosY;
+    private static float originalPosY;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +43,12 @@ public class ClimbingTMP_ML : MonoBehaviour
             }
             if (player.transform.position.y < climbedPosY)
             {
-                cameraCon.constraintActive = false;
+                cameraCon.translationAxis = Axis.X | Axis.Z;
                 player.transform.position = new Vector2(player.transform.position.x, endingPositionY);
             }
             else if (player.transform.position.y > originalPosY)
             {
-                cameraCon.constraintActive = true;
+                cameraCon.translationAxis = Axis.X | Axis.Y | Axis.Z;
                 player.transform.position = new Vector2(player.transform.position.x, originalPosY);
             }
         }
