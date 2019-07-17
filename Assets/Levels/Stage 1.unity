@@ -8621,10 +8621,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36301612cb2659f4bad14ed415587232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  candle: {fileID: 0}
+  lantern: {fileID: 0}
   candleBar: {fileID: 0}
   lanternBar: {fileID: 0}
   contentCandle: {fileID: 0}
   contentLantern: {fileID: 0}
+  lanternCollider: {fileID: 0}
 --- !u!114 &1081428732
 MonoBehaviour:
   m_ObjectHideFlags: 0

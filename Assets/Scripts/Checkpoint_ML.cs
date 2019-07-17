@@ -13,6 +13,10 @@ public class Checkpoint_ML : MonoBehaviour
     Transform player;
     PlayerStats_ML playerStat;
 
+    [SerializeField] private GameObject candle;
+    [SerializeField] private GameObject lantern;
+    Light light, lightLantern;
+
     [SerializeField] GameObject candleBar;
     InGameUI_SP ui;
 
@@ -22,9 +26,14 @@ public class Checkpoint_ML : MonoBehaviour
     [SerializeField] Image contentCandle;
     [SerializeField] Image contentLantern;
 
+    Collider2D candleCollider;
+    [SerializeField] GameObject lanternCollider;
+
     // Start is called before the first frame update
     void Start()
     {
+        light = candle.GetComponent<Light>();
+        lightLantern = lantern.GetComponent<Light>();
         uiL = lanternBar.GetComponent<InGameUILantern_SP>();
         ui = candleBar.GetComponent<InGameUI_SP>();
         anim = GetComponent<Animator>();
@@ -44,7 +53,23 @@ public class Checkpoint_ML : MonoBehaviour
             ui.Light = 100f;
             uiL.Light = 100f;
 
+            if (ui.candleOn_Off == false)
+            {
 
+                ui.candleOn_Off = true;
+                light.enabled = true;
+                candleCollider = candle.GetComponent<Collider2D>();
+                candleCollider.enabled = true;
+            }
+
+            if (uiL.lanternOn_Off == false)
+            {
+
+                uiL.lanternOn_Off = true;
+                lightLantern.enabled = true;
+                lanternCollider.SetActive(true);
+
+            }
         }
     }
 
