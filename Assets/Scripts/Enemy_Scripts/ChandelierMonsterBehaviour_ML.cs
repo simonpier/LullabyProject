@@ -10,6 +10,12 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     ChandelierCandleDetection_ML candleDetection;
 
+    [SerializeField] AudioManager audio;
+    [SerializeField] AudioSource source;
+    public AudioClip[] sounds;
+
+    private bool check = true, check2 = true;
+    private int pickedSound;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -24,6 +30,80 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
         CandleCheck();
     }
 
+    public override void TargetTracking()
+    {
+        if (!isDied)
+        {
+            float distance = Vector2.Distance(target.position, transform.position);
+
+            if (distance <= transformRange)
+            {
+                anim.SetBool("reset", false);
+                anim.SetTrigger("transformation");
+            }
+
+            if (anim.GetBool("isTransformed"))
+            {
+                if (canMove && distance > attackRange)
+                {
+                    Flip();
+                    if (!anim.GetBool("attack"))
+                    {
+                        //If the enemy can fly allow it to move also in y axis
+                        if (canFly)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, target.position.y + yDistance);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        }
+                        else if (!canFly)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                            if (source.isPlaying == false)
+                            {
+                                pickedSound = 0;
+                                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                                source.clip = sounds[pickedSound];
+                                source.volume = Random.Range(0.8f, 1f);
+                                source.pitch = Random.Range(0.8f, 1.5f);
+                                source.Play();
+
+                            }
+                        }
+                    }
+                }
+                else if (distance <= attackRange)
+                {
+                    anim.SetBool("idle", false);
+                    anim.SetBool("attack", true);
+                    if (source.isPlaying == false)
+                    {
+                        pickedSound = 1;
+                        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                        source.clip = sounds[pickedSound];
+                        source.volume = Random.Range(1f, 1f);
+                        source.pitch = Random.Range(0.8f, 1.5f);
+                        source.Play();
+                    }
+                }
+                else if (!canMove && distance > attackRange)
+                {
+                    anim.SetBool("idle", true);
+                }
+            }
+        }
+    }
+
+    public override void DeathChecker()
+    {
+        if (canDie && hitPoint <= 0 && !canFly)
+        {
+            anim.SetBool("death", true);
+            isDied = true;
+            DefeatSound();
+        }
+    }
+
     private void CandleCheck()
     {
         if (!playerCandle.activeSelf && !playerLantern.activeSelf)
@@ -33,6 +113,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("attack", false);
             anim.SetBool("reset", true);
             anim.SetBool("death", true);
+            
         }
 
         if (candleDetection.IsCandleColliding || candleDetection.IsLanternColliding && hitPoint >= 0)
@@ -40,6 +121,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
             anim.SetTrigger("transformation");
+            InvokeSound();
         }
     }
 
@@ -51,8 +133,27 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
             anim.SetTrigger("transformation");
+            
         }
     }
 
+    void InvokeSound()
+    {
+        if (check == true)
+        {
 
+            audio.PlaySound("chandelier transformation");
+            check = false;
+
+        }
+    }
+
+    void DefeatSound()
+    {
+        if (check2 == true)
+        {
+            audio.PlaySound("chandelier defeat");
+            check2 = false;
+        }
+    }
 }

@@ -6,6 +6,13 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
 {
     [SerializeField] GameObject playerCandle;
     [SerializeField] GameObject playerLantern;
+
+    [SerializeField] AudioManager audio;
+    [SerializeField] AudioSource source;
+    public AudioClip[] sounds;
+
+    private bool check = true, check2 = true;
+    private int pickedSound;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -19,6 +26,16 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
         CandleCheck();
     }
 
+    public override void DeathChecker()
+    {
+        if (canDie && hitPoint <= 0 && !canFly)
+        {
+            anim.SetBool("death", true);
+            isDied = true;
+            DefeatSound();
+        }
+    }
+
     private void CandleCheck()
     {
         if (!playerCandle.activeSelf && !playerLantern.activeSelf)
@@ -28,6 +45,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("attack", false);
             anim.SetBool("reset", true);
             anim.SetBool("death", true);
+            
         }
     }
 
@@ -53,12 +71,32 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
                         {
                             Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                            if (source.isPlaying == false)
+                            {
+                                pickedSound = 0;
+                                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                                source.clip = sounds[pickedSound];
+                                source.volume = Random.Range(0.8f, 1f);
+                                source.pitch = Random.Range(0.8f, 1.5f);
+                                source.Play();
+
+                            }
                         }
                     }
                 }
                 else if (distance <= attackRange)
                 {
                     anim.SetBool("attack", true);
+                    
+                    if (source.isPlaying == false)
+                    {
+                        pickedSound = 1;
+                        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                        source.clip = sounds[pickedSound];
+                        source.volume = Random.Range(0.8f, 1f);
+                        source.pitch = Random.Range(0.8f, 1.5f);
+                        source.Play();
+                    }
                 }
                 else if (!canMove && distance > attackRange)
                 {
@@ -84,8 +122,27 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
             anim.SetTrigger("transformation");
+            InvokeSound();
         }
     }
 
+    void InvokeSound()
+    {
+        if (check == true)
+        {
 
+            audio.PlaySound("lamp transformation");
+            check = false;
+
+        }
+    }
+
+    void DefeatSound()
+    {
+        if (check2 == true)
+        {
+            audio.PlaySound("lamp defeat");
+            check2 = false;
+        }
+    }
 }

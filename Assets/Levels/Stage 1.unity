@@ -2769,6 +2769,12 @@ PrefabInstance:
       objectReference: {fileID: 1813747279}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b6238eec8c0e54c9a25cf086edf82e, type: 3}
+--- !u!82 &229433358 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8024894039189543510, guid: fced2f71316df5541b390c953b43d518,
+    type: 3}
+  m_PrefabInstance: {fileID: 5279856058434534474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &232842527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3590,17 +3596,17 @@ PrefabInstance:
     - target: {fileID: 2631816654488418044, guid: 880fe01ed5b9a78429e14b51071d9220,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.68
+      value: 10.17
       objectReference: {fileID: 0}
     - target: {fileID: 2631816654488418044, guid: 880fe01ed5b9a78429e14b51071d9220,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 2631816654488418044, guid: 880fe01ed5b9a78429e14b51071d9220,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2631816654488418044, guid: 880fe01ed5b9a78429e14b51071d9220,
         type: 3}
@@ -7867,6 +7873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LampMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4815322291600218134, guid: bbbae4e7222814747b13330184ccdaae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1239489694023636697, guid: bbbae4e7222814747b13330184ccdaae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7923,6 +7934,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
       propertyPath: sxRoomLimiter
       value: 
       objectReference: {fileID: 622893561}
@@ -7938,6 +7953,27 @@ PrefabInstance:
       propertyPath: playerLantern
       value: 
       objectReference: {fileID: 88252741}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: be3a41e3c4934eb409bfcd3432e9a914, type: 3}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: sounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ea1916d5ffea7e54ea9ee3c472afc404, type: 3}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: sounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 309ab44229cc6e141b7713c6297f2458, type: 3}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
+    - target: {fileID: 3995931525096063667, guid: bbbae4e7222814747b13330184ccdaae,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
 --- !u!4 &995977136 stripped
@@ -11959,6 +11995,30 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8a5d07dc978567a449c6f9e02c9978ef, type: 3}
     volume: 1
     pitch: 1
+  - name: vacuum transformation
+    clip: {fileID: 8300000, guid: 7204104019478244f904167fd76b6e87, type: 3}
+    volume: 1
+    pitch: 1
+  - name: vacuum defeat
+    clip: {fileID: 8300000, guid: 7204104019478244f904167fd76b6e87, type: 3}
+    volume: 1
+    pitch: 1
+  - name: lamp transformation
+    clip: {fileID: 8300000, guid: 0d6c136b163525344af0962199e1ef35, type: 3}
+    volume: 1
+    pitch: 1
+  - name: lamp defeat
+    clip: {fileID: 8300000, guid: ea1916d5ffea7e54ea9ee3c472afc404, type: 3}
+    volume: 1
+    pitch: 1
+  - name: chandelier transformation
+    clip: {fileID: 8300000, guid: 91839d8307d978341b7e467e6539866f, type: 3}
+    volume: 1
+    pitch: 1
+  - name: chandelier defeat
+    clip: {fileID: 8300000, guid: 7e109528be2a6464da75f81abc5c37af, type: 3}
+    volume: 1
+    pitch: 1
 --- !u!4 &1573921554
 Transform:
   m_ObjectHideFlags: 0
@@ -14930,6 +14990,11 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 975725300}
+    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: verticalAnimateTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
       propertyPath: audio
       value: 
@@ -16077,11 +16142,21 @@ PrefabInstance:
       propertyPath: facingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1288342579048401776, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
         type: 3}
       propertyPath: playerCandle
       value: 
       objectReference: {fileID: 88252741}
+    - target: {fileID: 7916670721877076266, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27263954852a404cb02148ea3e49b8d, type: 3}
 --- !u!1001 &2289875000841747151
@@ -16234,6 +16309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VacuumMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 5279856057344236535, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5279856057344236427, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16299,6 +16379,16 @@ PrefabInstance:
       propertyPath: dxRoomLimiter
       value: 
       objectReference: {fileID: 1204920334}
+    - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 229433358}
+    - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     - target: {fileID: 5279856057344236426, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
       propertyPath: m_SortingOrder

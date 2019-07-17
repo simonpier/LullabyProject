@@ -5,7 +5,6 @@ using UnityEngine.Animations;
 
 
 //this script attach camera if camera target player
-//For now, only x coordinate is supported
 public class TargetCamera_KT : MonoBehaviour
 {
     PlayerMove_KT player;
@@ -31,17 +30,18 @@ public class TargetCamera_KT : MonoBehaviour
         constraint.translationOffset = this.transform.position - player.transform.position;
         offset = this.transform.position - player.transform.position;
         constraint.enabled = true;
+        constraint.translationAxis = Axis.X | Axis.Y | Axis.Z;
     }
 
     void Update()
     {
-        if (constraint.enabled)
+        if ((constraint.translationAxis & Axis.X) != Axis.None)
         {
             var pos = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _z));
             Vector2 distance = new Vector2(pos.x, pos.y) - player.SXLimite;
             if (distance.x < 0)
             {
-                constraint.enabled = false;
+                constraint.translationAxis &= Axis.Y | Axis.Z;
                 transform.position = new Vector3(transform.position.x - distance.x, transform.position.y, transform.position.z);
             }
 
@@ -49,7 +49,7 @@ public class TargetCamera_KT : MonoBehaviour
             distance = new Vector2(pos.x, pos.y) - player.DXLimite;
             if (distance.x > 0)
             {
-                constraint.enabled = false;
+                constraint.translationAxis &= Axis.Y | Axis.Z;
                 transform.position = new Vector3(transform.position.x - distance.x, transform.position.y, transform.position.z);
             }
         }
@@ -60,11 +60,44 @@ public class TargetCamera_KT : MonoBehaviour
 
             if (distance.x > 0 && (transform.position.x < (player.SXLimite.x + player.DXLimite.x) / 2.0f))
             {
-                constraint.enabled = true;
+                constraint.translationAxis |= Axis.X;
             }
             if (distance.x < 0 && (transform.position.x > (player.SXLimite.x + player.DXLimite.x) / 2.0f))
             {
-                constraint.enabled = true;
+                constraint.translationAxis |= Axis.X;
+            }
+        }
+
+        if ((constraint.translationAxis & Axis.Y) != Axis.None)
+        {
+            var pos = cam.ScreenToWorldPoint(new Vector3(0, 0, _z));
+            Vector2 distance = new Vector2(pos.x, pos.y) - player.SXLimite;
+            if (distance.y < 0)
+            {
+                constraint.translationAxis &= Axis.X | Axis.Z;
+                transform.position = new Vector3(transform.position.x, transform.position.y - distance.y, transform.position.z);
+            }
+
+            pos = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _z));
+            distance = new Vector2(pos.x, pos.y) - player.DXLimite;
+            if (distance.y > 0)
+            {
+                constraint.translationAxis &= Axis.X | Axis.Z;
+                transform.position = new Vector3(transform.position.x, transform.position.y - distance.y, transform.position.z);
+            }
+        }
+        else
+        {
+            var temp = player.transform.position - this.transform.position;
+            Vector2 distance = new Vector2(temp.x, temp.y) + offset;
+
+            if (distance.y > 0 && (transform.position.y < (player.SXLimite.y + player.DXLimite.y) / 2.0f))
+            {
+                constraint.translationAxis |= Axis.Y;
+            }
+            if (distance.y < 0 && (transform.position.y > (player.SXLimite.y + player.DXLimite.y) / 2.0f))
+            {
+                constraint.translationAxis |= Axis.Y;
             }
         }
     }
