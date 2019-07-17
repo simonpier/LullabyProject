@@ -5780,7 +5780,6 @@ MonoBehaviour:
   lanternOn_Off: 1
   candle: {fileID: 1925118683}
   lantern: {fileID: 88252741}
-  check: 0
 --- !u!1001 &741311735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5874,7 +5873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
       propertyPath: sounds.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
       propertyPath: sxRoomLimiter
@@ -5948,6 +5947,10 @@ PrefabInstance:
       propertyPath: sounds.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 53452f89edead564f946de898f4e5226, type: 3}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: sounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: c984bffc93a87544fb27d89ba2aa3f98, type: 3}
     - target: {fileID: 3125871259185113510, guid: 4f54f7803fc4dc34f8dc99ba585048f8,
         type: 3}
       propertyPath: m_audioClip
@@ -9716,6 +9719,11 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 2048838136}
+    - target: {fileID: 3597560783011637186, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903244}
     - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11781,6 +11789,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 754176fccab941843851a51d1ac5c832, type: 3}
     volume: 1
     pitch: 1
+  - name: book impact
+    clip: {fileID: 8300000, guid: 72d52b4597f4d8242b89223ad5056807, type: 3}
+    volume: 1
+    pitch: 1
+  - name: book defeat
+    clip: {fileID: 8300000, guid: 4b7947d67c183e6478fc8593235d1ad1, type: 3}
+    volume: 1
+    pitch: 1
 --- !u!4 &1573921554
 Transform:
   m_ObjectHideFlags: 0
@@ -12034,6 +12050,11 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 71376770}
+    - target: {fileID: 3597560783011637186, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903244}
     - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12617,6 +12638,11 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 1402375020}
+    - target: {fileID: 3597560783011637186, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903244}
     - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15391,6 +15417,11 @@ PrefabInstance:
       propertyPath: destination
       value: 
       objectReference: {fileID: 961796125}
+    - target: {fileID: 3597560783011637186, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903244}
     - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: m_SortingOrder
@@ -15852,6 +15883,11 @@ PrefabInstance:
       propertyPath: playerLantern
       value: 
       objectReference: {fileID: 88252741}
+    - target: {fileID: 1288342579048401776, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: facingRight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
         type: 3}
       propertyPath: playerCandle
@@ -16012,7 +16048,7 @@ PrefabInstance:
     - target: {fileID: 5279856057344236427, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8
+      value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 5279856057344236427, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
@@ -16074,6 +16110,11 @@ PrefabInstance:
       propertyPath: dxRoomLimiter
       value: 
       objectReference: {fileID: 1204920334}
+    - target: {fileID: 5279856057344236426, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fced2f71316df5541b390c953b43d518, type: 3}
 --- !u!1001 &8408322224080475940
@@ -16155,8 +16196,8 @@ PrefabInstance:
       objectReference: {fileID: 1204920334}
     - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
-      propertyPath: facingRight
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1573921553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}

@@ -72,17 +72,33 @@ public class ChangeWeapon_NN : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            bool temp = _nowSelectInstance.active;
-            _nowSelectInstance.SetActive(false);
-            _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
-            _nowSelectInstance.SetActive(temp);
+            if (lantern.activeSelf == true)
+            {
+                bool temp = _nowSelectInstance.active;
+                _nowSelectInstance.SetActive(false);
+                _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
+                _nowSelectInstance.SetActive(temp);
 
+                LightRaise = false;
+                pair[_nowSelectInstance].Drop();
+                WeaponStateUpdate();
+            }
+            else if (candle.activeSelf == true)
+            {
+                bool temp = _nowSelectInstance.active;
+                _nowSelectInstance.SetActive(false);
+                _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
+                _nowSelectInstance.SetActive(temp);
+
+                LightRaise = false;
+                pair[_nowSelectInstance].Drop();
+                WeaponStateUpdate();
+            }
 
             //For now, anne drop light when switching weapon
-            LightRaise = false;
-            pair[_nowSelectInstance].Drop();
 
-            WeaponStateUpdate();
+
+            
 
             if (lantern.activeSelf == true) //lantern on sound
                 audio.PlaySound("lantern_on/off");
