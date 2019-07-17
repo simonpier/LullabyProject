@@ -24,6 +24,8 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     Dictionary<GameObject, LightRotate_KT> pair;
 
+    Collider2D candleCollider;
+    [SerializeField] GameObject lanternCollider;
 
     //if light raise
     public bool LightRaise { get; private set; }
@@ -112,6 +114,8 @@ public class ChangeWeapon_NN : MonoBehaviour
 
             
             light.enabled = false;
+            candleCollider = candle.GetComponent<Collider2D>();
+            candleCollider.enabled = false;
 
         }
 
@@ -120,7 +124,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
 
             lightLantern.enabled = false;
-
+            lanternCollider.SetActive(false);
         }
 
     }
