@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 811801734}
   - component: {fileID: 3361751130510666940}
   - component: {fileID: 3290030797688124420}
+  - component: {fileID: 811801735}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -137,7 +138,8 @@ MonoBehaviour:
   lantern: {fileID: 8301489995467646380}
   audio: {fileID: 0}
   ui: {fileID: 0}
-  candleLight: {fileID: 0}
+  uiL: {fileID: 0}
+  check: 1
 --- !u!114 &8721089491360648436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +157,7 @@ MonoBehaviour:
   maxSpeed: 0.15
   audioM: {fileID: 0}
   gameOver: {fileID: 0}
-  source: {fileID: 0}
+  source: {fileID: 3290030797688124420}
 --- !u!50 &5337991411122789009
 Rigidbody2D:
   serializedVersion: 4
@@ -189,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8006019dc31b7144b98d675173e3dd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 500
   player: {fileID: 5337991411122789012}
   respawnPoint: {x: 0, y: 0}
 --- !u!114 &811801734
@@ -323,6 +325,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &811801735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337991411122789012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Anne
+  nameColor: {r: 0.4888407, g: 0.093983635, b: 0.6037736, a: 1}
+  soundEffect: {fileID: 0}
+  portraits: []
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: 
 --- !u!1 &8301489995467646380
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +357,7 @@ GameObject:
   - component: {fileID: 2636066558318300565}
   m_Layer: 0
   m_Name: PlayerLantern
-  m_TagString: Player_CandleCollider
+  m_TagString: Player_LanternCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +465,7 @@ GameObject:
   - component: {fileID: 7585397067998901290}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Player_CandleCollider
+  m_TagString: Player_LanternCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,11 +523,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCandle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4769616875169341714, guid: f9e68718d9ddcc548948401bd5f9451b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4769616875169341726, guid: f9e68718d9ddcc548948401bd5f9451b,
         type: 3}

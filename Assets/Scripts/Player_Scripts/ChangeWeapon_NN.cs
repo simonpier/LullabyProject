@@ -16,8 +16,10 @@ public class ChangeWeapon_NN : MonoBehaviour
     [SerializeField] AudioManager audio;
 
     InGameUI_SP candleBar;
-    Light light;
+    InGameUILantern_SP lanternBar;
+    Light light, lightLantern;
     [SerializeField] GameObject ui;
+    [SerializeField] GameObject uiL;
     GameObject _nowSelectInstance;
 
     Dictionary<GameObject, LightRotate_KT> pair;
@@ -33,7 +35,9 @@ public class ChangeWeapon_NN : MonoBehaviour
     void Start()
     {
         light = candle.GetComponent<Light>();
+        lightLantern = lantern.GetComponent<Light>();
         candleBar = ui.GetComponent<InGameUI_SP>();
+        lanternBar = uiL.GetComponent<InGameUILantern_SP>();
         pair = new Dictionary<GameObject, LightRotate_KT>();
         pair[candle] = candle.GetComponent<LightRotate_KT>();
         pair[lantern] = lantern.GetComponent<LightRotate_KT>();
@@ -94,6 +98,15 @@ public class ChangeWeapon_NN : MonoBehaviour
             light.enabled = false;
 
         }
+
+        if (lanternBar.lanternOn_Off == false)
+        {
+
+
+            lightLantern.enabled = false;
+
+        }
+
     }
 
     void WeaponStateUpdate()
