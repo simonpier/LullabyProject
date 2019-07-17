@@ -10,6 +10,7 @@ public class InGameUI_SP : MonoBehaviour
     [SerializeField] private float fillamount;
 
     [SerializeField] private Image content;
+    [SerializeField] public bool candleOn_Off = true;
 
     private const float coef = 2f; //amount of light loosing per second
     private float light = 100.0f; //max light 
@@ -26,6 +27,12 @@ public class InGameUI_SP : MonoBehaviour
 
         Handlebar();
         
+        if (content.fillAmount == 0)
+        {
+
+            CandleOff();
+
+        }
     }
 
     private void Handlebar()
@@ -39,6 +46,14 @@ public class InGameUI_SP : MonoBehaviour
     {
 
         return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+
+    }
+
+    bool CandleOff()
+    {
+
+        candleOn_Off = false;
+        return candleOn_Off;
 
     }
 }
