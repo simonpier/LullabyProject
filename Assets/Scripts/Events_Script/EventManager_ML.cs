@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventManager_ML : MonoBehaviour
 {
-    private bool lanternTaken;
+    [SerializeField] private bool lanternTaken;
     public bool LanternTaken { get => lanternTaken; set => lanternTaken = value; }
 
     // Start is called before the first frame update

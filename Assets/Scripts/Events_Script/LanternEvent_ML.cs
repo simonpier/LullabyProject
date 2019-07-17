@@ -24,7 +24,8 @@ public class LanternEvent_ML : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Return))
         {
             eventManager.LanternTaken = true;
-            Destroy(this, 0.1f);
+           
+            Destroy(gameObject, 0.1f);
         }
     }
 

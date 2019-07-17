@@ -15,17 +15,22 @@ public class ChangeWeapon_NN : MonoBehaviour
     [SerializeField] private GameObject lantern;
     [SerializeField] AudioManager audio;
 
+    Dictionary<GameObject, LightRotate_KT> pair;
+
+    #region Added by Simone and Mauro
+    [SerializeField] GameObject lanternCollider;
+    [SerializeField] GameObject ui;
+    [SerializeField] GameObject uiL;
+    [SerializeField] GameObject gameManager;
+
+    EventManager_ML eventManager;
     InGameUI_SP candleBar;
     InGameUILantern_SP lanternBar;
     Light light, lightLantern;
-    [SerializeField] GameObject ui;
-    [SerializeField] GameObject uiL;
     GameObject _nowSelectInstance;
-
-    Dictionary<GameObject, LightRotate_KT> pair;
-
     Collider2D candleCollider;
-    [SerializeField] GameObject lanternCollider;
+    #endregion
+
 
     //if light raise
     public bool LightRaise { get; private set; }
@@ -36,6 +41,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     void Start()
     {
+        eventManager = gameManager.GetComponent<EventManager_ML>();
         light = candle.GetComponent<Light>();
         lightLantern = lantern.GetComponent<Light>();
         candleBar = ui.GetComponent<InGameUI_SP>();
@@ -85,7 +91,7 @@ public class ChangeWeapon_NN : MonoBehaviour
                 pair[_nowSelectInstance].Drop();
                 WeaponStateUpdate();
             }
-            else if (candle.activeSelf == true)
+            else if (candle.activeSelf == true && eventManager.LanternTaken)
             {
                 bool temp = _nowSelectInstance.active;
                 _nowSelectInstance.SetActive(false);
