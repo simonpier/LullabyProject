@@ -16,7 +16,7 @@ public class InGameUILantern_SP : MonoBehaviour
     [SerializeField] GameObject lantern;
     private const float coef = 2f; //amount of light loosing per second
     private float light = 100.0f; //max light 
-    public bool check = false;
+    private bool check = false;
 
     // Start is called before the first frame update
     void Start()

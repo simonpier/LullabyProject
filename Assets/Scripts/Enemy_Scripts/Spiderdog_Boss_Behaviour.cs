@@ -24,6 +24,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public int pickedSound;
 
     [SerializeField] AudioSource source;
+    private bool check = true;
 
     public bool IsTriggered { get => isTriggered; set => isTriggered = value; }
 
@@ -230,8 +231,23 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             isDied = true;
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
-            pickedSound = 4;
-            source.clip = sounds[pickedSound];
+            if (source.isPlaying == false && check == true) //deth sound
+            {
+                pickedSound = 4;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+                check = false;
+            }
+
+            if (source.isPlaying == false && check == false)
+            {
+                pickedSound = 5;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.Play();
+            }
         }
     }
 
