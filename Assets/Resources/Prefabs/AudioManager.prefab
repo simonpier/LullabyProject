@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &743394881103624197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743394881103624199}
+  - component: {fileID: 743394881103624196}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &743394881103624199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743394881103624197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.687521, y: 35.807583, z: 368.1843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &743394881103624196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743394881103624197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c554dc6533436540977a8d439a1a579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: footsteps_1
+    clip: {fileID: 8300000, guid: 1c54cf06720bab6458aae3de70fe4db9, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_2
+    clip: {fileID: 8300000, guid: fb90a8eb9f49935479e642d534f18d87, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_3
+    clip: {fileID: 8300000, guid: bc8c2813613302e48a5234a6b2cd9fcb, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_4
+    clip: {fileID: 8300000, guid: dccf2082f23680245b5f310be9577def, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_5
+    clip: {fileID: 8300000, guid: 270b579b700c6f74a9bb510b593e201b, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_6
+    clip: {fileID: 8300000, guid: 9ea00cb04ac2c404d8d48519200c89d1, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: footsteps_7
+    clip: {fileID: 8300000, guid: 68237d99962d53345b472f2dc4ef160c, type: 3}
+    volume: 0
+    pitch: 0.5
+  - name: footsteps_8
+    clip: {fileID: 8300000, guid: df5671f4c2641c94d9a3694d0fdad3f0, type: 3}
+    volume: 0
+    pitch: 0.5
+  - name: lantern_Pick_up
+    clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: lantern_on/off
+    clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
+    volume: 0.057
+    pitch: 1
+  - name: candle_on
+    clip: {fileID: 8300000, guid: ceee7c838e1346042b1beeb81183d722, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: open_door
+    clip: {fileID: 8300000, guid: 1e72c321814c6784699f0061e615aa9d, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: close_door
+    clip: {fileID: 8300000, guid: dc71eb8b5a63ec44b914353f550e9584, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: open/close_door
+    clip: {fileID: 8300000, guid: 14f872d6d8d8a564d89960a3408a1018, type: 3}
+    volume: 1
+    pitch: 0.5
+  - name: spider-dog attack 1
+    clip: {fileID: 8300000, guid: e6d57708f5c510c438ad0b83ff294f0d, type: 3}
+    volume: 1
+    pitch: 1
+  - name: spider-dog attack 2
+    clip: {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
+    volume: 1
+    pitch: 1
+  - name: spider-dog defeat
+    clip: {fileID: 8300000, guid: c984bffc93a87544fb27d89ba2aa3f98, type: 3}
+    volume: 1
+    pitch: 1
+  - name: spider-dog bark
+    clip: {fileID: 8300000, guid: 754176fccab941843851a51d1ac5c832, type: 3}
+    volume: 1
+    pitch: 1

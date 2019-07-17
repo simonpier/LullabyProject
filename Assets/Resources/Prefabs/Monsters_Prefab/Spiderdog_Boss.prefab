@@ -247,6 +247,13 @@ MonoBehaviour:
   bossRoomPosDX: {fileID: 0}
   bossRoomPosSX: {fileID: 0}
   changeDirection: 0
+  sounds:
+  - {fileID: 8300000, guid: e6d57708f5c510c438ad0b83ff294f0d, type: 3}
+  - {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
+  - {fileID: 8300000, guid: 754176fccab941843851a51d1ac5c832, type: 3}
+  - {fileID: 8300000, guid: 53452f89edead564f946de898f4e5226, type: 3}
+  pickedSound: 0
+  source: {fileID: 3125871259185113510}
 --- !u!61 &1143199277
 BoxCollider2D:
   m_ObjectHideFlags: 0
