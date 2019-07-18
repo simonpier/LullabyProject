@@ -179,7 +179,9 @@ MonoBehaviour:
   playerLantern: {fileID: 0}
   audio: {fileID: 0}
   source: {fileID: 3995931525096063667}
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: be3a41e3c4934eb409bfcd3432e9a914, type: 3}
+  - {fileID: 8300000, guid: 309ab44229cc6e141b7713c6297f2458, type: 3}
 --- !u!70 &2079840135
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

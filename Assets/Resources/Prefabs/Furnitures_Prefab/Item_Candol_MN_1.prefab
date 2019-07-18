@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7620576919672538499
+--- !u!1 &8052780523677132363
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2866679525612257215}
-  - component: {fileID: 9077002679209036984}
+  - component: {fileID: 7226330454628756045}
+  - component: {fileID: 7445888052351221476}
   m_Layer: 0
-  m_Name: pile_of_books
+  m_Name: Item_Candol_MN_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2866679525612257215
+--- !u!4 &7226330454628756045
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7620576919672538499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.31889, y: -34.06, z: 0}
-  m_LocalScale: {x: 0.6113, y: 0.6113, z: 0.6113}
+  m_GameObject: {fileID: 8052780523677132363}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 75.5, y: -29, z: 0}
+  m_LocalScale: {x: 0.20606261, y: 0.20606261, z: 0.20606261}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9077002679209036984
+--- !u!212 &7445888052351221476
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7620576919672538499}
+  m_GameObject: {fileID: 8052780523677132363}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -68,12 +68,12 @@ SpriteRenderer:
   m_SortingLayerID: 1943455861
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b5d59e680b778794b91951bfc4008d58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0bc619ded315af548953bbf5d40b71c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
