@@ -101,4 +101,26 @@ public class TargetCamera_KT : MonoBehaviour
             }
         }
     }
+    public void Reset()
+    {
+        var pos = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _z));
+        Vector2 distance = new Vector2(pos.x, pos.y) - player.SXLimite;
+        transform.position = new Vector3(transform.position.x - distance.x, transform.position.y - distance.y, transform.position.z);
+        if (distance.x > 0 && (transform.position.x < (player.SXLimite.x + player.DXLimite.x) / 2.0f))
+        {
+            constraint.translationAxis |= Axis.X;
+        }
+        if (distance.x < 0 && (transform.position.x > (player.SXLimite.x + player.DXLimite.x) / 2.0f))
+        {
+            constraint.translationAxis |= Axis.X;
+        }
+        if (distance.y > 0 && (transform.position.y < (player.SXLimite.y + player.DXLimite.y) / 2.0f))
+        {
+            constraint.translationAxis |= Axis.Y;
+        }
+        if (distance.y < 0 && (transform.position.y > (player.SXLimite.y + player.DXLimite.y) / 2.0f))
+        {
+            constraint.translationAxis |= Axis.Y;
+        }
+    }
 }

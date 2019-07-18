@@ -152,6 +152,8 @@ public class PlayerMove_KT : MonoBehaviour
 
         SXLimite = new Vector2(_sx.position.x, _sx.position.y);
         DXLimite = new Vector2(_dx.position.x, _dx.position.y);
+
+        Camera.current.gameObject.GetComponent<TargetCamera_KT>().Reset();
     }
 
 
