@@ -2769,12 +2769,6 @@ PrefabInstance:
       objectReference: {fileID: 1813747279}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b6238eec8c0e54c9a25cf086edf82e, type: 3}
---- !u!82 &229433358 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8024894039189543510, guid: fced2f71316df5541b390c953b43d518,
-    type: 3}
-  m_PrefabInstance: {fileID: 5279856058434534474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &232842527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11877,162 +11871,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534915281}
   m_CullTransparentMesh: 0
---- !u!1 &1573921552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1573921554}
-  - component: {fileID: 1573921553}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1573921553
+--- !u!114 &1573921553 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3979002970788487370, guid: e6caf2d258f13944197ca31f422c67ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 3979002969944376283}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573921552}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c554dc6533436540977a8d439a1a579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: footsteps_1
-    clip: {fileID: 8300000, guid: 1c54cf06720bab6458aae3de70fe4db9, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_2
-    clip: {fileID: 8300000, guid: fb90a8eb9f49935479e642d534f18d87, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_3
-    clip: {fileID: 8300000, guid: bc8c2813613302e48a5234a6b2cd9fcb, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_4
-    clip: {fileID: 8300000, guid: dccf2082f23680245b5f310be9577def, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_5
-    clip: {fileID: 8300000, guid: 270b579b700c6f74a9bb510b593e201b, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_6
-    clip: {fileID: 8300000, guid: 9ea00cb04ac2c404d8d48519200c89d1, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: footsteps_7
-    clip: {fileID: 8300000, guid: 68237d99962d53345b472f2dc4ef160c, type: 3}
-    volume: 0
-    pitch: 0.5
-  - name: footsteps_8
-    clip: {fileID: 8300000, guid: df5671f4c2641c94d9a3694d0fdad3f0, type: 3}
-    volume: 0
-    pitch: 0.5
-  - name: lantern_Pick_up
-    clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: lantern_on/off
-    clip: {fileID: 8300000, guid: c349ee4c6c562044d801a70ba8f534d3, type: 3}
-    volume: 0.057
-    pitch: 1
-  - name: candle_on
-    clip: {fileID: 8300000, guid: ceee7c838e1346042b1beeb81183d722, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: open_door
-    clip: {fileID: 8300000, guid: 1e72c321814c6784699f0061e615aa9d, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: close_door
-    clip: {fileID: 8300000, guid: dc71eb8b5a63ec44b914353f550e9584, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: open/close_door
-    clip: {fileID: 8300000, guid: 14f872d6d8d8a564d89960a3408a1018, type: 3}
-    volume: 1
-    pitch: 0.5
-  - name: spider-dog attack 1
-    clip: {fileID: 8300000, guid: e6d57708f5c510c438ad0b83ff294f0d, type: 3}
-    volume: 1
-    pitch: 1
-  - name: spider-dog attack 2
-    clip: {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
-    volume: 1
-    pitch: 1
-  - name: spider-dog defeat
-    clip: {fileID: 8300000, guid: c984bffc93a87544fb27d89ba2aa3f98, type: 3}
-    volume: 1
-    pitch: 1
-  - name: spider-dog bark
-    clip: {fileID: 8300000, guid: 754176fccab941843851a51d1ac5c832, type: 3}
-    volume: 1
-    pitch: 1
-  - name: book impact
-    clip: {fileID: 8300000, guid: 72d52b4597f4d8242b89223ad5056807, type: 3}
-    volume: 1
-    pitch: 1
-  - name: book defeat
-    clip: {fileID: 8300000, guid: 4b7947d67c183e6478fc8593235d1ad1, type: 3}
-    volume: 1
-    pitch: 1
-  - name: door defeat
-    clip: {fileID: 8300000, guid: 4ce6a6175f8e58d4285efdafdab53eea, type: 3}
-    volume: 1
-    pitch: 1
-  - name: door transformation
-    clip: {fileID: 8300000, guid: 8a5d07dc978567a449c6f9e02c9978ef, type: 3}
-    volume: 1
-    pitch: 1
-  - name: vacuum transformation
-    clip: {fileID: 8300000, guid: 7204104019478244f904167fd76b6e87, type: 3}
-    volume: 1
-    pitch: 1
-  - name: vacuum defeat
-    clip: {fileID: 8300000, guid: 7204104019478244f904167fd76b6e87, type: 3}
-    volume: 1
-    pitch: 1
-  - name: lamp transformation
-    clip: {fileID: 8300000, guid: 0d6c136b163525344af0962199e1ef35, type: 3}
-    volume: 1
-    pitch: 1
-  - name: lamp defeat
-    clip: {fileID: 8300000, guid: ea1916d5ffea7e54ea9ee3c472afc404, type: 3}
-    volume: 1
-    pitch: 1
-  - name: chandelier transformation
-    clip: {fileID: 8300000, guid: 91839d8307d978341b7e467e6539866f, type: 3}
-    volume: 1
-    pitch: 1
-  - name: chandelier defeat
-    clip: {fileID: 8300000, guid: 7e109528be2a6464da75f81abc5c37af, type: 3}
-    volume: 1
-    pitch: 1
---- !u!4 &1573921554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573921552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.687521, y: 35.807583, z: 368.1843}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585403801
 GameObject:
   m_ObjectHideFlags: 0
@@ -16228,6 +16078,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e29c0ef8b735ca4db0b74ba42e94a76, type: 3}
+--- !u!1001 &3979002969944376283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3979002970788487371, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.687521
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 35.807583
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 368.1843
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979002970788487369, guid: e6caf2d258f13944197ca31f422c67ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6caf2d258f13944197ca31f422c67ee, type: 3}
 --- !u!1001 &5264857555656535280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16309,11 +16228,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VacuumMonster
       objectReference: {fileID: 0}
-    - target: {fileID: 5279856057344236535, guid: fced2f71316df5541b390c953b43d518,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5279856057344236427, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16381,19 +16295,9 @@ PrefabInstance:
       objectReference: {fileID: 1204920334}
     - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
-      propertyPath: source
-      value: 
-      objectReference: {fileID: 229433358}
-    - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
-        type: 3}
       propertyPath: audio
       value: 
       objectReference: {fileID: 1573921553}
-    - target: {fileID: 5279856057344236426, guid: fced2f71316df5541b390c953b43d518,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fced2f71316df5541b390c953b43d518, type: 3}
 --- !u!1001 &8408322224080475940
