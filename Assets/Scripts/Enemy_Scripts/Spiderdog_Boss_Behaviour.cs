@@ -24,7 +24,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     public int pickedSound;
 
     [SerializeField] AudioSource source;
-    private bool check = true;
+    private bool check = true, firstEncounter = true;
 
     public bool IsTriggered { get => isTriggered; set => isTriggered = value; }
 
@@ -68,14 +68,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
                         changeDirection = true;
                     }
-                    if (source.isPlaying == false)//steps sound
+
+                    if (source.isPlaying == false && firstEncounter == true) //steps sound
                     {
                         source.volume = Random.Range(0.1f, 0.15f);
                         source.pitch = Random.Range(0.8f, 1.5f);
                         source.Play();
-
                     }
-
                 }
                 else if (changeDirection == true)
                 {
@@ -87,12 +86,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         changeDirection = false;
                     }
 
-                    if (source.isPlaying == false) //steps sound
+                    if (source.isPlaying == false && firstEncounter == true) //steps sound
                     {
                         source.volume = Random.Range(0.1f, 0.15f);
                         source.pitch = Random.Range(0.8f, 1.5f);
                         source.Play();
-
                     }
                 }
             }
@@ -136,17 +134,25 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             anim.SetBool("attack", false);
             Flip();
-            
+
             if (!anim.GetBool("buttAttack") && !anim.GetBool("slash"))
             {
                 Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             }
-            pickedSound = 3;
-            source.clip = sounds[pickedSound];
+
+            if (source.isPlaying == false) //steps sound
+            {
+                pickedSound = 3;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.volume = Random.Range(0.1f, 0.15f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+            }
         }
         else if (distance <= attackRange)
         {
+            firstEncounter = false;
             anim.SetBool("attack", true);
             attackRandomizer = (Random.Range(0, 2));
             if (attackRandomizer == 0)
@@ -170,7 +176,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 anim.SetBool("slash", true);
                 if (source.isPlaying == false) //attack sound
                 {
-                    pickedSound = Random.Range(1 , 3);
+                    pickedSound = Random.Range(1, 3);
                     gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                     source.clip = sounds[pickedSound];
                     source.pitch = Random.Range(0.8f, 1.5f);
