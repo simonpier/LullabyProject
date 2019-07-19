@@ -29,7 +29,7 @@ public class Checkpoint_ML : MonoBehaviour
     Collider2D candleCollider;
     [SerializeField] GameObject lanternCollider;
 
-    [SerializeField] GameObject halo;
+    [SerializeField] GameObject lightSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +50,7 @@ public class Checkpoint_ML : MonoBehaviour
         {
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
             anim.SetBool("activated", true);
-            halo.SetActive(true);
+            lightSource.SetActive(true);
 
             ui.Light = 100f;
             uiL.Light = 100f;
