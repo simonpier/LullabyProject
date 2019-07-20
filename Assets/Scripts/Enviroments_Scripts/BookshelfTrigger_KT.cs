@@ -23,11 +23,11 @@ public class BookshelfTrigger_KT : MonoBehaviour
     {
         if ((other.gameObject.tag == "Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Return) && !isPlayerOn)
+            if (Input.GetKeyDown(KeyCode.Q) && warpHeight.transform.position.y - 0.01f > other.transform.position.y)
             {
                 Climb(other.gameObject);
             }
-            else if(Input.GetKeyDown(KeyCode.Return) && isPlayerOn) // DownKeyCode
+            else if(Input.GetKeyDown(KeyCode.Q) && warpHeight.transform.position.y - 0.01f <= other.transform.position.y) // DownKeyCode
             {
                 Dismount(other.gameObject);
             }
@@ -38,8 +38,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
     {
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Climb);
-        isPlayerOn = true;
-        moveArea.SetActive(true);
+        if(moveArea) moveArea.SetActive(true);
         warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
     }
 
@@ -47,8 +46,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
     {
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Dismount);
-        isPlayerOn = false;
-        moveArea.SetActive(false);
+        if (moveArea) moveArea.SetActive(false);
         warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
     }
 }

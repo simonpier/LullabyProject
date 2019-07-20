@@ -14,7 +14,7 @@ public class TargetCamera_KT : MonoBehaviour
     Vector2 offset;
     float _z;
     
-    void Start()
+    void Awake()
     {
         player = PlayerMove_KT.Instance;
         constraint = GetComponent<PositionConstraint>();

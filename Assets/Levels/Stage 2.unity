@@ -1888,6 +1888,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1039903244}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1001 &160740460
@@ -2994,6 +2999,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1039903244}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &214292836
@@ -3667,6 +3677,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &325619750
@@ -4377,6 +4392,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2910347224976568427, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
@@ -12288,6 +12308,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1039903244}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &1295008287
@@ -12870,6 +12895,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
+    - target: {fileID: 2128422530492307658, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &1416199317 stripped
@@ -17360,6 +17390,11 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 975725300}
+    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1039903250}
     - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
       propertyPath: audio
       value: 
@@ -18823,11 +18858,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1186440961}
     m_Modifications:
-    - target: {fileID: 8262010437405228835, guid: 9136795477fddaa4a9b387fcd4d0ac82,
-        type: 3}
-      propertyPath: m_Name
-      value: Light
-      objectReference: {fileID: 0}
     - target: {fileID: 8262010437405228847, guid: 9136795477fddaa4a9b387fcd4d0ac82,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18882,6 +18912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262010437405228835, guid: 9136795477fddaa4a9b387fcd4d0ac82,
+        type: 3}
+      propertyPath: m_Name
+      value: Light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9136795477fddaa4a9b387fcd4d0ac82, type: 3}
