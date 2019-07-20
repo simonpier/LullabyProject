@@ -163,6 +163,8 @@ public class PlayerMove_KT : MonoBehaviour
     float verticalTimer = 0;
     float startHeight;
     float goalHeight;
+    public bool FrontAnim { get; set; }
+    public bool BackAnim { get; set; }
 
     public void StartVerticalAnimate(float height, VertAnimationType type)
     {
@@ -171,6 +173,8 @@ public class PlayerMove_KT : MonoBehaviour
         verticalTimer = verticalAnimateTime;
         startHeight = transform.position.y;
         goalHeight = height;
+        FrontAnim = type == VertAnimationType.Dismount;
+        BackAnim = type == VertAnimationType.Climb;
     }
 
     void VerticalAnimation()
@@ -180,6 +184,7 @@ public class PlayerMove_KT : MonoBehaviour
         {
             MovingVertAnimation = VertAnimationType.Default;
             transform.position = new Vector3(transform.position.x, goalHeight, transform.position.z);
+            FrontAnim = BackAnim = false; //dont animate at same time
         }
         else
         {
