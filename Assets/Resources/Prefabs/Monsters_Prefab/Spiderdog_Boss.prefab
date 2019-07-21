@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 6543202721652900865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.19, y: -2.967002, z: 49.67578}
-  m_LocalScale: {x: 2.6705225, y: 2.6705225, z: 2.6705225}
+  m_LocalScale: {x: 2.1122506, y: 2.1122506, z: 2.1122506}
   m_Children:
   - {fileID: 1324648876}
   - {fileID: 766323230}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4447b0aba6bd941939af624673ea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformRange: 14.78
+  transformRange: 8.95
   attackRange: 5.87
   speed: 5
   hitPoint: 5
@@ -242,7 +242,7 @@ MonoBehaviour:
   AttackCollider: {fileID: 766323229}
   sxRoomLimiter: {fileID: 0}
   dxRoomLimiter: {fileID: 0}
-  landDistance: 3.5
+  landDistance: 2
   walkTime: 10
   SlashCollider: {fileID: 1324648875}
   bossRoomPosDX: {fileID: 0}
@@ -253,7 +253,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
   - {fileID: 8300000, guid: 754176fccab941843851a51d1ac5c832, type: 3}
   - {fileID: 8300000, guid: 53452f89edead564f946de898f4e5226, type: 3}
-  - {fileID: 8300000, guid: c984bffc93a87544fb27d89ba2aa3f98, type: 3}
   pickedSound: 0
   source: {fileID: 3125871259185113510}
 --- !u!61 &1143199277
