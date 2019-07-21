@@ -2463,7 +2463,7 @@ SpriteRenderer:
   m_Size: {x: 3.84, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &204908914
@@ -11809,7 +11809,7 @@ SpriteRenderer:
   m_Size: {x: 3.84, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1403268889
@@ -14016,7 +14016,7 @@ SpriteRenderer:
   m_Size: {x: 3.84, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1672066238
@@ -14322,6 +14322,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d41b8ba9f29fafb4f8f1d90c4b7c49cb,
         type: 3}
+    - target: {fileID: 2367370324662019910, guid: 158725ac85181e94aa1cf0e696e0ec79,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1842784498, guid: 158725ac85181e94aa1cf0e696e0ec79, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -17100,13 +17105,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2063666598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b9a595f058c5e4c9f7e865f06c53b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c2d777d9424c0440897ac99588fac9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 811801725}
-  mainCamera: {fileID: 1039903244}
-  check: 0
-  endingDistanceY: 4.7
+  halo: {fileID: 1750934937}
+  slidingWall: {fileID: 115217329}
+  moveTime: 2
+  endingDistance: 10
 --- !u!1 &2066489101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809048700413640181, guid: f7a270a62e16c6a44985a8cf9c1ab733,
