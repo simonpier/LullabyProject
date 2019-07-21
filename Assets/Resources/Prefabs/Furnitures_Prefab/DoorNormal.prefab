@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2c5e99a10c9294e94bda7d916a0cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
 --- !u!1 &3597560783011637184
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +188,7 @@ MonoBehaviour:
   doorNormal: {fileID: 3597560782186770575}
   destination: {fileID: 0}
   player: {fileID: 0}
+  gameCamera: {fileID: 0}
 --- !u!61 &3597560783011637189
 BoxCollider2D:
   m_ObjectHideFlags: 0
