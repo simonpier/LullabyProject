@@ -38,6 +38,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
             {
                 if (canMove && distance > attackRange)
                 {
+
                     Flip();
                     if (!anim.GetBool("attack"))
                     {
@@ -56,7 +57,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                                 pickedSound = 1;
                                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                                 source.clip = sounds[pickedSound];
-                                source.volume = Random.Range(0.8f, 1f);
+                                source.volume = Random.Range(0.2f, 0.25f);
                                 source.pitch = Random.Range(0.8f, 1.5f);
                                 source.Play();
 
@@ -68,6 +69,13 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                 {
                     anim.SetBool("idle", false);
                     anim.SetBool("attack", true);
+                    if (source.clip.name == "LLB_MDF_FNL_VacuumTransformation_Version_01")
+                    {
+
+                        source.Stop();
+
+                    }
+
                     if (source.isPlaying == false)
                     {
                         pickedSound = 0;

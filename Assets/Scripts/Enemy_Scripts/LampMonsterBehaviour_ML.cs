@@ -87,7 +87,14 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
                 else if (distance <= attackRange)
                 {
                     anim.SetBool("attack", true);
+                    if (source.clip.name == "LLB_VM_SFX_FNL_LampWalkLoop")
+                    {
+
+                        source.Stop();
+
+                    }
                     
+
                     if (source.isPlaying == false)
                     {
                         pickedSound = 1;
