@@ -30,6 +30,8 @@ public class Checkpoint_ML : MonoBehaviour
     [SerializeField] GameObject lanternCollider;
 
     [SerializeField] GameObject lightSource;
+
+    [SerializeField] AudioManager audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class Checkpoint_ML : MonoBehaviour
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
             anim.SetBool("activated", true);
             lightSource.SetActive(true);
+            audio.PlaySound("checkpoint bell");
 
             ui.Light = 100f;
             uiL.Light = 100f;
