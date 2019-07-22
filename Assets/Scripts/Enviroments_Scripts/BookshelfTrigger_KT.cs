@@ -9,9 +9,14 @@ public class BookshelfTrigger_KT : MonoBehaviour
     [SerializeField]
     GameObject moveArea;
     public bool isPlayerOn { get; set; }
+
+    [SerializeField] GameObject gameManager;
+    EventManager_ML eventManager;
+
     void Start()
     {
         isPlayerOn = false;
+        eventManager = gameManager.GetComponent<EventManager_ML>();
     }
 
     void Update()
@@ -29,6 +34,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
             }
             else if(Input.GetKeyDown(KeyCode.Q) && warpHeight.transform.position.y - 0.01f <= other.transform.position.y) // DownKeyCode
             {
+
                 Dismount(other.gameObject);
             }
         }
@@ -36,6 +42,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
     void Climb(GameObject player)
     {
+        eventManager.IsPlayerOnLibrary = true;
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Climb);
         if(moveArea) moveArea.SetActive(true);
@@ -44,6 +51,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
     public void Dismount(GameObject player)
     {
+        eventManager.IsPlayerOnLibrary = false;
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Dismount);
         if (moveArea) moveArea.SetActive(false);

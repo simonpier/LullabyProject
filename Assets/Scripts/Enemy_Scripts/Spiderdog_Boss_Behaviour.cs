@@ -11,13 +11,17 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     [SerializeField] private Collider2D SlashCollider;
     [SerializeField] GameObject bossRoomPosDX;
     [SerializeField] GameObject bossRoomPosSX;
+    [SerializeField] GameObject gameManager;
 
     Vector3 originalBigness;
+    EventManager_ML eventManager;
+
     private int attackRandomizer;
     private bool isTriggered;
     private bool isLighted;
-    [SerializeField] private bool changeDirection;
+    private bool changeDirection;
     private float landingPos;
+    [SerializeField] private float timeWithoutDamages;
 
     public AudioClip[] sounds;
     
@@ -33,6 +37,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         base.Start();
         originalBigness = transform.localScale;
         landingPos = transform.position.y - landDistance ;
+        eventManager = gameManager.GetComponent<EventManager_ML>();
     }
 
     public override void Update()
@@ -98,19 +103,33 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             if (isLighted)
             {
                 anim.SetBool("inRange", true);
-                if (target.position.y <= transform.position.y)
+                if (!eventManager.IsPlayerOnLibrary)
                 {
-                    NormalBehaviour(distance);
+                    FirstPhase(distance);
                     if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
                     {
                         anim.SetBool("lookUp", false);
                     }
                 }
-                else if (target.position.y > transform.position.y)
+                else if (eventManager.IsPlayerOnLibrary)
                 {
-                    if (!anim.GetBool("lookUp") && distance >= transformRange)
+                    if (!anim.GetBool("lookUp") && distance <= transformRange)
                     {
                         anim.SetBool("lookUp", true);
+                    }
+                    else if (!anim.GetBool("lookUp") && distance > transformRange )
+                    {
+                        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                    }
+                    else if (anim.GetBool("lookUp") && timeWithoutDamages >= 0)
+                    {
+                        timeWithoutDamages -= 1.0f * Time.deltaTime;
+                    }
+
+                    if (timeWithoutDamages <= 0)
+                    {
+
                     }
                 }
             }
@@ -128,7 +147,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         }
     }
 
-    private void NormalBehaviour(float distance)
+    private void FirstPhase(float distance)
     {
         if (distance > attackRange && anim.GetBool("inRange"))
         {
@@ -228,12 +247,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             isTakingDamage = true;
             TakeDamage();
         }
-
-        //if (collision.tag == ("Edge"))
-       // {
-          //  Debug.Log("aa");
-         //   changeDirection = !changeDirection;
-       // }
     }
 
     public override void DeathChecker()
