@@ -15,7 +15,10 @@ GameObject:
   - component: {fileID: 3467383318878927129}
   - component: {fileID: 3467383318878927130}
   - component: {fileID: 3467383318878927135}
-  - component: {fileID: 3467383318878927128}
+  - component: {fileID: -3548365540674452342}
+  - component: {fileID: 8638908052368371304}
+  - component: {fileID: 4058170858810806326}
+  - component: {fileID: 1685834993323985264}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -50,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 469, y: 41}
+  scrollPos: {x: 471, y: 41}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -63,7 +66,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 3467383318878927109}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 3467383318878927135}
   variables: []
   description: 
   stepPause: 0
@@ -89,20 +93,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -87
-    y: 63
-    width: 167
+    x: -81
+    y: 66
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
-  blockName: Stage 1 - small floor
+  blockName: tutorial 1
   description: 
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 3467383318878927110}
-  - {fileID: 3467383318878927128}
   - {fileID: 3467383318878927135}
+  - {fileID: 1685834993323985264}
 --- !u!114 &3467383318878927110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,14 +148,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 122
-    y: 64
-    width: 183
+    x: 111
+    y: 68
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 2
-  blockName: Stage 1 - medium floor
+  blockName: tutorial 2
   description: 
   eventHandler: {fileID: 0}
   commandList:
@@ -197,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 0
-  storyText: Hello?! Is anybody there?
+  storyText: The voices, again... oh, no! Stop it, stop it NOW. Who the hell are you?
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -210,7 +214,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &3467383318878927128
+--- !u!114 &-3548365540674452342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,12 +223,97 @@ MonoBehaviour:
   m_GameObject: {fileID: 3467383318878927111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 5
+  nodeRect:
+    serializedVersion: 2
+    x: 299
+    y: 66
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 6
+  blockName: tutorial 3
+  description: 
+  eventHandler: {fileID: 0}
+  commandList: []
+--- !u!114 &8638908052368371304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467383318878927111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 476
+    y: 62
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 7
+  blockName: tutorial 4
+  description: 
+  eventHandler: {fileID: 0}
+  commandList: []
+--- !u!114 &4058170858810806326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467383318878927111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 652
+    y: 63
+    width: 120
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 8
+  blockName: tutorial 5
+  description: 
+  eventHandler: {fileID: 0}
+  commandList: []
+--- !u!114 &1685834993323985264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467383318878927111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 9
   indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 2
-  durationOLD: 0
+  storyText: "Fancy interacting with what you see around yourself? Well, why don\u2019t
+    you press the E key?"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
