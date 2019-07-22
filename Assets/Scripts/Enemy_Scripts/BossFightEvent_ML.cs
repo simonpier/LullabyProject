@@ -63,7 +63,7 @@ public class BossFightEvent_ML : MonoBehaviour
         spiderBossAnim.Play("Spiderdog_Attack");
         yield return new WaitForSeconds(1f);
 
-        playerAnim.SetFloat("Speed", 0.0f);
+        playerAnim.enabled = false;
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
         cinBar.Hide(0.1f);
         yield return new WaitForSeconds(lerpDuration);
@@ -73,5 +73,6 @@ public class BossFightEvent_ML : MonoBehaviour
         playerScript.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
         spiderbossBehaviour.IsTriggered = true;
+        playerAnim.enabled = true;
     }
 }
