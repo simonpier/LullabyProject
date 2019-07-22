@@ -8,6 +8,10 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     [SerializeField] private float landDistance = 3.5f;
     [SerializeField] private float walkTime = 10f;
+    [SerializeField] private float totalTimeWithoutDamages = 5f;
+    [SerializeField] private float normalSpeed = 5f;
+    [SerializeField] private float rampageSpeed = 10f;
+    [SerializeField] private float rampageTime = 5f;
     [SerializeField] private Collider2D SlashCollider;
     [SerializeField] GameObject bossRoomPosDX;
     [SerializeField] GameObject bossRoomPosSX;
@@ -18,10 +22,14 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     private int attackRandomizer;
     private bool isTriggered;
+    private bool rampage;
+    private bool secondPhase;
+    private bool canTakeDamage = true;
     private bool isLighted;
     private bool changeDirection;
     private float landingPos;
-    [SerializeField] private float timeWithoutDamages;
+    private float timeWithoutDamages;
+    private int rampageCounter = 0;
 
     public AudioClip[] sounds;
     
@@ -38,6 +46,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         originalBigness = transform.localScale;
         landingPos = transform.position.y - landDistance ;
         eventManager = gameManager.GetComponent<EventManager_ML>();
+        timeWithoutDamages = totalTimeWithoutDamages;
     }
 
     public override void Update()
@@ -62,88 +71,165 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         float distance = Vector2.Distance(target.position, transform.position);
 
         if(isTriggered)
-        {         
-            if(!isLighted)
+        {
+            if (hitPoint <= 0 && rampageCounter <= 1)
             {
-                if (changeDirection == false)
+                if (rampageCounter <= 1)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, bossRoomPosSX.transform.position, speed * Time.deltaTime);
-                    if (transform.position.x <= bossRoomPosSX.transform.position.x)
-                    {
-                        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
-                        changeDirection = true;
-                    }
+                    Rampage();
+                }
+                else if (rampageCounter > 1 && secondPhase == true)
+                {
+                    //Play loud cry
+                    Invoke("UpsideDown", 1f);               
+                }
+            }
 
-                    if (source.isPlaying == false && firstEncounter == true) //steps sound
+            if (!rampage)
+            {
+                if (!isLighted)
+                {
+                    if (changeDirection == false)
                     {
-                        source.volume = Random.Range(0.1f, 0.15f);
-                        source.pitch = Random.Range(0.8f, 1.5f);
-                        source.Play();
+                        transform.position = Vector2.MoveTowards(transform.position, bossRoomPosSX.transform.position, speed * Time.deltaTime);
+                        if (transform.position.x <= bossRoomPosSX.transform.position.x)
+                        {
+                            transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                            changeDirection = true;
+                        }
+
+                        if (source.isPlaying == false && firstEncounter == true) //steps sound
+                        {
+                            source.volume = Random.Range(0.1f, 0.15f);
+                            source.pitch = Random.Range(0.8f, 1.5f);
+                            source.Play();
+                        }
+                    }
+                    else if (changeDirection == true)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, bossRoomPosDX.transform.position, speed * Time.deltaTime);
+
+                        if (transform.position.x >= bossRoomPosDX.transform.position.x)
+                        {
+                            transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                            changeDirection = false;
+                        }
+
+                        if (source.isPlaying == false && firstEncounter == true) //steps sound
+                        {
+                            source.volume = Random.Range(0.1f, 0.15f);
+                            source.pitch = Random.Range(0.8f, 1.5f);
+                            source.Play();
+                        }
                     }
                 }
-                else if (changeDirection == true)
+
+                if (isLighted)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, bossRoomPosDX.transform.position, speed * Time.deltaTime);
-
-                    if (transform.position.x >= bossRoomPosDX.transform.position.x)
+                    anim.SetBool("inRange", true);
+                    if (!eventManager.IsPlayerOnLibrary)
                     {
-                        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
-                        changeDirection = false;
+                        FirstPhase(distance);
+                        if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
+                        {
+                            anim.SetBool("lookUp", false);
+                        }
                     }
-
-                    if (source.isPlaying == false && firstEncounter == true) //steps sound
+                    else if (eventManager.IsPlayerOnLibrary)
                     {
-                        source.volume = Random.Range(0.1f, 0.15f);
-                        source.pitch = Random.Range(0.8f, 1.5f);
-                        source.Play();
+                        if (!anim.GetBool("lookUp") && distance <= transformRange)
+                        {
+                            anim.SetBool("lookUp", true);
+                        }
+                        else if (!anim.GetBool("lookUp") && distance > transformRange)
+                        {
+                            Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+                            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                        }
+                        else if (anim.GetBool("lookUp") && timeWithoutDamages >= 0)
+                        {
+                            timeWithoutDamages -= 1.0f * Time.deltaTime;
+                        }
+
+                        if (timeWithoutDamages <= 0)
+                        {
+                            isLighted = false;
+                            timeWithoutDamages = totalTimeWithoutDamages;
+                            anim.SetBool("lookUp", false);
+                        }
                     }
                 }
             }
 
-            if (isLighted)
-            {
-                anim.SetBool("inRange", true);
-                if (!eventManager.IsPlayerOnLibrary)
-                {
-                    FirstPhase(distance);
-                    if (target.position.y <= transform.position.y && anim.GetBool("lookUp"))
-                    {
-                        anim.SetBool("lookUp", false);
-                    }
-                }
-                else if (eventManager.IsPlayerOnLibrary)
-                {
-                    if (!anim.GetBool("lookUp") && distance <= transformRange)
-                    {
-                        anim.SetBool("lookUp", true);
-                    }
-                    else if (!anim.GetBool("lookUp") && distance > transformRange )
-                    {
-                        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
-                        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-                    }
-                    else if (anim.GetBool("lookUp") && timeWithoutDamages >= 0)
-                    {
-                        timeWithoutDamages -= 1.0f * Time.deltaTime;
-                    }
-
-                    if (timeWithoutDamages <= 0)
-                    {
-
-                    }
-                }
-            }
         }
     }
 
-    private IEnumerator BossPatrol()
+    public override void EnemyReset()
     {
-        while (!isLighted)
+        anim.SetBool("reset", true);
+        hitPoint = maxHitPoint;
+        transform.position = respawnPoint;
+        transform.localScale = originalBigness;
+        anim.SetBool("death", false);
+        anim.SetBool("inRange", false);
+
+    }
+
+    public override void Respawn()
+    {
+        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
-            transform.DOMoveX(bossRoomPosSX.transform.position.x, walkTime);
-            yield return new WaitForSeconds(walkTime);
-            transform.DOMoveX(bossRoomPosDX.transform.position.x, walkTime);
-            yield return new WaitForSeconds(walkTime);
+            EnemyReset();
+        }
+    }
+
+    public override void TakeDamage()
+    {
+        if (canTakeDamage == true)
+        {
+            base.TakeDamage();
+        }
+
+    }
+
+    public override void OnTriggerStay2D(Collider2D collision)
+    {
+        if (hitPoint <= 0)
+        {
+            isTakingDamage = false;
+        }
+        else if (collision.tag == ("Player_LanternCollider") && hitPoint > 0)
+        {
+            isTakingDamage = true;
+            TakeDamage();
+        }
+    }
+
+    public override void DeathChecker()
+    {
+        if (canDie && hitPoint <= 0)
+        {
+            anim.SetBool("death", true);
+            isDied = true;
+            transform.DOScale(1f, 2f);
+            transform.DOMoveY(landingPos, 2f);
+            if (source.isPlaying == false && check == true) //deth sound
+            {
+                pickedSound = 4;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+                check = false;
+            }
+
+            if (source.isPlaying == false && check == false)
+            {
+                pickedSound = 5;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.Play();
+            }
         }
     }
 
@@ -217,64 +303,78 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     }
 
-    public override void EnemyReset()
+    private void Rampage()
     {
-        anim.SetBool("reset", true);
-        hitPoint = maxHitPoint;
-        transform.position = respawnPoint;
-        transform.localScale = originalBigness;
-        anim.SetBool("death", false);
-        anim.SetBool("inRange", false);
-
-    }
-
-    public override void Respawn()
-    {
-        if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
+        if (rampage == false)
         {
-            EnemyReset();
+            anim.SetBool("buttAttack", false);
+            anim.SetBool("slash", false);
+            anim.SetBool("attack", false);
+            speed = rampageSpeed;
+            rampage = true;
+            canTakeDamage = false;
         }
-    }
 
-    public override void OnTriggerStay2D(Collider2D collision)
-    {
-        if (hitPoint <= 0)
+        if (changeDirection == false)
         {
-            isTakingDamage = false;
-        }
-        else if (collision.tag == ("Player_LanternCollider") && hitPoint > 0)
-        {
-            isTakingDamage = true;
-            TakeDamage();
-        }
-    }
-
-    public override void DeathChecker()
-    {
-        if (canDie && hitPoint <= 0)
-        {
-            anim.SetBool("death", true);
-            isDied = true;
-            transform.DOScale(1f, 2f);
-            transform.DOMoveY(landingPos, 2f);
-            if (source.isPlaying == false && check == true) //deth sound
+            transform.position = Vector2.MoveTowards(transform.position, bossRoomPosSX.transform.position, speed * Time.deltaTime);
+            if (transform.position.x <= bossRoomPosSX.transform.position.x)
             {
-                pickedSound = 4;
-                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-                source.clip = sounds[pickedSound];
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                changeDirection = true;
+            }
+
+            if (source.isPlaying == false && firstEncounter == true) //steps sound
+            {
+                source.volume = Random.Range(0.1f, 0.15f);
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
-                check = false;
+            }
+        }
+        else if (changeDirection == true)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, bossRoomPosDX.transform.position, speed * Time.deltaTime);
+
+            if (transform.position.x >= bossRoomPosDX.transform.position.x)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                changeDirection = false;
             }
 
-            if (source.isPlaying == false && check == false)
+            if (source.isPlaying == false && firstEncounter == true) //steps sound
             {
-                pickedSound = 5;
-                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.1f, 0.15f);
+                source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
             }
         }
+        Invoke("RampageReset", rampageTime);
+    }
+
+    private void RampageReset()
+    {
+        rampage = false;
+        canTakeDamage = true;
+        hitPoint = maxHitPoint;
+        speed = normalSpeed;
+        isLighted = false;
+        rampageCounter++;
+    }
+
+    private void UpsideDown()
+    {
+        rampage = true;
+        transform.localScale = new Vector2 (transform.localScale.x, transform.localScale.y*-1);
+        //transform.DOMoveY()
+        hitPoint = maxHitPoint;
+        canDie = true;
+        isLighted = true;
+        Invoke("ResetUpsideDown", 1f);
+    }
+
+    private void ResetUpsideDown()
+    {
+        rampage = false;
     }
 
 
