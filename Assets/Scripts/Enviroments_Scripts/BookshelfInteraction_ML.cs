@@ -9,6 +9,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
     [SerializeField] GameObject slidingWall;
     [SerializeField] private float moveTime;
     [SerializeField] private float endingDistance;
+    [SerializeField] AudioManager audio;
 
     private float endingPosition;
 
@@ -21,7 +22,8 @@ public class BookshelfInteraction_ML : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player")
         {
-            slidingWall.transform.DOMoveY(endingPosition, moveTime);
+            audio.PlaySound("bookshelf interaction");
+            Invoke("SlidingWall", 1f);
         }
 
         if (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider")
@@ -36,6 +38,14 @@ public class BookshelfInteraction_ML : MonoBehaviour
         {
             halo.SetActive(false);
         }
+    }
+
+    private void SlidingWall()
+    {
+
+        slidingWall.transform.DOMoveY(endingPosition, moveTime);
+        audio.PlaySound("wall moving");
+
     }
 
 }

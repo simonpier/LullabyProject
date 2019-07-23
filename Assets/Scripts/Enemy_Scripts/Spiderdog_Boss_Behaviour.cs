@@ -263,7 +263,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             {
                 pickedSound = 3;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-                source.volume = Random.Range(0.1f, 0.15f);
+                source.volume = Random.Range(0.5f, 0.6f);
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
             }
@@ -282,7 +282,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                     pickedSound = 0;
                     gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                     source.clip = sounds[pickedSound];
-                    source.pitch = Random.Range(0.8f, 1.5f);
+                    source.pitch = Random.Range(1f, 1.5f);
                     source.Play();
 
                 }
@@ -297,7 +297,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                     pickedSound = Random.Range(1, 3);
                     gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                     source.clip = sounds[pickedSound];
-                    source.pitch = Random.Range(0.8f, 1.5f);
+                    source.pitch = Random.Range(0.9f, 1.5f);
                     source.Play();
                 }
             }
@@ -342,7 +342,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
             if (source.isPlaying == false && firstEncounter == true) //steps sound
             {
-                source.volume = Random.Range(0.1f, 0.15f);
+                source.volume = Random.Range(0.5f, 0.6f);
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
             }
@@ -360,7 +360,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
             if (source.isPlaying == false && firstEncounter == true) //steps sound
             {
-                source.volume = Random.Range(0.1f, 0.15f);
+                source.volume = Random.Range(0.5f, 0.6f);
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
             }

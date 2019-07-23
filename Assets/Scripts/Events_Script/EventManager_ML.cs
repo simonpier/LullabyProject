@@ -31,6 +31,8 @@ public class EventManager_ML : MonoBehaviour
 
     private int randomLibrary;
     private bool secondLibraryPassed;
+    private bool firstCheck = false;
+    private bool secondCheck = false;
     private float firstWallPosY;
     private float secondWallPosY;
     private float thirdWallPosY;
@@ -42,6 +44,8 @@ public class EventManager_ML : MonoBehaviour
     private bool isPlayerOnLibrary = false;
     public bool IsPlayerOnLibrary { get => isPlayerOnLibrary; set => isPlayerOnLibrary = value; }
     #endregion
+
+    [SerializeField] AudioManager audio;
 
     // Start is called before the first frame update
     void Start()
@@ -89,27 +93,34 @@ public class EventManager_ML : MonoBehaviour
 
     private void WallCheck()
     {
-        if (firstSwitch.SwitchActivated && !secondLibraryPassed)
+        if (firstSwitch.SwitchActivated && !secondLibraryPassed && firstCheck == false )
         {
+            audio.PlaySound("wall moving");
             firstWall.transform.DOMoveY(endingWallPosition, 2f);
+            firstCheck = true;
         }
         else if (!firstSwitch.SwitchActivated && !secondLibraryPassed && firstWall.transform.position.y != firstWallPosY)
         {
             firstWall.transform.DOMoveY(firstWallPosY, 2f);
+            firstCheck = false;
         }
 
-        if (secondSwitch.SwitchActivated && !secondLibraryPassed)
+        if (secondSwitch.SwitchActivated && !secondLibraryPassed && secondCheck == false )
         {
+            audio.PlaySound("wall moving");
             secondWall.transform.DOMoveY(endingWallPosition, 2f);
+            secondCheck = true;
         }
         else if (!secondSwitch.SwitchActivated && !secondLibraryPassed && secondWall.transform.position.y != secondWallPosY)
         {
             firstWall.transform.DOMoveY(secondWallPosY, 2f);
+            secondCheck = false;
         }
 
         if (thirdSwitch.SwitchActivated && !secondLibraryPassed)
         {
             thirdWall.transform.DOMoveY(endingWallPosition, 2f);
+            audio.PlaySound("wall moving");
             secondLibraryPassed = true;
         }
         else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && thirdWall.transform.position.y != thirdWallPosY)
@@ -124,6 +135,8 @@ public class EventManager_ML : MonoBehaviour
         {
             secondSwitch.SwitchActivated = false;
             thirdSwitch.SwitchActivated = false;
+            //
+            audio.PlaySound("wrong enigma");
         }
         else if (firstSwitch.SwitchActivated == true)
         {
@@ -131,6 +144,8 @@ public class EventManager_ML : MonoBehaviour
             {
                 thirdSwitch.SwitchActivated = false;
                 firstSwitch.SwitchActivated = false;
+                //
+                audio.PlaySound("wrong enigma");
             }
         }
     }

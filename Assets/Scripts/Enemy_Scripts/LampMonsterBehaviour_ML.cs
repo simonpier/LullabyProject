@@ -11,7 +11,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
     [SerializeField] AudioSource source;
     public AudioClip[] sounds;
 
-    private bool check = true, check2 = true;
+    private bool check = true, check2 = false;
     private int pickedSound;
     // Start is called before the first frame update
     public override void Start()
@@ -47,7 +47,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("reset", true);
             anim.SetBool("death", true);
             DefeatSound();
-
+            check = true;
         }
     }
 
@@ -59,6 +59,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
 
             if(anim.GetBool("isTransformed"))
             {
+                check2 = true;
                 if (canMove && distance > attackRange)
                 {
                     Flip();

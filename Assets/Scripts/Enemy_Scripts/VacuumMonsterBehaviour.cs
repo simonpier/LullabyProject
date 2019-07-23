@@ -58,13 +58,14 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                                 pickedSound = 1;
                                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                                 source.clip = sounds[pickedSound];
-                                source.volume = 0.5f; 
+                                source.volume = 0.4f; 
                                 source.Play();
 
                             }
                         }
                     }
                 }
+
                 else if (distance <= attackRange)
                 {
                     anim.SetBool("idle", false);
@@ -81,7 +82,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                         pickedSound = 0;
                         gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                         source.clip = sounds[pickedSound];
-                        source.volume = Random.Range(0.4f, 0.6f);
+                        source.volume = Random.Range(0.3f, 0.4f);
                         source.pitch = Random.Range(0.8f, 1.5f);
                         source.Play();
 

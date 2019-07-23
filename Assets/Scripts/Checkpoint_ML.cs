@@ -127,24 +127,24 @@ public class Checkpoint_ML : MonoBehaviour
         weapon.enabled = true;
 
 
-        maxMonsters = vacuumMonsters.Length;
-        for (int i = 0; i < maxMonsters; i++)
+      
+        for (int i = 0; i < vacuumMonsters.Length; i++)
         {
 
             vacuumMonsters[i].GetComponent<VacuumMonsterBehaviour>().Respawn();
 
         }
 
-        maxMonsters = lampMonsters.Length;
-        for (int i = 0; i < maxMonsters; i++)
+     
+        for (int i = 0; i < lampMonsters.Length; i++)
         {
 
             lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();
 
         }
 
-        maxMonsters = bookMonsters.Length;
-        for (int i= 0; i < maxMonsters; i++)
+       
+        for (int i= 0; i < bookMonsters.Length; i++)
         {
 
             lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();

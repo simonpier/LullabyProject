@@ -176,6 +176,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     public virtual void EnemyReset()
     {
+        isDied = false;
         transform.position = respawnPoint;
         anim.SetBool("reset", true);
         anim.SetBool("death", false);
