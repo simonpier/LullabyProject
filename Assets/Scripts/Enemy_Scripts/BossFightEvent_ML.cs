@@ -48,6 +48,7 @@ public class BossFightEvent_ML : MonoBehaviour
 
     private IEnumerator BossEvent()
     {
+
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         bossTrigger.SetActive(false);
@@ -55,8 +56,8 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraCon.enabled = false;
         cameraController.enabled = false;
         gameCamera.transform.DOMoveX(bossPosition, lerpDuration);
+        cinBar.Show(170, 1.5f);
         yield return new WaitForSeconds(lerpDuration);
-        cinBar.Show(170, 0.7f);
 
         spiderBossAnim.Play("Spiderdog_Attack");
         yield return new WaitForSeconds(1f);
@@ -65,7 +66,7 @@ public class BossFightEvent_ML : MonoBehaviour
 
         playerAnim.enabled = false;
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
-        cinBar.Hide(0.1f);
+        cinBar.Hide(1.5f);
         yield return new WaitForSeconds(lerpDuration);
         cameraCon.enabled = true;
         cameraController.enabled = true;
