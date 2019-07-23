@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8301489995467646380}
   m_LocalRotation: {x: -0.01850988, y: -0.7068645, z: -0.01850988, w: 0.7068645}
-  m_LocalPosition: {x: 0.7, y: -4.23, z: -4}
+  m_LocalPosition: {x: 0.9, y: -3.61, z: -4}
   m_LocalScale: {x: 5, y: 5, z: 10}
   m_Children:
   - {fileID: 1832383589664123482}
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnAngle: -80
-  raisingPosition: {x: -3.9, y: 2.82, z: 0}
+  raisingPosition: {x: -1.5, y: 3, z: 0}
   maxFuel: 100
   cost: 2
 --- !u!1 &9016724537132175666

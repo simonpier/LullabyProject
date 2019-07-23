@@ -28,7 +28,6 @@ public class DoorTrigger_v2 : MonoBehaviour
 
         if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("open + telep");
             door.DoorOpen();
             Invoke("Teleportation", 1);
         }
@@ -40,7 +39,7 @@ public class DoorTrigger_v2 : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            Debug.Log("Close");
+
             door.DoorClose();
 
         }
