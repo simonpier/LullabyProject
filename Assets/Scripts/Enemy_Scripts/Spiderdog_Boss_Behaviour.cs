@@ -27,12 +27,15 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private bool canTakeDamage = true;
     private bool isLighted;
     private bool changeDirection;
+    private bool isGoingRight;
+    private bool isGoingLeft;
+    private bool rampageCheck;
     private float landingPos;
     private float timeWithoutDamages;
     private int rampageCounter = 0;
 
     public AudioClip[] sounds;
-    
+
     public int pickedSound;
 
     [SerializeField] AudioSource source;
@@ -44,7 +47,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     {
         base.Start();
         originalBigness = transform.localScale;
-        landingPos = transform.position.y - landDistance ;
+        landingPos = transform.position.y - landDistance;
         eventManager = gameManager.GetComponent<EventManager_ML>();
         timeWithoutDamages = totalTimeWithoutDamages;
     }
@@ -78,11 +81,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     {
         float distance = Vector2.Distance(target.position, transform.position);
 
-        if(isTriggered)
+        if (isTriggered)
         {
             if (hitPoint <= 0)
             {
-                if (rampageCounter <= 1)
+                if (rampageCounter <= 2 && !secondPhase)
                 {
                     Rampage();
                 }
@@ -90,7 +93,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 {
                     rampage = true;
                     //Play loud cry
-                    Invoke("UpsideDown", 1f);               
+                    Invoke("UpsideDown", 1f);
                 }
             }
 
@@ -133,6 +136,16 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                             source.Play();
                         }
                     }
+
+                    if (!changeDirection && !facingRight)
+                    {
+                        facingRight = true;
+                    }
+                    else if (changeDirection && facingRight)
+                    {
+                        facingRight = false;
+                    }
+
                 }
 
                 if (isLighted)
@@ -155,6 +168,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         }
                         else if (!anim.GetBool("lookUp") && distance > transformRange)
                         {
+                            Flip();
                             Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
                             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
                         }
