@@ -53,6 +53,7 @@ public class DoorTrigger_v2 : MonoBehaviour
         player.transform.position = destination.transform.position;
         player.GetComponent<PlayerMove_KT>().CheckRoomSize(destination.transform.parent.gameObject);
         Invoke("CameraConstraints", 0.5f);
+
     }
 
     void CameraConstraints()

@@ -30,6 +30,7 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
     {
         if (canDie && hitPoint <= 0 && !canFly)
         {
+            source.Stop();
             anim.SetBool("death", true);
             isDied = true;
             DefeatSound();
@@ -45,7 +46,8 @@ public class LampMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("attack", false);
             anim.SetBool("reset", true);
             anim.SetBool("death", true);
-            
+            DefeatSound();
+
         }
     }
 

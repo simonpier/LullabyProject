@@ -15,6 +15,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
     {
         if (canDie && hitPoint <= 0 && !canFly)
         {
+            source.Stop();
             anim.SetBool("death", true);
             isDied = true;
             DefeatSound();
@@ -57,8 +58,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                                 pickedSound = 1;
                                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                                 source.clip = sounds[pickedSound];
-                                source.volume = Random.Range(0.2f, 0.25f);
-                                source.pitch = Random.Range(0.8f, 1.5f);
+                                source.volume = 0.5f; 
                                 source.Play();
 
                             }
@@ -81,7 +81,7 @@ public class VacuumMonsterBehaviour : EnemyController_ML
                         pickedSound = 0;
                         gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                         source.clip = sounds[pickedSound];
-                        source.volume = Random.Range(0.8f, 1f);
+                        source.volume = Random.Range(0.4f, 0.6f);
                         source.pitch = Random.Range(0.8f, 1.5f);
                         source.Play();
 

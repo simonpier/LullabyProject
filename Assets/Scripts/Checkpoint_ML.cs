@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class Checkpoint_ML : MonoBehaviour
 {
@@ -36,10 +37,22 @@ public class Checkpoint_ML : MonoBehaviour
     [SerializeField] GameObject playerObj;
     ChangeWeapon_NN weapon;
 
-    bool check = false;
+    [SerializeField] GameObject gameCamera;
+    PositionConstraint cameraCon;
+    [SerializeField] GameObject checkpoint;
+
+    EnemyController_ML enemy;
+    public GameObject[] bookMonsters;
+    public GameObject[] lampMonsters;
+    public GameObject[] chandelierMonsters;
+    public GameObject[] vacuumMonsters;
+    private int maxMonsters;
+
+    bool check = false, firstCheck = false;
     // Start is called before the first frame update
     void Start()
     {
+        cameraCon = gameCamera.GetComponent<PositionConstraint>();
         weapon = playerObj.GetComponent<ChangeWeapon_NN>();
         light = candle.GetComponent<Light>();
         lightLantern = lantern.GetComponent<Light>();
@@ -56,6 +69,7 @@ public class Checkpoint_ML : MonoBehaviour
         //this is used to modify the respawnpoint
         if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
         {
+            firstCheck = true;
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
             anim.SetBool("activated", true);
             lightSource.SetActive(true);
@@ -95,9 +109,52 @@ public class Checkpoint_ML : MonoBehaviour
     //This method must be called when we want to respawn the player to the last checkpoint
     public void Respawn()
     {
-        player.position = PlayerStats_ML.instance.respawnPoint;
+
         playerStat.ResetHealth();
         weapon.enabled = true;
+        
+        if (firstCheck == true)
+        {
+            playerObj.transform.position = checkpoint.transform.position;
+            playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.gameObject);
+            Invoke("CameraConstraints", 0.5f);
+        }
+
+        else
+            player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
+
+        playerStat.ResetHealth();
+        weapon.enabled = true;
+
+
+        maxMonsters = vacuumMonsters.Length;
+        for (int i = 0; i < maxMonsters; i++)
+        {
+
+            vacuumMonsters[i].GetComponent<VacuumMonsterBehaviour>().Respawn();
+
+        }
+
+        maxMonsters = lampMonsters.Length;
+        for (int i = 0; i < maxMonsters; i++)
+        {
+
+            lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();
+
+        }
+
+        maxMonsters = bookMonsters.Length;
+        for (int i= 0; i < maxMonsters; i++)
+        {
+
+            lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();
+
+        }
     }
 
+
+    void CameraConstraints()
+    {
+        cameraCon.enabled = true;
+    }
 }
