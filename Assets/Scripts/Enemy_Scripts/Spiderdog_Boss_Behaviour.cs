@@ -56,10 +56,18 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     public override void Flip()
     {
-        if (transform.position.x >= target.position.x && !facingRight || transform.position.x < target.position.x && facingRight)
+        if (transform.position.x >= target.position.x && !facingRight)
         {
-            facingRight = !facingRight;
-
+            facingRight = true;
+            changeDirection = false;
+            Vector3 enemyScale = transform.localScale;
+            enemyScale.x *= -1;
+            transform.localScale = enemyScale;
+        }
+        else if (transform.position.x < target.position.x && facingRight)
+        {
+            facingRight = false;
+            changeDirection = true;
             Vector3 enemyScale = transform.localScale;
             enemyScale.x *= -1;
             transform.localScale = enemyScale;
@@ -72,14 +80,15 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
         if(isTriggered)
         {
-            if (hitPoint <= 0 && rampageCounter <= 1)
+            if (hitPoint <= 0)
             {
                 if (rampageCounter <= 1)
                 {
                     Rampage();
                 }
-                else if (rampageCounter > 1 && secondPhase == true)
+                else if (rampageCounter >= 2 && secondPhase && rampage == false)
                 {
+                    rampage = true;
                     //Play loud cry
                     Invoke("UpsideDown", 1f);               
                 }
@@ -96,6 +105,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         {
                             transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
                             changeDirection = true;
+                            facingRight = true;
                         }
 
                         if (source.isPlaying == false && firstEncounter == true) //steps sound
@@ -113,6 +123,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         {
                             transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
                             changeDirection = false;
+                            facingRight = false;
                         }
 
                         if (source.isPlaying == false && firstEncounter == true) //steps sound
@@ -126,6 +137,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
                 if (isLighted)
                 {
+                    Flip();
                     anim.SetBool("inRange", true);
                     if (!eventManager.IsPlayerOnLibrary)
                     {
@@ -209,6 +221,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     {
         if (canDie && hitPoint <= 0)
         {
+            canTakeDamage = false;
             anim.SetBool("death", true);
             isDied = true;
             transform.DOScale(1f, 2f);
@@ -313,15 +326,18 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             speed = rampageSpeed;
             rampage = true;
             canTakeDamage = false;
+            rampageCounter++;
         }
 
         if (changeDirection == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, bossRoomPosSX.transform.position, speed * Time.deltaTime);
+
             if (transform.position.x <= bossRoomPosSX.transform.position.x)
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
                 changeDirection = true;
+                facingRight = true;
             }
 
             if (source.isPlaying == false && firstEncounter == true) //steps sound
@@ -339,6 +355,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             {
                 transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
                 changeDirection = false;
+                facingRight = false;
             }
 
             if (source.isPlaying == false && firstEncounter == true) //steps sound
@@ -348,6 +365,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 source.Play();
             }
         }
+
         Invoke("RampageReset", rampageTime);
     }
 
@@ -358,17 +376,22 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         hitPoint = maxHitPoint;
         speed = normalSpeed;
         isLighted = false;
-        rampageCounter++;
+
+        if (rampageCounter == 2)
+        {
+            secondPhase = true;
+        }
     }
 
     private void UpsideDown()
     {
-        rampage = true;
-        transform.localScale = new Vector2 (transform.localScale.x, transform.localScale.y*-1);
+        transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y*-1f, transform.localScale.z);
         //transform.DOMoveY()
         hitPoint = maxHitPoint;
         canDie = true;
         isLighted = true;
+        rampageCounter++;
+        secondPhase = false;
         Invoke("ResetUpsideDown", 1f);
     }
 
