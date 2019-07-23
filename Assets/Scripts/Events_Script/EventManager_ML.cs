@@ -43,7 +43,7 @@ public class EventManager_ML : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isPlayerOnLibrary);
+        
     }
 
     public void OnLibraryOn()

@@ -33,10 +33,14 @@ public class Checkpoint_ML : MonoBehaviour
 
     [SerializeField] AudioManager audio;
 
+    [SerializeField] GameObject playerObj;
+    ChangeWeapon_NN weapon;
+
     bool check = false;
     // Start is called before the first frame update
     void Start()
     {
+        weapon = playerObj.GetComponent<ChangeWeapon_NN>();
         light = candle.GetComponent<Light>();
         lightLantern = lantern.GetComponent<Light>();
         uiL = lanternBar.GetComponent<InGameUILantern_SP>();
@@ -92,7 +96,8 @@ public class Checkpoint_ML : MonoBehaviour
     public void Respawn()
     {
         player.position = PlayerStats_ML.instance.respawnPoint;
-        playerStat.ResetHealth();    
+        playerStat.ResetHealth();
+        weapon.enabled = true;
     }
 
 }
