@@ -6,12 +6,13 @@ using DG.Tweening;
 public class EventManager_ML : MonoBehaviour
 {
     #region Lantern Event
+    [Header("Lantern Event")]
     [SerializeField] private bool lanternTaken;
     public bool LanternTaken { get => lanternTaken; set => lanternTaken = value; }
     #endregion
 
     #region Second Library Event
-
+    [Header("Library Event")]
     [SerializeField] List<GameObject> libraries;
 
     [SerializeField] GameObject firstWall;
