@@ -21,7 +21,7 @@ public class SecondLibraryEvent_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && Input.GetKeyDown(KeyCode.Return))
         {
             switchActivated = true;
         }
