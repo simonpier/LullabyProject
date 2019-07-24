@@ -122,7 +122,7 @@ MonoBehaviour:
     pitch: 1
   - name: book defeat
     clip: {fileID: 8300000, guid: 4b7947d67c183e6478fc8593235d1ad1, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
   - name: door defeat
     clip: {fileID: 8300000, guid: 4ce6a6175f8e58d4285efdafdab53eea, type: 3}
@@ -146,7 +146,7 @@ MonoBehaviour:
     pitch: 1
   - name: lamp defeat
     clip: {fileID: 8300000, guid: ea1916d5ffea7e54ea9ee3c472afc404, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
   - name: chandelier transformation
     clip: {fileID: 8300000, guid: 91839d8307d978341b7e467e6539866f, type: 3}
@@ -154,5 +154,21 @@ MonoBehaviour:
     pitch: 1
   - name: chandelier defeat
     clip: {fileID: 8300000, guid: 7e109528be2a6464da75f81abc5c37af, type: 3}
+    volume: 1
+    pitch: 1
+  - name: checkpoint bell
+    clip: {fileID: 8300000, guid: bdc1158601ac71c4f904b7c95d71de06, type: 3}
+    volume: 0.5
+    pitch: 1
+  - name: wall moving
+    clip: {fileID: 8300000, guid: 784b0eba339afb24bae9c56828b384aa, type: 3}
+    volume: 1
+    pitch: 1
+  - name: wrong enigma
+    clip: {fileID: 8300000, guid: 7d00789eb887ef94faca8411662f3759, type: 3}
+    volume: 1
+    pitch: 1
+  - name: right enigma
+    clip: {fileID: 8300000, guid: 72f12d2d81cbbaa46b5b6ecbd285bc2a, type: 3}
     volume: 1
     pitch: 1

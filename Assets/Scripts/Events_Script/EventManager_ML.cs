@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Fungus;
 
 public class EventManager_ML : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class EventManager_ML : MonoBehaviour
     [SerializeField] GameObject thirdWall;
 
     [SerializeField] float distanceWallPosition;
+
+    [SerializeField] Flowchart flowchart;
+    [SerializeField] string dialogue1, dialogue2, dialogue3;
 
     SecondLibraryEvent_ML firstSwitch;
     SecondLibraryEvent_ML secondSwitch;
@@ -98,6 +102,7 @@ public class EventManager_ML : MonoBehaviour
             audio.PlaySound("wall moving");
             firstWall.transform.DOMoveY(endingWallPosition, 2f);
             firstCheck = true;
+            flowchart.ExecuteBlock(dialogue1);
         }
         else if (!firstSwitch.SwitchActivated && !secondLibraryPassed && firstWall.transform.position.y != firstWallPosY)
         {
@@ -110,6 +115,7 @@ public class EventManager_ML : MonoBehaviour
             audio.PlaySound("wall moving");
             secondWall.transform.DOMoveY(endingWallPosition, 2f);
             secondCheck = true;
+            flowchart.ExecuteBlock(dialogue2);
         }
         else if (!secondSwitch.SwitchActivated && !secondLibraryPassed && secondWall.transform.position.y != secondWallPosY)
         {
@@ -119,9 +125,11 @@ public class EventManager_ML : MonoBehaviour
 
         if (thirdSwitch.SwitchActivated && !secondLibraryPassed)
         {
+            flowchart.ExecuteBlock(dialogue3);
             thirdWall.transform.DOMoveY(endingWallPosition, 2f);
             audio.PlaySound("right enigma");
             secondLibraryPassed = true;
+            
         }
         else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && thirdWall.transform.position.y != thirdWallPosY)
         {
@@ -162,4 +170,6 @@ public class EventManager_ML : MonoBehaviour
         isPlayerOnLibrary = false;
     }
     #endregion
+
+
 }
