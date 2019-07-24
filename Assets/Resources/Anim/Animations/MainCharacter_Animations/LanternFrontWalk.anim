@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FrontWalk
+  m_Name: LanternFrontWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 11b8e26da36930740a23b2c7ca964122, type: 3}
+      value: {fileID: 21300000, guid: 95c483ca94c310c42a462400731d7fe3, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: f936e6948f6b8e54b9b991cdf964d910, type: 3}
+      value: {fileID: 21300000, guid: 7285ac13383611240b2b3d95a58b81cb, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: 11b8e26da36930740a23b2c7ca964122, type: 3}
+      value: {fileID: 21300000, guid: 95c483ca94c310c42a462400731d7fe3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 11b8e26da36930740a23b2c7ca964122, type: 3}
-    - {fileID: 21300000, guid: f936e6948f6b8e54b9b991cdf964d910, type: 3}
-    - {fileID: 21300000, guid: 11b8e26da36930740a23b2c7ca964122, type: 3}
+    - {fileID: 21300000, guid: 95c483ca94c310c42a462400731d7fe3, type: 3}
+    - {fileID: 21300000, guid: 7285ac13383611240b2b3d95a58b81cb, type: 3}
+    - {fileID: 21300000, guid: 95c483ca94c310c42a462400731d7fe3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
