@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1466044908328768825}
   - component: {fileID: 1466044908328768806}
   - component: {fileID: 1466044908328768824}
+  - component: {fileID: 8512877955839865174}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -75,3 +76,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanternTaken: 0
+  libraries: []
+  firstWall: {fileID: 0}
+  secondWall: {fileID: 0}
+  thirdWall: {fileID: 0}
+  distanceWallPosition: 0
+  audio: {fileID: 0}
+--- !u!114 &8512877955839865174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466044908328768807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573781a9f77386644baa62fa40d73933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -48,7 +48,11 @@ public class Checkpoint_ML : MonoBehaviour
     public GameObject[] vacuumMonsters;
     private int maxMonsters;
 
-    bool check = false, firstCheck = false;
+    bool check = false;
+    private bool firstCheck = false;
+
+    public bool FirstCheck { get => firstCheck; set => firstCheck = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,12 +119,14 @@ public class Checkpoint_ML : MonoBehaviour
 
         if (firstCheck == true)
         {
-            playerObj.transform.position = checkpoint.transform.position;
+            Debug.Log("respawn");
+            playerObj.transform.position = PlayerStats_ML.instance.respawnPoint;
             playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.gameObject);
             Invoke("CameraConstraints", 0.5f);
         }
-        else
+        else if (firstCheck == false)
         {
+            Debug.Log("respawn 2");
             player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
 
             var playerMove = playerObj.GetComponent<PlayerMove_KT>();
