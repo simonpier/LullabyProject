@@ -255,7 +255,12 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             }
 
             if (source.isPlaying == false && check == false)
-                source.Stop();
+            {
+                pickedSound = 5;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.Play();
+            }
         }
     }
 
@@ -353,10 +358,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 facingRight = true;
             }
 
-            if (source.isPlaying == false && firstEncounter == true) //steps sound
+            if (source.isPlaying == false ) //steps sound
             {
+                Debug.Log("step");
+                pickedSound = 3;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.volume = Random.Range(0.5f, 0.6f);
-                source.pitch = Random.Range(0.8f, 1.5f);
+                source.pitch = Random.Range(1.2f, 1.5f);
                 source.Play();
             }
         }
@@ -371,10 +379,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 facingRight = false;
             }
 
-            if (source.isPlaying == false && firstEncounter == true) //steps sound
+            if (source.isPlaying == false ) //steps sound
             {
+                Debug.Log("step");
+                pickedSound = 3;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.volume = Random.Range(0.5f, 0.6f);
-                source.pitch = Random.Range(0.8f, 1.5f);
+                source.pitch = Random.Range(1.2f, 1.5f);
                 source.Play();
             }
         }
