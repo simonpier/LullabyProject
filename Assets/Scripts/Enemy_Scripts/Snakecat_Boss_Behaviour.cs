@@ -8,12 +8,21 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     [SerializeField] GameObject bossRoomPosDX;
     [SerializeField] GameObject bossRoomPosSX;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject eyeSX;
+    [SerializeField] GameObject eyeDX;
+    [SerializeField] GameObject lowAttackCollider;
+    [SerializeField] GameObject highAttackCollider;
 
+    [SerializeField] float attackRange;
     [SerializeField] float hitPoint;
     [SerializeField] float speed;
     [SerializeField] float minTimeStateChange;
     [SerializeField] float maxTimeStateChange;
+    [SerializeField] float minInvisibilityTime;
+    [SerializeField] float maxInvisibilityTime;
 
+    private bool invisibility;
+    private bool isAttacking;
     private bool isTakingDamage;
     private bool facingLeft;
     private bool isGoingLeft;
@@ -24,15 +33,17 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool isPlayerRight;
     private bool isPlayerLeft;
     private float timeStateChange;
+    private float invisibilityTime;
+    private float playerDistance;
     
     Animator anim;
     SpriteRenderer spriteRenderer;
 
-    // Start is called before the first frame update
     void Start()
     {
         #region Variable Setting
         timeStateChange = Random.Range(minTimeStateChange, maxTimeStateChange);
+        invisibilityTime = Random.Range(minInvisibilityTime, maxInvisibilityTime);
         #endregion
 
         #region Component Declaration
@@ -41,18 +52,35 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         #endregion
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        BehaviourManager();
+    }
+
+    private void BehaviourManager()
     {
         if (bossFightActive)
         {
-            TrackingMovement();
+            playerDistance = Vector2.Distance(transform.position, player.transform.position);
             StateManager();
+            InvisibilityManager();
+
+            if (playerDistance <= attackRange)
+            {
+                AttackManager();
+            }
+            else if (playerDistance > attackRange)
+            {
+                TrackingMovement();
+            }
+
         }
     }
 
     private void BasicMovement()
     {
+        if (invisibility == true)
+        {
             if (!facingLeft)
             {
                 transform.position = Vector2.MoveTowards(transform.position, bossRoomPosDX.transform.position, speed * Time.deltaTime);
@@ -89,67 +117,81 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             {
                 facingLeft = true;
             }
+        }       
     }
 
     private void TrackingMovement()
     {
-        if (player.transform.position.x <= transform.position.x)
+        if (!invisibility)
         {
+            if (player.transform.position.x <= transform.position.x)
+            {
+                if (!facingLeft)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
+
+                facingLeft = true;
+            }
+            else if (player.transform.position.x >= transform.position.x)
+            {
+                if (facingLeft)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
+
+                facingLeft = false;
+            }
 
             if (!facingLeft)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                Vector2 targetPos = new Vector2(player.transform.position.x, transform.position.y);
+                transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                isGoingRight = true;
+                isGoingLeft = false;
             }
-
-            facingLeft = true;
-        }
-        else if (player.transform.position.x >= transform.position.x)
-        {
-            if (facingLeft)
+            else if (facingLeft)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                Vector2 targetPos = new Vector2(player.transform.position.x, transform.position.y);
+                transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                isGoingLeft = true;
+                isGoingRight = false;
             }
 
-            facingLeft = false;
+            if (isGoingRight && facingLeft)
+            {
+                facingLeft = false;
+            }
+            else if (isGoingLeft && !facingLeft)
+            {
+                facingLeft = true;
+            }
+        }     
+    }
+
+    private void InvisibilityManager()
+    {
+        invisibilityTime -= 1f * Time.deltaTime;
+
+        if (invisibilityTime <= 0)
+        {
+            invisibility = false;
         }
 
-        if (!facingLeft)
+        if (invisibility)
         {
-            Vector2 targetPos = new Vector2(player.transform.position.x, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            isGoingRight = true;
-            isGoingLeft = false;
-        }
-        else if (facingLeft)
-        {
-            Vector2 targetPos = new Vector2(player.transform.position.x, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            isGoingLeft = true;
-            isGoingRight = false;
+            spriteRenderer.enabled = false;
         }
 
-        if (isGoingRight && facingLeft)
+        if (!invisibility)
         {
-            facingLeft = false;
-        }
-        else if (isGoingLeft && !facingLeft)
-        {
-            facingLeft = true;
+            spriteRenderer.enabled = true;
         }
     }
 
     private void AttackManager()
     {
-        if (!highState)
-        {
-
-        }
-
-        else if (highState)
-        {
-
-        }
-
+        anim.SetBool("attack", true);
     }
 
     private void StateManager()
@@ -179,6 +221,34 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == ("Player_LanternCollider") || collision.tag == ("Player_CandleCollider"))
+        {
+            eyeDX.SetActive(false);
+            eyeSX.SetActive(false);
+        }
+
+        if (hitPoint <= 0)
+        {
+            isTakingDamage = false;
+        }
+        else if (collision.tag == ("Player_LanternCollider") && hitPoint > 0 && anim.GetBool("isTransformed"))
+        {
+            isTakingDamage = true;
+            TakeDamage();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == ("Player_LanternCollider") || collision.tag == ("Player_CandleCollider") && isAttacking == false)
+        {
+            eyeDX.SetActive(true);
+            eyeSX.SetActive(true);
+        }
+    }
+
     public virtual void TakeDamage()
     {
         hitPoint -= 1.0f * Time.deltaTime;
@@ -195,4 +265,34 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
     }
+
+    public virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    #region Animation Methods
+
+    private void Attack()
+    {
+        if (highState)
+        {
+            highAttackCollider.SetActive(true);
+        }
+        else if (!highState)
+        {
+            lowAttackCollider.SetActive(true);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        anim.SetBool("attack", false);
+        lowAttackCollider.SetActive(false);
+        invisibilityTime = Random.Range(minInvisibilityTime, maxInvisibilityTime);
+        invisibility = true;
+    }
+
+    #endregion
 }
