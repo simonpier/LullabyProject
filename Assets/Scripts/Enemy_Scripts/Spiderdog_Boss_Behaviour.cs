@@ -250,6 +250,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             canTakeDamage = false;
             anim.SetBool("death", true);
             isDied = true;
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1f, transform.localScale.z);
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
 
