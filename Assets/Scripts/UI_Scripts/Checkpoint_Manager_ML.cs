@@ -26,11 +26,11 @@ public class Checkpoint_Manager_ML : MonoBehaviour
     void Update()
     {
 
-
+        Debug.Log("c1 " + checkpoint1.FirstCheck + " c2 " + checkpoint2.FirstCheck + " c3 " + checkpoint3.FirstCheck);
 
     }
 
-    private void RespawnCheck()
+    public void RespawnCheck()
     {
         if (checkpoint3.FirstCheck)
         {
@@ -40,15 +40,15 @@ public class Checkpoint_Manager_ML : MonoBehaviour
             checkpoint3.Respawn();
 
         }
-        else if (checkpoint2.FirstCheck)
+        else if (checkpoint2.FirstCheck && checkpoint3.FirstCheck == false )
         {
 
             checkpoint1.FirstCheck = false;
             checkpoint2.Respawn();
-
+            Debug.Log("respawn2");
         }
 
-        else if (checkpoint2.FirstCheck)
+        else if (checkpoint1.FirstCheck && checkpoint2.FirstCheck == false && checkpoint3.FirstCheck == false)
         {
 
             checkpoint1.Respawn();
