@@ -10,6 +10,12 @@ public class PlayerMove_KT : MonoBehaviour
 
     //need to attach awaking Player locating room
     [SerializeField] GameObject startRoom;
+    public GameObject StartRoom {
+        get
+        {
+            return this.startRoom;
+        }
+    }
 
     public Vector2 SXLimite { get; private set; }
     public Vector2 DXLimite { get; private set; }
