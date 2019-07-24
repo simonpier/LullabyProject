@@ -617,11 +617,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70276532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.1355505, y: -2.1594675, z: 0}
-  m_LocalScale: {x: 1.3222737, y: 1.3222737, z: 1.3222737}
+  m_LocalPosition: {x: -7.2700005, y: -19.29, z: 0}
+  m_LocalScale: {x: 0.37963566, y: 0.37963566, z: 0.37963566}
   m_Children: []
-  m_Father: {fileID: 1303688092}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &70276536
 PolygonCollider2D:
@@ -7330,7 +7330,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3665311621009711029}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039903244}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9890cdcd0754f2a41b37651946a04cc6, type: 3}
   m_Name: 
@@ -8895,6 +8895,7 @@ GameObject:
   - component: {fileID: 1303688092}
   - component: {fileID: 1303688091}
   - component: {fileID: 1303688090}
+  - component: {fileID: 1303688093}
   m_Layer: 0
   m_Name: Snakecat_Boss
   m_TagString: Untagged
@@ -8977,13 +8978,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303688089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.74, y: -16.81, z: 0}
+  m_LocalPosition: {x: -10.18, y: -24.02, z: 0}
   m_LocalScale: {x: 0.2871082, y: 0.2871082, z: 0.2871082}
-  m_Children:
-  - {fileID: 70276535}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303688093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303688089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4725b7bbb9342a146b807994996cf989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossRoomPosDX: {fileID: 2097952489}
+  bossRoomPosSX: {fileID: 1860954716}
+  player: {fileID: 811801725}
+  speed: 5
+  minTimeStateChange: 5
+  maxTimeStateChange: 10
 --- !u!1 &1448958058
 GameObject:
   m_ObjectHideFlags: 0
@@ -11078,6 +11096,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853582614}
   m_CullTransparentMesh: 0
+--- !u!1 &1860954716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860954717}
+  m_Layer: 0
+  m_Name: BossRoomSX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860954717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860954716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.89, y: -24.02, z: -4.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871252115
 GameObject:
   m_ObjectHideFlags: 0
@@ -11458,7 +11506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892368943
 GameObject:
@@ -11636,6 +11684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5337991411122789012, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
@@ -11644,12 +11697,12 @@ PrefabInstance:
     - target: {fileID: 5337991411122789011, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.2
+      value: -20.03
       objectReference: {fileID: 0}
     - target: {fileID: 5337991411122789011, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.04
+      value: -24.33
       objectReference: {fileID: 0}
     - target: {fileID: 5337991411122789011, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
@@ -11741,6 +11794,11 @@ PrefabInstance:
       propertyPath: verticalAnimateTime
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
       propertyPath: audio
       value: 
@@ -11765,9 +11823,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1881748494}
+    - target: {fileID: 811801733, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583690737141223900, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12367,6 +12434,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096430318}
   m_CullTransparentMesh: 0
+--- !u!1 &2097952489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097952490}
+  m_Layer: 0
+  m_Name: BossRoomDX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097952490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097952489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.86, y: -24.02, z: -4.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2100052266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13107,6 +13204,11 @@ PrefabInstance:
     - target: {fileID: 3665311620661163450, guid: aff03a5f24f43c74a8f72d20e8583b7d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665311620661163431, guid: aff03a5f24f43c74a8f72d20e8583b7d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3665311620661163429, guid: aff03a5f24f43c74a8f72d20e8583b7d,
