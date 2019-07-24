@@ -240,6 +240,10 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             isDied = true;
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
+
+            if (source.isPlaying == true && check == true)
+                source.Stop();
+
             if (source.isPlaying == false && check == true) //deth sound
             {
                 pickedSound = 4;
@@ -251,12 +255,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             }
 
             if (source.isPlaying == false && check == false)
-            {
-                pickedSound = 5;
-                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-                source.clip = sounds[pickedSound];
-                source.Play();
-            }
+                source.Stop();
         }
     }
 

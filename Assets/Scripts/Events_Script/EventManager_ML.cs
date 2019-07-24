@@ -120,7 +120,7 @@ public class EventManager_ML : MonoBehaviour
         if (thirdSwitch.SwitchActivated && !secondLibraryPassed)
         {
             thirdWall.transform.DOMoveY(endingWallPosition, 2f);
-            audio.PlaySound("wall moving");
+            audio.PlaySound("right enigma");
             secondLibraryPassed = true;
         }
         else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && thirdWall.transform.position.y != thirdWallPosY)
@@ -136,7 +136,7 @@ public class EventManager_ML : MonoBehaviour
             secondSwitch.SwitchActivated = false;
             thirdSwitch.SwitchActivated = false;
             //
-            audio.PlaySound("wrong enigma");
+            //audio.PlaySound("wrong enigma");
         }
         else if (firstSwitch.SwitchActivated == true)
         {
