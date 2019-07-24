@@ -23,7 +23,7 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("Lantern", weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Lantern);
         animator.SetBool("Raise", weapon.LightRaise);
         animator.SetBool("Front", move.FrontAnim);
-        animator.SetBool("Back", move.BackAnim);
+        animator.SetBool("BackWalk", move.BackAnim);
         animator.SetBool("Dead", stats.Health <= 0);
     }
 }
