@@ -236,7 +236,7 @@ MonoBehaviour:
   hitPoint: 5
   yDistance: 0
   canFly: 0
-  canDie: 1
+  canDie: 0
   canMove: 1
   facingRight: 1
   AttackCollider: {fileID: 766323229}
@@ -244,10 +244,14 @@ MonoBehaviour:
   dxRoomLimiter: {fileID: 0}
   landDistance: 2
   walkTime: 10
+  totalTimeWithoutDamages: 5
+  normalSpeed: 5
+  rampageSpeed: 10
+  rampageTime: 5
   SlashCollider: {fileID: 1324648875}
   bossRoomPosDX: {fileID: 0}
   bossRoomPosSX: {fileID: 0}
-  changeDirection: 0
+  gameManager: {fileID: 0}
   sounds:
   - {fileID: 8300000, guid: e6d57708f5c510c438ad0b83ff294f0d, type: 3}
   - {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
