@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Levels/MainMenu.unity
     guid: a68030bd78dd4a04d9974e0cc6decabb
   - enabled: 1
-    path: Assets/Levels/Stage 2.unity
+    path: Assets/Levels/Stage 1 _Final.unity
     guid: f144563e64ddbcb4388feb3ca044fb5d
   - enabled: 0
     path: 
