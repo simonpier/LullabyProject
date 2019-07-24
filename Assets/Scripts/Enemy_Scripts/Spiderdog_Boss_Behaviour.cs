@@ -16,9 +16,14 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     [SerializeField] GameObject bossRoomPosDX;
     [SerializeField] GameObject bossRoomPosSX;
     [SerializeField] GameObject gameManager;
+    [SerializeField] GameObject gameCamera;
+    [SerializeField] AudioClip endBossFight;
 
     Vector3 originalBigness;
     EventManager_ML eventManager;
+
+    AudioSource cameraMusic;
+
 
     private int attackRandomizer;
     private bool isTriggered;
@@ -50,6 +55,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         landingPos = transform.position.y - landDistance;
         eventManager = gameManager.GetComponent<EventManager_ML>();
         timeWithoutDamages = totalTimeWithoutDamages;
+        cameraMusic = gameCamera.GetComponent<AudioSource>();
     }
 
     public override void Update()
@@ -246,17 +252,20 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
             if (source.isPlaying == false && check == true) //deth sound
             {
+                cameraMusic.clip = endBossFight;
+                cameraMusic.Play();
                 pickedSound = 4;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.clip = sounds[pickedSound];
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
                 check = false;
+                Invoke("VictoryMusic", 2f);
             }
 
             if (source.isPlaying == false && check == false)
             {
-                pickedSound = 5;
+                pickedSound = 6;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.clip = sounds[pickedSound];
                 source.Play();
@@ -424,6 +433,17 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         rampage = false;
     }
 
+
+    private void VictoryMusic()
+    {
+
+        pickedSound = 5;
+        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+        source.clip = sounds[pickedSound];
+        source.pitch = 1f;
+        source.Play();
+
+    }
 
     #region Animation Manager
 
