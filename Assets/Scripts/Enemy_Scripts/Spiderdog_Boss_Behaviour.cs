@@ -180,6 +180,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         }
                         else if (anim.GetBool("lookUp") && timeWithoutDamages >= 0)
                         {
+                            canTakeDamage = false;
                             timeWithoutDamages -= 1.0f * Time.deltaTime;
                         }
 
@@ -189,11 +190,17 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                             timeWithoutDamages = totalTimeWithoutDamages;
                             anim.SetBool("lookUp", false);
                         }
+
                     }
                 }
             }
 
         }
+    }
+
+    private void CanTakeDamages()
+    {
+        canTakeDamage = true;
     }
 
     public override void EnemyReset()
@@ -204,7 +211,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         transform.localScale = originalBigness;
         anim.SetBool("death", false);
         anim.SetBool("inRange", false);
-
     }
 
     public override void Respawn()
@@ -369,7 +375,6 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
             if (source.isPlaying == false ) //steps sound
             {
-                Debug.Log("step");
                 pickedSound = 3;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.volume = Random.Range(0.5f, 0.6f);
@@ -408,7 +413,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         canTakeDamage = true;
         hitPoint = maxHitPoint;
         speed = normalSpeed;
-        isLighted = false;
+        isLighted = true;
 
         if (rampageCounter == 2)
         {
