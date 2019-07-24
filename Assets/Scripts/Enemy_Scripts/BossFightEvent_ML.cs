@@ -15,6 +15,8 @@ public class BossFightEvent_ML : MonoBehaviour
     [SerializeField] float bossPosition;
     [SerializeField] float lerpDuration;
 
+    [SerializeField] AudioClip bossFightMusic;
+
     TargetCamera_KT cameraController;
     PlayerMove_KT playerScript;
     Animator spiderBossAnim;
@@ -23,10 +25,12 @@ public class BossFightEvent_ML : MonoBehaviour
     PositionConstraint cameraCon;
     CinematicBar_ML cinBar;
     Spiderdog_Boss_Behaviour spiderbossBehaviour;
+    AudioSource cameraSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraSource = gameCamera.GetComponent<AudioSource>();
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         cameraController = gameCamera.GetComponent<TargetCamera_KT>();
         spiderBossAnim = spiderBoss.GetComponent<Animator>();
@@ -48,7 +52,9 @@ public class BossFightEvent_ML : MonoBehaviour
 
     private IEnumerator BossEvent()
     {
-
+        cameraSource.clip = bossFightMusic;
+        cameraSource.volume = 0.5f;
+        cameraSource.Play();
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         bossTrigger.SetActive(false);

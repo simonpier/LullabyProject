@@ -16,9 +16,14 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     [SerializeField] GameObject bossRoomPosDX;
     [SerializeField] GameObject bossRoomPosSX;
     [SerializeField] GameObject gameManager;
+    [SerializeField] GameObject gameCamera;
+    [SerializeField] AudioClip endBossFight;
 
     Vector3 originalBigness;
     EventManager_ML eventManager;
+
+    AudioSource cameraMusic;
+
 
     private int attackRandomizer;
     private bool isTriggered;
@@ -50,6 +55,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         landingPos = transform.position.y - landDistance;
         eventManager = gameManager.GetComponent<EventManager_ML>();
         timeWithoutDamages = totalTimeWithoutDamages;
+        cameraMusic = gameCamera.GetComponent<AudioSource>();
     }
 
     public override void Update()
@@ -240,19 +246,26 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             isDied = true;
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
+
+            if (source.isPlaying == true && check == true)
+                source.Stop();
+
             if (source.isPlaying == false && check == true) //deth sound
             {
+                cameraMusic.clip = endBossFight;
+                cameraMusic.Play();
                 pickedSound = 4;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.clip = sounds[pickedSound];
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
                 check = false;
+                Invoke("VictoryMusic", 2f);
             }
 
             if (source.isPlaying == false && check == false)
             {
-                pickedSound = 5;
+                pickedSound = 6;
                 gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.clip = sounds[pickedSound];
                 source.Play();
@@ -354,10 +367,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 facingRight = true;
             }
 
-            if (source.isPlaying == false && firstEncounter == true) //steps sound
+            if (source.isPlaying == false ) //steps sound
             {
+                Debug.Log("step");
+                pickedSound = 3;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.volume = Random.Range(0.5f, 0.6f);
-                source.pitch = Random.Range(0.8f, 1.5f);
+                source.pitch = Random.Range(1.2f, 1.5f);
                 source.Play();
             }
         }
@@ -372,10 +388,13 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 facingRight = false;
             }
 
-            if (source.isPlaying == false && firstEncounter == true) //steps sound
+            if (source.isPlaying == false ) //steps sound
             {
+                Debug.Log("step");
+                pickedSound = 3;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
                 source.volume = Random.Range(0.5f, 0.6f);
-                source.pitch = Random.Range(0.8f, 1.5f);
+                source.pitch = Random.Range(1.2f, 1.5f);
                 source.Play();
             }
         }
@@ -414,6 +433,17 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         rampage = false;
     }
 
+
+    private void VictoryMusic()
+    {
+
+        pickedSound = 5;
+        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+        source.clip = sounds[pickedSound];
+        source.pitch = 1f;
+        source.Play();
+
+    }
 
     #region Animation Manager
 
