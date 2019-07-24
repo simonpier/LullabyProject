@@ -112,22 +112,26 @@ public class Checkpoint_ML : MonoBehaviour
 
         playerStat.ResetHealth();
         weapon.enabled = true;
-        
+
         if (firstCheck == true)
         {
             playerObj.transform.position = checkpoint.transform.position;
             playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.gameObject);
             Invoke("CameraConstraints", 0.5f);
         }
-
         else
+        {
             player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
+
+            var playerMove = playerObj.GetComponent<PlayerMove_KT>();
+            playerMove.CheckRoomSize(playerMove.StartRoom);
+        }
 
         playerStat.ResetHealth();
         weapon.enabled = true;
 
+        cameraCon.gameObject.GetComponent<TargetCamera_KT>().Reset();
 
-      
         for (int i = 0; i < vacuumMonsters.Length; i++)
         {
 
@@ -150,6 +154,8 @@ public class Checkpoint_ML : MonoBehaviour
             lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();
 
         }
+
+
     }
 
 
