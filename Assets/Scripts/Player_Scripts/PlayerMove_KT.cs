@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMove_KT : MonoBehaviour
 {
     public static PlayerMove_KT Instance { get; private set; }
-    [SerializeField] TargetCamera_KT camera;
+    [SerializeField] TargetCamera_KT _camera;
 
     //need to attach awaking Player locating room
     [SerializeField] GameObject startRoom;
@@ -160,7 +160,7 @@ public class PlayerMove_KT : MonoBehaviour
         SXLimite = new Vector2(_sx.position.x, _sx.position.y);
         DXLimite = new Vector2(_dx.position.x, _dx.position.y);
 
-        camera.Reset();
+        _camera.Reset();
     }
 
 

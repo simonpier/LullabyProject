@@ -13,24 +13,34 @@ public class TargetCamera_KT : MonoBehaviour
 
     Vector2 offset;
     float _z;
+
+    ConstraintSource constSource;
+
+    bool doneInitialize = false;
     
-    void Awake()
+    void Start()
+    {
+        if (!doneInitialize) Initialize();
+    }
+
+    void Initialize()
     {
         player = PlayerMove_KT.Instance;
         constraint = GetComponent<PositionConstraint>();
         cam = GetComponent<Camera>();
         _z = -transform.position.z;
-        
-        ConstraintSource source = new ConstraintSource();
-        source.sourceTransform = player.transform;
-
-        //weight adjust good parameter, it may be able to create good effect
-        source.weight = 1;
-        constraint.AddSource(source);
-        constraint.translationOffset = this.transform.position - player.transform.position;
         offset = this.transform.position - player.transform.position;
+
+        constSource = new ConstraintSource();
+        constSource.sourceTransform = player.transform;
+        constSource.weight = 1;
+        constraint.AddSource(constSource);
+        constraint.translationOffset = this.transform.position - player.transform.position;
         constraint.enabled = true;
+        constraint.constraintActive = true;
         constraint.translationAxis = Axis.X | Axis.Y | Axis.Z;
+
+        doneInitialize = true;
     }
 
     void Update()
@@ -103,6 +113,7 @@ public class TargetCamera_KT : MonoBehaviour
     }
     public void Reset()
     {
+        if (!doneInitialize) Initialize();
         var pos = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, _z));
         Vector2 distance = new Vector2(pos.x, pos.y) - player.SXLimite;
         transform.position = new Vector3(transform.position.x - distance.x, transform.position.y - distance.y, transform.position.z);
