@@ -35,6 +35,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private bool isGoingRight;
     private bool isGoingLeft;
     private bool rampageCheck;
+    private bool libraryCheck;
     private float landingPos;
     private float timeWithoutDamages;
     private int rampageCounter = 0;
@@ -165,6 +166,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                         {
                             anim.SetBool("lookUp", false);
                         }
+                        if (libraryCheck == true)
+                        {
+                            canTakeDamage = true;
+                            libraryCheck = false;
+                        }
                     }
                     else if (eventManager.IsPlayerOnLibrary)
                     {
@@ -189,6 +195,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                             isLighted = false;
                             timeWithoutDamages = totalTimeWithoutDamages;
                             anim.SetBool("lookUp", false);
+                            libraryCheck = true;
                         }
 
                     }

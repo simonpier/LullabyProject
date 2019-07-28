@@ -13,6 +13,8 @@ public class BookshelfInteraction_ML : MonoBehaviour
 
     private float endingPosition;
 
+    private bool check;
+
     private void Start()
     {
         endingPosition = slidingWall.transform.position.y - endingDistance;
@@ -20,10 +22,11 @@ public class BookshelfInteraction_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player")
+        if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player" && !check)
         {
             audio.PlaySound("bookshelf interaction");
             Invoke("SlidingWall", 1f);
+            check = true;
         }
 
         if (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider")
