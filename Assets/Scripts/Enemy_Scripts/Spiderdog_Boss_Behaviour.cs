@@ -422,6 +422,9 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         hitPoint = maxHitPoint;
         speed = normalSpeed;
         isLighted = true;
+        Flip();
+        Vector2 targetPos = new Vector2(target.position.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         if (rampageCounter == 2)
         {
