@@ -33,12 +33,11 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     [SerializeField] float enrageEndingPosition;
     [SerializeField] float enrageMoveTime;
     [SerializeField] float enrageTime;
+    [SerializeField] float speedAfterEnrage;
 
     [SerializeField] float minRubbleSize;
     [SerializeField] float maxRubbleSize;
-
-
-    [SerializeField] int maxRubbles;
+    [SerializeField] float maxSpawnDelay;
 
 
     private List<GameObject> rubblesList;
@@ -56,6 +55,9 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool isPlayerLeft;
     private bool enraging;
     private bool ceilingPhase;
+    private bool rubblePhase;
+    private bool checkScale;
+    private bool isActivated;
 
 
     private float timeStateChange;
@@ -65,6 +67,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private float enrageStartingPosition;
     private float rubbleSize;
     private float rubbleSpawnPosition;
+    private float spawnDelay;
 
 
     private int actualRubbles;
@@ -78,6 +81,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         #region Variable Setting
         timeStateChange = Random.Range(minTimeStateChange, maxTimeStateChange);
         invisibilityTime = Random.Range(minInvisibilityTime, maxInvisibilityTime);
+        spawnDelay = maxSpawnDelay;
         #endregion
 
         #region Component Declaration
@@ -95,24 +99,27 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     {
         if (bossFightActive)
         {
-            if(!enraging)
+            if(isActivated)
             {
-                playerDistance = Vector2.Distance(transform.position, player.transform.position);
-                BasicMovement();
-                StateManager();
-                InvisibilityManager();
+                if (!enraging)
+                {
+                    playerDistance = Vector2.Distance(transform.position, player.transform.position);
+                    BasicMovement();
+                    StateManager();
+                    InvisibilityManager();
 
-                if (playerDistance <= attackRange && !invisibility)
-                {
-                    AttackManager();
+                    if (playerDistance <= attackRange && !invisibility)
+                    {
+                        AttackManager();
+                    }
+                    else if (playerDistance > attackRange && !invisibility)
+                    {
+                        TrackingMovement();
+                    }         
                 }
-                else if (playerDistance > attackRange && !invisibility)
-                {
-                    TrackingMovement();
-                }
+                Enrage();
             }
-
-            Enrage();
+            DeathChecker();
         }
     }
 
@@ -209,6 +216,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     {
         if (hitPoint <= enrageHitPoint && ceilingPhase == false)
         {
+
             invisibility = false;
 
             enraging = true;
@@ -220,8 +228,40 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             enrageStartingPosition = transform.position.y;
 
             transform.DOMoveY(enrageEndingPosition, enrageMoveTime);
+        }
 
+        if (enraging)
+        {
             ObjectsFalling();
+        }
+    }
+
+    private void ObjectsFalling()
+    {
+        ceilingPhase = true;
+        rubblePhase = true;
+
+        enrageTime -= 1f * Time.deltaTime;
+
+        if (rubblePhase)
+        {
+            spawnDelay -= 1f * Time.deltaTime;
+
+            if (spawnDelay <= 0)
+            {
+                spawnDelay = maxSpawnDelay;
+                rubbleSpawnPosition = Random.Range(sxLimiter.transform.position.x, dxLimiter.transform.position.x);
+                rubbleSize = Random.Range(minRubbleSize, maxRubbleSize);
+                thisRubble = (GameObject)Instantiate(rubble, new Vector3(rubbleSpawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
+                thisRubble.transform.localScale = new Vector3(rubbleSize, rubbleSize, rubbleSize);
+                Destroy(thisRubble, 3f);
+            }
+        }
+
+        if (enrageTime <= 0)
+        {
+            rubblePhase = false;
+            EndingEnrage();
         }
     }
 
@@ -230,30 +270,25 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         anim.SetBool("goDown", true);
         anim.SetBool("climbing", false);
 
-        transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
+        if (!checkScale)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
+            checkScale = true;
+        }
 
         transform.DOMoveY(enrageStartingPosition, enrageMoveTime);
 
         StartCoroutine(PostEnrage());
     }
 
-    private void ObjectsFalling()
+    private void DeathChecker()
     {
-        ceilingPhase = true;
-
-        enrageTime -= 1f * Time.deltaTime;
-
-        for (actualRubbles = 0; actualRubbles < maxRubbles; actualRubbles++)
+        if (hitPoint <= 0)
         {
-            rubbleSpawnPosition = Random.Range(sxLimiter.transform.position.x, dxLimiter.transform.position.x);
-            rubbleSize = Random.Range(minRubbleSize, maxRubbleSize);
-            thisRubble =  (GameObject)Instantiate(rubble, new Vector3(rubbleSpawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
-            thisRubble.transform.localScale = new Vector3(rubbleSize, rubbleSize, rubbleSize);
-        }
-
-        if (enrageTime <= 0)
-        {
-            EndingEnrage();
+            invisibility = false;
+            spriteRenderer.enabled = true;
+            anim.SetBool("death", true);
+            isActivated = false;
         }
     }
 
@@ -364,9 +399,13 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private IEnumerator PostEnrage()
     {
         yield return new WaitForSeconds(enrageMoveTime);
-        transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y * -1);
-        enraging = false;
-        ceilingPhase = false;
+        if (enraging == true)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
+            enraging = false;
+            anim.SetBool("goDown", false);
+            speed = speedAfterEnrage;
+        }
     }
 
     public virtual void OnDrawGizmosSelected()
@@ -393,6 +432,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     {
         anim.SetBool("attack", false);
         lowAttackCollider.SetActive(false);
+        highAttackCollider.SetActive(false);
         invisibilityTime = Random.Range(minInvisibilityTime, maxInvisibilityTime);
         Invoke("Invisibility", 0.5f);
     }
@@ -400,6 +440,11 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private void Invisibility()
     {
         invisibility = true;       
+    }
+
+    private void Activation()
+    {
+        isActivated = true;
     }
 
     #endregion
