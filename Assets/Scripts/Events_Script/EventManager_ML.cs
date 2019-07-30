@@ -20,7 +20,7 @@ public class EventManager_ML : MonoBehaviour
     [SerializeField] GameObject secondWall;
     [SerializeField] GameObject thirdWall;
 
-    [SerializeField] float distanceWallPosition;
+    [SerializeField] float fadeDuration;
 
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue1, dialogue2, dialogue3;
@@ -33,22 +33,18 @@ public class EventManager_ML : MonoBehaviour
     GameObject secondLibrary;
     GameObject thirdLibrary;
 
-    SpriteRenderer rendererFirstWall;
-    SpriteRenderer rendererSecondWall;
-    SpriteRenderer rendererThirdWall;
+    SpriteRenderer rendererFirstSmoke;
+    SpriteRenderer rendererSecondSmoke;
+    SpriteRenderer rendererThirdSmoke;
 
-    Collider2D colliderFirstWall;
-    Collider2D colliderSecondWall;
-    Collider2D colliderThirdWall;
+    Collider2D colliderFirstSmoke;
+    Collider2D colliderSecondSmoke;
+    Collider2D colliderThirdSmoke;
 
     private int randomLibrary;
     private bool secondLibraryPassed;
     private bool firstCheck = false;
     private bool secondCheck = false;
-    private float firstWallPosY;
-    private float secondWallPosY;
-    private float thirdWallPosY;
-    private float endingWallPosition;
 
     #endregion
 
@@ -64,19 +60,13 @@ public class EventManager_ML : MonoBehaviour
     {
         #region Second Library Event
 
-        rendererFirstWall = firstWall.GetComponent<SpriteRenderer>();
-        rendererSecondWall = secondWall.GetComponent<SpriteRenderer>();
-        rendererThirdWall = thirdWall.GetComponent<SpriteRenderer>();
+        rendererFirstSmoke = firstWall.GetComponent<SpriteRenderer>();
+        rendererSecondSmoke = secondWall.GetComponent<SpriteRenderer>();
+        rendererThirdSmoke = thirdWall.GetComponent<SpriteRenderer>();
 
-        colliderFirstWall = firstWall.GetComponent<Collider2D>();
-        colliderSecondWall = secondWall.GetComponent<Collider2D>();
-        colliderThirdWall = thirdWall.GetComponent<Collider2D>();
-
-        firstWallPosY = firstWall.transform.position.y;
-        secondWallPosY = secondWall.transform.position.y;
-        thirdWallPosY = thirdWall.transform.position.y;
-
-        endingWallPosition = firstWallPosY - distanceWallPosition;
+        colliderFirstSmoke = firstWall.GetComponent<Collider2D>();
+        colliderSecondSmoke = secondWall.GetComponent<Collider2D>();
+        colliderThirdSmoke = thirdWall.GetComponent<Collider2D>();
 
         SecondLibraryRandomizer();
         #endregion
@@ -117,46 +107,46 @@ public class EventManager_ML : MonoBehaviour
         if (firstSwitch.SwitchActivated && !secondLibraryPassed && firstCheck == false )
         {
             audio.PlaySound("wall moving");
-            rendererFirstWall.DOFade(0f, distanceWallPosition);
-            colliderFirstWall.enabled = false;
+            rendererFirstSmoke.DOFade(0f, fadeDuration);
+            colliderFirstSmoke.enabled = false;
             firstCheck = true;
             flowchart.ExecuteBlock(dialogue1);
         }
-        else if (!firstSwitch.SwitchActivated && !secondLibraryPassed && firstWall.transform.position.y != firstWallPosY)
+        else if (!firstSwitch.SwitchActivated && !secondLibraryPassed && rendererFirstSmoke.material.color.a != 255f)
         {
-            rendererFirstWall.DOFade(255f, distanceWallPosition);
-            colliderFirstWall.enabled = true;
+            rendererFirstSmoke.DOFade(255f, fadeDuration);
+            colliderFirstSmoke.enabled = true;
             firstCheck = false;
         }
 
         if (secondSwitch.SwitchActivated && !secondLibraryPassed && secondCheck == false )
         {
             audio.PlaySound("wall moving");
-            rendererSecondWall.DOFade(0f, distanceWallPosition);
-            colliderSecondWall.enabled = false;
+            rendererSecondSmoke.DOFade(0f, fadeDuration);
+            colliderSecondSmoke.enabled = false;
             secondCheck = true;
             flowchart.ExecuteBlock(dialogue2);
         }
-        else if (!secondSwitch.SwitchActivated && !secondLibraryPassed && secondWall.transform.position.y != secondWallPosY)
+        else if (!secondSwitch.SwitchActivated && !secondLibraryPassed && rendererSecondSmoke.material.color.a != 255f)
         {
-            rendererSecondWall.DOFade(255f, distanceWallPosition);
-            colliderSecondWall.enabled = true;
+            rendererSecondSmoke.DOFade(255f, fadeDuration);
+            colliderSecondSmoke.enabled = true;
             secondCheck = false;
         }
 
         if (thirdSwitch.SwitchActivated && !secondLibraryPassed)
         {
             flowchart.ExecuteBlock(dialogue3);
-            rendererThirdWall.DOFade(0f, distanceWallPosition);
-            colliderThirdWall.enabled = false;
+            rendererThirdSmoke.DOFade(0f, fadeDuration);
+            colliderThirdSmoke.enabled = false;
             audio.PlaySound("right enigma");
             secondLibraryPassed = true;
             
         }
-        else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && thirdWall.transform.position.y != thirdWallPosY)
+        else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && rendererSecondSmoke.material.color.a != 255f)
         {
-            rendererThirdWall.DOFade(255f, distanceWallPosition);
-            colliderThirdWall.enabled = true;
+            rendererThirdSmoke.DOFade(255f, fadeDuration);
+            colliderThirdSmoke.enabled = true;
         }
     }
 
