@@ -25,6 +25,7 @@ public class PlayerMove_KT : MonoBehaviour
 
     //Player's movement speed;
     [SerializeField] float maxSpeed = 0.15f;
+    [SerializeField] float backMoveSpeed = 0.09f;
     public float Speed { get; private set; }
 
     //player look right is true. [SerializeField] is attached this if level types is diffelent
@@ -125,17 +126,22 @@ public class PlayerMove_KT : MonoBehaviour
             //audio.PlaySound("footsteps_1");
         }
 
-        if (_nowDirection != _ifLookRight)
+        if (_nowDirection != _ifLookRight && weapon.NowWeapon == ChangeWeapon_NN.WEAPON.None)
         {
             this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+            _ifLookRight = _nowDirection;
         }
+        if (_nowDirection != _ifLookRight && weapon.NowWeapon != ChangeWeapon_NN.WEAPON.None)
+        {
+            Debug.Log("Back");
+            _velocity *= backMoveSpeed;
+        }
+
         Vector2 futurePos = (transform.position + _velocity);
         futurePos.x = Mathf.Min(Mathf.Max(SXLimite.x + offset_x, futurePos.x), DXLimite.x - offset_x);
         futurePos.y = Mathf.Min(Mathf.Max(SXLimite.y, futurePos.y), DXLimite.y);
         transform.position = new Vector3(futurePos.x, futurePos.y, transform.position.z);
         Speed = Mathf.Abs(_velocity.x);
-
-        _ifLookRight = _nowDirection;
     }
 
     //if player check door, it need to call this function
