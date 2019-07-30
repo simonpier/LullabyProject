@@ -6,18 +6,19 @@ using DG.Tweening;
 public class BookshelfInteraction_ML : MonoBehaviour
 {
     [SerializeField] GameObject halo;
-    [SerializeField] GameObject slidingWall;
-    [SerializeField] private float moveTime;
-    [SerializeField] private float endingDistance;
+    [SerializeField] GameObject smoke;
+    [SerializeField] private float fadingTime;
     [SerializeField] AudioManager audio;
 
-    private float endingPosition;
+    SpriteRenderer renderer;
+    Collider2D collider;
 
     private bool check;
 
     private void Start()
     {
-        endingPosition = slidingWall.transform.position.y - endingDistance;
+        renderer = smoke.GetComponent<SpriteRenderer>();
+        collider = smoke.GetComponent<Collider2D>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -25,7 +26,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player" && !check)
         {
             audio.PlaySound("bookshelf interaction");
-            Invoke("SlidingWall", 1f);
+            Invoke("SlidingWall", .1f);
             check = true;
         }
 
@@ -45,10 +46,9 @@ public class BookshelfInteraction_ML : MonoBehaviour
 
     private void SlidingWall()
     {
-
-        slidingWall.transform.DOMoveY(endingPosition, moveTime);
+        renderer.DOFade(0f, fadingTime);
+        collider.enabled = false;
         audio.PlaySound("wall moving");
-
     }
 
 }
