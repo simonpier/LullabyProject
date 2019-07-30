@@ -154,14 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422936b19bb4f8041a077ca884799d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  _camera: {fileID: 0}
   startRoom: {fileID: 0}
   offset_x: 0.6
   maxSpeed: 0.15
+  backMoveSpeed: 0.8
   audioM: {fileID: 0}
   gameOver: {fileID: 0}
   source: {fileID: 3290030797688124420}
-  verticalAnimateTime: 0
+  verticalAnimateTime: 0.8
 --- !u!50 &5337991411122789009
 Rigidbody2D:
   serializedVersion: 4
@@ -217,6 +218,7 @@ MonoBehaviour:
   cinematicBar: {fileID: 0}
   bossPosition: 60
   lerpDuration: 5
+  bossFightMusic: {fileID: 0}
 --- !u!70 &3361751130510666940
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

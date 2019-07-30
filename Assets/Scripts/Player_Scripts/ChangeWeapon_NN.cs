@@ -67,8 +67,8 @@ public class ChangeWeapon_NN : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            candle.gameObject.SetActive(_nowSelectInstance == candle && !_nowSelectInstance.active);
-            lantern.gameObject.SetActive(_nowSelectInstance == lantern && !_nowSelectInstance.active);
+            candle.gameObject.SetActive(_nowSelectInstance == candle && !_nowSelectInstance.activeSelf);
+            lantern.gameObject.SetActive(_nowSelectInstance == lantern && !_nowSelectInstance.activeSelf);
 
             LightRaise = false;
             pair[_nowSelectInstance].Drop();
@@ -82,7 +82,7 @@ public class ChangeWeapon_NN : MonoBehaviour
         {
             if (lantern.activeSelf == true)
             {
-                bool temp = _nowSelectInstance.active;
+                bool temp = _nowSelectInstance.activeSelf;
                 _nowSelectInstance.SetActive(false);
                 _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
                 _nowSelectInstance.SetActive(temp);
@@ -93,7 +93,7 @@ public class ChangeWeapon_NN : MonoBehaviour
             }
             else if (candle.activeSelf == true && eventManager.LanternTaken)
             {
-                bool temp = _nowSelectInstance.active;
+                bool temp = _nowSelectInstance.activeSelf;
                 _nowSelectInstance.SetActive(false);
                 _nowSelectInstance = (_nowSelectInstance == candle) ? lantern : candle;
                 _nowSelectInstance.SetActive(temp);
@@ -138,7 +138,7 @@ public class ChangeWeapon_NN : MonoBehaviour
     void WeaponStateUpdate()
     {
         NowWeapon = _nowSelectInstance == candle ? WEAPON.Candle : WEAPON.Lantern;
-        NowWeapon = _nowSelectInstance.active ? NowWeapon : WEAPON.None;
+        NowWeapon = _nowSelectInstance.activeSelf ? NowWeapon : WEAPON.None;
     }
 
     public void ResetAllLight()
