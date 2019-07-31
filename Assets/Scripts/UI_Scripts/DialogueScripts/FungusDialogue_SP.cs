@@ -12,6 +12,7 @@ public class FungusDialogue_SP : MonoBehaviour
     [SerializeField] GameObject player;
     Animator playerAnim;
     PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
 
     private bool check = true;
@@ -20,6 +21,7 @@ public class FungusDialogue_SP : MonoBehaviour
     {
         playerAnim = player.GetComponent<Animator>();
         playerScript = player.GetComponent<PlayerMove_KT>();
+        playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
 
     }
@@ -32,6 +34,7 @@ public class FungusDialogue_SP : MonoBehaviour
 
             playerAnim.enabled = false;
             playerScript.enabled = false;
+            playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
             check = false;
@@ -45,6 +48,7 @@ public class FungusDialogue_SP : MonoBehaviour
 
         playerAnim.enabled = true;
         playerScript.enabled = true;
+        playerWeapon.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
 
     }
