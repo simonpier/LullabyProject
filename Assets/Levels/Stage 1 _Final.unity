@@ -2119,6 +2119,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1039903244}
   check: 0
   endingDistanceY: 4.7
+  cameraCon: {fileID: 0}
+  endingPositionY: 0
 --- !u!1001 &160740460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5016,7 +5018,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 7550059711888818482, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d41b8ba9f29fafb4f8f1d90c4b7c49cb,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 2526461176835844233, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!4 &284708400 stripped
 Transform:
@@ -5940,8 +5949,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
+    - target: {fileID: 7550059711888818482, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d41b8ba9f29fafb4f8f1d90c4b7c49cb,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 2910347224976568427, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
+    - {fileID: 2526461176835844233, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &369205803 stripped
 GameObject:
@@ -16475,7 +16491,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f9e2a78e85499345bca9d05cf6cf718, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 7550059711888818482, guid: f7a270a62e16c6a44985a8cf9c1ab733,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d41b8ba9f29fafb4f8f1d90c4b7c49cb,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 2526461176835844233, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7a270a62e16c6a44985a8cf9c1ab733, type: 3}
 --- !u!1 &1412556842 stripped
 GameObject:
@@ -21823,12 +21846,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -23983,31 +24006,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: spiderDog.Array.data[0]
-      value: 
-      objectReference: {fileID: 1416199317}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 811801725}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: gameCamera
-      value: 
-      objectReference: {fileID: 1039903246}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: debugMenu
-      value: 
-      objectReference: {fileID: 1706041174}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: floorList
-      value: 
-      objectReference: {fileID: 1297174123}
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24063,6 +24061,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: spiderDog.Array.data[0]
+      value: 
+      objectReference: {fileID: 1416199317}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903246}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: debugMenu
+      value: 
+      objectReference: {fileID: 1706041174}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: floorList
+      value: 
+      objectReference: {fileID: 1297174123}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: libraries.Array.size

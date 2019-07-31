@@ -23,7 +23,7 @@ public class FireplaceScript_SP : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
+        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
         {
             playerAnim.enabled = false;
             playerScript.enabled = false;

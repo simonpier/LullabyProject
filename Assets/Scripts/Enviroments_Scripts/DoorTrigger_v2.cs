@@ -26,7 +26,7 @@ public class DoorTrigger_v2 : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
+        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
         {
             door.DoorOpen();
             Invoke("Teleportation", 1);

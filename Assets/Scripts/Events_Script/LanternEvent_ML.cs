@@ -21,7 +21,7 @@ public class LanternEvent_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Return))
+        if (collision.tag == "Player" && Input.GetButtonDown("Interaction"))
         {
             eventManager.LanternTaken = true;
            

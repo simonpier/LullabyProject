@@ -28,11 +28,11 @@ public class BookshelfTrigger_KT : MonoBehaviour
     {
         if ((other.gameObject.tag == "Player"))
         {
-            if (Input.GetKeyDown(KeyCode.Q) && warpHeight.transform.position.y - 0.01f > other.transform.position.y)
+            if (Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f > other.transform.position.y)
             {
                 Climb(other.gameObject);
             }
-            else if(Input.GetKeyDown(KeyCode.Q) && warpHeight.transform.position.y - 0.01f <= other.transform.position.y) // DownKeyCode
+            else if(Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f <= other.transform.position.y) // DownKeyCode
             {
 
                 Dismount(other.gameObject);
