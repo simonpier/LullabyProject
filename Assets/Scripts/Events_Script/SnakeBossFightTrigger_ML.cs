@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SnakeBossFightTrigger_ML : MonoBehaviour
 {
-    [SerializeField] GameObject snakeCat;
 
     Snakecat_Boss_Behaviour snakeBoss;
 
@@ -15,7 +14,7 @@ public class SnakeBossFightTrigger_ML : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        snakeBoss = snakeCat.GetComponent<Snakecat_Boss_Behaviour>();
+        snakeBoss = GetComponent<Snakecat_Boss_Behaviour>();
     }
 
     // Update is called once per frame
