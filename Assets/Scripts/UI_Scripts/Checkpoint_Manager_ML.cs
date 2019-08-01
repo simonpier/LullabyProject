@@ -18,8 +18,6 @@ public class Checkpoint_Manager_ML : MonoBehaviour
         checkpoint2 = check2.GetComponent<Checkpoint_ML>();
         checkpoint3 = check3.GetComponent<Checkpoint_ML>();
 
-       
-
     }
 
     // Update is called once per frame
@@ -49,6 +47,13 @@ public class Checkpoint_Manager_ML : MonoBehaviour
         }
 
         else if (checkpoint1.FirstCheck && checkpoint2.FirstCheck == false && checkpoint3.FirstCheck == false)
+        {
+
+            checkpoint1.Respawn();
+
+        }
+
+        else if (checkpoint1.FirstCheck == false && checkpoint2.FirstCheck == false && checkpoint3.FirstCheck == false)
         {
 
             checkpoint1.Respawn();
