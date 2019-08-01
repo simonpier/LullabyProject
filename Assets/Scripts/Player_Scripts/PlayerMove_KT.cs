@@ -126,12 +126,12 @@ public class PlayerMove_KT : MonoBehaviour
             //audio.PlaySound("footsteps_1");
         }
 
-        if (_nowDirection != _ifLookRight && weapon.NowWeapon == ChangeWeapon_NN.WEAPON.None)
+        if (_nowDirection != _ifLookRight && weapon.NowWeapon != ChangeWeapon_NN.WEAPON.Lantern)
         {
             this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
             _ifLookRight = _nowDirection;
         }
-        if (_nowDirection != _ifLookRight && weapon.NowWeapon != ChangeWeapon_NN.WEAPON.None)
+        if (_nowDirection != _ifLookRight && weapon.NowWeapon == ChangeWeapon_NN.WEAPON.Lantern)
         {
             Debug.Log("Back");
             _velocity *= backMoveSpeed;
