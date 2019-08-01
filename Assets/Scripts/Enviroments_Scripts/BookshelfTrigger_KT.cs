@@ -21,7 +21,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
     void Update()
     {
-        
+        //Debug.Log(eventManager.IsPlayerOnLibrary);
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -42,8 +42,10 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
     void Climb(GameObject player)
     {
-        eventManager.IsPlayerOnLibrary = true;
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
+
+        eventManager.IsPlayerOnLibrary = true;
+
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Climb);
         if(moveArea) moveArea.SetActive(true);
         warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
@@ -51,8 +53,10 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
     public void Dismount(GameObject player)
     {
-        eventManager.IsPlayerOnLibrary = false;
         if (PlayerMove_KT.Instance.MovingVertAnimation != PlayerMove_KT.VertAnimationType.Default) return;
+
+        eventManager.IsPlayerOnLibrary = false;
+
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Dismount);
         if (moveArea) moveArea.SetActive(false);
         warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
