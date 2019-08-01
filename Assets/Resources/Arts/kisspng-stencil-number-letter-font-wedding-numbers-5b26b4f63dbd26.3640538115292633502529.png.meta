@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: 0ed10891237afd9468dc96b63c7d7e60
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7636579882149899826
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_0
+  - first:
+      213: -3624083482594278067
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_1
+  - first:
+      213: -4459121405696215016
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_2
+  - first:
+      213: 1873558293841105465
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_3
+  - first:
+      213: -5379766738867373636
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_4
+  - first:
+      213: 7409618090627236672
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_5
+  - first:
+      213: 1513663232938420765
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_6
+  - first:
+      213: -4183669223854578340
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_7
+  - first:
+      213: -751428683173649442
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_8
+  - first:
+      213: 426194410134483450
+    second: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_9
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 337
+        width: 76
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4786aa9efb2302d4a925c6a8d2683d74
+      internalID: -7636579882149899826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 337
+        width: 93
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71591da007ceef4b8f657787b9438a4
+      internalID: -3624083482594278067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_2
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 337
+        width: 96
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985f3939437c38742a8b7b81e438e077
+      internalID: -4459121405696215016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_3
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 337
+        width: 94
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79dd24172f29a3244aeb9ed6bdbf4f7a
+      internalID: 1873558293841105465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_4
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 337
+        width: 95
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d6a7f115f34544ca87b63a5e028650
+      internalID: -5379766738867373636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 114
+        width: 99
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69beae00b069594cb349a966ec68f22
+      internalID: 7409618090627236672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 115
+        width: 92
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249541de21fed4147a2c2c4b32e542d7
+      internalID: 1513663232938420765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 115
+        width: 97
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa85921e9497cdf4c94352f77b0a50b8
+      internalID: -4183669223854578340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_8
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 114
+        width: 97
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9e3739337b9e5418d3bdfca0e9900c
+      internalID: -751428683173649442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-stencil-number-letter-font-wedding-numbers-5b26b4f63dbd26.3640538115292633502529_9
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 115
+        width: 104
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ce2a19dc3dde944aa5e8bd31d6a975
+      internalID: 426194410134483450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 89bafb95d7ee77047b012bf8c65e8dae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

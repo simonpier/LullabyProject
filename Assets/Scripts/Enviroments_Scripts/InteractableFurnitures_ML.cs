@@ -14,7 +14,7 @@ public abstract class InteractableFurnitures_ML : MonoBehaviour
 
     public virtual void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player")
+        if (Input.GetButtonDown("Interaction") && collision.tag == "Player")
         {
             interact = true;
         }

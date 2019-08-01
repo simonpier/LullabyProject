@@ -64,7 +64,7 @@ public class ChangeWeapon_NN : MonoBehaviour
             LightRaise = false;
             pair[_nowSelectInstance].Drop();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Using"))
         {
 
             candle.gameObject.SetActive(_nowSelectInstance == candle && !_nowSelectInstance.activeSelf);
@@ -78,7 +78,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Switch"))
         {
             if (lantern.activeSelf == true)
             {

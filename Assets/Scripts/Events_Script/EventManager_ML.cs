@@ -117,6 +117,7 @@ public class EventManager_ML : MonoBehaviour
             rendererFirstSmoke.DOFade(255f, fadeDuration);
             colliderFirstSmoke.enabled = true;
             firstCheck = false;
+            //flowchart.ExecuteBlock(dialogue1);
         }
 
         if (secondSwitch.SwitchActivated && !secondLibraryPassed && secondCheck == false )
@@ -132,6 +133,7 @@ public class EventManager_ML : MonoBehaviour
             rendererSecondSmoke.DOFade(255f, fadeDuration);
             colliderSecondSmoke.enabled = true;
             secondCheck = false;
+            //flowchart.ExecuteBlock(dialogue2);
         }
 
         if (thirdSwitch.SwitchActivated && !secondLibraryPassed)
@@ -145,6 +147,7 @@ public class EventManager_ML : MonoBehaviour
         }
         else if (!thirdSwitch.SwitchActivated && !secondLibraryPassed && rendererSecondSmoke.material.color.a != 255f)
         {
+            //flowchart.ExecuteBlock(dialogue3);
             rendererThirdSmoke.DOFade(255f, fadeDuration);
             colliderThirdSmoke.enabled = true;
         }

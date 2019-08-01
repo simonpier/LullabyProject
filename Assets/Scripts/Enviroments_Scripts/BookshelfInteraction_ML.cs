@@ -23,7 +23,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Return) && collision.tag == "Player" && !check)
+        if (Input.GetButtonDown("Interaction") && collision.tag == "Player" && !check)
         {
             audio.PlaySound("bookshelf interaction");
             Invoke("SlidingWall", .1f);
