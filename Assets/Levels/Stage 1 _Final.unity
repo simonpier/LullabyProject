@@ -25343,6 +25343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960104, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8408322223967960116, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25410,9 +25415,34 @@ PrefabInstance:
       objectReference: {fileID: 1597956053}
     - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: yDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1943455861
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}
 --- !u!1001 &8421439792986396677
