@@ -54,12 +54,13 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w"))
+        float inputVert = Input.GetAxis("Vertical");
+        if (inputVert > 0)
         {
             LightRaise = true;
             pair[_nowSelectInstance].Raise();
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown("s"))
+        if (inputVert < 0)
         {
             LightRaise = false;
             pair[_nowSelectInstance].Drop();
