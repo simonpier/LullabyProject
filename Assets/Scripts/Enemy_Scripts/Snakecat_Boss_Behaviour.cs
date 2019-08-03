@@ -50,7 +50,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool isGoingRight;
     private bool highState;
     //TODO make it false
-    private bool bossFightActive;
+    private bool bossFightActive = true;
     private bool isPlayerRight;
     private bool isPlayerLeft;
     private bool enraging;
@@ -58,7 +58,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool rubblePhase;
     private bool checkScale;
     private bool isActivated;
-
+    private bool check = false, check2 = false, check3 = false;
 
     private float timeStateChange;
     private float invisibilityTime;
@@ -71,12 +71,17 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
 
 
     private int actualRubbles;
-    
+    private int pickedSound;
+
+    [SerializeField] AudioClip[] sounds;
+    [SerializeField] AudioSource source;
+
     Animator anim;
     SpriteRenderer spriteRenderer;
     GameObject thisRubble;
 
     public bool BossFightActive { get => bossFightActive; set => bossFightActive = value; }
+
 
     void Start()
     {
@@ -103,6 +108,24 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         {
             if(isActivated)
             {
+                if (check == false)
+                {
+                    pickedSound = 0;
+                    gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                    source.clip = sounds[pickedSound];
+                    source.pitch = Random.Range(1f, 1f);
+                    source.Play();
+                    check = true;
+                }
+
+                if (source.isPlaying == false && check2 == false)
+                {
+
+                    check2 = true;
+                    Invoke("RandomSound", Random.Range(5f, 8f));
+
+                }
+
                 if (!enraging)
                 {
                     playerDistance = Vector2.Distance(transform.position, player.transform.position);
@@ -291,6 +314,16 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             spriteRenderer.enabled = true;
             anim.SetBool("death", true);
             isActivated = false;
+
+            pickedSound = 3;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(1f, 1f);
+            if (check3 == false)
+            {
+                source.Play();
+                check3 = true;
+            }
         }
     }
 
@@ -326,6 +359,25 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private void AttackManager()
     {
         anim.SetBool("attack", true);
+        if (source.isPlaying == true ) //steps sound
+        {
+            pickedSound = 1;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(1f, 1f);
+            if(source.isPlaying == false)
+                source.Play();
+
+        }
+
+        else if (source.isPlaying == false)
+        {
+            pickedSound = 1;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(1f, 1f);
+            source.Play();
+        }
     }
 
     private void StateManager()
@@ -408,6 +460,16 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             anim.SetBool("goDown", false);
             speed = speedAfterEnrage;
         }
+    }
+
+    private void RandomSound()
+    {
+        pickedSound = 5;
+        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+        source.clip = sounds[pickedSound];
+        source.pitch = Random.Range(1f, 1f);
+        source.Play();
+        check2 = false;
     }
 
     public virtual void OnDrawGizmosSelected()
