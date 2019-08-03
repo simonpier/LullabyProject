@@ -96,10 +96,11 @@ public class PlayerMove_KT : MonoBehaviour
     {
         bool _nowDirection = _ifLookRight;
         Vector3 _velocity = Vector3.zero;
-        if (Input.GetKey("d"))
+        float inputHori = Input.GetAxis("Horizontal");
+        if (inputHori > 0)
         {
             _nowDirection = true;
-            _velocity += maxSpeed * Vector3.right;
+            _velocity += maxSpeed * Vector3.right * inputHori;
             if (source.isPlaying == false)
             {
                 source.volume = Random.Range(0.1f, 0.15f);
@@ -111,10 +112,10 @@ public class PlayerMove_KT : MonoBehaviour
             // audio.PlaySound("footsteps_1");
         }
 
-        if (Input.GetKey("a"))
+        if (inputHori < 0)
         {
             _nowDirection = false;
-            _velocity += maxSpeed * Vector3.left;
+            _velocity += maxSpeed * Vector3.left * inputHori * -1;
             if (source.isPlaying == false)
             {
                 source.volume = Random.Range(0.1f, 0.15f);
