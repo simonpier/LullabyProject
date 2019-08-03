@@ -18618,11 +18618,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SayDialog
       objectReference: {fileID: 0}
-    - target: {fileID: 2479134747356287925, guid: 4e1a18d7802469a429582be1ba21fc90,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2479134747356287907, guid: 4e1a18d7802469a429582be1ba21fc90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18727,26 +18722,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479134746965014292, guid: 4e1a18d7802469a429582be1ba21fc90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.3710938
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479134745701719131, guid: 4e1a18d7802469a429582be1ba21fc90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -38.898438
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479134745701719131, guid: 4e1a18d7802469a429582be1ba21fc90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 38.075195
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479134747013457246, guid: 4e1a18d7802469a429582be1ba21fc90,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -282.03516
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1a18d7802469a429582be1ba21fc90, type: 3}
