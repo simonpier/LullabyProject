@@ -464,7 +464,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
 
     private void RandomSound()
     {
-        pickedSound = 5;
+        pickedSound = 2;
         gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
         source.clip = sounds[pickedSound];
         source.pitch = Random.Range(1f, 1f);
