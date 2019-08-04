@@ -62,33 +62,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bbbc0b04d9906544584f37a9ee5e8bd6, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-4528676651807385104
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: DoorMonster_IdlePreTransf
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 36a06a194ea963943a4f85bfd88e4e62, type: 2}
+  m_Motion: {fileID: 7400000, guid: 19fd2f5d0a054b246904fb7fe740dea6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -179,13 +153,10 @@ AnimatorStateMachine:
     m_Position: {x: -70, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -403285582818116311}
-    m_Position: {x: 250, y: 600, z: 0}
+    m_Position: {x: 250, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5717033443171290719}
     m_Position: {x: -70, y: 320, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -4528676651807385104}
-    m_Position: {x: -160, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -218,7 +189,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ab8ddd09e8294f14fae27c00c3b7a04d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 98812ab78153a90498b7d57644b1a444, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -280,7 +251,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorMonster_Animator
+  m_Name: PaintingMonster_Animator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: transformation
@@ -366,7 +337,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a8965fecdecc0b94a88932b7295ae4b9, type: 2}
+  m_Motion: {fileID: 7400000, guid: f29dec37a05979347bd5b17ae01d8d01, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -443,7 +414,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 36a06a194ea963943a4f85bfd88e4e62, type: 2}
+  m_Motion: {fileID: 7400000, guid: 85359fe96a3af38478bbb935e6655551, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -568,7 +539,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5157a51671c8cc848b541fbc49685f75, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9f1f3c24413d25640bd0f4765f5d30f8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -23,6 +23,7 @@ public class ChangeWeapon_NN : MonoBehaviour
     [SerializeField] GameObject uiL;
     [SerializeField] GameObject gameManager;
 
+    EventManagerSecondStage_ML secondEventManager;
     EventManager_ML eventManager;
     InGameUI_SP candleBar;
     InGameUILantern_SP lanternBar;
@@ -42,6 +43,7 @@ public class ChangeWeapon_NN : MonoBehaviour
     void Start()
     {
         eventManager = gameManager.GetComponent<EventManager_ML>();
+        secondEventManager = gameManager.GetComponent<EventManagerSecondStage_ML>();
         light = candle.GetComponent<Light>();
         lightLantern = lantern.GetComponent<Light>();
         candleBar = ui.GetComponent<InGameUI_SP>();
