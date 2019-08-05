@@ -636,6 +636,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67683743}
   m_CullTransparentMesh: 0
+--- !u!1 &70711662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599051252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71100863
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +866,21 @@ PrefabInstance:
     - target: {fileID: 1288342579048401776, guid: e27263954852a404cb02148ea3e49b8d,
         type: 3}
       propertyPath: playerLantern
+      value: 
+      objectReference: {fileID: 637830460}
+    - target: {fileID: 1288342577545101370, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerCandle
+      value: 
+      objectReference: {fileID: 263906042}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerLanter
       value: 
       objectReference: {fileID: 637830460}
     m_RemovedComponents: []
@@ -1502,41 +1523,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 952981506}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &191670231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191670230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737af382b2e0b4a439c3d226fd6f7482, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paintings:
-  - {fileID: 1098679297}
-  - {fileID: 785923289}
-  - {fileID: 191670230}
-  - {fileID: 1699576737}
-  - {fileID: 1302980243}
-  paintingsPosition: []
-  wrongCombination: []
-  rightCombination: []
-  chandeliers: []
-  fadeTime: 0
---- !u!114 &191670232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191670230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d77a85b740fce34f9c823bd1b4a7975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &191670234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6839196922460517377, guid: f61c65c6ce3aafd48800167a54ebd0ea,
@@ -7062,6 +7048,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5006631041680951051, guid: 28c142766a44a2949bbb0cfb57754b07,
     type: 3}
   m_PrefabInstance: {fileID: 1302101999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &841369976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 78093732}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &843108934
 GameObject:
@@ -14705,6 +14697,21 @@ PrefabInstance:
       propertyPath: playerLantern
       value: 
       objectReference: {fileID: 637830460}
+    - target: {fileID: 1288342577545101370, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerCandle
+      value: 
+      objectReference: {fileID: 263906042}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerLanter
+      value: 
+      objectReference: {fileID: 637830460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27263954852a404cb02148ea3e49b8d, type: 3}
 --- !u!1 &1622237067
@@ -17096,7 +17103,10 @@ MonoBehaviour:
   - {fileID: 1426941480}
   - {fileID: 736940090}
   - {fileID: 656125138}
-  chandeliers: []
+  chandeliers:
+  - {fileID: 70711662}
+  - {fileID: 841369976}
+  - {fileID: 1977973587}
   fadeTime: 1
 --- !u!4 &1881748496 stripped
 Transform:
@@ -17111,7 +17121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881748494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dff203dd818d2f40a9cdf7176f9370f, type: 3}
   m_Name: 
@@ -18084,6 +18094,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f61c65c6ce3aafd48800167a54ebd0ea, type: 3}
+--- !u!1 &1977973587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2104019426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1992466723
 GameObject:
   m_ObjectHideFlags: 0
@@ -19499,6 +19515,21 @@ PrefabInstance:
       propertyPath: playerLantern
       value: 
       objectReference: {fileID: 637830460}
+    - target: {fileID: 1288342577545101370, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerLanter
+      value: 
+      objectReference: {fileID: 637830460}
+    - target: {fileID: 1288342578358014593, guid: e27263954852a404cb02148ea3e49b8d,
+        type: 3}
+      propertyPath: playerCandle
+      value: 
+      objectReference: {fileID: 263906042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27263954852a404cb02148ea3e49b8d, type: 3}
 --- !u!1 &2111332102

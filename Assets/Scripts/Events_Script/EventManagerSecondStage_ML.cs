@@ -41,6 +41,7 @@ public class EventManagerSecondStage_ML : MonoBehaviour
     #endregion
 
     #region Others Variables
+    [Header("Others")]
 
     EventManager_ML firstEventManager;
 
@@ -63,7 +64,6 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         #region Others
         firstEventManager = GetComponent<EventManager_ML>();
         firstEventManager.LanternTaken = true;
-        firstEventManager.enabled = false;
         #endregion
     }
 

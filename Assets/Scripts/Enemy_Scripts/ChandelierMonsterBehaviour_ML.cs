@@ -109,7 +109,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     private void CandleCheck()
     {
-        if (!playerCandle.activeSelf && !playerLantern.activeSelf)
+        if (!playerCandle.activeSelf && !playerLantern.activeSelf && !isDied)
         {
             anim.SetBool("isTransformed", false);
             anim.ResetTrigger("transformation");
@@ -119,7 +119,7 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
             
         }
 
-        if (candleDetection.IsCandleColliding || candleDetection.IsLanternColliding && hitPoint >= 0)
+        if (candleDetection.IsCandleColliding || candleDetection.IsLanternColliding && !isDied)
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
@@ -131,13 +131,20 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider")
+
+    }
+
+    public override void OnTriggerStay2D(Collider2D collision)
+    {
+        base.OnTriggerStay2D(collision);
+
+        if ((collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider") && !isDied)
         {
             anim.SetBool("reset", false);
             anim.SetBool("death", false);
             anim.SetTrigger("transformation");
-            
         }
+
     }
 
     void InvokeSound()
