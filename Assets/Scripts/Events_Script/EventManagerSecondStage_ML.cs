@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EventManagerSecondStage_ML : MonoBehaviour
 {
     #region Painting Room Event Variables
+    [Header ("Painting Room Event")]
     [SerializeField] List<GameObject> paintings;
 
     [SerializeField] List<Vector3> paintingsPosition;
@@ -16,6 +18,25 @@ public class EventManagerSecondStage_ML : MonoBehaviour
 
     public int IndexRightNumber { get => indexRightNumber; set => indexRightNumber = value; }
 
+
+    #endregion
+
+    #region Chandelier Room Event Variables
+
+    [Header("Chandelier Room Event")]
+
+    [SerializeField] List<GameObject> wrongCombination;
+    [SerializeField] List<GameObject> rightCombination;
+    [SerializeField] List<GameObject> chandeliers;
+
+    [SerializeField] float fadeTime;
+
+    ChandelierMonsterBehaviour_ML firstChandelierMonster;
+    ChandelierMonsterBehaviour_ML secondChandelierMonster;
+    ChandelierMonsterBehaviour_ML thirdChandelierMonster;
+
+    SpriteRenderer wrongRenderer;
+    SpriteRenderer rightRenderer;
 
     #endregion
 
@@ -31,9 +52,18 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         PaintingRoomManager();
         #endregion
 
+        #region Chandelier Room Event 
+
+        firstChandelierMonster = chandeliers[0].GetComponent<ChandelierMonsterBehaviour_ML>();
+        secondChandelierMonster = chandeliers[1].GetComponent<ChandelierMonsterBehaviour_ML>();
+        thirdChandelierMonster = chandeliers[2].GetComponent<ChandelierMonsterBehaviour_ML>();
+
+        #endregion
+
         #region Others
         firstEventManager = GetComponent<EventManager_ML>();
         firstEventManager.LanternTaken = true;
+        firstEventManager.enabled = false;
         #endregion
     }
 
@@ -53,6 +83,38 @@ public class EventManagerSecondStage_ML : MonoBehaviour
             paintingsPosition.RemoveAt(randomizer);
         }
     }
+
+    #endregion
+
+    #region Chandelier Room Event Methods
+
+    private void ChandelierCheck()
+    {
+        if (firstChandelierMonster.IsDied)
+        {
+            StartCoroutine(numbersFading(0));
+        }
+        if (secondChandelierMonster.IsDied)
+        {
+            StartCoroutine(numbersFading(1));
+        }
+        if (thirdChandelierMonster.IsDied)
+        {
+            StartCoroutine(numbersFading(2));
+        }
+    }
+
+    private IEnumerator numbersFading(int index)
+    {
+        wrongRenderer = wrongCombination[index].GetComponent<SpriteRenderer>();
+        rightRenderer = rightCombination[index].GetComponent<SpriteRenderer>();
+
+        wrongRenderer.DOFade(0, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+        wrongCombination[index].SetActive(false);
+        rightRenderer.DOFade(255, fadeTime);
+    }
+
 
     #endregion
 

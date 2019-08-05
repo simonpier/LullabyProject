@@ -16,6 +16,9 @@ public class ChandelierMonsterBehaviour_ML : EnemyController_ML
 
     private bool check = true, check2 = true;
     private int pickedSound;
+
+    public bool IsDied { get => isDied; protected set => IsDied = value; }
+
     // Start is called before the first frame update
     public override void Start()
     {
