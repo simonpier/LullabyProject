@@ -50,7 +50,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool isGoingRight;
     private bool highState;
     //TODO make it false
-    private bool bossFightActive = true;
+    private bool bossFightActive;
     private bool isPlayerRight;
     private bool isPlayerLeft;
     private bool enraging;

@@ -13919,7 +13919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1303688090
 Animator:
   serializedVersion: 3
@@ -20889,7 +20889,7 @@ MonoBehaviour:
   - {fileID: 70711662}
   - {fileID: 841369976}
   - {fileID: 1977973587}
-  snakeCat: {fileID: 0}
+  snakeCat: {fileID: 1303688089}
   fadeTime: 1
 --- !u!4 &1881748496 stripped
 Transform:
@@ -24173,7 +24173,7 @@ PrefabInstance:
     - target: {fileID: 2479134746965014292, guid: 4e1a18d7802469a429582be1ba21fc90,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 29.099976
+      value: 29.09961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1a18d7802469a429582be1ba21fc90, type: 3}
