@@ -70,17 +70,6 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             flowchart.ExecuteBlock(dialogue);
         }
 
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction") && !rightNumber)
-        {
-
-            playerAnim.enabled = false;
-            playerScript.enabled = false;
-            playerWeapon.enabled = false;
-            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            flowchart.ExecuteBlock(dialogue);
-
-        }
-
         if (collision.tag == "Player_LanternCollider" || collision.tag == "Player_CandleCollider")
         {
             halo.enabled = true;

@@ -677,9 +677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 248361635}
-  dialogue: JustAPainting
-  player: {fileID: 811801725}
+  flowchart: {fileID: 0}
+  dialogue: 
+  player: {fileID: 0}
 --- !u!212 &71100865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2202,77 +2202,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &248361707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248361634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 103
-  indentLevel: 0
-  storyText: 'is Just a painting... '
-  description: 
-  character: {fileID: 811801727}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &248361708
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248361634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: -217.62477
-    y: 215.18341
-    width: 125.40979
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 102
-  blockName: JustAPainting
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 248361707}
-  - {fileID: 248361709}
---- !u!114 &248361709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248361634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 105
-  indentLevel: 0
-  targetObject: {fileID: 696739580}
-  methodName: DilogueEnded
-  delay: 0
 --- !u!1 &263906042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
@@ -7107,9 +7036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 248361635}
-  dialogue: JustAPainting
-  player: {fileID: 811801725}
+  flowchart: {fileID: 0}
+  dialogue: 
+  player: {fileID: 0}
 --- !u!212 &825676484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7277,11 +7206,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 792868650660750100, guid: 9218735f07541414e933770952932028,
-        type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1881748494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9218735f07541414e933770952932028, type: 3}
 --- !u!1 &837224295
@@ -9668,16 +9592,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994394775}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ffb73e930d768e41b81c5290cc2c3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 248361635}
+  flowchart: {fileID: 0}
   dialogue: 
-  player: {fileID: 811801725}
+  player: {fileID: 0}
 --- !u!212 &994394777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12332,7 +12256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1303688090
 Animator:
   serializedVersion: 3
@@ -17562,9 +17486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 248361635}
-  dialogue: JustAPainting
-  player: {fileID: 811801725}
+  flowchart: {fileID: 0}
+  dialogue: 
+  player: {fileID: 0}
 --- !u!212 &1745579383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20090,10 +20014,6 @@ PrefabInstance:
       propertyPath: bossFightMusic
       value: 
       objectReference: {fileID: 8300000, guid: a651cb982e3633a4d9c296f2c4cd4e80, type: 3}
-    - target: {fileID: 811801734, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: startRoom
