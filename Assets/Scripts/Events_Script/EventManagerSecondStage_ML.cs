@@ -28,12 +28,14 @@ public class EventManagerSecondStage_ML : MonoBehaviour
     [SerializeField] List<GameObject> wrongCombination;
     [SerializeField] List<GameObject> rightCombination;
     [SerializeField] List<GameObject> chandeliers;
+    [SerializeField] GameObject snakeCat;
 
     [SerializeField] float fadeTime;
 
     ChandelierMonsterBehaviour_ML firstChandelierMonster;
     ChandelierMonsterBehaviour_ML secondChandelierMonster;
     ChandelierMonsterBehaviour_ML thirdChandelierMonster;
+    SnakeBossFightTrigger_ML bossTrigger;
 
     SpriteRenderer wrongRenderer;
     SpriteRenderer rightRenderer;
@@ -58,6 +60,8 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         firstChandelierMonster = chandeliers[0].GetComponent<ChandelierMonsterBehaviour_ML>();
         secondChandelierMonster = chandeliers[1].GetComponent<ChandelierMonsterBehaviour_ML>();
         thirdChandelierMonster = chandeliers[2].GetComponent<ChandelierMonsterBehaviour_ML>();
+
+        bossTrigger = snakeCat.GetComponent<SnakeBossFightTrigger_ML>();
 
         #endregion
 
@@ -107,6 +111,11 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         {
             StartCoroutine(numbersFading(2));
         }
+    }
+
+    public void WoodPiecesIncrement()
+    {
+        bossTrigger.WoodPiecesCount++;
     }
 
     private IEnumerator numbersFading(int index)

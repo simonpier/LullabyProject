@@ -20,7 +20,7 @@ public class SnakeBossFightTrigger_ML : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BossTrigger();
     }
 
     void BossTrigger()

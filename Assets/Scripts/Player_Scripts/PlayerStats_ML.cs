@@ -48,4 +48,9 @@ public class PlayerStats_ML : MonoBehaviour
     {
         health = maxHealth;
     }
+
+    public void PlayerDeath()
+    {
+        health = 0;
+    }
 }
