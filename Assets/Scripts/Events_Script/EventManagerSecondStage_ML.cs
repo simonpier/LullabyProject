@@ -67,6 +67,11 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         #endregion
     }
 
+    private void Update()
+    {
+        ChandelierCheck();
+    }
+
     #region Painting Room Event Methods
 
     private void PaintingRoomManager()
