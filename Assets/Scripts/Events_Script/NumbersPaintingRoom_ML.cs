@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
+
 
 public class NumbersPaintingRoom_ML : MonoBehaviour
 {
     [SerializeField] GameObject rightPainting;
     [SerializeField] GameObject snakeBoss;
+    [SerializeField] Flowchart flowchart;
+    [SerializeField] string dialogue;
+    [SerializeField] GameObject player;
 
     Behaviour halo;
+    
+    
+    Animator playerAnim;
+    PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerWeapon;
+    Rigidbody2D playerRB;
 
     private bool check;
     private bool rightNumber;
@@ -23,6 +34,12 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
 
         snakeTrigger = snakeBoss.GetComponent<SnakeBossFightTrigger_ML>();
         Invoke("NumberCheck", 0.5f);
+
+        playerAnim = player.GetComponent<Animator>();
+        playerScript = player.GetComponent<PlayerMove_KT>();
+        playerWeapon = player.GetComponent<ChangeWeapon_NN>();
+        playerRB = player.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -45,7 +62,14 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
         {
             snakeTrigger.WoodPiecesCount++;
             check = true;
+
+            playerAnim.enabled = false;
+            playerScript.enabled = false;
+            playerWeapon.enabled = false;
+            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            flowchart.ExecuteBlock(dialogue);
         }
+
         if (collision.tag == "Player_LanternCollider" || collision.tag == "Player_CandleCollider")
         {
             halo.enabled = true;
