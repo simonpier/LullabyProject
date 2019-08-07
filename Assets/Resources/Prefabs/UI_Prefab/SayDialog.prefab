@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -627, y: -218.5}
+  m_AnchoredPosition: {x: -627, y: -210}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6970595845658131297
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c0ad88f9fe168314d86fa94ff3cba480, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5babeb94cc538c4e938b76e9892bbf6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -850, y: 29.1}
+  m_AnchoredPosition: {x: -850, y: 29.099976}
   m_SizeDelta: {x: 956.2, y: 335}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2479134746965014295
@@ -829,7 +829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.3, y: -50}
+  m_AnchoredPosition: {x: 50, y: -57}
   m_SizeDelta: {x: 371.22, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2479134747524209043
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.25490198, b: 0.2627451, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -908,10 +908,10 @@ RectTransform:
   m_Father: {fileID: 2479134747356287907}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.78700006}
-  m_AnchoredPosition: {x: -137.3, y: -311}
-  m_SizeDelta: {x: -439.4, y: -722.2}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -102.20001, y: -432.3}
+  m_SizeDelta: {x: 1337.3, y: 207.40002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2479134747589756439
 CanvasRenderer:
