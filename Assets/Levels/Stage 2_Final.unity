@@ -230,6 +230,7 @@ Transform:
   - {fileID: 1247372155}
   - {fileID: 110781534}
   - {fileID: 1995531904}
+  - {fileID: 1099893305}
   m_Father: {fileID: 1065203678}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2170,7 +2171,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 0
+  waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -4821,6 +4822,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: candle
+      value: 
+      objectReference: {fileID: 263906042}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: lantern
+      value: 
+      objectReference: {fileID: 637830460}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: candleBar
+      value: 
+      objectReference: {fileID: 2134637257}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: lanternBar
+      value: 
+      objectReference: {fileID: 601376347}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: contentCandle
+      value: 
+      objectReference: {fileID: 1168171509}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: contentLantern
+      value: 
+      objectReference: {fileID: 886033188}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: lanternCollider
+      value: 
+      objectReference: {fileID: 1030053341}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1945789596}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: playerObj
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903244}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: checkpoint
+      value: 
+      objectReference: {fileID: 1099893304}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fecd56cc261cec4cb406bc182e6a036, type: 3}
 --- !u!1 &686938612
@@ -6928,6 +6984,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 818219609}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &819123120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5180666914194632853, guid: 6fecd56cc261cec4cb406bc182e6a036,
+    type: 3}
+  m_PrefabInstance: {fileID: 682616103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &819123123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+    type: 3}
+  m_PrefabInstance: {fileID: 682616103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819123120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36301612cb2659f4bad14ed415587232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825676482
 GameObject:
   m_ObjectHideFlags: 0
@@ -10166,6 +10240,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1803807650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1099893304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1099893305}
+  m_Layer: 0
+  m_Name: Checkpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1099893305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099893304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16, y: -3.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 18178610}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100837409
 GameObject:
   m_ObjectHideFlags: 0
@@ -10215,25 +10319,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100837409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36301612cb2659f4bad14ed415587232, type: 3}
+  m_Script: {fileID: 11500000, guid: cb3a1a4036b5428409a5fcdab7d2123b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candle: {fileID: 0}
-  lantern: {fileID: 0}
-  candleBar: {fileID: 2134637257}
-  lanternBar: {fileID: 601376347}
-  contentCandle: {fileID: 485315945}
-  contentLantern: {fileID: 2073961543}
-  lanternCollider: {fileID: 0}
-  lightSource: {fileID: 0}
-  audio: {fileID: 0}
-  playerObj: {fileID: 0}
-  gameCamera: {fileID: 0}
-  checkpoint: {fileID: 0}
-  bookMonsters: []
-  lampMonsters: []
-  chandelierMonsters: []
-  vacuumMonsters: []
+  savepoint: {fileID: 819123120}
 --- !u!114 &1100837412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10277,7 +10366,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1100837411}
+      - m_Target: {fileID: 819123123}
         m_MethodName: Respawn
         m_Mode: 1
         m_Arguments:
@@ -15470,7 +15559,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000018477, y: -12.5}
-  m_SizeDelta: {x: 1300, y: 769}
+  m_SizeDelta: {x: 1300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558106747
 MonoBehaviour:
@@ -19167,6 +19256,19 @@ MonoBehaviour:
   dialogue2: 
   dialogue3: 
   audio: {fileID: 0}
+--- !u!114 &1881748500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881748494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3a1a4036b5428409a5fcdab7d2123b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savepoint: {fileID: 819123120}
 --- !u!1 &1886498798
 GameObject:
   m_ObjectHideFlags: 0
@@ -22085,6 +22187,16 @@ PrefabInstance:
         type: 3}
       propertyPath: lanternTaken
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8512877955839865174, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: check1
+      value: 
+      objectReference: {fileID: 819123120}
+    - target: {fileID: 8512877955839865174, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9, type: 3}
