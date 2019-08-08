@@ -2381,7 +2381,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 296.93884
     y: 214.3356
-    width: 120
+    width: 131.7073
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2426,7 +2426,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 760.88983
     y: 355.99292
-    width: 120
+    width: 129.26828
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2492,7 +2492,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 752.8191
     y: 429.36017
-    width: 132.08951
+    width: 149.99997
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3689,7 +3689,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 945.8913
     y: 276.0989
-    width: 120
+    width: 123.170715
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3801,7 +3801,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 763.3478
     y: 274.99078
-    width: 120
+    width: 123.170715
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11982,9 +11982,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 0}
+  flowchart: {fileID: 248361635}
   dialogue: 
-  player: {fileID: 0}
+  player: {fileID: 811801725}
 --- !u!212 &994394777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13593,7 +13593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowchart: {fileID: 248361635}
-  dialogue: 
+  dialogue: PuzzleClue
   snakeBoss: {fileID: 1303688089}
   player: {fileID: 811801725}
 --- !u!61 &1175211449
