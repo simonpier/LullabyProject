@@ -13,7 +13,7 @@ public class ChangeLevel_SP : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return))
+        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
         {
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
