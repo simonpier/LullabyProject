@@ -677,9 +677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 0}
-  dialogue: 
-  player: {fileID: 0}
+  flowchart: {fileID: 248361635}
+  dialogue: JustAPainting
+  player: {fileID: 811801725}
 --- !u!212 &71100865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3024,7 +3024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 167
   indentLevel: 0
-  text: 7
+  text: 6
   description: 
   targetBlock: {fileID: 248361638}
   hideIfVisited: 0
@@ -3872,6 +3872,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &248361693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 193
+  indentLevel: 0
+  text: 7
+  description: 
+  targetBlock: {fileID: 248361638}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &248361748
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4064,6 +4089,102 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &248361751
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 190
+  indentLevel: 0
+  targetObject: {fileID: 696739580}
+  methodName: DilogueEnded
+  delay: 0
+--- !u!114 &248361752
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 188
+  indentLevel: 0
+  storyText: I-it's just a painting...
+  description: 
+  character: {fileID: 811801727}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &248361753
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 191
+  indentLevel: 0
+  storyText: Maybe...
+  description: 
+  character: {fileID: 811801727}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &248361754
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248361634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 192
+  indentLevel: 0
+  text: 9
+  description: 
+  targetBlock: {fileID: 248361638}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setMenuDialog: {fileID: 0}
+  hideThisOption:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!1 &263906042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
@@ -9166,9 +9287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 0}
-  dialogue: 
-  player: {fileID: 0}
+  flowchart: {fileID: 248361635}
+  dialogue: JustAPainting
+  player: {fileID: 811801725}
 --- !u!212 &825676484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9336,6 +9457,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 792868650660750100, guid: 9218735f07541414e933770952932028,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1881748494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9218735f07541414e933770952932028, type: 3}
 --- !u!1 &837224295
@@ -11722,7 +11848,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994394775}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ffb73e930d768e41b81c5290cc2c3bf, type: 3}
   m_Name: 
@@ -12712,6 +12838,7 @@ GameObject:
   - component: {fileID: 1108267419}
   - component: {fileID: 1108267418}
   - component: {fileID: 1108267417}
+  - component: {fileID: 1108267421}
   m_Layer: 0
   m_Name: ENM_table_HH_1
   m_TagString: Untagged
@@ -12734,6 +12861,8 @@ MonoBehaviour:
   player: {fileID: 811801725}
   snakeCat: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
+  dialogue: PieceOfWood
+  puzzle: ChandelierPuzzle
 --- !u!95 &1108267418
 Animator:
   serializedVersion: 3
@@ -12808,13 +12937,39 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108267416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.73, y: -28.39, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36.230003, y: 16.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1674898799}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1108267421
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108267416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.67, y: 4.67}
+    newSize: {x: 4.67, y: 4.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.67, y: 4.67}
+  m_EdgeRadius: 0
 --- !u!1 &1121105391
 GameObject:
   m_ObjectHideFlags: 0
@@ -17156,7 +17311,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 4.0070424, y: 4.0070424, z: 0}
+  m_ChunkCullingBounds: {x: 4.0070424, y: 0.9084507, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -17334,19 +17489,10 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 107, y: -26, z: 0}
+  - first: {x: 125, y: -31, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 116, y: -26, z: 0}
-    second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -17360,9 +17506,9 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 573b1999435c3664a887da191666a5e2, type: 2}
-  - m_RefCount: 11
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 0c33dd7ff4daed044932803f55b622ae, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: c1b6bd73cbca34540a0fc393d081c9bd, type: 2}
@@ -17373,14 +17519,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 46d3c873a4277294eac392f2f88eafa8, type: 3}
-  - m_RefCount: 11
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 12
     m_Data: {fileID: 21300000, guid: 95ee5342f9be19d41b8ee7b3e66d8c8f, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 6b2f54d255ced4c4c8037a5f70a5f549, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 20
+  - m_RefCount: 19
     m_Data:
       e00: 1
       e01: 0
@@ -17399,7 +17545,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 20
+  - m_RefCount: 19
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17636,15 +17782,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 125, y: -31, z: 0}
-    second:
-      m_TileIndex: 1
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 89, y: -26, z: 0}
     second:
       m_TileIndex: 3
@@ -17657,7 +17794,25 @@ Tilemap:
   - first: {x: 98, y: -26, z: 0}
     second:
       m_TileIndex: 2
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 107, y: -26, z: 0}
+    second:
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 116, y: -26, z: 0}
+    second:
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -17676,11 +17831,11 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 0c33dd7ff4daed044932803f55b622ae, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a6be6dd5abed9b44bbf00e3b978dbde7, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 573b1999435c3664a887da191666a5e2, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 367d5df97337eac46a364eb7333a434a, type: 2}
@@ -17689,18 +17844,18 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 10bbeeda8a1ffed4da1b11471ed9dd2a, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 95ee5342f9be19d41b8ee7b3e66d8c8f, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: 46d3c873a4277294eac392f2f88eafa8, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: ca32904da7853134db76c495fb145600, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 21300000, guid: 22ff31e7e5eefab439dda079ccb3b343, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data:
       e00: 1
       e01: 0
@@ -17719,7 +17874,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19428,6 +19583,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 936545348}
+  - {fileID: 1108267420}
   m_Father: {fileID: 1880535069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20022,9 +20178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
   snakeBoss: {fileID: 1303688089}
-  flowchart: {fileID: 0}
-  dialogue: 
-  player: {fileID: 0}
+  flowchart: {fileID: 248361635}
+  dialogue: JustAPainting
+  player: {fileID: 811801725}
 --- !u!212 &1745579383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22842,6 +22998,10 @@ PrefabInstance:
       propertyPath: bossFightMusic
       value: 
       objectReference: {fileID: 8300000, guid: a651cb982e3633a4d9c296f2c4cd4e80, type: 3}
+    - target: {fileID: 811801734, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8721089491360648436, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: startRoom
@@ -24473,7 +24633,7 @@ PrefabInstance:
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.size
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -24494,57 +24654,67 @@ PrefabInstance:
         type: 3}
       propertyPath: commandList.Array.data[5]
       value: 
-      objectReference: {fileID: 248361659}
+      objectReference: {fileID: 248361660}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[6]
       value: 
-      objectReference: {fileID: 248361690}
+      objectReference: {fileID: 248361659}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[7]
       value: 
-      objectReference: {fileID: 248361658}
+      objectReference: {fileID: 248361690}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[8]
       value: 
-      objectReference: {fileID: 248361657}
+      objectReference: {fileID: 248361658}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[9]
       value: 
-      objectReference: {fileID: 248361657}
+      objectReference: {fileID: 248361693}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[10]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248361657}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[1]
       value: 
-      objectReference: {fileID: 248361663}
+      objectReference: {fileID: 248361753}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[2]
       value: 
-      objectReference: {fileID: 248361662}
+      objectReference: {fileID: 248361663}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[3]
       value: 
-      objectReference: {fileID: 248361661}
+      objectReference: {fileID: 248361662}
     - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.data[4]
       value: 
-      objectReference: {fileID: 248361660}
+      objectReference: {fileID: 248361661}
+    - target: {fileID: 1223699564090525953, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: commandList.Array.data[11]
+      value: 
+      objectReference: {fileID: 248361754}
     - target: {fileID: 5525297210573593210, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 5525297210573593210, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: mmm... here says I have to put the right numbers.
+      objectReference: {fileID: 0}
     - target: {fileID: 2422939029687481729, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: targetBlock
@@ -24627,14 +24797,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
+      propertyPath: commandList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
       propertyPath: nodeRect.x
-      value: 391.40317
+      value: -228.26859
       objectReference: {fileID: 0}
     - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: nodeRect.y
-      value: 437.51855
+      value: 214.56789
       objectReference: {fileID: 0}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: blockName
+      value: JustAPainting
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: nodeRect.width
+      value: 146.72125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: commandList.Array.data[0]
+      value: 
+      objectReference: {fileID: 248361752}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: commandList.Array.data[1]
+      value: 
+      objectReference: {fileID: 248361751}
+    - target: {fileID: 1010135413785758574, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: commandList.Array.data[2]
+      value: 
+      objectReference: {fileID: 248361751}
     - target: {fileID: 9015612766017006212, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: commandList.Array.size

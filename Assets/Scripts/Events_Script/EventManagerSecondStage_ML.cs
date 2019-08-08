@@ -127,6 +127,7 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
         wrongCombination[index].SetActive(false);
         rightRenderer.DOFade(255, fadeTime);
+        rightCombination[index].SetActive(true);
     }
 
 
