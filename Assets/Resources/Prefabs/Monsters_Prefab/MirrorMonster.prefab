@@ -155,11 +155,12 @@ MonoBehaviour:
   transformRange: 2
   attackRange: 1.29
   speed: 5
-  hitPoint: 5
+  hitPoint: 2.5
   yDistance: 0
   canFly: 0
   canDie: 1
   canMove: 0
+  facingRight: 1
   AttackCollider: {fileID: 2146112987394028759}
   sxRoomLimiter: {fileID: 0}
   dxRoomLimiter: {fileID: 0}
