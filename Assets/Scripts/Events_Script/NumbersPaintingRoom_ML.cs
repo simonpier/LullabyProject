@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
-
+using TMPro;
 
 public class NumbersPaintingRoom_ML : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject textBlock;
 
     Behaviour halo;
     
@@ -19,6 +20,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
     PlayerMove_KT playerScript;
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
+    TextMeshProUGUI text;
 
     private bool check;
     private bool rightNumber;
@@ -39,6 +41,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
+        text = textBlock.GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -68,6 +71,8 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
+
+            text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
         }
 
         if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber)

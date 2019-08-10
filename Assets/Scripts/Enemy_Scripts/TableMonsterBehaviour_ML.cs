@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using TMPro;
 
 public class TableMonsterBehaviour_ML : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue;
     [SerializeField] string puzzle;
+    [SerializeField] GameObject textBlock;
 
     PlayerStats_ML playerStats;
     SnakeBossFightTrigger_ML bossTrigger;
@@ -18,6 +20,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     PlayerMove_KT playerScript;
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
+    TextMeshProUGUI text;
 
     private bool puzzleUnsolved;
     private bool puzzleSolved;
@@ -34,6 +37,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
+        text = textBlock.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -63,6 +67,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
+            text.text = "wood piece x" + bossTrigger.WoodPiecesCount;
         }
 
     }

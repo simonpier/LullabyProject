@@ -175,7 +175,7 @@ MonoBehaviour:
   transformRange: 5.87
   attackRange: 1.51
   speed: 5
-  hitPoint: 5
+  hitPoint: 1.2
   yDistance: 1.5
   canFly: 1
   canDie: 1
