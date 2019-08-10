@@ -162,9 +162,8 @@ public class Checkpoint_ML : MonoBehaviour
        
         for (int i= 0; i < bookMonsters.Length; i++)
         {
-
+            bookMonsters[i].GetComponent<BookMonster_Behaviour>().Respawn();
             bookMonsters[i].gameObject.SetActive(false);
-
         }
 
 
