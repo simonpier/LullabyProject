@@ -491,6 +491,12 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         anim.SetBool("reset", false);
     }
 
+    private void DeathAttackReset()
+    {
+        attackCollider.enabled = false;
+        SlashCollider.enabled = false;
+    }
+
     #endregion
 }
 

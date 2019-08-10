@@ -8951,7 +8951,7 @@ MonoBehaviour:
   canDie: 1
   canMove: 0
   facingRight: 1
-  attackCollider: {fileID: 0}
+  attackCollider: {fileID: 289146075}
   sxRoomLimiter: {fileID: 475477306}
   dxRoomLimiter: {fileID: 538418936}
 --- !u!95 &785923291

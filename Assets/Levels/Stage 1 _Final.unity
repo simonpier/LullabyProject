@@ -858,6 +858,11 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 58502898}
     - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -868,8 +873,19 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}
+--- !u!61 &58502898 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+    type: 3}
+  m_PrefabInstance: {fileID: 58502897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &70571297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +1952,11 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 123135191}
     - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -1946,8 +1967,19 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}
+--- !u!61 &123135191 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+    type: 3}
+  m_PrefabInstance: {fileID: 123135190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &142433199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7459,6 +7491,11 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 620758557}
     - target: {fileID: 5279856057344236426, guid: fced2f71316df5541b390c953b43d518,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -7469,8 +7506,19 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5279856056595471076, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fced2f71316df5541b390c953b43d518, type: 3}
+--- !u!61 &620758557 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5279856056595471076, guid: fced2f71316df5541b390c953b43d518,
+    type: 3}
+  m_PrefabInstance: {fileID: 620758556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &622133632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3597560782186770574, guid: 172ae6bfd4224294181e5a890f2b3bb2,
@@ -8958,6 +9006,10 @@ PrefabInstance:
       propertyPath: rampageTime
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 741311736}
     - target: {fileID: 766323229, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8968,6 +9020,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+--- !u!61 &741311736 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 766323229, guid: 4f54f7803fc4dc34f8dc99ba585048f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 741311735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &744739412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1901804292685199621, guid: f3b6238eec8c0e54c9a25cf086edf82e,
@@ -11409,6 +11467,11 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 917521093}
     - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -11419,8 +11482,19 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}
+--- !u!61 &917521093 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+    type: 3}
+  m_PrefabInstance: {fileID: 917521092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &927891436
 GameObject:
   m_ObjectHideFlags: 0
@@ -12648,8 +12722,18 @@ PrefabInstance:
       propertyPath: dxRoomLimiter
       value: 
       objectReference: {fileID: 1597956053}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 1013132564}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+--- !u!58 &1013132564 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1952988634, guid: bbbae4e7222814747b13330184ccdaae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1013132563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021815930
 GameObject:
   m_ObjectHideFlags: 0
@@ -22290,16 +22374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 331589383521190133, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 331589383521190133, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5337991411122789012, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_Name
@@ -22453,6 +22527,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1467022585787064029, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 331589383521190133, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331589383521190133, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -23455,6 +23539,10 @@ PrefabInstance:
       propertyPath: dxRoomLimiter
       value: 
       objectReference: {fileID: 1543219644}
+    - target: {fileID: 1447399725, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 2003842705}
     - target: {fileID: 1888040901535193354, guid: bbbae4e7222814747b13330184ccdaae,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -23467,6 +23555,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+--- !u!58 &2003842705 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1952988634, guid: bbbae4e7222814747b13330184ccdaae,
+    type: 3}
+  m_PrefabInstance: {fileID: 2003842704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2015801130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25372,8 +25466,24 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 5279856057344236532, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 5279856058434534475}
+    - target: {fileID: 5279856056595471076, guid: fced2f71316df5541b390c953b43d518,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fced2f71316df5541b390c953b43d518, type: 3}
+--- !u!61 &5279856058434534475 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5279856056595471076, guid: fced2f71316df5541b390c953b43d518,
+    type: 3}
+  m_PrefabInstance: {fileID: 5279856058434534474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5866219361387572961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25778,6 +25888,11 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223967960105, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 8408322224080475941}
     - target: {fileID: 8408322223967960107, guid: 449678468ff1a3441aca9e8999448be3,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -25788,8 +25903,19 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449678468ff1a3441aca9e8999448be3, type: 3}
+--- !u!61 &8408322224080475941 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8408322223016691522, guid: 449678468ff1a3441aca9e8999448be3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8408322224080475940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8421439792986396677
 PrefabInstance:
   m_ObjectHideFlags: 0
