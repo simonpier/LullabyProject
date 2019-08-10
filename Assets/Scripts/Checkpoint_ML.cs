@@ -77,6 +77,9 @@ public class Checkpoint_ML : MonoBehaviour
         {
             firstCheck = true;
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
+
+            checkpoint = this.gameObject;
+
             anim.SetBool("activated", true);
             lightSource.SetActive(true);
 
@@ -117,13 +120,14 @@ public class Checkpoint_ML : MonoBehaviour
     {
         playerStat.ResetHealth();
         weapon.enabled = true;
+        playerObj.GetComponent<PlayerMove_KT>().ResetVerticalAnimate();
         Deadcount++;
 
         if (firstCheck == true)
         {
             Debug.Log("respawn");
             playerObj.transform.position = PlayerStats_ML.instance.respawnPoint;
-            playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.gameObject);
+            playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.parent.gameObject);
             Invoke("CameraConstraints", 0.5f);
         }
         else if (firstCheck == false)
@@ -159,7 +163,7 @@ public class Checkpoint_ML : MonoBehaviour
         for (int i= 0; i < bookMonsters.Length; i++)
         {
 
-            lampMonsters[i].GetComponent<LampMonsterBehaviour_ML>().Respawn();
+            bookMonsters[i].gameObject.SetActive(false);
 
         }
 

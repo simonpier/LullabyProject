@@ -180,6 +180,14 @@ public class PlayerMove_KT : MonoBehaviour
     public bool FrontAnim { get; set; }
     public bool BackAnim { get; set; }
 
+    public void ResetVerticalAnimate()
+    {
+        MovingVertAnimation = VertAnimationType.Default;
+        verticalTimer = 0.0f;
+        FrontAnim = false;
+        BackAnim = false;
+    }
+
     public void StartVerticalAnimate(float height, VertAnimationType type)
     {
         if (verticalTimer > 0 || type == VertAnimationType.Default) return;

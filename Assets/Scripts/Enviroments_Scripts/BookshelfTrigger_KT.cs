@@ -6,7 +6,7 @@ public class BookshelfTrigger_KT : MonoBehaviour
 {
     [SerializeField]
     GameObject warpHeight;
-    Vector3 origin;
+    static Vector3 origin;
     [SerializeField]
     GameObject moveArea;
     public bool isPlayerOn { get; set; }

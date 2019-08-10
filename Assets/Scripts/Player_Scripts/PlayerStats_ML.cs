@@ -37,7 +37,7 @@ public class PlayerStats_ML : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //When the player collide with the enemy collider it health will be set to 0 due that he has just 1 hp
-        if (collision.tag == ("Enemy_AttackCollider"))
+        if (collision.tag == ("Enemy_AttackCollider") && PlayerMove_KT.Instance.MovingVertAnimation == PlayerMove_KT.VertAnimationType.Default)
         {
             Debug.Log(collision.name);
             health -= 1;
