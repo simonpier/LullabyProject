@@ -23,7 +23,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     [SerializeField] protected bool facingRight = true;
 
-    [SerializeField] protected Collider2D AttackCollider;
+    [SerializeField] protected Collider2D attackCollider;
     [SerializeField, Header("Lower Left Room Limiter")] protected GameObject sxRoomLimiter;
     [SerializeField, Header("Top Right Room Limiter")] protected GameObject dxRoomLimiter;
 
@@ -199,7 +199,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     private void Attack()
     {
-        AttackCollider.enabled = !AttackCollider.enabled;
+        attackCollider.enabled = !attackCollider.enabled;
     }
 
     private void ResetDeathReset()
@@ -210,6 +210,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     private void ResetTransformation()
     {
         anim.SetBool("isTransformed", false);
+        attackCollider.enabled = false;
     }
 
     #endregion

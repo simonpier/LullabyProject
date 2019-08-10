@@ -478,7 +478,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
 
     private void ButtAttack()
     {
-        AttackCollider.enabled = !AttackCollider.enabled;
+        attackCollider.enabled = !attackCollider.enabled;
     }
 
     private void SlashAttack()

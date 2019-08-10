@@ -7,7 +7,7 @@ public class SnakeBossFightTrigger_ML : MonoBehaviour
 
     Snakecat_Boss_Behaviour snakeBoss;
 
-    private int woodPiecesCount;
+    [SerializeField] private int woodPiecesCount;
 
     public int WoodPiecesCount { get => woodPiecesCount; set => woodPiecesCount = value; }
 
