@@ -53,6 +53,8 @@ public class Checkpoint_ML : MonoBehaviour
 
     public bool FirstCheck { get => firstCheck; set => firstCheck = value; }
 
+    public static int Deadcount = 0; //added by Tatuyoshi
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,9 +115,9 @@ public class Checkpoint_ML : MonoBehaviour
     //This method must be called when we want to respawn the player to the last checkpoint
     public void Respawn()
     {
-
         playerStat.ResetHealth();
         weapon.enabled = true;
+        Deadcount++;
 
         if (firstCheck == true)
         {

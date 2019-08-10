@@ -5,7 +5,7 @@ using UnityEngine;
 //this script works player's movement and animation
 public class PlayerMove_KT : MonoBehaviour
 {
-    public static PlayerMove_KT Instance { get; private set; }
+    public static PlayerMove_KT Instance { get; set; }
     [SerializeField] TargetCamera_KT _camera;
 
     //need to attach awaking Player locating room
@@ -50,6 +50,7 @@ public class PlayerMove_KT : MonoBehaviour
         Dismount
     }
     public VertAnimationType MovingVertAnimation { get; private set; }
+    public bool Respawn;
 
     void Awake()
     {

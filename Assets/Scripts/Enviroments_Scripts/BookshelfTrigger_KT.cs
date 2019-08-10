@@ -6,12 +6,15 @@ public class BookshelfTrigger_KT : MonoBehaviour
 {
     [SerializeField]
     GameObject warpHeight;
+    Vector3 origin;
     [SerializeField]
     GameObject moveArea;
     public bool isPlayerOn { get; set; }
 
     [SerializeField] GameObject gameManager;
     EventManager_ML eventManager;
+
+    public static int counter = 0;
 
     void Start()
     {
@@ -46,9 +49,12 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
         eventManager.IsPlayerOnLibrary = true;
 
+        counter = Checkpoint_ML.Deadcount;
+
         PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Climb);
         if(moveArea) moveArea.SetActive(true);
-        warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
+        origin = player.transform.position;
+        //warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
     }
 
     public void Dismount(GameObject player)
@@ -57,8 +63,8 @@ public class BookshelfTrigger_KT : MonoBehaviour
 
         eventManager.IsPlayerOnLibrary = false;
 
-        PlayerMove_KT.Instance.StartVerticalAnimate(warpHeight.transform.position.y, PlayerMove_KT.VertAnimationType.Dismount);
+        if (Checkpoint_ML.Deadcount == BookshelfTrigger_KT.counter) PlayerMove_KT.Instance.StartVerticalAnimate(origin.y, PlayerMove_KT.VertAnimationType.Dismount);
         if (moveArea) moveArea.SetActive(false);
-        warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
+        //warpHeight.transform.position = new Vector3(warpHeight.transform.position.x, player.transform.position.y, warpHeight.transform.position.z);
     }
 }

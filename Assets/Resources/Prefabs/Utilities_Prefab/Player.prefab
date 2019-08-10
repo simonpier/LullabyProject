@@ -395,7 +395,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.75686276, b: 0.56078434, a: 1}
   m_Intensity: 6
-  m_Range: 20
+  m_Range: 15
   m_SpotAngle: 65
   m_InnerSpotAngle: 6
   m_CookieSize: 10
@@ -517,8 +517,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: 10, y: 12}
-      - {x: 10, y: -12.01}
+      - {x: 7.5, y: 7.2}
+      - {x: 7.5, y: -7.2}
 --- !u!108 &6759103763718334184
 Light:
   m_ObjectHideFlags: 0
