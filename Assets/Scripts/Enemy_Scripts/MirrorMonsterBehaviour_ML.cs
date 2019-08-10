@@ -7,6 +7,7 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
     [SerializeField] GameObject playerCandle;
     [SerializeField] GameObject playerLantern;
 
+
     public override void Start()
     {
         base.Start();
@@ -23,7 +24,7 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
     {
         base.OnTriggerStay2D(collision);
 
-        if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.Return) && !playerCandle.activeSelf && !playerLantern.activeSelf)
+        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && !playerCandle.activeSelf && !playerLantern.activeSelf && !isDied)
         {
             anim.SetBool("reset", false);
             anim.SetTrigger("transformation");
@@ -43,4 +44,5 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
             anim.SetBool("idle", true);
         }
     }
+
 }
