@@ -786,7 +786,7 @@ Halo:
   m_Enabled: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4278192127
+    rgba: 4294911744
   m_Size: 2.8
 --- !u!1001 &78093732
 PrefabInstance:
@@ -1104,7 +1104,7 @@ Halo:
   m_Enabled: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4278255383
+    rgba: 4278253311
   m_Size: 2.8
 --- !u!1 &135780964
 GameObject:
@@ -2396,7 +2396,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 296.93884
     y: 214.3356
-    width: 124.28568
+    width: 131.7073
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2441,7 +2441,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 760.88983
     y: 355.99292
-    width: 128.5714
+    width: 129.26828
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 752.8191
     y: 429.36017
-    width: 142.8571
+    width: 149.99997
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3704,7 +3704,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 945.8913
     y: 276.0989
-    width: 121.42854
+    width: 123.170715
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3816,7 +3816,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 763.3478
     y: 274.99078
-    width: 121.42854
+    width: 123.170715
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12078,7 +12078,7 @@ Halo:
   m_Enabled: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4294918400
+    rgba: 4278191615
   m_Size: 2.8
 --- !u!1001 &1003991268
 PrefabInstance:
@@ -20657,7 +20657,7 @@ Halo:
   m_Enabled: 0
   m_Color:
     serializedVersion: 2
-    rgba: 4278255614
+    rgba: 4278517504
   m_Size: 2.8
 --- !u!1 &1755045745
 GameObject:
