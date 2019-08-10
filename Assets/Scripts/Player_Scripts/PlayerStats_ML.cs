@@ -39,6 +39,7 @@ public class PlayerStats_ML : MonoBehaviour
         //When the player collide with the enemy collider it health will be set to 0 due that he has just 1 hp
         if (collision.tag == ("Enemy_AttackCollider"))
         {
+            Debug.Log(collision.name);
             health -= 1;
         }
     }
