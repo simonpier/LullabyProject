@@ -681,6 +681,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
+  textBlock: {fileID: 0}
 --- !u!212 &71100865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -919,6 +920,7 @@ MonoBehaviour:
   snakeBoss: {fileID: 1303688089}
   player: {fileID: 811801725}
   libray: {fileID: 1567331905}
+  textBlock: {fileID: 192446921}
 --- !u!1 &110781533
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +994,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: PieceOfWood
   player: {fileID: 811801725}
+  textBlock: {fileID: 192446921}
 --- !u!212 &130881535
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1664,7 +1667,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -6545,7 +6548,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -9418,6 +9421,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
+  textBlock: {fileID: 0}
 --- !u!212 &825676484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9719,8 +9723,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.96544, y: -13.836769}
-  m_SizeDelta: {x: 83.4, y: 25.27}
+  m_AnchoredPosition: {x: 15.8, y: -13.836769}
+  m_SizeDelta: {x: 265.8, y: 25.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843108936
 MonoBehaviour:
@@ -12065,6 +12069,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: 
   player: {fileID: 811801725}
+  textBlock: {fileID: 0}
 --- !u!212 &994394777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13070,6 +13075,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: PieceOfWood
   puzzle: ChandelierPuzzle
+  textBlock: {fileID: 192446921}
 --- !u!95 &1108267418
 Animator:
   serializedVersion: 3
@@ -16104,8 +16110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.96544, y: 10.161491}
-  m_SizeDelta: {x: 83.4, y: 25.27}
+  m_AnchoredPosition: {x: 15, y: 10.161491}
+  m_SizeDelta: {x: 265.2, y: 25.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370700912
 MonoBehaviour:
@@ -20436,6 +20442,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
+  textBlock: {fileID: 0}
 --- !u!212 &1745579383
 SpriteRenderer:
   m_ObjectHideFlags: 0

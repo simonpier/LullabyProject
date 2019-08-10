@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using TMPro;
 
 public class ThirdEnigmaScript_SP : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
     [SerializeField] GameObject snakeBoss;
     [SerializeField] GameObject player;
     [SerializeField] GameObject libray;
+    [SerializeField] GameObject textBlock;
 
     Animator playerAnim;
     PlayerMove_KT playerScript;
@@ -18,6 +20,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
     Rigidbody2D playerRB;
     SnakeBossFightTrigger_ML snakeTrigger;
     GetItem_SP lever;
+    TextMeshProUGUI text;
 
     private bool check = true;
 
@@ -29,7 +32,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
-
+        text = textBlock.GetComponent<TextMeshProUGUI>();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -45,7 +48,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
             check = false;
-            
+            text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
         }
 
     }
