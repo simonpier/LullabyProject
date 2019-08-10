@@ -24,7 +24,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
     private bool puzzleUnsolved;
     private bool puzzleSolved;
-
+    private bool puzzleDone = false;
     private bool puzzleCheck;
 
     // Start is called before the first frame update
@@ -74,7 +74,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
+        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && puzzleDone == false)
         {
 
             playerAnim.enabled = false;
@@ -82,7 +82,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(puzzle);
-
+            puzzleDone = true;
         }
     }
 
