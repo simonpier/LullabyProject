@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Fungus;
 
 public class Spiderdog_Boss_Behaviour : EnemyController_ML
 {
@@ -18,12 +19,19 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     [SerializeField] GameObject gameManager;
     [SerializeField] GameObject gameCamera;
     [SerializeField] AudioClip endBossFight;
+    [SerializeField] Flowchart flowchart;
+    [SerializeField] string dialogue;
+    [SerializeField] GameObject player;
 
     Vector3 originalBigness;
     EventManager_ML eventManager;
 
     AudioSource cameraMusic;
 
+    Animator playerAnim;
+    PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerWeapon;
+    Rigidbody2D playerRB;
 
     private int attackRandomizer;
     private bool isTriggered;
@@ -58,6 +66,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         eventManager = gameManager.GetComponent<EventManager_ML>();
         timeWithoutDamages = totalTimeWithoutDamages;
         cameraMusic = gameCamera.GetComponent<AudioSource>();
+
+        playerAnim = player.GetComponent<Animator>();
+        playerScript = player.GetComponent<PlayerMove_KT>();
+        playerWeapon = player.GetComponent<ChangeWeapon_NN>();
+        playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     public override void Update()
@@ -248,6 +261,18 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         {
             isTakingDamage = true;
             TakeDamage();
+        }
+
+
+        if (collision.tag == "Player" && isDied == true && Input.GetButtonDown("Interaction"))
+        {
+
+            playerAnim.enabled = false;
+            playerScript.enabled = false;
+            playerWeapon.enabled = false;
+            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            flowchart.ExecuteBlock(dialogue);
+
         }
     }
 
