@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1015892969124567987
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.75686276, b: 0.56078434, a: 1}
-  m_Intensity: 9
+  m_Intensity: 11.5
   m_Range: 15
   m_SpotAngle: 65
   m_InnerSpotAngle: 6
@@ -519,8 +519,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: 7.5, y: 7.2}
-      - {x: 7.5, y: -7.2}
+      - {x: 5.5, y: 7.2}
+      - {x: 5.5, y: -7.2}
 --- !u!108 &6759103763718334184
 Light:
   m_ObjectHideFlags: 0
