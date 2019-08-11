@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Fungus;
 
 public class Snakecat_Boss_Behaviour : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     [SerializeField] float maxRubbleSize;
     [SerializeField] float maxSpawnDelay;
 
+    [SerializeField] Flowchart flowchart;
+    [SerializeField] string dialogue;
 
     private List<GameObject> rubblesList;
 
@@ -59,6 +62,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private bool checkScale;
     private bool isActivated;
     private bool check = false, check2 = false, check3 = false;
+    private bool isDied = false;
 
     private float timeStateChange;
     private float invisibilityTime;
@@ -79,6 +83,10 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     Animator anim;
     SpriteRenderer spriteRenderer;
     GameObject thisRubble;
+    Animator playerAnim;
+    PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerWeapon;
+    Rigidbody2D playerRB;
 
     public bool BossFightActive { get => bossFightActive; set => bossFightActive = value; }
 
@@ -94,7 +102,13 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         #region Component Declaration
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerAnim = player.GetComponent<Animator>();
+        playerScript = player.GetComponent<PlayerMove_KT>();
+        playerWeapon = player.GetComponent<ChangeWeapon_NN>();
+        playerRB = player.GetComponent<Rigidbody2D>();
         #endregion
+
+
     }
 
     void Update()
@@ -314,6 +328,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             spriteRenderer.enabled = true;
             anim.SetBool("death", true);
             isActivated = false;
+            isDied = true;
 
             pickedSound = 3;
             gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
@@ -417,6 +432,17 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         {
             isTakingDamage = true;
             TakeDamage();
+        }
+
+        if (collision.tag == "Player" && isDied == true && Input.GetButtonDown("Interaction"))
+        {
+
+            playerAnim.enabled = false;
+            playerScript.enabled = false;
+            playerWeapon.enabled = false;
+            playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            flowchart.ExecuteBlock(dialogue);
+
         }
     }
 
