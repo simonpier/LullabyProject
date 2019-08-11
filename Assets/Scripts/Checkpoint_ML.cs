@@ -67,6 +67,7 @@ public class Checkpoint_ML : MonoBehaviour
         anim = GetComponent<Animator>();
         player = PlayerStats_ML.instance.player.transform;
         playerStat = PlayerStats_ML.instance;
+        playerStat.respawnPoint = player.transform.position;
         instance = this;
     }
 
@@ -141,8 +142,8 @@ public class Checkpoint_ML : MonoBehaviour
         }
         else if (firstCheck == false)
         {
-            Debug.Log("respawn 2");
-            player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
+            //player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
+            player.transform.position = playerStat.respawnPoint;
 
             var playerMove = playerObj.GetComponent<PlayerMove_KT>();
             playerMove.CheckRoomSize(playerMove.StartRoom);
