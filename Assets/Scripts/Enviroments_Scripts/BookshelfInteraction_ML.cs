@@ -32,8 +32,6 @@ public class BookshelfInteraction_ML : MonoBehaviour
         messageFlag = flowchart != null;
         leverFlag = smoke != null && halo != null;
 
-        Debug.Log(this.transform.name + leverFlag.ToString());
-
         if (leverFlag)
         {
             renderer = smoke.GetComponent<SpriteRenderer>();

@@ -16,7 +16,7 @@ public class FirstLibraryEvent_ML : MonoBehaviour
     {
         if (collision.tag == "Player" && Input.GetButtonDown("Interaction"))
         {
-            bookMonster.transform.position = this.transform.position + new Vector3(-1.5f, -1.5f, 0);
+            if (!bookMonster.activeSelf) bookMonster.transform.position = this.transform.position + new Vector3(-1.5f, -1.5f, 0);
             bookMonster.SetActive(true);
         }
     }
