@@ -127,7 +127,16 @@ public class Checkpoint_ML : MonoBehaviour
         {
             Debug.Log("respawn");
             playerObj.transform.position = PlayerStats_ML.instance.respawnPoint;
-            playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(checkpoint.transform.parent.parent.gameObject);
+
+            var itr = checkpoint.transform;
+            while(itr != null)
+            {
+                if (itr.name.Contains("Env")) break;
+                itr = itr.parent;
+            }
+            if (!itr) Debug.LogError("Cant find object named \"Enviroment\"");
+            playerObj.GetComponent<PlayerMove_KT>().CheckRoomSize(itr.parent.gameObject);
+
             Invoke("CameraConstraints", 0.5f);
         }
         else if (firstCheck == false)
