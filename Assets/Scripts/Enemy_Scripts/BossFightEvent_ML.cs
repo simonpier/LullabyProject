@@ -72,11 +72,11 @@ public class BossFightEvent_ML : MonoBehaviour
 
         playerAnim.enabled = false;
         gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
-        cinBar.Hide(1.5f);
         yield return new WaitForSeconds(lerpDuration);
         cameraCon.enabled = true;
         cameraController.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        cinBar.Hide(1.5f);
         playerScript.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
         spiderbossBehaviour.IsTriggered = true;
