@@ -19856,7 +19856,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destination
       value: 
-      objectReference: {fileID: 1143337199}
+      objectReference: {fileID: 721291442}
     - target: {fileID: 3597560783011637186, guid: 172ae6bfd4224294181e5a890f2b3bb2,
         type: 3}
       propertyPath: player
@@ -23240,7 +23240,7 @@ PrefabInstance:
     - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
         type: 3}
       propertyPath: bookMonsters.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
         type: 3}
@@ -23311,7 +23311,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bookMonsters.Array.data[0]
       value: 
-      objectReference: {fileID: 2059939710}
+      objectReference: {fileID: 1447763179}
     - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
         type: 3}
       propertyPath: lampMonsters.Array.data[0]
@@ -23322,6 +23322,16 @@ PrefabInstance:
       propertyPath: vacuumMonsters.Array.data[0]
       value: 
       objectReference: {fileID: 1281020691}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: bookMonsters.Array.data[1]
+      value: 
+      objectReference: {fileID: 1970538230}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: bookMonsters.Array.data[2]
+      value: 
+      objectReference: {fileID: 711840312}
     - target: {fileID: 5180666914194632857, guid: 6fecd56cc261cec4cb406bc182e6a036,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
