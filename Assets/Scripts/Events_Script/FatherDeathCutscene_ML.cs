@@ -26,9 +26,9 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     Light light;
     SpriteRenderer fatherRenderer;
     SpriteRenderer dollRenderer;
+    Color fullAlpha;
 
     private float lightIntensity;
-    private float alphaFather = 255f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,15 +40,18 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         playerAnim = player.GetComponent<Animator>();
         fatherRenderer = father.GetComponent<SpriteRenderer>();
         dollRenderer = doll.GetComponent<SpriteRenderer>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            StartCoroutine(FatherDeath());
+        }
     }
 
-    private IEnumerator TakingDamage()
+    private IEnumerator FatherDeath()
     {
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -137,8 +140,16 @@ public class FatherDeathCutscene_ML : MonoBehaviour
                 fatherRenderer.DOFade(0, alphaFatherLerp);
             }
         }
-        dollRenderer.DOFade(255f, alphaFatherLerp);
+
+        doll.SetActive(true);
+        dollRenderer.DOFade(1, alphaFatherLerp);
         yield return new WaitForSeconds(alphaFatherLerp);
 
+        gameCamera.transform.DOMoveX(tmpGameCameraPos, lerpDuration);
+        cameraCon.enabled = true;
+        cameraController.enabled = true;
+        playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerScript.enabled = true;
+        playerAnim.enabled = true;
     }
 }
