@@ -168,6 +168,7 @@ public abstract class EnemyController_ML : MonoBehaviour
 
     public virtual void Respawn()
     {
+        if (!target) Start();
         if (transform.position.x != respawnPoint.x && target.position.x > dxRoomLimiter.transform.position.x || target.position.y > dxRoomLimiter.transform.position.y || target.position.x < sxRoomLimiter.transform.position.x || target.position.y < sxRoomLimiter.transform.position.y)
         {
             EnemyReset();
