@@ -12,10 +12,12 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     [SerializeField] GameObject attackCollider;
 
     [SerializeField] float xBulletOffset;
+    //the time that a bullet takes to travel LERPCONST units 
     [SerializeField] float bulletLerpTime;
     [SerializeField] float speed;
     [SerializeField] float sphereOffset;
     [SerializeField] float meleeRange;
+    [SerializeField] float distanceRange;
     [SerializeField] float throwCooldown;
 
     GameObject instanceBullet;
@@ -31,8 +33,11 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
 
     private int lanternCount;
 
+    private float bulletDistance;
     private float playerDistance;
     private float actualThrowCooldown;
+    private float lerpCalculator;
+    private const float LERPCONST = 28f;
 
     public int LanternCount { get => lanternCount; set => lanternCount = value; }
     public bool Death { get => death; set => death = value; }
@@ -44,6 +49,7 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         fatherCutscene = GetComponent<FatherDeathCutscene_ML>();
 
         actualThrowCooldown = throwCooldown;
+        lerpCalculator = bulletLerpTime;
     }
 
     // Update is called once per frame
@@ -73,12 +79,11 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         }
         else if (playerDistance > meleeRange && !animationCheck)
         {
-            if (actualThrowCooldown <= 0)
+            if (actualThrowCooldown <= 0 && playerDistance >= distanceRange)
             {
                 ThrowAttack();
- 
             }
-            else if (actualThrowCooldown > 0)
+            else if (playerDistance < distanceRange || (playerDistance >= distanceRange && actualThrowCooldown > 0))
             {
                 BasicMovement();
                 actualThrowCooldown -= 1f * Time.deltaTime;
@@ -156,6 +161,9 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, meleeRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, distanceRange);
+
     }
 
     #region Animation Methods
@@ -181,11 +189,15 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         if (player.transform.position.x <= transform.position.x)
         {
             instanceBullet = Instantiate(darkBullet, new Vector3(transform.position.x - sphereOffset, transform.position.y, transform.position.z), Quaternion.identity);
-            instanceBullet.transform.DOMoveX(bossRoomPosSX.transform.position.x - xBulletOffset, bulletLerpTime);
+            bulletDistance = (Vector2.Distance(instanceBullet.transform.position, bossRoomPosSX.transform.position));
+            lerpCalculator = bulletLerpTime * bulletDistance / LERPCONST;
+            instanceBullet.transform.DOMoveX(bossRoomPosSX.transform.position.x - xBulletOffset, lerpCalculator);
         }
         else if (player.transform.position.x > transform.position.x)
         {
             instanceBullet = Instantiate(darkBullet, new Vector3(transform.position.x + sphereOffset, transform.position.y, transform.position.z), Quaternion.identity);
+            bulletDistance = (Vector2.Distance(instanceBullet.transform.position, bossRoomPosDX.transform.position));
+            lerpCalculator = bulletLerpTime * bulletDistance / LERPCONST;
             instanceBullet.transform.DOMoveX(bossRoomPosDX.transform.position.x + xBulletOffset, bulletLerpTime);
         }
 
