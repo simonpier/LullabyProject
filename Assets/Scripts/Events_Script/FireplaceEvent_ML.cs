@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireplaceEvent_ML : MonoBehaviour
 {
     [SerializeField] GameObject snakeCat;
+    [SerializeField] GameObject firePlace;
 
     Animator anim;
     SnakeBossFightTrigger_ML snakeTrigger;
@@ -34,8 +35,15 @@ public class FireplaceEvent_ML : MonoBehaviour
 
         if(collision.tag == "Player" && !litCheck && snakeTrigger.WoodPiecesCount >= 3 && Input.GetButtonDown("Interaction"))
         {
-            snakeCat.SetActive(true);
             litCheck = true;
+            anim.SetBool("catBoss", true);
         }
+    }
+
+    private void CatAppear()
+    {
+        snakeCat.SetActive(true);
+        firePlace.SetActive(true);
+        Destroy(gameObject);
     }
 }
