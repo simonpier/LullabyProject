@@ -293,6 +293,13 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
                 rubbleSize = Random.Range(minRubbleSize, maxRubbleSize);
                 thisRubble = (GameObject)Instantiate(rubble, new Vector3(rubbleSpawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
                 thisRubble.transform.localScale = new Vector3(rubbleSize, rubbleSize, rubbleSize);
+                
+                pickedSound = Random.Range(6, 8);
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.pitch = Random.Range(1f, 1f);
+                if (source.isPlaying == false)
+                    source.Play();
                 Destroy(thisRubble, 3f);
             }
         }
@@ -374,7 +381,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private void AttackManager()
     {
         anim.SetBool("attack", true);
-        if (source.isPlaying == true ) //steps sound
+        if (source.isPlaying == true ) 
         {
             pickedSound = 1;
             gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
