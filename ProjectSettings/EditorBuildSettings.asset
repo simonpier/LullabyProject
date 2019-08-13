@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Levels/Stage 2_Final.unity
     guid: cf4d75a75742c5b46b934fb69e31740e
   - enabled: 1
+    path: Assets/Levels/Stage 3_Final.unity
+    guid: 022e03e2bce80af4889a0518e6a56ab0
+  - enabled: 1
     path: Assets/Levels/CutScene2.unity
     guid: d13536de115653c449d8b609d03407ac
   - enabled: 0

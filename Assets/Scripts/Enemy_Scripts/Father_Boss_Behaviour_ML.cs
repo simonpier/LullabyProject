@@ -186,7 +186,7 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         else if (player.transform.position.x > transform.position.x)
         {
             instanceBullet = Instantiate(darkBullet, new Vector3(transform.position.x + sphereOffset, transform.position.y, transform.position.z), Quaternion.identity);
-            instanceBullet.transform.DOMoveX(bossRoomPosDX.transform.position.x - xBulletOffset, bulletLerpTime);
+            instanceBullet.transform.DOMoveX(bossRoomPosDX.transform.position.x + xBulletOffset, bulletLerpTime);
         }
 
         instanceBullet.transform.localScale = new Vector3(instanceBullet.transform.localScale.x * transform.localScale.x, instanceBullet.transform.localScale.y, instanceBullet.transform.localScale.z);
