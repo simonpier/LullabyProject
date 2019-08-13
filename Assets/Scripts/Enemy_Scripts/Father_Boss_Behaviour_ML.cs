@@ -198,7 +198,7 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
             instanceBullet = Instantiate(darkBullet, new Vector3(transform.position.x + sphereOffset, transform.position.y, transform.position.z), Quaternion.identity);
             bulletDistance = (Vector2.Distance(instanceBullet.transform.position, bossRoomPosDX.transform.position));
             lerpCalculator = bulletLerpTime * bulletDistance / LERPCONST;
-            instanceBullet.transform.DOMoveX(bossRoomPosDX.transform.position.x + xBulletOffset, bulletLerpTime);
+            instanceBullet.transform.DOMoveX(bossRoomPosDX.transform.position.x + xBulletOffset, lerpCalculator);
         }
 
         instanceBullet.transform.localScale = new Vector3(instanceBullet.transform.localScale.x * transform.localScale.x, instanceBullet.transform.localScale.y, instanceBullet.transform.localScale.z);
