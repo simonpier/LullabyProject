@@ -216,7 +216,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
 
             facingLeft = true;
         }
-        else if (player.transform.position.x >= transform.position.x)
+        else if (player.transform.position.x > transform.position.x)
         {
             if (facingLeft)
             {
@@ -505,7 +505,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         check2 = false;
     }
 
-    public virtual void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);

@@ -19,8 +19,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     [SerializeField] float alphaFatherLerp;
 
     Animator playerAnim;
+    Animator fatherAnim;
     Rigidbody2D playerRB;
     PlayerMove_KT playerScript;
+    Father_Boss_Behaviour_ML fatherScript;
     PositionConstraint cameraCon;
     TargetCamera_KT cameraController;
     Light light;
@@ -36,8 +38,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         cameraController = gameCamera.GetComponent<TargetCamera_KT>();
         playerScript = player.GetComponent<PlayerMove_KT>();
+        fatherScript = father.GetComponent<Father_Boss_Behaviour_ML>();
         playerRB = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
+        fatherAnim = father.GetComponent<Animator>();
         fatherRenderer = father.GetComponent<SpriteRenderer>();
         dollRenderer = doll.GetComponent<SpriteRenderer>();
     }
@@ -45,16 +49,16 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartCoroutine(FatherDeath());
-        }
+
     }
 
-    private IEnumerator FatherDeath()
+    public IEnumerator FatherDeath()
     {
+        fatherScript.enabled = false;
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        fatherAnim.Play("Father_Walk");
+        fatherAnim.enabled = false;
         playerAnim.enabled = false;
 
         float tmpGameCameraPos = gameCamera.transform.position.x;
