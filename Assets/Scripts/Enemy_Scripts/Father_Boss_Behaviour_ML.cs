@@ -27,6 +27,7 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     private bool isGoingLeft;
     private bool animationCheck;
     private bool death;
+    private bool activation;
 
     private int lanternCount;
 
@@ -48,15 +49,17 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!death)
+        if(activation)
         {
-            StateManager();
+            if (!death)
+            {
+                StateManager();
+            }
+            else if (death)
+            {
+                fatherCutscene.StartCoroutine(fatherCutscene.FatherDeath());
+            }
         }
-        else if (death)
-        {
-            fatherCutscene.StartCoroutine(fatherCutscene.FatherDeath());
-        }
-
     }
 
     private void StateManager()
@@ -140,6 +143,13 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         {
             facingLeft = true;
         }
+    }
+
+    public void Activation()
+    {
+        activation = true;
+        anim.SetBool("activation", true);
+        anim.SetBool("idle", true);
     }
 
     private void OnDrawGizmosSelected()

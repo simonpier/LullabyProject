@@ -12,6 +12,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     [SerializeField] GameObject father;
     [SerializeField] GameObject doll;
 
+    [SerializeField] float fatherEntryLerp;
     [SerializeField] float lerpDuration;
     [SerializeField] float lightLerpDuration;
     [SerializeField] float lightChangeDuration;
@@ -44,12 +45,38 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         fatherAnim = father.GetComponent<Animator>();
         fatherRenderer = father.GetComponent<SpriteRenderer>();
         dollRenderer = doll.GetComponent<SpriteRenderer>();
+
+        StartCoroutine(FatherEntry());
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public IEnumerator FatherEntry()
+    {
+        playerScript.enabled = false;
+        playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        playerAnim.enabled = false;
+
+        float tmpGameCameraPos = gameCamera.transform.position.x;
+        cameraCon.enabled = false;
+        cameraController.enabled = false;
+
+        gameCamera.transform.DOMoveX(father.transform.position.x, fatherEntryLerp);
+        yield return new WaitForSeconds(fatherEntryLerp);
+
+        gameCamera.transform.DOMoveX(tmpGameCameraPos, fatherEntryLerp);
+        yield return new WaitForSeconds(fatherEntryLerp);
+
+        cameraCon.enabled = true;
+        cameraController.enabled = true;
+        playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerScript.enabled = true;
+        playerAnim.enabled = true;
+        fatherScript.Activation();
     }
 
     public IEnumerator FatherDeath()

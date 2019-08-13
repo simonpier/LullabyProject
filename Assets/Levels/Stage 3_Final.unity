@@ -9255,6 +9255,7 @@ MonoBehaviour:
   gameCamera: {fileID: 1039903244}
   father: {fileID: 1335649128}
   doll: {fileID: 1005742232}
+  fatherEntryLerp: 4
   lerpDuration: 2
   lightLerpDuration: 2
   lightChangeDuration: 0.5
