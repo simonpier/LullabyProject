@@ -4862,6 +4862,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603734202}
   m_CullTransparentMesh: 0
+--- !u!61 &607014334 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430,
+    type: 3}
+  m_PrefabInstance: {fileID: 1862316437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &607866826
 GameObject:
   m_ObjectHideFlags: 0
@@ -20565,6 +20571,15 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 3258346076841379906, guid: 17ecbf0d055ed1f428fcd799a9b81430,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 607014334}
+    - target: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
 --- !u!4 &1862316438 stripped
