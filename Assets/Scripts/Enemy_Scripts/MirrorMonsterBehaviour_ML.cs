@@ -6,7 +6,11 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
 {
     [SerializeField] GameObject playerCandle;
     [SerializeField] GameObject playerLantern;
+    [SerializeField] AudioManager audio;
+    [SerializeField] AudioSource source;
+    public AudioClip[] sounds;
 
+    private int pickedSound;
 
     public override void Start()
     {
@@ -28,6 +32,17 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
         {
             anim.SetBool("reset", false);
             anim.SetTrigger("transformation");
+
+            if (source.isPlaying == false)
+            {
+                pickedSound = 0;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.3f, 0.4f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+
+            }
         }
     }
 
@@ -38,6 +53,17 @@ public class MirrorMonsterBehaviour_ML : EnemyController_ML
         if (distance <= attackRange)
         {
             anim.SetBool("attack", true);
+
+            if (source.isPlaying == false && isDied == false)
+            {
+                pickedSound = 1;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.3f, 0.4f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+
+            }
         }
         else if (!canMove && distance > attackRange)
         {
