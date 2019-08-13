@@ -24,7 +24,12 @@ public class VideoManager_SP : MonoBehaviour
 
         }
 
-        if (!video.isPlaying )
+        Invoke("LoadScene", 1f);
+    }
+
+    void LoadScene()
+    {
+        if (!video.isPlaying)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
