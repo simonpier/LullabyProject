@@ -28,7 +28,7 @@ public abstract class EnemyController_ML : MonoBehaviour
     [SerializeField, Header("Top Right Room Limiter")] protected GameObject dxRoomLimiter;
 
 
-    protected bool isDied = false;
+    [SerializeField] protected bool isDied = false;
     protected bool isTakingDamage = false;
 
     protected Vector2 respawnPoint;

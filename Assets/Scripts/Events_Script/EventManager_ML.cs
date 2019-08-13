@@ -6,6 +6,7 @@ using Fungus;
 
 public class EventManager_ML : MonoBehaviour
 {
+
     #region Lantern Event
     [Header("Lantern Event")]
     [SerializeField] private bool lanternTaken;
@@ -48,10 +49,23 @@ public class EventManager_ML : MonoBehaviour
 
     #endregion
 
+    #region Stairs Activation
+    [Header("Stairs Script")]
+    [SerializeField] GameObject spiderDog;
+    [SerializeField] GameObject stairs;
+
+    SpriteRenderer stairsRenderer;
+    Spiderdog_Boss_Behaviour spiderScript;
+
+    private bool stairChecked;
+
+    #endregion
+
     #region Player Management
     private bool isPlayerOnLibrary = false;
     public bool IsPlayerOnLibrary { get => isPlayerOnLibrary; set => isPlayerOnLibrary = value; }
     #endregion
+
 
     [SerializeField] AudioManager audio;
 
@@ -70,11 +84,14 @@ public class EventManager_ML : MonoBehaviour
 
         SecondLibraryRandomizer();
         #endregion
+        spiderScript = spiderDog.GetComponent<Spiderdog_Boss_Behaviour>();
+        stairsRenderer = stairs.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         SecondLibraryCheck();
+        StairsActivation();
     }
 
     #region Second Library Event
@@ -185,6 +202,20 @@ public class EventManager_ML : MonoBehaviour
     {
         isPlayerOnLibrary = false;
     }
+    #endregion
+
+    #region Stairs Activation
+
+    void StairsActivation()
+    {
+        if(spiderScript.StairCheck && stairChecked)
+        {
+            stairs.SetActive(true);
+            stairChecked = true;
+            stairsRenderer.DOFade(1, 2f);
+        }
+    }
+
     #endregion
 
 

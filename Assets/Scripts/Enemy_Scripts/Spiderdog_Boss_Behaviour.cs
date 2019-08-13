@@ -45,6 +45,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private bool rampageCheck;
     private bool libraryCheck;
     private bool upsideDown;
+    private bool stairCheck;
     private float landingPos;
     private float timeWithoutDamages;
     private int rampageCounter = 0;
@@ -57,6 +58,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
     private bool check = true, firstEncounter = true;
 
     public bool IsTriggered { get => isTriggered; set => isTriggered = value; }
+    public bool StairCheck { get => stairCheck; set => stairCheck = value; }
 
     public override void Start()
     {
@@ -283,6 +285,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             canTakeDamage = false;
             anim.SetBool("death", true);
             isDied = true;
+            stairCheck = true;
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1f, transform.localScale.z);
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
