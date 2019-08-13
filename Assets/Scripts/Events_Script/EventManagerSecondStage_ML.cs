@@ -42,6 +42,19 @@ public class EventManagerSecondStage_ML : MonoBehaviour
 
     #endregion
 
+    #region Stairs Manager Variables
+    [Header("Stairs Manager")]
+
+    [SerializeField] GameObject stairs;
+
+    ChangeLevel_SP stairsScript;
+    SpriteRenderer stairRenderer;
+    Snakecat_Boss_Behaviour snakeScript;
+
+    private bool stairsCheck;
+
+    #endregion
+
     #region Others Variables
     [Header("Others")]
 
@@ -65,6 +78,16 @@ public class EventManagerSecondStage_ML : MonoBehaviour
 
         #endregion
 
+        #region Stairs Manager
+
+        stairsScript = stairs.GetComponent<ChangeLevel_SP>();
+        stairRenderer = stairs.GetComponent<SpriteRenderer>();
+        snakeScript = snakeCat.GetComponent<Snakecat_Boss_Behaviour>();
+
+        StairsFirstFading();
+
+        #endregion
+
         #region Others
         firstEventManager = GetComponent<EventManager_ML>();
         firstEventManager.LanternTaken = true;
@@ -74,6 +97,7 @@ public class EventManagerSecondStage_ML : MonoBehaviour
     private void Update()
     {
         ChandelierCheck();
+        StairsManager();
     }
 
     #region Painting Room Event Methods
@@ -130,6 +154,31 @@ public class EventManagerSecondStage_ML : MonoBehaviour
         rightCombination[index].SetActive(true);
     }
 
+
+    #endregion
+
+    #region Stairs Manager Methods
+
+    private void StairsFirstFading()
+    {
+        stairRenderer.DOFade(0, 2f);
+        stairsScript.enabled = false;
+    }
+
+    private void StairsActivation()
+    {
+        stairRenderer.DOFade(1, 2f);
+        stairsScript.enabled = true;
+    }
+
+    private void StairsManager()
+    {
+        if (snakeScript.IsDied && !stairsCheck)
+        {
+            StairsActivation();
+            stairsCheck = true;
+        }
+    }
 
     #endregion
 

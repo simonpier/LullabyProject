@@ -73,7 +73,6 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     private float rubbleSpawnPosition;
     private float spawnDelay;
 
-
     private int actualRubbles;
     private int pickedSound;
 
@@ -89,7 +88,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     Rigidbody2D playerRB;
 
     public bool BossFightActive { get => bossFightActive; set => bossFightActive = value; }
-
+    public bool IsDied { get => isDied; set => isDied = value; }
 
     void Start()
     {

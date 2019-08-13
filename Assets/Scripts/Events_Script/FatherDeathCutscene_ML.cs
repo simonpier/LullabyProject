@@ -11,6 +11,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     [SerializeField] GameObject gameCamera;
     [SerializeField] GameObject father;
     [SerializeField] GameObject doll;
+    [SerializeField] GameObject stairs;
 
     [SerializeField] float fatherEntryLerp;
     [SerializeField] float lerpDuration;
@@ -29,6 +30,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     Light light;
     SpriteRenderer fatherRenderer;
     SpriteRenderer dollRenderer;
+    SpriteRenderer stairRenderer;
     Color fullAlpha;
 
     private float lightIntensity;
@@ -45,6 +47,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         fatherAnim = father.GetComponent<Animator>();
         fatherRenderer = father.GetComponent<SpriteRenderer>();
         dollRenderer = doll.GetComponent<SpriteRenderer>();
+        stairRenderer = stairs.GetComponent<SpriteRenderer>();
 
         StartCoroutine(FatherEntry());
     }
@@ -57,6 +60,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
 
     public IEnumerator FatherEntry()
     {
+        gameCamera.transform.position = new Vector3(gameCamera.transform.position.x, -45.97925f, gameCamera.transform.position.z);
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         playerAnim.enabled = false;
@@ -77,6 +81,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         playerScript.enabled = true;
         playerAnim.enabled = true;
         fatherScript.Activation();
+        stairRenderer.DOFade(0, 2f);
+        yield return new WaitForSeconds(2f);
+        stairs.SetActive(false);
+
     }
 
     public IEnumerator FatherDeath()
