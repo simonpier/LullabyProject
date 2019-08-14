@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
-  normalPaintingFlag: 0
+  normalPaintingFlag: 1
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
-  normalPaintingFlag: 0
+  normalPaintingFlag: 1
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: HalfMoonPainting
@@ -7779,7 +7779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
-  normalPaintingFlag: 0
+  normalPaintingFlag: 1
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
@@ -19205,7 +19205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
-  normalPaintingFlag: 0
+  normalPaintingFlag: 1
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting

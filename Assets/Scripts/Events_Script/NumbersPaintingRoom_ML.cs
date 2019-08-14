@@ -7,7 +7,7 @@ using TMPro;
 public class NumbersPaintingRoom_ML : MonoBehaviour
 {
     [SerializeField] GameObject rightPainting;
-    [SerializeField] bool normalPaintingFlag = false;
+    [SerializeField] bool normalPaintingFlag = true;
     [SerializeField] GameObject snakeBoss;
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue;
