@@ -290,7 +290,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
                 spawnDelay = maxSpawnDelay;
                 rubbleSpawnPosition = Random.Range(sxLimiter.transform.position.x, dxLimiter.transform.position.x);
                 rubbleSize = Random.Range(minRubbleSize, maxRubbleSize);
-                thisRubble = (GameObject)Instantiate(rubble, new Vector3(rubbleSpawnPosition, transform.position.y, transform.position.z), Quaternion.identity);
+                thisRubble = (GameObject)Instantiate(rubble, new Vector3(rubbleSpawnPosition, dxLimiter.transform.position.y + 4.5f, transform.position.z), Quaternion.identity);
                 thisRubble.transform.localScale = new Vector3(rubbleSize, rubbleSize, rubbleSize);
                 
                 pickedSound = Random.Range(6, 8);
