@@ -76,6 +76,7 @@ public class Checkpoint_ML : MonoBehaviour
         //this is used to modify the respawnpoint
         if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
         {
+            Checkpoint_Manager_ML.instance.UnCheck();
             firstCheck = true;
             PlayerStats_ML.instance.respawnPoint = collision.transform.position;
 
