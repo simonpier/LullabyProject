@@ -14199,6 +14199,7 @@ MonoBehaviour:
   maxSpawnDelay: 0.5
   flowchart: {fileID: 248361635}
   dialogue: SnakeCat
+  gameCamera: {fileID: 1039903244}
   sounds:
   - {fileID: 8300000, guid: 395e657385335d84fbf7eaf31d594e3e, type: 3}
   - {fileID: 8300000, guid: 4396ff77076de0f4d80f1ab990af131a, type: 3}
@@ -19594,6 +19595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snakeCat: {fileID: 1303688089}
   firePlace: {fileID: 183573779900478699}
+  gameCamera: {fileID: 1039903244}
+  bossFightMusic: {fileID: 8300000, guid: cf58d919adca2054fa098004699aa020, type: 3}
 --- !u!95 &1729040142
 Animator:
   serializedVersion: 3
@@ -24582,10 +24585,6 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
-    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 677204092}
     - target: {fileID: 993677904, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: The latter sounds so much FUN isn`t it! Burn baby, burn!
@@ -24601,6 +24600,10 @@ PrefabInstance:
 
         We will win believing in the magic of our heart, like Mahou Shojo always says!'
       objectReference: {fileID: 0}
+    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 677204092}
     - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: Some bookshelf will let you climb up but some will...Never mind, let`s

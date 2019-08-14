@@ -6,9 +6,13 @@ public class FireplaceEvent_ML : MonoBehaviour
 {
     [SerializeField] GameObject snakeCat;
     [SerializeField] GameObject firePlace;
+    [SerializeField] GameObject gameCamera;
+    [SerializeField] AudioClip bossFightMusic;
 
     Animator anim;
     SnakeBossFightTrigger_ML snakeTrigger;
+
+    AudioSource cameraSource;
 
     private bool activationCheck;
     private bool litCheck;
@@ -17,6 +21,7 @@ public class FireplaceEvent_ML : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         snakeTrigger = snakeCat.GetComponent<SnakeBossFightTrigger_ML>();
+        cameraSource = gameCamera.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +42,9 @@ public class FireplaceEvent_ML : MonoBehaviour
         {
             litCheck = true;
             anim.SetBool("catBoss", true);
+            cameraSource.clip = bossFightMusic;
+            cameraSource.volume = 0.5f;
+            cameraSource.Play();
         }
     }
 

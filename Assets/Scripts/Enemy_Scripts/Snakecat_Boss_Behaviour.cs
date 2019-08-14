@@ -43,6 +43,8 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue;
 
+    [SerializeField] GameObject gameCamera;
+
     private List<GameObject> rubblesList;
 
     private bool invisibility;
@@ -86,6 +88,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     PlayerMove_KT playerScript;
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
+    AudioSource cameraSource;
 
     public bool BossFightActive { get => bossFightActive; set => bossFightActive = value; }
     public bool IsDied { get => isDied; set => isDied = value; }
@@ -96,6 +99,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         timeStateChange = Random.Range(minTimeStateChange, maxTimeStateChange);
         invisibilityTime = Random.Range(minInvisibilityTime, maxInvisibilityTime);
         spawnDelay = maxSpawnDelay;
+        cameraSource = gameCamera.GetComponent<AudioSource>();
         #endregion
 
         #region Component Declaration
@@ -330,6 +334,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     {
         if (hitPoint <= 0)
         {
+            cameraSource.Stop();
             invisibility = false;
             spriteRenderer.enabled = true;
             anim.SetBool("death", true);
