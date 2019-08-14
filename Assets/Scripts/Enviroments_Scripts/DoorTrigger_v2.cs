@@ -11,8 +11,8 @@ public class DoorTrigger_v2 : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject gameCamera;
     PositionConstraint cameraCon;
-  
 
+    bool opening;
 
 
     private void Start()
@@ -20,16 +20,20 @@ public class DoorTrigger_v2 : MonoBehaviour
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         door = doorNormal.GetComponent<EnviromentInteraction_SP>();
         Invoke("OnTriggerStay2d", 2);
+
+        opening = false;
     }
 
 
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
+        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && !opening)
         {
             door.DoorOpen();
+            player.GetComponent<PlayerMove_KT>().OpenDoor();
             Invoke("Teleportation", 1);
+            opening = true;
         }
 
     }
@@ -39,9 +43,9 @@ public class DoorTrigger_v2 : MonoBehaviour
 
         if (other.tag == "Player")
         {
-
+            opening = false;
             door.DoorClose();
-
+            player.GetComponent<PlayerMove_KT>().CloseDoor();
         }
 
     }

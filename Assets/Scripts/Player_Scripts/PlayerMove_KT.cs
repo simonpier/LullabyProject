@@ -47,7 +47,8 @@ public class PlayerMove_KT : MonoBehaviour
     {
         Default,
         Climb,
-        Dismount
+        Dismount,
+        DoorOpen
     }
     public VertAnimationType MovingVertAnimation { get; private set; }
     public bool Respawn;
@@ -229,5 +230,16 @@ public class PlayerMove_KT : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, startHeight + dist_y, transform.position.z);
             }
         }
+    }
+
+    public void OpenDoor()
+    {
+        StartVerticalAnimate(this.transform.position.y + 0.3f, VertAnimationType.Climb);
+        verticalTimer += 0.1f;
+    }
+
+    public void CloseDoor()
+    {
+        ResetVerticalAnimate();
     }
 }
