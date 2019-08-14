@@ -23665,7 +23665,7 @@ PrefabInstance:
     - target: {fileID: 3467383318878927108, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3467383318878927108, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -23775,6 +23775,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361640, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: '...the sound will let you know that you`ve checked it or not so be careful
+        with it.'
+      objectReference: {fileID: 0}
     - target: {fileID: 248361643, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23783,6 +23788,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361644, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "Yay! A checkpoint! Get more excited little girl, if you check this by
+        pressing the\u201CE Key\u201D, you can get new candles and also start from
+        this point when you get overwhelmed by darkness and..."
+      objectReference: {fileID: 0}
     - target: {fileID: 248361645, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23791,6 +23802,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361647, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "You can use it the same way as the candle by pressing the \u201CSpace
+        bar\u201D but with this one, you can shine it up and downwards too by pressing
+        \"W\" and \"S\" keys!"
+      objectReference: {fileID: 0}
     - target: {fileID: 248361648, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23807,10 +23824,19 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361652, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: 'Wow that hole is massive! It seems like the only way to go past this
+        is to climb up that bookshelf. '
+      objectReference: {fileID: 0}
     - target: {fileID: 248361653, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 248361653, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Stop talkng in my head, please I beg you...
+      objectReference: {fileID: 0}
     - target: {fileID: 248361655, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23819,6 +23845,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361656, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Press "spacebar" to light your little candle. She will be the only thing
+        you can trust now, hopefully she will show you the truth.
+      objectReference: {fileID: 0}
     - target: {fileID: 248361657, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23831,6 +23862,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 993677898, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Well you saw those lamps try attacking you right? Don`t   believe with
+        those common sense in this house.
+      objectReference: {fileID: 0}
     - target: {fileID: 993677903, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -23839,11 +23875,52 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 993677904, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: The latter sounds so much FUN isn`t it! Burn baby, burn!
+      objectReference: {fileID: 0}
+    - target: {fileID: 993677905, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: What is going to happen you say? Ahah, just some interesting adventure
+        of finding your precious little doll.
+      objectReference: {fileID: 0}
+    - target: {fileID: 993677911, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: 'We''re the "Awesome Sister of Justice"! Remember, Asuka?
+
+        We will win believing in the magic of our heart, like Mahou Shojo always says!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Some bookshelf will let you climb up but some will...Never mind, let`s
+        keep this a surprise, hehe.
+      objectReference: {fileID: 0}
+    - target: {fileID: 248361637, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Another lever... This time a blue one.
+      objectReference: {fileID: 0}
+    - target: {fileID: 248361662, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: This time a yellow lever... How many are there?
+      objectReference: {fileID: 0}
+    - target: {fileID: 248361664, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: A red lever? I wonder what it did...
+      objectReference: {fileID: 0}
+    - target: {fileID: 248361666, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: nodeRect.x
+      value: -77.36066
+      objectReference: {fileID: 0}
     - target: {fileID: 1089418813904633199, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 1089418813904633199, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: "I need to light it so\r I can scare away the cat..."
+      objectReference: {fileID: 0}
     - target: {fileID: 4599202110977633355, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
@@ -23931,7 +24008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 993677901, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: nodeRect.y
-      value: 132.87848
+      value: 128.87848
+      objectReference: {fileID: 0}
+    - target: {fileID: 993677918, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: nodeRect.y
+      value: -15.1795635
       objectReference: {fileID: 0}
     - target: {fileID: 1070385504358675021, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -23987,7 +24068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: nodeRect.y
-      value: 134.45386
+      value: 130.45386
       objectReference: {fileID: 0}
     - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: nodeRect.x
@@ -24128,6 +24209,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 8213498763602428832, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: 'I wonder what it did... '
+      objectReference: {fileID: 0}
     - target: {fileID: 5549034804362950070, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: targetObject
@@ -24248,6 +24334,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 7703055154474901812, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: '"Full moon + Rabbit = Firewood"'
+      objectReference: {fileID: 0}
     - target: {fileID: 4984535771565033322, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
@@ -24298,6 +24389,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 2878296801569081180, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: (I believed that I can do fighting from the moon when I was little. I`m
+        a big girl now!)
+      objectReference: {fileID: 0}
     - target: {fileID: 4386676087735631969, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: targetObject
@@ -24317,6 +24414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeRect.y
       value: 255.832
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340818273649945691, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: -648.2986
       objectReference: {fileID: 0}
     - target: {fileID: 8611182984647561591, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -24358,6 +24460,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 4345683774791898532, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: (This flower looks like the one that daddy gave to mommy on her birthday.
+        It looks so cute.)
+      objectReference: {fileID: 0}
     - target: {fileID: 4776590089347815301, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: nodeRect.x
@@ -24373,6 +24481,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 3638289424042865770, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: Better think hard little girl!
+      objectReference: {fileID: 0}
     - target: {fileID: 248361719, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: commandList.Array.size
       value: 5
@@ -24417,6 +24530,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 248361723, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Ahh...!
+      objectReference: {fileID: 0}
     - target: {fileID: 248361751, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: targetObject
       value: 
@@ -24425,6 +24542,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 248361752, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: I... It's just a painting...
+      objectReference: {fileID: 0}
     - target: {fileID: 248361753, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24449,6 +24570,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 5349129554557522178, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: "\u201C486\u201D... I wonder what this is for...?"
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 248361712, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
     - {fileID: 248361711, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
@@ -24622,7 +24748,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 450.21436
     y: 311.21542
-    width: 148.6301
+    width: 135.24591
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24639,7 +24765,7 @@ MonoBehaviour:
   - {fileID: 2100052275}
 --- !u!114 &2100052275
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -24666,7 +24792,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &2100052276
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -24927,7 +25053,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 860.84515
     y: 318.18442
-    width: 132.19174
+    width: 122.13116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25064,7 +25190,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1011.42444
     y: 318.494
-    width: 132.19174
+    width: 122.13116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25216,7 +25342,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &2100052293
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -25316,7 +25442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &2100052464
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -25341,7 +25467,7 @@ MonoBehaviour:
     booleanVal: 0
 --- !u!114 &2100052465
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
