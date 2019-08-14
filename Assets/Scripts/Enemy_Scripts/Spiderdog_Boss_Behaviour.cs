@@ -302,8 +302,11 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
                 source.clip = sounds[pickedSound];
                 source.pitch = Random.Range(0.8f, 1.5f);
                 source.Play();
+                var col = PlayerMove_KT.Instance.GetComponent<Collider2D>();
+                col.enabled = false;
                 check = false;
                 Invoke("VictoryMusic", 2f);
+                Invoke("PlayerColliderSet", 2.0f);
             }
 
             if (source.isPlaying == false && check == false)
@@ -490,6 +493,12 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
         source.clip = sounds[pickedSound];
         source.pitch = 1f;
         source.Play();
+    }
+
+    private void PlayerColliderSet()
+    {
+        var col = PlayerMove_KT.Instance.GetComponent<Collider2D>();
+        col.enabled = true;
     }
 
     #region Animation Manager
