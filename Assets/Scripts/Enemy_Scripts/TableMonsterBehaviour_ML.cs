@@ -62,6 +62,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
         {
             bossTrigger.WoodPiecesCount++;
             puzzleCheck = true;
+            puzzleDone = true;
             playerAnim.enabled = false;
             playerScript.enabled = false;
             playerWeapon.enabled = false;
@@ -82,7 +83,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(puzzle);
-            puzzleDone = true;
+            
         }
     }
 
@@ -92,5 +93,6 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
         anim.SetBool("attack", false);
         flowchart.SetBooleanVariable("puzzleUnsolved", false);
         puzzleCheck = false;
+        
     }
 }
