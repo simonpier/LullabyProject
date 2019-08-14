@@ -19,6 +19,8 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     [SerializeField] float lightChangeDuration;
     [SerializeField] float lightFinalIntensity;
     [SerializeField] float alphaFatherLerp;
+    //Tatsuyoshi Add
+    [SerializeField] GameObject Enemys;
 
     Animator playerAnim;
     Animator fatherAnim;
@@ -176,6 +178,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
             yield return new WaitForSeconds(lightLerpDuration);
             if (i == 3)
             {
+                Enemys.SetActive(false);
                 fatherRenderer.DOFade(0, alphaFatherLerp);
             }
         }

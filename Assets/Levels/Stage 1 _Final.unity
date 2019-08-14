@@ -9340,6 +9340,12 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bba3c575a8e39b41bda81d56cab188c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!1 &774349262
@@ -19879,6 +19885,12 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1945789596}
+    - target: {fileID: 3597560782186771315, guid: 172ae6bfd4224294181e5a890f2b3bb2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bba3c575a8e39b41bda81d56cab188c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172ae6bfd4224294181e5a890f2b3bb2, type: 3}
 --- !u!1 &1692437846 stripped
