@@ -35,6 +35,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     //if light raise
     public bool LightRaise { get; private set; }
+    public bool LightDrop { get; private set; }
 
     public WEAPON NowWeapon { get; set; }
 
@@ -57,16 +58,22 @@ public class ChangeWeapon_NN : MonoBehaviour
     void Update()
     {
         float inputVert = Input.GetAxis("Vertical");
-        if (inputVert > 0)
+        LightRaise = LightDrop = false;
+        if (inputVert > 0.5f)
         {
             LightRaise = true;
             pair[_nowSelectInstance].Raise();
         }
-        if (inputVert < 0)
+        else if (inputVert < -0.5f)
         {
-            LightRaise = false;
+            LightDrop = true;
             pair[_nowSelectInstance].Drop();
         }
+        else
+        {
+            pair[_nowSelectInstance].Default();
+        }
+
         if (Input.GetButtonDown("Using"))
         {
 
