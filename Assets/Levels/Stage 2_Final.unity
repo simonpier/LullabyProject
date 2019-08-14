@@ -688,7 +688,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
-  textBlock: {fileID: 0}
+  textBlock: {fileID: 843108934}
 --- !u!212 &71100865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7766,7 +7766,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
-  textBlock: {fileID: 0}
+  textBlock: {fileID: 843108934}
 --- !u!212 &825676484
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10456,7 +10456,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994394775}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ffb73e930d768e41b81c5290cc2c3bf, type: 3}
   m_Name: 
@@ -19190,7 +19190,7 @@ MonoBehaviour:
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
   player: {fileID: 811801725}
-  textBlock: {fileID: 0}
+  textBlock: {fileID: 843108934}
 --- !u!212 &1745579383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20605,10 +20605,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorMonster
       objectReference: {fileID: 0}
-    - target: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3258346076841379907, guid: 17ecbf0d055ed1f428fcd799a9b81430,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20684,6 +20680,10 @@ PrefabInstance:
       propertyPath: attackCollider
       value: 
       objectReference: {fileID: 607014334}
+    - target: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
 --- !u!4 &1862316438 stripped
@@ -23871,10 +23871,6 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
-    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 677204092}
     - target: {fileID: 993677904, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: The latter sounds so much FUN isn`t it! Burn baby, burn!
@@ -23890,6 +23886,10 @@ PrefabInstance:
 
         We will win believing in the magic of our heart, like Mahou Shojo always says!'
       objectReference: {fileID: 0}
+    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 677204092}
     - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: Some bookshelf will let you climb up but some will...Never mind, let`s
