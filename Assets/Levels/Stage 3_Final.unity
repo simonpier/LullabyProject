@@ -10013,7 +10013,7 @@ MonoBehaviour:
   attackCollider: {fileID: 1973713279}
   xBulletOffset: 2
   bulletLerpTime: 5
-  speed: 3
+  speed: 4.3
   sphereOffset: 2.45
   meleeRange: 1.7
   distanceRange: 8.7
@@ -14637,7 +14637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 873855355, guid: 5e229ba9a4efd3344b4483b8dbea9d06, type: 3}
       propertyPath: health
-      value: 500
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2583690737141223900, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
@@ -16890,7 +16890,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 7d92c01b27d0b18479fa2bde8bab1a3b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff03a5f24f43c74a8f72d20e8583b7d, type: 3}
 --- !u!1001 &4031154779170205667
