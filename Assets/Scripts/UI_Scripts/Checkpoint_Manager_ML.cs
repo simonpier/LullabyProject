@@ -5,8 +5,6 @@ using UnityEngine.Animations;
 
 public class Checkpoint_Manager_ML : MonoBehaviour
 {
-    static public Checkpoint_Manager_ML instance;
-
     [SerializeField] GameObject check1, check2, check3;
 
     Checkpoint_ML checkpoint1, checkpoint2, checkpoint3;
@@ -14,12 +12,9 @@ public class Checkpoint_Manager_ML : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-
         checkpoint1 = check1.GetComponent<Checkpoint_ML>();
         checkpoint2 = check2.GetComponent<Checkpoint_ML>();
         checkpoint3 = check3.GetComponent<Checkpoint_ML>();
-
     }
 
     // Update is called once per frame
@@ -65,6 +60,7 @@ public class Checkpoint_Manager_ML : MonoBehaviour
 
     public void UnCheck()
     {
+        Start();
         checkpoint1.FirstCheck = checkpoint2.FirstCheck = checkpoint3.FirstCheck = false;
     }
 }

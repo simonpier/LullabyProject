@@ -81,7 +81,7 @@ public class ChangeWeapon_NN : MonoBehaviour
             lantern.gameObject.SetActive(_nowSelectInstance == lantern && !_nowSelectInstance.activeSelf);
 
             LightRaise = false;
-            pair[_nowSelectInstance].Drop();
+            pair[_nowSelectInstance].Default();
 
             WeaponStateUpdate();
 
@@ -98,7 +98,7 @@ public class ChangeWeapon_NN : MonoBehaviour
                 _nowSelectInstance.SetActive(temp);
 
                 LightRaise = false;
-                pair[_nowSelectInstance].Drop();
+                pair[_nowSelectInstance].Default();
                 WeaponStateUpdate();
             }
             else if (candle.activeSelf == true && eventManager.LanternTaken)
@@ -109,7 +109,7 @@ public class ChangeWeapon_NN : MonoBehaviour
                 _nowSelectInstance.SetActive(temp);
 
                 LightRaise = false;
-                pair[_nowSelectInstance].Drop();
+                pair[_nowSelectInstance].Default();
                 WeaponStateUpdate();
             }
 
