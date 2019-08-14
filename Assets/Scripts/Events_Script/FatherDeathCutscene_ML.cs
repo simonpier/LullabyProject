@@ -37,6 +37,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     SpriteRenderer dollRenderer;
     SpriteRenderer stairRenderer;
     Color fullAlpha;
+    AudioSource cameraSource;
 
     private float lightIntensity;
 
@@ -53,6 +54,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         fatherRenderer = father.GetComponent<SpriteRenderer>();
         dollRenderer = doll.GetComponent<SpriteRenderer>();
         stairRenderer = stairs.GetComponent<SpriteRenderer>();
+        cameraSource = gameCamera.GetComponent<AudioSource>();
 
         StartCoroutine(FatherEntry());
     }
@@ -96,6 +98,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
 
     public IEnumerator FatherDeath()
     {
+        cameraSource.Stop();
 
         gameObject.GetComponent<AudioSource>().clip = sound;
         source.clip = sound;
