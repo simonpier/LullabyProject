@@ -10013,7 +10013,7 @@ MonoBehaviour:
   attackCollider: {fileID: 1973713279}
   xBulletOffset: 2
   bulletLerpTime: 5
-  speed: 3
+  speed: 4.3
   sphereOffset: 2.45
   meleeRange: 1.7
   distanceRange: 8.7
