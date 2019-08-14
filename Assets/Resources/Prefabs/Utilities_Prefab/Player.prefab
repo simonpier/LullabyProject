@@ -520,8 +520,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: 5.5, y: 4}
-      - {x: 5.5, y: -4}
+      - {x: 5.5, y: 3.5}
+      - {x: 5.5, y: -3.5}
 --- !u!108 &6759103763718334184
 Light:
   m_ObjectHideFlags: 0

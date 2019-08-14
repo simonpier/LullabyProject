@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.21960784, g: 0.23529412, b: 0.2509804, a: 1}
+  m_AmbientSkyColor: {r: 0.05490196, g: 0.05882353, b: 0.0627451, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -24459,6 +24459,18 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 993677898, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 677204092}
+    - target: {fileID: 993677903, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 811801727}
+    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 677204092}
     - target: {fileID: 248361668, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: targetObject
       value: 
@@ -24479,10 +24491,6 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1692437846}
-    - target: {fileID: 993677898, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 677204092}
     - target: {fileID: 993677900, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24491,10 +24499,6 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1692437846}
-    - target: {fileID: 993677903, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 811801727}
     - target: {fileID: 993677904, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24562,10 +24566,6 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1692437846}
-    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 677204092}
     - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
