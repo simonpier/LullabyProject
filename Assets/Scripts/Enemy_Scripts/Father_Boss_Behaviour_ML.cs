@@ -34,6 +34,7 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     private bool animationCheck;
     private bool death;
     private bool activation;
+    private bool check = false, check2 = false;
 
     private int lanternCount;
 
@@ -69,7 +70,26 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
             }
             else if (death)
             {
+                if (source.isPlaying == false && check2 == false)
+                {
+                    source.Stop();
+                    pickedSound = 8;
+                    gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                    source.clip = sounds[pickedSound];
+                    source.pitch = 1;
+                    source.volume = 1f;
+                    source.Play();
+                    check2 = true;
+                }
                 fatherCutscene.StartCoroutine(fatherCutscene.FatherDeath());
+            }
+
+            if (check == false)
+            {
+
+                check = true;
+                Invoke("RandomSound", Random.Range(5f, 8f));
+
             }
         }
     }
@@ -106,7 +126,20 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
             gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
             source.clip = sounds[pickedSound];
             source.pitch = Random.Range(0.8f, 1.5f);
+            source.volume = 1f;
             source.Play();
+        }
+
+        if (source.isPlaying == true)
+        {
+            pickedSound = 1;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(1f, 1f);
+            source.volume = 1f;
+            if (source.isPlaying == false)
+                source.Play();
+
         }
     }
 
@@ -119,7 +152,20 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
             gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
             source.clip = sounds[pickedSound];
             source.pitch = Random.Range(0.8f, 1.5f);
+            source.volume = 1f;
             source.Play();
+        }
+
+        if (source.isPlaying == true)
+        {
+            pickedSound = 0;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(1f, 1f);
+            source.volume = 1f;
+            if (source.isPlaying == false)
+                source.Play();
+
         }
     }
 
@@ -127,6 +173,16 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     {
         anim.SetBool("meleeAttack", false);
         anim.SetBool("throwAttack", false);
+
+        if (source.isPlaying == false)
+        {
+            pickedSound = Random.Range(2 , 5);
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.volume = 0.3f;
+            source.pitch = Random.Range(1f, 1f);
+            source.Play();
+        }
 
         if (player.transform.position.x <= transform.position.x)
         {
@@ -186,6 +242,17 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, distanceRange);
 
+    }
+
+    private void RandomSound()
+    {
+        pickedSound = Random.Range(6 , 8);
+        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+        source.clip = sounds[pickedSound];
+        source.pitch = Random.Range(1f, 1f);
+        source.volume = 0.3f;
+        source.Play();
+        check = false;
     }
 
     #region Animation Methods

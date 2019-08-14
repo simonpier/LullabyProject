@@ -6,6 +6,8 @@ public class FatherLanters_ML : MonoBehaviour
 {
     [SerializeField] GameObject light;
     [SerializeField] GameObject father;
+    [SerializeField] AudioClip sound;
+    [SerializeField] AudioSource source;
 
     Father_Boss_Behaviour_ML fatherScript;
 
@@ -36,6 +38,9 @@ public class FatherLanters_ML : MonoBehaviour
                 fatherScript.Death = true;
             }
 
+            gameObject.GetComponent<AudioSource>().clip = sound;
+            source.clip = sound;
+            source.Play();
         }
     }
 }

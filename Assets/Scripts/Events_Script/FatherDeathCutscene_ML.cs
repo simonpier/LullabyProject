@@ -22,6 +22,9 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     //Tatsuyoshi Add
     [SerializeField] GameObject Enemys;
 
+    [SerializeField] AudioClip sound;
+    [SerializeField] AudioSource source;
+
     Animator playerAnim;
     Animator fatherAnim;
     Rigidbody2D playerRB;
@@ -62,6 +65,8 @@ public class FatherDeathCutscene_ML : MonoBehaviour
 
     public IEnumerator FatherEntry()
     {
+        
+
         gameCamera.transform.position = new Vector3(gameCamera.transform.position.x, -45.97925f, gameCamera.transform.position.z);
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -91,6 +96,12 @@ public class FatherDeathCutscene_ML : MonoBehaviour
 
     public IEnumerator FatherDeath()
     {
+
+        gameObject.GetComponent<AudioSource>().clip = sound;
+        source.clip = sound;
+        source.volume = 1;
+        source.Play();
+
         fatherScript.enabled = false;
         playerScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -101,6 +112,8 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         float tmpGameCameraPos = gameCamera.transform.position.x;
         cameraCon.enabled = false;
         cameraController.enabled = false;
+
+
 
         //First lantern
         gameCamera.transform.DOMoveX(lanternsLight[0].transform.position.x, lerpDuration);
