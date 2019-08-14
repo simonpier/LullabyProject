@@ -7,6 +7,7 @@ using TMPro;
 public class NumbersPaintingRoom_ML : MonoBehaviour
 {
     [SerializeField] GameObject rightPainting;
+    [SerializeField] bool normalPaintingFlag = false;
     [SerializeField] GameObject snakeBoss;
     [SerializeField] Flowchart flowchart;
     [SerializeField] string dialogue;
@@ -41,7 +42,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
-        text = textBlock.GetComponent<TextMeshProUGUI>();
+        if(textBlock) text = textBlock.GetComponent<TextMeshProUGUI>();
 
     }
 
@@ -61,7 +62,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction") && !check && rightNumber)
+        if (collision.tag == "Player" && Input.GetButtonDown("Interaction") && !check && rightNumber && normalPaintingFlag)
         {
             snakeTrigger.WoodPiecesCount++;
             check = true;
@@ -75,7 +76,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
         }
 
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber && flowchart)
+        if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber && flowchart && normalPaintingFlag)
         {
             
             playerAnim.enabled = false;

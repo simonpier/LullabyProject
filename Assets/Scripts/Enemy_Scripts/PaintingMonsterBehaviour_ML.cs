@@ -7,7 +7,8 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
     //[SerializeField] AudioManager audio;
     //[SerializeField] AudioSource source;
     //public AudioClip[] sounds;
-    private bool check = true, check2 = true, isTriggered = false;
+    private bool check = true, check2 = true;
+    public bool isTriggered = false;
 
     //private int pickedSound;
 
@@ -45,16 +46,6 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
             anim.SetTrigger("transformation");
             //InvokeSound();
             isTriggered = true;
-        }
-    }
-
-    public override void OnTriggerExit2D(Collider2D collision)
-    {
-        base.OnTriggerStay2D(collision);
-
-        if ((collision.gameObject.tag == "Player"))
-        {
-            attackCollider.enabled = false;
         }
     }
 

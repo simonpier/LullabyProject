@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
+  normalPaintingFlag: 0
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
@@ -1017,6 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
+  normalPaintingFlag: 0
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: HalfMoonPainting
@@ -2710,6 +2712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 289146076}
   - component: {fileID: 289146075}
+  - component: {fileID: 289146077}
   m_Layer: 0
   m_Name: PaintingMonster_AttackCollider
   m_TagString: Enemy_AttackCollider
@@ -2757,6 +2760,19 @@ Transform:
   m_Father: {fileID: 785923293}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289146077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289146074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe90f9b99c0a7947b1d380e9b4ec57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  painting: {fileID: 785923290}
 --- !u!1 &298735974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,6 +7313,7 @@ MonoBehaviour:
   sxRoomLimiter: {fileID: 475477306}
   dxRoomLimiter: {fileID: 538418936}
   isDied: 0
+  isTriggered: 0
 --- !u!95 &785923291
 Animator:
   serializedVersion: 3
@@ -7762,6 +7779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
+  normalPaintingFlag: 0
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
@@ -10456,12 +10474,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994394775}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ffb73e930d768e41b81c5290cc2c3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
+  normalPaintingFlag: 1
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 0}
   dialogue: 
@@ -19186,6 +19205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightPainting: {fileID: 1098679297}
+  normalPaintingFlag: 0
   snakeBoss: {fileID: 1303688089}
   flowchart: {fileID: 248361635}
   dialogue: JustAPainting
@@ -20605,6 +20625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3258346076841379907, guid: 17ecbf0d055ed1f428fcd799a9b81430,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20680,10 +20704,6 @@ PrefabInstance:
       propertyPath: attackCollider
       value: 
       objectReference: {fileID: 607014334}
-    - target: {fileID: 845039300, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ecbf0d055ed1f428fcd799a9b81430, type: 3}
 --- !u!4 &1862316438 stripped
@@ -23871,6 +23891,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 677204092}
     - target: {fileID: 993677904, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: The latter sounds so much FUN isn`t it! Burn baby, burn!
@@ -23886,10 +23910,6 @@ PrefabInstance:
 
         We will win believing in the magic of our heart, like Mahou Shojo always says!'
       objectReference: {fileID: 0}
-    - target: {fileID: 993677919, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 677204092}
     - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: Some bookshelf will let you climb up but some will...Never mind, let`s
