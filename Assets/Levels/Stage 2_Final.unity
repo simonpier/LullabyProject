@@ -23936,6 +23936,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 696739580}
+    - target: {fileID: 7804949032522573312, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: nodeRect.y
+      value: 210.36403
+      objectReference: {fileID: 0}
     - target: {fileID: 248361667, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24748,7 +24753,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 450.21436
     y: 311.21542
-    width: 135.24591
+    width: 144.54547
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25053,7 +25058,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 860.84515
     y: 318.18442
-    width: 122.13116
+    width: 130
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25190,7 +25195,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1011.42444
     y: 318.494
-    width: 122.13116
+    width: 130
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

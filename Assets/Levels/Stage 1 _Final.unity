@@ -24347,6 +24347,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flowchart
       objectReference: {fileID: 0}
+    - target: {fileID: 3467383318878927108, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467383318878927108, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3467383318878927131, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24440,6 +24450,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361640, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: '...the sound will let you know that you`ve checked it or not so be careful
+        with it.'
+      objectReference: {fileID: 0}
     - target: {fileID: 248361643, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24448,6 +24463,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361644, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "Yay! A checkpoint! Get more excited little girl, if you check this by
+        pressing the\u201CE Key\u201D, you can get new candles and also start from
+        this point when you get overwhelmed by the darkness and..."
+      objectReference: {fileID: 0}
     - target: {fileID: 248361645, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24456,10 +24477,21 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361647, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "You can use it the same way as the candle by pressing the \u201CSpace
+        bar\u201D but with this one, you can shine it up and downwards too by pressing
+        the \"W\" and \"S\" key!"
+      objectReference: {fileID: 0}
     - target: {fileID: 248361648, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361648, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "That`s a very cool lantern, indeed! Press the \u201Cshift key\u201D
+        to change with the candle."
+      objectReference: {fileID: 0}
     - target: {fileID: 248361649, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24468,14 +24500,27 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361651, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: "Try pressing \u201CE Key\u201D, this time in front of that bookshelf."
+      objectReference: {fileID: 0}
     - target: {fileID: 248361652, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361652, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: 'Wow that hole is massive! It seems like the only way to go past this
+        is to climb up that bookshelf. '
+      objectReference: {fileID: 0}
     - target: {fileID: 248361653, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 248361653, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Stop talkng in my head, please i beg you...
+      objectReference: {fileID: 0}
     - target: {fileID: 248361655, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24484,6 +24529,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 248361656, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Press the "spacebar" to light your little candle. She will be the only
+        thing you can trust now, hopefully she will show you the truth behind everything
+        in this mansion.
+      objectReference: {fileID: 0}
     - target: {fileID: 248361657, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24540,6 +24591,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 993677905, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: What is going to happen you say? Ahah, just some interesting adventure
+        of finding your precious little doll.
+      objectReference: {fileID: 0}
     - target: {fileID: 993677906, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24564,6 +24620,12 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 993677911, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: 'We''re the "Awesome Sister of Justice"! Remember, Asuka?
+
+        We will win believing in the magic of our heart, like Mahou Shojo always says!'
+      objectReference: {fileID: 0}
     - target: {fileID: 993677912, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24592,6 +24654,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 993677977, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: storyText
+      value: Some bookshelf will let you climb up but some will...Never mind, let`s
+        keep this a surprise, hehe.
+      objectReference: {fileID: 0}
     - target: {fileID: 1422700325, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: targetObject
       value: 
