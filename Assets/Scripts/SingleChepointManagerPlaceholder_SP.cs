@@ -14,6 +14,15 @@ public class SingleChepointManagerPlaceholder_SP : MonoBehaviour
         checkpoint = savepoint.GetComponent<Checkpoint_ML>();
     }
 
+    private void Update()
+    {
+        if (this.transform.parent.gameObject.activeSelf && Input.GetButtonDown("Interaction"))
+        {
+            checkpoint.Respawn();
+            this.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
     public void RespawnCheck()
     {
 

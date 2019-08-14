@@ -57,7 +57,7 @@ public class ChangeWeapon_NN : MonoBehaviour
 
     void Update()
     {
-        float inputVert = Input.GetAxis("Vertical");
+        float inputVert = Input.GetAxis("SubVertical");
         LightRaise = LightDrop = false;
         if (inputVert > 0.5f)
         {

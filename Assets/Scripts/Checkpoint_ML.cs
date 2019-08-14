@@ -76,7 +76,7 @@ public class Checkpoint_ML : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //this is used to modify the respawnpoint
-        if ((collision.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.E))
+        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
         {
             if(checkManager) checkManager.UnCheck();
             firstCheck = true;
@@ -87,9 +87,9 @@ public class Checkpoint_ML : MonoBehaviour
             anim.SetBool("activated", true);
             lightSource.SetActive(true);
 
+            audio.PlaySound("checkpoint bell");
             if (check == false)
             {
-                audio.PlaySound("checkpoint bell");
                 check = true;
             }
 
