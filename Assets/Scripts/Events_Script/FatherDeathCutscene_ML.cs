@@ -179,6 +179,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
             if (i == 3)
             {
                 Enemys.SetActive(false);
+                player.GetComponent<PlayerStats_ML>().ResetHealth();
                 fatherRenderer.DOFade(0, alphaFatherLerp);
             }
         }

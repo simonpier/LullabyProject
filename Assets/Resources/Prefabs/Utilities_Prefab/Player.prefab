@@ -458,6 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnAngle: -80
   raisingPosition: {x: -1.5, y: 3, z: 0}
+  dropPosition: {x: 0, y: 0, z: 0}
   maxFuel: 100
   cost: 2
 --- !u!1 &9016724537132175666
@@ -519,8 +520,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: 5.5, y: 7.2}
-      - {x: 5.5, y: -7.2}
+      - {x: 5.5, y: 3.5}
+      - {x: 5.5, y: -3.5}
 --- !u!108 &6759103763718334184
 Light:
   m_ObjectHideFlags: 0
