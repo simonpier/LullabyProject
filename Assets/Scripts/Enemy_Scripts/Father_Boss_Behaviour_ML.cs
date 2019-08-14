@@ -20,9 +20,13 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     [SerializeField] float distanceRange;
     [SerializeField] float throwCooldown;
 
+    [SerializeField] AudioClip[] sounds;
+    [SerializeField] AudioSource source;
+
     GameObject instanceBullet;
     Animator anim;
     FatherDeathCutscene_ML fatherCutscene;
+
 
     private bool facingLeft = true;
     private bool isGoingRight;
@@ -38,6 +42,8 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     private float actualThrowCooldown;
     private float lerpCalculator;
     private const float LERPCONST = 28f;
+
+    private int pickedSound;
 
     public int LanternCount { get => lanternCount; set => lanternCount = value; }
     public bool Death { get => death; set => death = value; }
@@ -94,11 +100,27 @@ public class Father_Boss_Behaviour_ML : MonoBehaviour
     private void MeleeAttack()
     {
         anim.SetBool("meleeAttack", true);
+        if (source.isPlaying == false)
+        {
+            pickedSound = 1;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(0.8f, 1.5f);
+            source.Play();
+        }
     }
 
     private void ThrowAttack()
     {
         anim.SetBool("throwAttack", true);
+        if (source.isPlaying == false)
+        {
+            pickedSound = 0;
+            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+            source.clip = sounds[pickedSound];
+            source.pitch = Random.Range(0.8f, 1.5f);
+            source.Play();
+        }
     }
 
     private void BasicMovement()

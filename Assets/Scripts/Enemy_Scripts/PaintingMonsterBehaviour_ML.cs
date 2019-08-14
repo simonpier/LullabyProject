@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PaintingMonsterBehaviour_ML : EnemyController_ML
 {
-    //[SerializeField] AudioManager audio;
-    //[SerializeField] AudioSource source;
-    //public AudioClip[] sounds;
-    private bool check = true, check2 = true;
+    [SerializeField] AudioManager audio;
+    [SerializeField] AudioSource source;
+    public AudioClip[] sounds;
+    private bool check = true, check2 = false;
     public bool isTriggered = false;
 
-    //private int pickedSound;
+    private int pickedSound;
 
     // Start is called before the first frame update
 
@@ -31,7 +32,18 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
         {
             anim.SetBool("death", true);
             isDied = true;
-            //DefeatSound();
+
+
+            if (source.isPlaying == false && check2 == false)
+            {
+                pickedSound = 1;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.3f, 0.4f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+                check2 = true;
+            } 
             isTriggered = false;
         }
     }
@@ -44,7 +56,16 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
         {
             anim.SetBool("reset", false);
             anim.SetTrigger("transformation");
-            //InvokeSound();
+            if (source.isPlaying == false)
+            {
+                pickedSound = 0;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.3f, 0.4f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
+
+            }
             isTriggered = true;
         }
     }
@@ -56,16 +77,16 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
         if (distance <= attackRange && isTriggered == true)
         {
             anim.SetBool("attack", true);
-            //if (source.isPlaying == false)
-            //{
-            //    pickedSound = 0;
-            //    gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-            //    source.clip = sounds[pickedSound];
-            //    source.volume = Random.Range(0.1f, 0.15f);
-            //    source.pitch = Random.Range(0.8f, 1.5f);
-            //    source.Play();
+            if (source.isPlaying == false && isDied == false && isTriggered == true)
+            {
+                pickedSound = 0;
+                gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                source.clip = sounds[pickedSound];
+                source.volume = Random.Range(0.3f, 0.4f);
+                source.pitch = Random.Range(0.8f, 1.5f);
+                source.Play();
 
-            //}
+            }
         }
         else if (!canMove && distance > attackRange)
         {
@@ -73,24 +94,6 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
         }
     }
 
-    //void InvokeSound()
-    //{
-    //    if (check == true)
-    //    {
 
-    //        audio.PlaySound("door transformation");
-    //        check = false;
-
-    //    }
-    //}
-
-    //void DefeatSound()
-    //{
-    //    if (check2 == true)
-    //    {
-    //        audio.PlaySound("book defeat");
-    //        check2 = false;
-    //    }
-    //}
 }
 
