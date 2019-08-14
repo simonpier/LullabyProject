@@ -57,7 +57,7 @@ public class EventManager_ML : MonoBehaviour
     SpriteRenderer stairsRenderer;
     Spiderdog_Boss_Behaviour spiderScript;
 
-    private bool stairChecked;
+    private bool stairChecked = true;
 
     #endregion
 

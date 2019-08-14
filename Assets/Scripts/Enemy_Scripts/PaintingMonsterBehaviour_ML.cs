@@ -8,9 +8,11 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
     //[SerializeField] AudioSource source;
     //public AudioClip[] sounds;
     private bool check = true, check2 = true, isTriggered = false;
+
     //private int pickedSound;
 
     // Start is called before the first frame update
+
     public override void Start()
     {
         base.Start();
@@ -43,6 +45,16 @@ public class PaintingMonsterBehaviour_ML : EnemyController_ML
             anim.SetTrigger("transformation");
             //InvokeSound();
             isTriggered = true;
+        }
+    }
+
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        base.OnTriggerStay2D(collision);
+
+        if ((collision.gameObject.tag == "Player"))
+        {
+            attackCollider.enabled = false;
         }
     }
 

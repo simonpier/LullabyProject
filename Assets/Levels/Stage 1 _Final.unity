@@ -2168,7 +2168,7 @@ MonoBehaviour:
   fadingTime: 0
   audio: {fileID: 1945789596}
   flowchart: {fileID: 248361635}
-  dialogue: 
+  dialogue: firstPuzzle
   player: {fileID: 811801725}
 --- !u!1001 &160740460
 PrefabInstance:
@@ -2280,7 +2280,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4288184320
+    rgba: 4284572001
   m_Size: 0.46
 --- !u!1 &168460385
 GameObject:
@@ -17194,6 +17194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Change_Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 8534721523884326383, guid: e11aced51053d6d429d6de69bc95b7a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8534721523884326387, guid: e11aced51053d6d429d6de69bc95b7a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17247,6 +17252,16 @@ PrefabInstance:
     - target: {fileID: 8534721523884326387, guid: e11aced51053d6d429d6de69bc95b7a3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534721523884326386, guid: e11aced51053d6d429d6de69bc95b7a3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534721523884326386, guid: e11aced51053d6d429d6de69bc95b7a3,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18752,8 +18767,8 @@ MonoBehaviour:
   smoke: {fileID: 30478533}
   fadingTime: 0
   audio: {fileID: 1945789596}
-  flowchart: {fileID: 248361635}
-  dialogue: firstPuzzle
+  flowchart: {fileID: 0}
+  dialogue: 
   player: {fileID: 811801725}
 --- !u!4 &1563003830 stripped
 Transform:
@@ -20238,6 +20253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367370324662019910, guid: 158725ac85181e94aa1cf0e696e0ec79,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4284572001
       objectReference: {fileID: 0}
     - target: {fileID: 1756412263692330708, guid: 158725ac85181e94aa1cf0e696e0ec79,
         type: 3}
@@ -23041,6 +23061,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2367370324662019910, guid: 158725ac85181e94aa1cf0e696e0ec79,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4284572001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158725ac85181e94aa1cf0e696e0ec79, type: 3}
 --- !u!4 &1954715517 stripped
@@ -23962,6 +23987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367370324662019910, guid: 158725ac85181e94aa1cf0e696e0ec79,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4284572001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158725ac85181e94aa1cf0e696e0ec79, type: 3}

@@ -75,9 +75,9 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
         }
 
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber)
+        if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber && flowchart)
         {
-
+            
             playerAnim.enabled = false;
             playerScript.enabled = false;
             playerWeapon.enabled = false;
