@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class VideoManager_SP : MonoBehaviour
 {
     [SerializeField] VideoPlayer video;
-    
+    [SerializeField] bool EndingCutScene = false;
 
     void Start()
     {
-        
     }
 
     
@@ -20,18 +19,19 @@ public class VideoManager_SP : MonoBehaviour
         if (Input.GetButtonDown("Interaction") || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
         {
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (EndingCutScene) SceneManager.LoadScene(2);
+            else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
-
-        Invoke("LoadScene", 1f);
+        LoadScene();
     }
 
     void LoadScene()
     {
-        if (!video.isPlaying)
+        if (!video.isPlaying && video.isPrepared)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (EndingCutScene) SceneManager.LoadScene(2);
+            else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
