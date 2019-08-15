@@ -25075,7 +25075,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destination
       value: 
-      objectReference: {fileID: 1884431107}
+      objectReference: {fileID: 721291442}
     - target: {fileID: 4480095087217177100, guid: dfbb5facbc29c844086f86d5f7a18394,
         type: 3}
       propertyPath: player
@@ -25228,7 +25228,7 @@ PrefabInstance:
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: lanternTaken
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
