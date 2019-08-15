@@ -10,7 +10,7 @@ public class StageTeleporter_SP : MonoBehaviour
     {
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
 
     }
 
@@ -18,7 +18,7 @@ public class StageTeleporter_SP : MonoBehaviour
     {
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(6);
 
     }
 
@@ -26,7 +26,7 @@ public class StageTeleporter_SP : MonoBehaviour
     {
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(8);
 
     }
 }
