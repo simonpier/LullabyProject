@@ -19,6 +19,7 @@ public class BossFightEvent_ML : MonoBehaviour
 
     TargetCamera_KT cameraController;
     PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerLight;
     Animator spiderBossAnim;
     Animator playerAnim;
     Rigidbody2D playerRB;
@@ -35,6 +36,7 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraController = gameCamera.GetComponent<TargetCamera_KT>();
         spiderBossAnim = spiderBoss.GetComponent<Animator>();
         playerScript = player.GetComponent<PlayerMove_KT>();
+        playerLight = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
         playerAnim = player.GetComponent<Animator>();
         cinBar = cinematicBar.GetComponent<CinematicBar_ML>();
@@ -56,6 +58,8 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraSource.volume = 0.5f;
         cameraSource.Play();
         playerScript.enabled = false;
+        playerLight.ResetAllLight();
+        playerLight.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         bossTrigger.SetActive(false);
         float tmpGameCameraPos = gameCamera.transform.position.x;
@@ -78,6 +82,7 @@ public class BossFightEvent_ML : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         cinBar.Hide(1.5f);
         playerScript.enabled = true;
+        playerLight.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
         spiderbossBehaviour.IsTriggered = true;
         playerAnim.enabled = true;
