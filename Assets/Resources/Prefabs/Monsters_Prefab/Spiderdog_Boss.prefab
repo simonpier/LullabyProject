@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.1398821, y: -0.16928858}
+  m_Offset: {x: -0.15, y: -0.38}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.84199715, y: 3.2346191}
+  m_Size: {x: 2.8, y: 2.66}
   m_EdgeRadius: 0
 --- !u!1 &1324648874
 GameObject:
@@ -239,9 +239,10 @@ MonoBehaviour:
   canDie: 0
   canMove: 1
   facingRight: 1
-  AttackCollider: {fileID: 766323229}
+  attackCollider: {fileID: 0}
   sxRoomLimiter: {fileID: 0}
   dxRoomLimiter: {fileID: 0}
+  isDied: 0
   landDistance: 2
   walkTime: 10
   totalTimeWithoutDamages: 5
@@ -254,6 +255,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   gameCamera: {fileID: 0}
   endBossFight: {fileID: 0}
+  flowchart: {fileID: 0}
+  dialogue: 
+  player: {fileID: 0}
   sounds:
   - {fileID: 8300000, guid: e6d57708f5c510c438ad0b83ff294f0d, type: 3}
   - {fileID: 8300000, guid: b5093468cf28b0b4889ebebf66c24aa6, type: 3}
