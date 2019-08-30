@@ -22646,12 +22646,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -25124,11 +25124,37 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 3164746134997244945, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: SURPRISE!! This isn`t the right one, little girl. Think harder, think,
+        think!{w}{w=0.1}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164746134997244945, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: stopVoiceover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164746134997244945, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2648372714768243138, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 2648372714768243138, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648372714768243138, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: (What is this? It doesn`t look too cute...but I like the colours!){w}{w=0.1}
+      objectReference: {fileID: 0}
     - target: {fileID: 2340818273649945691, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: nodeRect.y
@@ -25149,11 +25175,32 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 3314358603003072838, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314358603003072838, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: SURPRISE!! This isn`t the right one, little girl. Think harder, think,
+        think!{w}{w=0.1}
+      objectReference: {fileID: 0}
     - target: {fileID: 3005714817956632603, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 811801727}
+    - target: {fileID: 3005714817956632603, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005714817956632603, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: (I always dreamt of going to the moon with mommy...){w}{w=0.1}
+      objectReference: {fileID: 0}
     - target: {fileID: 7959772897906016238, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: targetObject
@@ -25174,6 +25221,17 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 677204092}
+    - target: {fileID: 2936770654523837664, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936770654523837664, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: storyText
+      value: SURPRISE!! This isn`t the right one, little girl. Think harder, think,
+        think!{w}{w=0.1}
+      objectReference: {fileID: 0}
     - target: {fileID: 4345683774791898532, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
       propertyPath: character
@@ -25183,7 +25241,12 @@ PrefabInstance:
         type: 3}
       propertyPath: storyText
       value: (This flower looks like the one that daddy gave to mommy on her birthday.
-        It looks so cute.)
+        It looks so cute.) {w}{w=0.1}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345683774791898532, guid: 1c53334cd53725a40a8aec09785bc0c8,
+        type: 3}
+      propertyPath: waitForClick
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4776590089347815301, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -26731,31 +26794,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: spiderDog.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 811801725}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: gameCamera
-      value: 
-      objectReference: {fileID: 1039903246}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: debugMenu
-      value: 
-      objectReference: {fileID: 790990474}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: floorList
-      value: 
-      objectReference: {fileID: 1644817381}
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26811,6 +26849,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: spiderDog.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903246}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: debugMenu
+      value: 
+      objectReference: {fileID: 790990474}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: floorList
+      value: 
+      objectReference: {fileID: 1644817381}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: libraries.Array.size
