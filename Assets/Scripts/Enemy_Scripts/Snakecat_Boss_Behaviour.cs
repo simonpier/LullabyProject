@@ -19,6 +19,8 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     [SerializeField] GameObject rubble;
     [SerializeField] GameObject sxLimiter;
     [SerializeField] GameObject dxLimiter;
+    [SerializeField] GameObject doorTrigger;
+    [SerializeField] GameObject bossDoor;
 
 
     [SerializeField] float attackRange;
@@ -89,6 +91,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
     AudioSource cameraSource;
+    Collider2D doorCollider;
 
     public bool BossFightActive { get => bossFightActive; set => bossFightActive = value; }
     public bool IsDied { get => isDied; set => isDied = value; }
@@ -109,6 +112,9 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
+        doorCollider = doorTrigger.GetComponent<Collider2D>();
+
+
         #endregion
 
 
@@ -123,8 +129,11 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
     {
         if (bossFightActive)
         {
+
             if(isActivated)
             {
+                doorCollider.enabled = false;
+
                 if (check == false)
                 {
                     pickedSound = 0;
@@ -303,7 +312,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
                 source.pitch = Random.Range(1f, 1f);
                 if (source.isPlaying == false)
                     source.Play();
-                Destroy(thisRubble, 3f);
+                Destroy(thisRubble, 2f);
             }
         }
 
@@ -349,7 +358,10 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             {
                 source.Play();
                 check3 = true;
+                doorCollider.enabled = true;
             }
+
+
         }
     }
 

@@ -14182,6 +14182,8 @@ MonoBehaviour:
   rubble: {fileID: 3519592867918917756, guid: 721df9dfd9e531a40b2fda2c853a846a, type: 3}
   sxLimiter: {fileID: 494850716}
   dxLimiter: {fileID: 1787395582}
+  doorTrigger: {fileID: 695190428}
+  bossDoor: {fileID: 0}
   attackRange: 2.34
   hitPoint: 12
   speed: 5
