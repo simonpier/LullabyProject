@@ -11,7 +11,9 @@ public class BookMonster_Behaviour : EnemyController_ML
     public AudioClip[] sounds;
 
     private bool check = true, check2 = true;
+    private bool firstEncounter;
     private int pickedSound;
+    
 
     public override void DeathChecker()
     {
@@ -69,18 +71,26 @@ public class BookMonster_Behaviour : EnemyController_ML
                 }
                 else if (distance <= attackRange)
                 {
-                    anim.SetBool("idle", false);
-                    anim.SetBool("attack", true);
-                    if (source.isPlaying == false)
+                    if(!firstEncounter)
                     {
-                        pickedSound = 2;
-                        gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
-                        source.clip = sounds[pickedSound];
-                        source.volume = Random.Range(0.1f, 0.15f);
-                        source.pitch = Random.Range(0.8f, 1.5f);
-                        source.Play();
-
+                        StartCoroutine(firstEncouterTimer());
                     }
+                    else if(firstEncounter)
+                    {
+                        anim.SetBool("idle", false);
+                        anim.SetBool("attack", true);
+                        if (source.isPlaying == false)
+                        {
+                            pickedSound = 2;
+                            gameObject.GetComponent<AudioSource>().clip = sounds[pickedSound];
+                            source.clip = sounds[pickedSound];
+                            source.volume = Random.Range(0.1f, 0.15f);
+                            source.pitch = Random.Range(0.8f, 1.5f);
+                            source.Play();
+
+                        }
+                    }
+                    
                 }
                 else if (!canMove && distance > attackRange)
                 {
@@ -88,6 +98,20 @@ public class BookMonster_Behaviour : EnemyController_ML
                 }
             }
         }
+    }
+
+    public override void EnemyReset()
+    {
+
+        isDied = false;
+        firstEncounter = false;
+        transform.position = respawnPoint;
+        anim.SetBool("reset", true);
+        anim.SetBool("death", false);
+        anim.ResetTrigger("transformation");
+        anim.SetBool("isTransformed", false);
+        hitPoint = maxHitPoint;
+        gameObject.SetActive(false);
     }
 
     void DeathSound()
@@ -109,5 +133,12 @@ public class BookMonster_Behaviour : EnemyController_ML
             check2 = false;
         }
     }
+
+    private IEnumerator firstEncouterTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        firstEncounter = true;
+    }
+
 }
 
