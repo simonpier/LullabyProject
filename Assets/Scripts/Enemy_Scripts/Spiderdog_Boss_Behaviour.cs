@@ -286,7 +286,7 @@ public class Spiderdog_Boss_Behaviour : EnemyController_ML
             anim.SetBool("death", true);
             isDied = true;
             stairCheck = true;
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1f, transform.localScale.z);
+            transform.localScale = new Vector3(transform.localScale.x, 1.5f, transform.localScale.z);
             transform.DOScale(1f, 2f);
             transform.DOMoveY(landingPos, 2f);
 

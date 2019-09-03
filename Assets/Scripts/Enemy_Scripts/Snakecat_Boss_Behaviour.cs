@@ -476,7 +476,7 @@ public class Snakecat_Boss_Behaviour : MonoBehaviour
             eyeDX.SetActive(true);
             eyeSX.SetActive(true);
         }
-        else if (collision.tag == ("Player_LanternCollider"))
+        if (collision.tag == ("Player_LanternCollider"))
         {
             isTakingDamage = false;
         }
