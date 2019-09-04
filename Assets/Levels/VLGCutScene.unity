@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 454966818}
+  EndingCutScene: 0
 --- !u!328 &454966818
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454966815}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6c898e90772b1e743ad3f71ad7e0d1ac, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0c1c5820df806114a87f48822fc52f54, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1834577028}

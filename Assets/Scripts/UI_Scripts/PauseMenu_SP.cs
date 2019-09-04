@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu_SP : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PauseMenu_SP : MonoBehaviour
 
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject inventoryMenuUI;
+    [SerializeField] GameObject firstObject;
 
     // Update is called once per frame
     void Update()
@@ -41,6 +43,7 @@ public class PauseMenu_SP : MonoBehaviour
         inventoryMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        
 
     }
 
@@ -50,7 +53,7 @@ public class PauseMenu_SP : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
     }
 
     public void LoadMenu()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 //this script works player's movement and animation
 public class PlayerMove_KT : MonoBehaviour
@@ -43,6 +44,10 @@ public class PlayerMove_KT : MonoBehaviour
 
     [SerializeField] AudioSource source;
 
+    [SerializeField] GameObject firstObject;
+
+    private bool check = true;
+
     public enum VertAnimationType
     {
         Default,
@@ -80,6 +85,7 @@ public class PlayerMove_KT : MonoBehaviour
         {
             if (MovingVertAnimation == VertAnimationType.Default) Move();
             else VerticalAnimation();
+            check = true;
         }
         else
         {
@@ -87,7 +93,11 @@ public class PlayerMove_KT : MonoBehaviour
             weapon.ResetAllLight();
             weapon.enabled = false;
             gameOver.SetActive(true);
-
+            if (check == true)
+            {
+                GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
+                check = false;
+            }
         }
     }
 

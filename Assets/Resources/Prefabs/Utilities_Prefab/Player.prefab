@@ -162,6 +162,7 @@ MonoBehaviour:
   audioM: {fileID: 0}
   gameOver: {fileID: 0}
   source: {fileID: 3290030797688124420}
+  firstObject: {fileID: 0}
   Respawn: 0
   verticalAnimateTime: 0.8
 --- !u!50 &5337991411122789009

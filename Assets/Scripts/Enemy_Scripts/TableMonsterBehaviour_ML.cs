@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class TableMonsterBehaviour_ML : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     [SerializeField] string dialogue;
     [SerializeField] string puzzle;
     [SerializeField] GameObject textBlock;
+    [SerializeField] GameObject firstObject;
 
     PlayerStats_ML playerStats;
     SnakeBossFightTrigger_ML bossTrigger;
@@ -83,7 +85,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(puzzle);
-            
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
         }
     }
 
