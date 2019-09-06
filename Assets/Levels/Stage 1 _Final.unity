@@ -9331,6 +9331,14 @@ PrefabInstance:
       propertyPath: dialogue
       value: SpiderDog
       objectReference: {fileID: 0}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: attackRange
+      value: 4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673928385, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
+      propertyPath: landDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1324648875, guid: 4f54f7803fc4dc34f8dc99ba585048f8, type: 3}
       propertyPath: m_Enabled
       value: 0
