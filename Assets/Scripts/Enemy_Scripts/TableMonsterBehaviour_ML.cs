@@ -14,7 +14,9 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     [SerializeField] string puzzle;
     [SerializeField] GameObject textBlock;
     [SerializeField] GameObject firstObject;
+    [SerializeField] GameObject canvas;
 
+    PauseMenu_SP pause;
     PlayerStats_ML playerStats;
     SnakeBossFightTrigger_ML bossTrigger;
     Animator anim;
@@ -40,6 +42,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
         text = textBlock.GetComponent<TextMeshProUGUI>();
+        pause = canvas.GetComponent<PauseMenu_SP>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
         if (puzzleUnsolved && !puzzleCheck)
         {
+            pause.enabled = true;
             anim.SetBool("attack", true);
             puzzleCheck = true;
             playerAnim.enabled = true;
@@ -62,6 +66,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
         if (puzzleSolved && !puzzleCheck)
         {
+            pause.enabled = true;
             bossTrigger.WoodPiecesCount++;
             puzzleCheck = true;
             puzzleDone = true;
@@ -79,7 +84,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && puzzleDone == false)
         {
-
+            pause.enabled = false;
             playerAnim.enabled = false;
             playerScript.enabled = false;
             playerWeapon.enabled = false;

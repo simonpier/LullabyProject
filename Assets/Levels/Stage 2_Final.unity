@@ -4292,6 +4292,11 @@ PrefabInstance:
       propertyPath: dialogue
       value: EnteringChildrensRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 6201702831869526445, guid: f3b6238eec8c0e54c9a25cf086edf82e,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 855144248}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b6238eec8c0e54c9a25cf086edf82e, type: 3}
 --- !u!1 &501190823
@@ -12204,6 +12209,7 @@ MonoBehaviour:
   puzzle: ChandelierPuzzle
   textBlock: {fileID: 192446921}
   firstObject: {fileID: 1834082225}
+  canvas: {fileID: 855144248}
 --- !u!95 &1108267418
 Animator:
   serializedVersion: 3
@@ -13686,6 +13692,11 @@ PrefabInstance:
       propertyPath: dialogue
       value: Livingroom1
       objectReference: {fileID: 0}
+    - target: {fileID: 6201702831869526445, guid: f3b6238eec8c0e54c9a25cf086edf82e,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 855144248}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b6238eec8c0e54c9a25cf086edf82e, type: 3}
 --- !u!4 &1201897899 stripped
@@ -22448,12 +22459,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -24511,6 +24522,14 @@ PrefabInstance:
       value: Some bookshelf will let you climb up but some will...Never mind, let`s
         keep this a surprise, hehe.
       objectReference: {fileID: 0}
+    - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: nodeRect.y
+      value: 130.45386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: nodeRect.x
+      value: 646.7168
+      objectReference: {fileID: 0}
     - target: {fileID: 248361637, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: storyText
       value: Another lever... This time a blue one.
@@ -24686,14 +24705,6 @@ PrefabInstance:
     - target: {fileID: 248361804, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: nodeRect.y
       value: 213.59735
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: nodeRect.y
-      value: 130.45386
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422700326, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: nodeRect.x
-      value: 646.7168
       objectReference: {fileID: 0}
     - target: {fileID: 652447035188623578, guid: 1c53334cd53725a40a8aec09785bc0c8,
         type: 3}
@@ -26853,6 +26864,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: spiderDog.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903246}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: debugMenu
+      value: 
+      objectReference: {fileID: 790990474}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: floorList
+      value: 
+      objectReference: {fileID: 1644817381}
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26908,31 +26944,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: spiderDog.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 811801725}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: gameCamera
-      value: 
-      objectReference: {fileID: 1039903246}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: debugMenu
-      value: 
-      objectReference: {fileID: 790990474}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: floorList
-      value: 
-      objectReference: {fileID: 1644817381}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: libraries.Array.size

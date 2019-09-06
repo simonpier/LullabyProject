@@ -15,6 +15,9 @@ public class FungusDialogue_SP : MonoBehaviour
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
 
+    [SerializeField] GameObject canvas;
+    PauseMenu_SP pause;
+
     private bool check = true;
 
     private void Start()
@@ -23,7 +26,7 @@ public class FungusDialogue_SP : MonoBehaviour
         playerScript = player.GetComponent<PlayerMove_KT>();
         playerWeapon = player.GetComponent<ChangeWeapon_NN>();
         playerRB = player.GetComponent<Rigidbody2D>();
-
+        pause = canvas.GetComponent<PauseMenu_SP>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +34,7 @@ public class FungusDialogue_SP : MonoBehaviour
 
         if ((other.gameObject.tag == "Player") && check == true)
         {
-
+            pause.enabled = false;
             playerAnim.enabled = false;
             playerScript.enabled = false;
             playerWeapon.enabled = false;
@@ -45,7 +48,7 @@ public class FungusDialogue_SP : MonoBehaviour
 
     void DilogueEnded()
     {
-
+        pause.enabled = true;
         playerAnim.enabled = true;
         playerScript.enabled = true;
         playerWeapon.enabled = true;
