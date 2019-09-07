@@ -26,7 +26,7 @@ public class LenguageManager_SP : MonoBehaviour
     public void SetJpn()
     {
 
-        leng = "IT";
+        leng = "JP";
         Debug.Log("lenguage setted to japan");
         
 
