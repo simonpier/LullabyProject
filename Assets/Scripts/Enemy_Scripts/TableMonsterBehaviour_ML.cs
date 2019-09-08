@@ -31,6 +31,9 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     private bool puzzleDone = false;
     private bool puzzleCheck;
 
+    //Kobayashi add
+    private bool puzzleDoing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,8 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
         if (puzzleUnsolved && !puzzleCheck)
         {
+            puzzleDoing = false;
+
             pause.enabled = true;
             anim.SetBool("attack", true);
             puzzleCheck = true;
@@ -66,6 +71,8 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
         if (puzzleSolved && !puzzleCheck)
         {
+            puzzleDoing = false;
+
             pause.enabled = true;
             bossTrigger.WoodPiecesCount++;
             puzzleCheck = true;
@@ -82,8 +89,10 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && puzzleDone == false)
+        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && puzzleDone == false && !puzzleDoing)
         {
+            puzzleDoing = true;
+
             pause.enabled = false;
             playerAnim.enabled = false;
             playerScript.enabled = false;
