@@ -25,6 +25,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     ChangeWeapon_NN playerWeapon;
     Rigidbody2D playerRB;
     TextMeshProUGUI text;
+    Collider2D collider;
 
     private bool puzzleUnsolved;
     private bool puzzleSolved;
@@ -37,6 +38,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         playerStats = player.GetComponent<PlayerStats_ML>();
         bossTrigger = snakeCat.GetComponent<SnakeBossFightTrigger_ML>();
@@ -100,6 +102,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(puzzle);
             GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObject, null);
+            collider.enabled = false;
         }
     }
 

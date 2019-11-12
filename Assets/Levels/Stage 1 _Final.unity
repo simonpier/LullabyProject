@@ -17472,7 +17472,7 @@ PrefabInstance:
     - target: {fileID: 8534721523884326383, guid: e11aced51053d6d429d6de69bc95b7a3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8534721523884326387, guid: e11aced51053d6d429d6de69bc95b7a3,
         type: 3}
@@ -22818,12 +22818,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8301489995467646380, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
+    - target: {fileID: 4769616876780321492, guid: 5e229ba9a4efd3344b4483b8dbea9d06,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -24653,6 +24653,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1422700325, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 1692437846}
+    - target: {fileID: 1422700327, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 811801727}
+    - target: {fileID: 1422700328, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1416199324}
     - target: {fileID: 248361660, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -24920,18 +24932,6 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1692437846}
-    - target: {fileID: 1422700325, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 1692437846}
-    - target: {fileID: 1422700327, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 811801727}
-    - target: {fileID: 1422700328, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1416199324}
     - target: {fileID: 1422700329, guid: 1c53334cd53725a40a8aec09785bc0c8, type: 3}
       propertyPath: character
       value: 
@@ -25366,6 +25366,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: spiderDog.Array.data[0]
+      value: 
+      objectReference: {fileID: 1416199317}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903246}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: debugMenu
+      value: 
+      objectReference: {fileID: 1706041174}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: floorList
+      value: 
+      objectReference: {fileID: 1297174123}
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25421,31 +25446,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: spiderDog.Array.data[0]
-      value: 
-      objectReference: {fileID: 1416199317}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 811801725}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: gameCamera
-      value: 
-      objectReference: {fileID: 1039903246}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: debugMenu
-      value: 
-      objectReference: {fileID: 1706041174}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: floorList
-      value: 
-      objectReference: {fileID: 1297174123}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: libraries.Array.size

@@ -6258,6 +6258,11 @@ PrefabInstance:
       propertyPath: checkpoint
       value: 
       objectReference: {fileID: 1099893304}
+    - target: {fileID: 5180666914194632856, guid: 6fecd56cc261cec4cb406bc182e6a036,
+        type: 3}
+      propertyPath: tableMonster
+      value: 
+      objectReference: {fileID: 1108267416}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fecd56cc261cec4cb406bc182e6a036, type: 3}
 --- !u!1 &686938612
@@ -25457,7 +25462,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 450.21436
     y: 311.21542
-    width: 148.6301
+    width: 139.04106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25762,7 +25767,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 860.84515
     y: 318.18442
-    width: 132.19174
+    width: 125.34244
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25899,7 +25904,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1011.42444
     y: 318.494
-    width: 132.19174
+    width: 125.34244
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

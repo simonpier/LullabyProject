@@ -57,6 +57,10 @@ public class Checkpoint_ML : MonoBehaviour
     public static int Deadcount = 0;
     [SerializeField] Checkpoint_Manager_ML checkManager;
 
+    //Table monster reset
+    [SerializeField] GameObject tableMonster;
+    Collider2D tableMonsterCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +75,8 @@ public class Checkpoint_ML : MonoBehaviour
         playerStat = PlayerStats_ML.instance;
         playerStat.respawnPoint = player.transform.position;
         instance = this;
+
+        tableMonsterCollider = tableMonster.GetComponent<Collider2D>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -179,7 +185,7 @@ public class Checkpoint_ML : MonoBehaviour
             bookMonsters[i].gameObject.SetActive(false);
         }
 
-
+        tableMonsterCollider.enabled = true;
     }
 
 
