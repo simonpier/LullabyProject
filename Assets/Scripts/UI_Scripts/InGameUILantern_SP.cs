@@ -15,7 +15,7 @@ public class InGameUILantern_SP : MonoBehaviour
     [SerializeField] GameObject candle;
     [SerializeField] GameObject lantern;
     private const float coef = 2f; //amount of light loosing per second
-    private float light = 100.0f; //max light 
+    public float light = 100.0f; //max light 
     private bool check = false;
 
     public float Light { get => light; set => light = value; }

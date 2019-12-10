@@ -8,7 +8,7 @@ public class PlayerStats_ML : MonoBehaviour
     public static PlayerStats_ML instance;
     #endregion
     //Player Health;
-    [SerializeField] private int health = 1;
+    [SerializeField] public int health = 1;
 
     private int maxHealth;
 
