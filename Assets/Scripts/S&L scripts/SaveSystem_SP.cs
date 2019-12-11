@@ -1,17 +1,13 @@
 ﻿using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using TMPro;
 
 public static class SaveSystem_SP
 {
     
-    //get scene
-    //lingua
-    //posizione, candela e lanterna, hp
 
-
-    public static void SavePlayer (GameObject player, InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager )
+    public static void SavePlayer (GameObject player, InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager, TextMeshProUGUI levelLocation, string scene, string checkpoint )
     {
 
         BinaryFormatter formater = new BinaryFormatter();
@@ -19,7 +15,7 @@ public static class SaveSystem_SP
         string path = Application.persistentDataPath + "/Lullaby.bieta";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData_SP data = new GameData_SP(player, candle, lantern, localizationManager);
+        GameData_SP data = new GameData_SP(player, candle, lantern, localizationManager, levelLocation, scene, checkpoint);
 
         formater.Serialize(stream, data);
         stream.Close();
@@ -52,4 +48,6 @@ public static class SaveSystem_SP
 
         }
     }
+
+
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
+using Fungus;
+using TMPro;
 
 public class Checkpoint_ML : MonoBehaviour
 {
@@ -61,6 +64,15 @@ public class Checkpoint_ML : MonoBehaviour
     [SerializeField] GameObject tableMonster;
     Collider2D tableMonsterCollider;
 
+    [SerializeField] GameObject localizationManager;
+    [SerializeField] TextMeshProUGUI levelLocation;
+    [SerializeField] GameObject playerObject;
+    [SerializeField] InGameUI_SP candleScript;
+    [SerializeField] InGameUILantern_SP lanternScript;
+
+    private string scene;
+    private string leng;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +89,9 @@ public class Checkpoint_ML : MonoBehaviour
         instance = this;
 
         tableMonsterCollider = tableMonster.GetComponent<Collider2D>();
+
+        scene = SceneManager.GetActiveScene().name;
+        leng = localizationManager.GetComponent<Localization>().ActiveLanguage;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -122,6 +137,8 @@ public class Checkpoint_ML : MonoBehaviour
                 lanternCollider.SetActive(true);
 
             }
+
+            SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, checkpoint.name);
         }
     }
 
@@ -151,7 +168,7 @@ public class Checkpoint_ML : MonoBehaviour
         }
         else if (firstCheck == false)
         {
-            //player.transform.position = new Vector3(-11.2f, -18.93f, 0f);
+            
             player.transform.position = playerStat.respawnPoint;
 
             var playerMove = playerObj.GetComponent<PlayerMove_KT>();

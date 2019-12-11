@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using TMPro;
 
 [System.Serializable]
 public class GameData_SP
@@ -11,8 +12,11 @@ public class GameData_SP
     public float[] playerPosition;
     public int hp;
     public string lenguage;
+    public string location;
+    public string sceneName;
+    public string checkpointName;
 
-    public GameData_SP ( GameObject player,  InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager)
+    public GameData_SP ( GameObject player,  InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager, TextMeshProUGUI levelLocation, string scene, string checkpoint )
     {
 
         candleRemaining = candle.light;
@@ -29,6 +33,11 @@ public class GameData_SP
 
         lenguage = localizationManager.GetComponent<Localization>().ActiveLanguage;
 
+        location = levelLocation.text;
+
+        sceneName = scene;
+
+        checkpointName = checkpoint;
     }
 
 }
