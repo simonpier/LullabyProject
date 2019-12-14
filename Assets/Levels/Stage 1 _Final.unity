@@ -12759,6 +12759,16 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1840374028}
+    - target: {fileID: 1901804292685199619, guid: f3b6238eec8c0e54c9a25cf086edf82e,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6018436
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901804292685199619, guid: f3b6238eec8c0e54c9a25cf086edf82e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.70511866
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b6238eec8c0e54c9a25cf086edf82e, type: 3}
 --- !u!1 &977301189

@@ -4,6 +4,7 @@ using UnityEngine;
 using Fungus;
 using TMPro;
 
+
 [System.Serializable]
 public class GameData_SP
 {
