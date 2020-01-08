@@ -114,4 +114,21 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
         puzzleCheck = false;
         
     }
+
+    private void ExitMinigame()
+    {
+        puzzleDoing = false;
+
+        pause.enabled = true;
+        puzzleCheck = false;
+        //puzzleDone = true;
+        playerAnim.enabled = false;
+        playerScript.enabled = false;
+        playerWeapon.enabled = false;
+        playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        //flowchart.ExecuteBlock(dialogue);
+        collider.enabled = true;
+    }
+
+
 }
