@@ -8,6 +8,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
 {
     [SerializeField] GameObject halo;
     [SerializeField] GameObject smoke;
+    [SerializeField] GameObject button;
     [SerializeField] private float fadingTime;
     [SerializeField] AudioManager audio;
     [SerializeField] Flowchart flowchart;
@@ -30,7 +31,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
     private void Start()
     {
         messageFlag = flowchart != null;
-        leverFlag = smoke != null && halo != null;
+        leverFlag = smoke != null && halo != null && button != null;
 
         if (leverFlag)
         {
@@ -55,6 +56,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
             {
                 Invoke("SlidingWall", .1f);
                 halo.SetActive(false);
+                button.SetActive(false);
             }
 
             if (messageFlag) {
@@ -69,6 +71,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
         if (!check && leverFlag && (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider"))
         {
             halo.SetActive(true);
+            button.SetActive(true);
         }
     }
 
@@ -77,6 +80,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
         if (leverFlag && (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider"))
         {
             halo.SetActive(false);
+            button.SetActive(false);
         }
     }
 

@@ -11,6 +11,7 @@ public class DoorTrigger_v2 : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject gameCamera;
     PositionConstraint cameraCon;
+    [SerializeField] GameObject halo;
 
     bool opening;
 
@@ -36,6 +37,11 @@ public class DoorTrigger_v2 : MonoBehaviour
             opening = true;
         }
 
+        if (other.gameObject.tag == "Player")
+        {
+            halo.SetActive(true);
+        }
+
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -46,6 +52,7 @@ public class DoorTrigger_v2 : MonoBehaviour
             opening = false;
             door.DoorClose();
             player.GetComponent<PlayerMove_KT>().CloseDoor();
+            halo.SetActive(false);
         }
 
     }
