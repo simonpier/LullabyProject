@@ -39,4 +39,9 @@ public class LenguageManager_SP : MonoBehaviour
         Debug.Log("lenguage setted to English");
         
     }
+    public void setIta()
+    {
+        leng = "IT";
+        Debug.Log("lenguage setted to ita");
+    }
 }

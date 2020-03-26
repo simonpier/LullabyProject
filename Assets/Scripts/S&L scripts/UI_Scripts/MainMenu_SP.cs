@@ -13,6 +13,8 @@ public class MainMenu_SP : MonoBehaviour
     [SerializeField] TextMeshProUGUI location;
     private string scene;
 
+    [SerializeField] TextMeshProUGUI newGameTxt, continueTxt, optionsTxt, exitTxt, creditsTxt, optionsTitleTxt, volumeTxt, onTxt, onTxt2, offTxt, offTxt2, musicTxt, languageTxt, controlsTxt, backTxt;
+
     private void Start()
     {
         GameData_SP data = SaveSystem_SP.loadPlayer();
@@ -60,4 +62,42 @@ public class MainMenu_SP : MonoBehaviour
 
     }
 
+    public void ChangeLenguageJpn()
+    {
+        newGameTxt.text = "はじめから";
+        continueTxt.text = "つづきから";
+        optionsTxt.text = "設定";
+        exitTxt.text = "やめる";
+        creditsTxt.text = "製作者一覧";
+        optionsTitleTxt.text = "設定";
+        volumeTxt.text = "音量";
+        onTxt.text = "あり";
+        offTxt.text = "なし";
+        onTxt2.text = "あり";
+        offTxt2.text = "なし";
+        languageTxt.text = "言語";
+        controlsTxt.text = "操作方法";
+        backTxt.text = "戻る";
+        
+    }
+
+    public void ChangeLenguageEng()
+    {
+
+        newGameTxt.text = "New game";
+        continueTxt.text = "Continue";
+        optionsTxt.text = "Options";
+        exitTxt.text = "Exit";
+        creditsTxt.text = "Credits";
+        optionsTitleTxt.text = "Options";
+        volumeTxt.text = "Volume";
+        onTxt.text = "on";
+        offTxt.text = "off";
+        onTxt2.text = "on";
+        offTxt2.text = "off";
+        languageTxt.text = "Language";
+        controlsTxt.text = "controls";
+        backTxt.text = "Back";
+
+    }
 }

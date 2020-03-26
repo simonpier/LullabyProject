@@ -452,6 +452,8 @@ namespace Fungus
                     PopulateTextProperty(stringId, languageEntry);
                 }
             }
+
+            activeLanguage = languageCode;
         }
 
         /// <summary>

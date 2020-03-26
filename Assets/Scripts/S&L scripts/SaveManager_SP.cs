@@ -19,7 +19,7 @@ public class SaveManager_SP : MonoBehaviour
     PositionConstraint cameraCon;
 
     Vector3 playerTrasform;
-    string leng;
+    string leng, leng2;
     string scene;
 
     private void Start()
@@ -27,6 +27,7 @@ public class SaveManager_SP : MonoBehaviour
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         scene = SceneManager.GetActiveScene().name;
         leng = localizationManager.GetComponent<Localization>().ActiveLanguage;
+        leng2 = localizationManager.GetComponent<Localization>().ActiveLanguage;
     }
 
     public void SaveGame()
@@ -59,6 +60,7 @@ public class SaveManager_SP : MonoBehaviour
         //player.GetComponent<Transform>().position = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
 
         leng = data.lenguage;
+        
 
         candle.light = data.candleRemaining;
         lantern.light = data.lanternRemaining;
@@ -69,10 +71,36 @@ public class SaveManager_SP : MonoBehaviour
     private void Awake()
     {
         Invoke("LoadGame", 0f);
+        Debug.Log(leng2);
     }
 
     void CameraConstraints()
     {
         cameraCon.enabled = true;
+    }
+
+    [SerializeField] TextMeshProUGUI itemsTxt, backTxt, exitTxt, anneTxt, ageTxt, hpTxt, currentLocationTxt, floorTxt, item1Txt, item2Txt, itemTitleTxt, returnTxt;
+
+    void Update()
+    {
+        leng2 = localizationManager.GetComponent<Localization>().ActiveLanguage;
+        Debug.Log(leng2);
+        if (leng2 == "JP")
+        {
+            Debug.Log(leng2);
+            itemsTxt.text = "持ち物";
+            backTxt.text = "タイトルへ戻る";
+            exitTxt.text = "やめる";
+            anneTxt.text = "アン";
+            ageTxt.text = "年齢：５歳";
+            hpTxt.text = "体力";
+            currentLocationTxt.text = "現在地";
+            floorTxt.text = "３階";
+            item1Txt.text = "なし";
+            item2Txt.text = "あり";
+            itemTitleTxt.text = "なし";
+            returnTxt.text = "言語";
+
+        }
     }
 }
