@@ -79,7 +79,7 @@ public class SaveManager_SP : MonoBehaviour
         cameraCon.enabled = true;
     }
 
-    [SerializeField] TextMeshProUGUI itemsTxt, backTxt, exitTxt, anneTxt, ageTxt, hpTxt, currentLocationTxt, floorTxt, item1Txt, item2Txt, itemTitleTxt, returnTxt;
+    [SerializeField] TextMeshProUGUI itemsTxt, backTxt, exitTxt, anneTxt, ageTxt, hpTxt, currentLocationTxt, floorTxt, item1Txt, item2Txt, itemTitleTxt, returnTxt, retryTxt, backToTitleGOTxt;
 
     void Update()
     {
@@ -92,15 +92,27 @@ public class SaveManager_SP : MonoBehaviour
             backTxt.text = "タイトルへ戻る";
             exitTxt.text = "やめる";
             anneTxt.text = "アン";
-            ageTxt.text = "年齢：５歳";
+            ageTxt.text = "年齢: 5歳";
             hpTxt.text = "体力";
             currentLocationTxt.text = "現在地";
-            floorTxt.text = "３階";
+
+
+            if (scene == "Stage 1 _Final")
+            {
+                floorTxt.text = "1階";
+            }
+
+            else if (scene == "Stage 2_Final")
+            {
+                floorTxt.text = "2階";
+            }
+
             item1Txt.text = "なし";
             item2Txt.text = "あり";
             itemTitleTxt.text = "なし";
             returnTxt.text = "言語";
-
+            retryTxt.text = "リトライ";
+            backToTitleGOTxt.text = "タイトルへ戻る";
         }
     }
 }
