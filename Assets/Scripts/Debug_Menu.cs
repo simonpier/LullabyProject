@@ -13,11 +13,11 @@ public class Debug_Menu : MonoBehaviour
     [SerializeField] List<GameObject> doorMonsters;
     [SerializeField] List<GameObject> spiderDog;
 
-    [SerializeField] List<string> floorName;
+    //[SerializeField] List<string> floorName;
 
     [SerializeField] GameObject player;
     [SerializeField] Camera gameCamera;
-    [SerializeField] GameObject debugMenu;
+    //[SerializeField] GameObject debugMenu;
 
     [SerializeField] TMP_Dropdown floorList;
 
@@ -34,30 +34,30 @@ public class Debug_Menu : MonoBehaviour
 
     void Start()
     {
-        floorList.AddOptions(floorName);
+        //floorList.AddOptions(floorName);
         originalFov = gameCamera.fieldOfView;
     }
 
     private void Update()
     {
-        DebugMenuEnabled();
+        //DebugMenuEnabled();
     }
 
-    private void DebugMenuEnabled()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            activeDebug = !activeDebug;
-        }
-        if (activeDebug == false)
-        {
-            debugMenu.SetActive(false);
-        }
-        else if (activeDebug == true)
-        {
-            debugMenu.SetActive(true);
-        }
-    }
+    //private void DebugMenuEnabled()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Tab))
+    //    {
+    //        activeDebug = !activeDebug;
+    //    }
+    //    if (activeDebug == false)
+    //    {
+    //        debugMenu.SetActive(false);
+    //    }
+    //    else if (activeDebug == true)
+    //    {
+    //        debugMenu.SetActive(true);
+    //    }
+    //}
 
     #region Teleportation Methods
     public void Teleportation()
