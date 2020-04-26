@@ -12,6 +12,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     [SerializeField] GameObject father;
     [SerializeField] GameObject doll;
     [SerializeField] GameObject stairs;
+    [SerializeField] GameObject firstChandelier;
+    [SerializeField] GameObject secondChandelier;
+    [SerializeField] GameObject thirdChandelier;
+    [SerializeField] GameObject lampMonster;
 
     [SerializeField] float fatherEntryLerp;
     [SerializeField] float lerpDuration;
@@ -29,6 +33,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     Animator fatherAnim;
     Rigidbody2D playerRB;
     PlayerMove_KT playerScript;
+    ChangeWeapon_NN playerWeaponScript;
     Father_Boss_Behaviour_ML fatherScript;
     PositionConstraint cameraCon;
     TargetCamera_KT cameraController;
@@ -38,6 +43,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     SpriteRenderer stairRenderer;
     Color fullAlpha;
     AudioSource cameraSource;
+    ChandelierMonsterBehaviour_ML firstChandelierScript;
+    ChandelierMonsterBehaviour_ML secondChandelierScript;
+    ChandelierMonsterBehaviour_ML thirdChandelierScript;
+    LampMonsterBehaviour_ML lampScript;
 
     private float lightIntensity;
 
@@ -46,6 +55,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
     {
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         cameraController = gameCamera.GetComponent<TargetCamera_KT>();
+        playerWeaponScript = player.GetComponent<ChangeWeapon_NN>();
         playerScript = player.GetComponent<PlayerMove_KT>();
         fatherScript = father.GetComponent<Father_Boss_Behaviour_ML>();
         playerRB = player.GetComponent<Rigidbody2D>();
@@ -55,6 +65,10 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         dollRenderer = doll.GetComponent<SpriteRenderer>();
         stairRenderer = stairs.GetComponent<SpriteRenderer>();
         cameraSource = gameCamera.GetComponent<AudioSource>();
+        firstChandelierScript = firstChandelier.GetComponent<ChandelierMonsterBehaviour_ML>();
+        secondChandelierScript = secondChandelier.GetComponent<ChandelierMonsterBehaviour_ML>();
+        thirdChandelierScript = thirdChandelier.GetComponent<ChandelierMonsterBehaviour_ML>();
+        lampScript = lampMonster.GetComponent<LampMonsterBehaviour_ML>();
 
         StartCoroutine(FatherEntry());
     }
@@ -71,6 +85,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
 
         gameCamera.transform.position = new Vector3(gameCamera.transform.position.x, -45.97925f, gameCamera.transform.position.z);
         playerScript.enabled = false;
+        playerWeaponScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         playerAnim.enabled = false;
 
@@ -88,6 +103,7 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         cameraController.enabled = true;
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
+        playerWeaponScript.enabled = true;
         playerAnim.enabled = true;
         fatherScript.Activation();
         stairRenderer.DOFade(0, 2f);
@@ -105,8 +121,13 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         source.volume = 1;
         source.Play();
 
+        firstChandelierScript.enabled = false;
+        secondChandelierScript.enabled = false;
+        thirdChandelierScript.enabled = false;
+        lampScript.enabled = false;
         fatherScript.enabled = false;
         playerScript.enabled = false;
+        playerWeaponScript.enabled = false;
         playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         fatherAnim.Play("Father_Walk");
         fatherAnim.enabled = false;
@@ -210,5 +231,6 @@ public class FatherDeathCutscene_ML : MonoBehaviour
         playerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         playerScript.enabled = true;
         playerAnim.enabled = true;
+        playerWeaponScript.enabled = true;
     }
 }

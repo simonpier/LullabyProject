@@ -6009,6 +6009,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669837871}
   m_CullTransparentMesh: 0
+--- !u!1 &675278890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 490308595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &677204091
 GameObject:
   m_ObjectHideFlags: 0
@@ -9048,6 +9054,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbae4e7222814747b13330184ccdaae, type: 3}
+--- !u!1 &1055345228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2007028508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1065203676
 GameObject:
   m_ObjectHideFlags: 0
@@ -10699,6 +10711,10 @@ MonoBehaviour:
   father: {fileID: 1335649128}
   doll: {fileID: 1005742232}
   stairs: {fileID: 1574071077}
+  firstChandelier: {fileID: 675278890}
+  secondChandelier: {fileID: 1055345228}
+  thirdChandelier: {fileID: 1712517039}
+  lampMonster: {fileID: 1351360793}
   fatherEntryLerp: 4
   lerpDuration: 2
   lightLerpDuration: 2
@@ -10804,6 +10820,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1351360793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4815322291600218134, guid: bbbae4e7222814747b13330184ccdaae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1053791785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359155767
 GameObject:
   m_ObjectHideFlags: 0
@@ -14170,6 +14192,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697835293}
   m_CullTransparentMesh: 0
+--- !u!1 &1712517039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1288342579048401777, guid: e27263954852a404cb02148ea3e49b8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105340995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1722045556
 GameObject:
   m_ObjectHideFlags: 0
@@ -15742,8 +15770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 3467383318878927108, guid: 1c53334cd53725a40a8aec09785bc0c8,
-    type: 3}
+  selectedFlowchart: {fileID: 248361635}
 --- !u!4 &1886892564
 Transform:
   m_ObjectHideFlags: 1
@@ -18390,36 +18417,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: spiderDog.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 811801725}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: gameCamera
-      value: 
-      objectReference: {fileID: 1039903246}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: debugMenu
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: floorList
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18473,6 +18470,36 @@ PrefabInstance:
     - target: {fileID: 1466044908328768825, guid: e530d539ac7482446bd086e7b3dc90d9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: spiderDog.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 811801725}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: gameCamera
+      value: 
+      objectReference: {fileID: 1039903246}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: debugMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: floorList
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466044908328768806, guid: e530d539ac7482446bd086e7b3dc90d9,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1466044908328768824, guid: e530d539ac7482446bd086e7b3dc90d9,
