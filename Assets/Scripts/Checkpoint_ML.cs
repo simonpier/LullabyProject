@@ -72,6 +72,7 @@ public class Checkpoint_ML : MonoBehaviour
 
     private string scene;
     private string leng;
+    private float listener;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,7 @@ public class Checkpoint_ML : MonoBehaviour
 
         scene = SceneManager.GetActiveScene().name;
         leng = localizationManager.GetComponent<Localization>().ActiveLanguage;
+        listener = AudioListener.volume;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -138,7 +140,7 @@ public class Checkpoint_ML : MonoBehaviour
 
             }
 
-            SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, checkpoint.name);
+            SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, checkpoint.name , AudioListener.volume);
         }
     }
 

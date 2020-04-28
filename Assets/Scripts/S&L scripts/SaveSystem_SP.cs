@@ -7,7 +7,7 @@ public static class SaveSystem_SP
 {
     
 
-    public static void SavePlayer (GameObject player, InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager, TextMeshProUGUI levelLocation, string scene, string checkpoint )
+    public static void SavePlayer (GameObject player, InGameUI_SP candle, InGameUILantern_SP lantern, GameObject localizationManager, TextMeshProUGUI levelLocation, string scene, string checkpoint , float volume)
     {
 
         BinaryFormatter formater = new BinaryFormatter();

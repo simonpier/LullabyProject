@@ -26,6 +26,6 @@ public class AutoSave_SP : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene().name;
         Debug.Log(playerObject + " " + candleScript + " " + lanternScript + " " + localizationManager + " " + levelLocation + " " + scene);
-        SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, "");
+        SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, "", AudioListener.volume);
     }
 }
