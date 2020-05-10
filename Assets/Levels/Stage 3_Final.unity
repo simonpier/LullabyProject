@@ -12145,7 +12145,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Back to title?
+  m_text: Quit game?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c00815d7d4f5e11408b9cdbf08464e21, type: 2}
   m_sharedMaterial: {fileID: -1376534831258755057, guid: c00815d7d4f5e11408b9cdbf08464e21,

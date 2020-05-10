@@ -96,7 +96,7 @@ public class MainMenu_SP : MonoBehaviour
         onTxt2.text = "on";
         offTxt2.text = "off";
         languageTxt.text = "Language";
-        controlsTxt.text = "controls";
+        controlsTxt.text = "Controls";
         backTxt.text = "Back";
 
     }
