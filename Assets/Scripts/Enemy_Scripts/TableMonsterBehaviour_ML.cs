@@ -84,7 +84,7 @@ public class TableMonsterBehaviour_ML : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
-            text.text = "wood piece x" + bossTrigger.WoodPiecesCount;
+            text.text = "" + bossTrigger.WoodPiecesCount;
         }
 
     }

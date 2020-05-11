@@ -48,7 +48,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
             check = false;
-            text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
+            text.text = "" + snakeTrigger.WoodPiecesCount;
         }
 
     }

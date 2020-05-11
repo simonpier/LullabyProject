@@ -73,7 +73,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
 
-            text.text = "wood piece x" + snakeTrigger.WoodPiecesCount;
+            text.text = "" + snakeTrigger.WoodPiecesCount;
         }
 
         if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber && flowchart && normalPaintingFlag)
