@@ -12,6 +12,7 @@ public class FatherLanters_ML : MonoBehaviour
     Father_Boss_Behaviour_ML fatherScript;
 
     private bool check;
+    private bool candleCollisionCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,12 @@ public class FatherLanters_ML : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction") && !check)
+
+        if (collision.tag == "Player_CandleCollider")
+        {
+            candleCollisionCheck = true;
+        }
+        if (collision.tag == "Player" && candleCollisionCheck && Input.GetButtonDown("Interaction") && !check)
         {
             light.SetActive(true);
             check = true;
@@ -41,6 +47,14 @@ public class FatherLanters_ML : MonoBehaviour
             gameObject.GetComponent<AudioSource>().clip = sound;
             source.clip = sound;
             source.Play();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player_CandleCollider")
+        {
+            candleCollisionCheck = false;
         }
     }
 }

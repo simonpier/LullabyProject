@@ -11,6 +11,7 @@ public class BossFightEvent_ML : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject spiderBoss;
     [SerializeField] GameObject cinematicBar;
+    [SerializeField] GameObject canvas;
     
     [SerializeField] float bossPosition;
     [SerializeField] float lerpDuration;
@@ -27,10 +28,12 @@ public class BossFightEvent_ML : MonoBehaviour
     CinematicBar_ML cinBar;
     Spiderdog_Boss_Behaviour spiderbossBehaviour;
     AudioSource cameraSource;
+    PauseMenu_SP pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenu = canvas.GetComponent<PauseMenu_SP>();
         cameraSource = gameCamera.GetComponent<AudioSource>();
         cameraCon = gameCamera.GetComponent<PositionConstraint>();
         cameraController = gameCamera.GetComponent<TargetCamera_KT>();
@@ -57,6 +60,7 @@ public class BossFightEvent_ML : MonoBehaviour
         cameraSource.clip = bossFightMusic;
         cameraSource.volume = 0.5f;
         cameraSource.Play();
+        pauseMenu.enabled = false;
         playerScript.enabled = false;
         playerLight.ResetAllLight();
         playerLight.enabled = false;
@@ -83,6 +87,7 @@ public class BossFightEvent_ML : MonoBehaviour
         cinBar.Hide(1.5f);
         playerScript.enabled = true;
         playerLight.enabled = true;
+        pauseMenu.enabled = true;
         spiderBossAnim.SetBool("inRange", true);
         spiderbossBehaviour.IsTriggered = true;
         playerAnim.enabled = true;
