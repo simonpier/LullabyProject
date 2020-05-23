@@ -25,7 +25,11 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
 
     private bool check;
     private bool rightNumber;
+    private bool playerFirstPainting;
+    private bool playerSecondPainting;
     public bool RightNumber { get => rightNumber; set => rightNumber = value; }
+
+
 
     SnakeBossFightTrigger_ML snakeTrigger;
     SpriteRenderer spriteRenderer;
@@ -49,20 +53,7 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void NumberCheck()
-    {
-        if (transform.position.x == rightPainting.transform.position.x)
-        {
-            rightNumber = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction") && !check && rightNumber && normalPaintingFlag)
+        if (playerFirstPainting && Input.GetButtonDown("Interaction") && !check && rightNumber && normalPaintingFlag)
         {
             snakeTrigger.WoodPiecesCount++;
             check = true;
@@ -76,9 +67,9 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             text.text = "" + snakeTrigger.WoodPiecesCount;
         }
 
-        if (collision.tag == "Player" && Input.GetButtonDown("Interaction")  && !rightNumber && flowchart && normalPaintingFlag)
+        if (playerSecondPainting && Input.GetButtonDown("Interaction") && !rightNumber && flowchart && normalPaintingFlag)
         {
-            
+
             playerAnim.enabled = false;
             playerScript.enabled = false;
             playerWeapon.enabled = false;
@@ -86,8 +77,25 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
             flowchart.ExecuteBlock(dialogue);
 
         }
+    }
 
-            if (collision.tag == "Player_LanternCollider" || collision.tag == "Player_CandleCollider")
+    void NumberCheck()
+    {
+        if (transform.position.x == rightPainting.transform.position.x)
+        {
+            rightNumber = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" )
+        {
+            playerFirstPainting = true;
+            playerSecondPainting = true;
+        }
+
+        if (collision.tag == "Player_LanternCollider" || collision.tag == "Player_CandleCollider")
         {
             halo.enabled = true;
         }
@@ -98,6 +106,12 @@ public class NumbersPaintingRoom_ML : MonoBehaviour
         if (collision.tag == "Player_LanternCollider" || collision.tag == "Player_CandleCollider")
         {
             halo.enabled = false;
+        }
+
+        if (collision.tag == "Player")
+        {
+            playerFirstPainting = false;
+            playerSecondPainting = false;
         }
     }
 }

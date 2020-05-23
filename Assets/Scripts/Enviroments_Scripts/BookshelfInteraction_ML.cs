@@ -23,6 +23,7 @@ public class BookshelfInteraction_ML : MonoBehaviour
     Rigidbody2D playerRB;
 
     private bool check;
+    private bool wallSlided;
 
     //Tatsuyoshi added
     private bool messageFlag;
@@ -45,12 +46,11 @@ public class BookshelfInteraction_ML : MonoBehaviour
         playerRB = player.GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (Input.GetButtonDown("Interaction") && collision.tag == "Player" && !check)
+        if(Input.GetButtonDown("Interaction") && check && !wallSlided)
         {
             audio.PlaySound("bookshelf interaction");
-            check = true;
 
             if (leverFlag)
             {
@@ -59,13 +59,22 @@ public class BookshelfInteraction_ML : MonoBehaviour
                 button.SetActive(false);
             }
 
-            if (messageFlag) {
+            if (messageFlag)
+            {
                 playerAnim.enabled = false;
                 playerScript.enabled = false;
                 playerWeapon.enabled = false;
                 playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 flowchart.ExecuteBlock(dialogue);
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && !check)
+        {
+            check = true;
         }
 
         if (!check && leverFlag && (collision.tag == "Player_CandleCollider" || collision.tag == "Player_LanternCollider"))
@@ -82,10 +91,16 @@ public class BookshelfInteraction_ML : MonoBehaviour
             halo.SetActive(false);
             button.SetActive(false);
         }
+
+        if (collision.tag == "Player")
+        {
+            check = false;
+        }
     }
 
     private void SlidingWall()
     {
+        wallSlided = true;
         renderer.DOFade(0f, fadingTime);
         collider.enabled = false;
         audio.PlaySound("wall moving");

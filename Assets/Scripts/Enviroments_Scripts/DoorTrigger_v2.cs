@@ -14,6 +14,7 @@ public class DoorTrigger_v2 : MonoBehaviour
     [SerializeField] GameObject halo;
 
     bool opening;
+    bool playerCheck;
 
 
     private void Start()
@@ -25,16 +26,25 @@ public class DoorTrigger_v2 : MonoBehaviour
         opening = false;
     }
 
-
-    void OnTriggerStay2D(Collider2D other)
+    private void Update()
     {
-
-        if ((other.gameObject.tag == "Player") && Input.GetButtonDown("Interaction") && !opening)
+        if (Input.GetButtonDown("Interaction") && !opening && playerCheck)
         {
             door.DoorOpen();
             player.GetComponent<PlayerMove_KT>().OpenDoor();
             Invoke("Teleportation", 1);
             opening = true;
+        }
+
+    }
+
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+
+        if ((other.gameObject.tag == "Player"))
+        {
+            playerCheck = true;
         }
 
         if (other.gameObject.tag == "Player")
@@ -49,6 +59,7 @@ public class DoorTrigger_v2 : MonoBehaviour
 
         if (other.tag == "Player")
         {
+            playerCheck = false;
             opening = false;
             door.DoorClose();
             player.GetComponent<PlayerMove_KT>().CloseDoor();

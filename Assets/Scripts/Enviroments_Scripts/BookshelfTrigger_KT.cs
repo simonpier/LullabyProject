@@ -14,7 +14,11 @@ public class BookshelfTrigger_KT : MonoBehaviour
     [SerializeField] GameObject gameManager;
     EventManager_ML eventManager;
 
+    Collider2D playerCollider;
+
     public static int counter = 0;
+
+    bool playerBookshelf;
 
     void Start()
     {
@@ -25,21 +29,35 @@ public class BookshelfTrigger_KT : MonoBehaviour
     void Update()
     {
         //Debug.Log(eventManager.IsPlayerOnLibrary);
+
+        if (playerBookshelf)
+        {
+            if (Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f > playerCollider.transform.position.y)
+            {
+                Climb(playerCollider.gameObject);
+            }
+            else if (Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f <= playerCollider.transform.position.y) // DownKeyCode
+            {
+
+                Dismount(playerCollider.gameObject);
+            }
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         if ((other.gameObject.tag == "Player"))
         {
-            if (Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f > other.transform.position.y)
-            {
-                Climb(other.gameObject);
-            }
-            else if(Input.GetButtonDown("Interaction") && warpHeight.transform.position.y - 0.01f <= other.transform.position.y) // DownKeyCode
-            {
+            playerCollider = other;
+            playerBookshelf = true;
+        }
+    }
 
-                Dismount(other.gameObject);
-            }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if ((collision.gameObject.tag == "Player"))
+        {
+            playerBookshelf = false;
         }
     }
 

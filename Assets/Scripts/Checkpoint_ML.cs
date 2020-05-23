@@ -63,6 +63,7 @@ public class Checkpoint_ML : MonoBehaviour
     //Table monster reset
     [SerializeField] GameObject tableMonster;
     Collider2D tableMonsterCollider;
+    Collider2D playerCollider;
 
     [SerializeField] GameObject localizationManager;
     [SerializeField] TextMeshProUGUI levelLocation;
@@ -73,6 +74,8 @@ public class Checkpoint_ML : MonoBehaviour
     private string scene;
     private string leng;
     private float listener;
+
+    private bool playerCheckpoint;
 
     // Start is called before the first frame update
     void Start()
@@ -96,14 +99,13 @@ public class Checkpoint_ML : MonoBehaviour
         listener = AudioListener.volume;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        //this is used to modify the respawnpoint
-        if ((collision.gameObject.tag == "Player") && Input.GetButtonDown("Interaction"))
+        if (Input.GetButtonDown("Interaction") && playerCheckpoint)
         {
-            if(checkManager) checkManager.UnCheck();
+            if (checkManager) checkManager.UnCheck();
             firstCheck = true;
-            PlayerStats_ML.instance.respawnPoint = collision.transform.position;
+            PlayerStats_ML.instance.respawnPoint = playerCollider.transform.position;
 
             checkpoint = this.gameObject;
 
@@ -140,8 +142,23 @@ public class Checkpoint_ML : MonoBehaviour
 
             }
 
-            SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, checkpoint.name , AudioListener.volume);
+            SaveSystem_SP.SavePlayer(playerObject, candleScript, lanternScript, localizationManager, levelLocation, scene, checkpoint.name, AudioListener.volume);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //this is used to modify the respawnpoint
+        if ((collision.gameObject.tag == "Player"))
+        {
+            playerCollider = collision;
+            playerCheckpoint = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerCheckpoint = false;
     }
 
     //This method must be called when we want to respawn the player to the last checkpoint
