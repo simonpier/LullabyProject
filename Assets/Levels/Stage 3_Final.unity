@@ -11961,6 +11961,12 @@ MonoBehaviour:
   returnTxt: {fileID: 459370685}
   retryTxt: {fileID: 1839334861}
   backToTitleGOTxt: {fileID: 195881324}
+  confTxt1: {fileID: 1865059699}
+  yesTxt1: {fileID: 1182391035}
+  noTxt1: {fileID: 181941219}
+  confTxt2: {fileID: 1493886363}
+  yesTxt2: {fileID: 82704729}
+  noTxt2: {fileID: 2145440930}
   localizationManager: {fileID: 1285537216}
 --- !u!1 &1490181336
 GameObject:

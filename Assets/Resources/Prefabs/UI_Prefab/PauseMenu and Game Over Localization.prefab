@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &791024476142821420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791024476142821423}
+  - component: {fileID: 791024476142821422}
+  m_Layer: 0
+  m_Name: PauseMenu and Game Over Localization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791024476142821423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791024476142821420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791024476142821422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791024476142821420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91110d977510244da10b5f963e92075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsTxt: {fileID: 0}
+  backTxt: {fileID: 0}
+  exitTxt: {fileID: 0}
+  anneTxt: {fileID: 0}
+  ageTxt: {fileID: 0}
+  hpTxt: {fileID: 0}
+  currentLocationTxt: {fileID: 0}
+  floorTxt: {fileID: 0}
+  item1Txt: {fileID: 0}
+  item2Txt: {fileID: 0}
+  itemTitleTxt: {fileID: 0}
+  returnTxt: {fileID: 0}
+  retryTxt: {fileID: 0}
+  backToTitleGOTxt: {fileID: 0}
+  localization: {fileID: 0}

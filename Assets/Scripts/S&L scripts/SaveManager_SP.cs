@@ -114,5 +114,35 @@ public class SaveManager_SP : MonoBehaviour
             retryTxt.text = "リトライ";
             backToTitleGOTxt.text = "タイトルへ戻る";
         }
+
+        else if (leng2 == "IT")
+        {
+            Debug.Log(leng2);
+            itemsTxt.text = "Oggetti";
+            backTxt.text = "Torna al menu";
+            exitTxt.text = "Chiudi gioco";
+            anneTxt.text = "Anne";
+            ageTxt.text = "Eta'：5 anni";
+            hpTxt.text = "PF";
+            currentLocationTxt.text = "Posizione attuale: ";
+
+
+            if (scene == "Stage 1 _Final")
+            {
+                floorTxt.text = "1 piano";
+            }
+
+            else if (scene == "Stage 2_Final")
+            {
+                floorTxt.text = "2 piano";
+            }
+
+            item1Txt.text = "oggetto 1";
+            item2Txt.text = "oggetto 2";
+            itemTitleTxt.text = "Oggetti";
+            returnTxt.text = "Indietro";
+            retryTxt.text = "Riprova";
+            backToTitleGOTxt.text = "Torna al menu";
+        }
     }
 }
