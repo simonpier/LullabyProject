@@ -1778,6 +1778,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213034514}
   m_CullTransparentMesh: 0
+--- !u!1001 &225639637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2880420404772192740, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_Name
+      value: LanguageContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 459.48077
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 271.22296
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -723.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116943434099410612, guid: f58573995fda03d4c9df8191c10626c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f58573995fda03d4c9df8191c10626c6, type: 3}
 --- !u!1 &236282984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2568,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313825808}
   m_CullTransparentMesh: 0
+--- !u!114 &318832706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7323777865611186331, guid: f58573995fda03d4c9df8191c10626c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 225639637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d91f603761495c498b357d0cca62ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329723337
 GameObject:
   m_ObjectHideFlags: 0
@@ -11476,6 +11557,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 318832706}
+        m_MethodName: ChangeLanguage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: JP
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1667012055
@@ -12505,6 +12597,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 318832706}
+        m_MethodName: ChangeLanguage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Standard
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -13654,6 +13757,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 318832706}
+        m_MethodName: ChangeLanguage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IT
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
