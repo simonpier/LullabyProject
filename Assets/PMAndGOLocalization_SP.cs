@@ -60,7 +60,7 @@ public class PMAndGOLocalization_SP : MonoBehaviour
             hpTxt.text = "PF";
             currentLocationTxt.text = "Posizione attuale: ";
             floorTxt.text = "3 piano";
-            item1Txt.text = "oggetto 1";
+            item1Txt.text = "X";
             item2Txt.text = "oggetto 2";
             itemTitleTxt.text = "Oggetti";
             returnTxt.text = "Indietro";

@@ -13,6 +13,8 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject libray;
     [SerializeField] GameObject textBlock;
+    [SerializeField] GameObject halo;
+
 
     Animator playerAnim;
     PlayerMove_KT playerScript;
@@ -22,7 +24,7 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
     GetItem_SP lever;
     TextMeshProUGUI text;
 
-    private bool check = true;
+    private bool check = true, taken = false;
 
     private void Start()
     {
@@ -38,7 +40,34 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
 
-        if ((other.gameObject.tag == "Player") && check == true && Input.GetButtonDown("Interaction") && lever.SwitchOn_Off == true)
+        if ((other.gameObject.tag == "Player") &&  lever.SwitchOn_Off == true)
+        {
+            check = true; 
+        }
+
+        if (!check && (other.tag == "Player_CandleCollider" ) && lever.SwitchOn_Off == true)
+        {
+            halo.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if ((other.tag == "Player_CandleCollider" ) && lever.SwitchOn_Off == true)
+        {
+            halo.SetActive(false);
+        }
+
+        if (other.tag == "Player")
+        {
+            check = false;
+        }
+    }
+
+
+    private void Update()
+    {
+        if (check == true && Input.GetButtonDown("Interaction") && check == true && lever.SwitchOn_Off == true && taken == false)
         {
             snakeTrigger.WoodPiecesCount++;
 
@@ -47,9 +76,8 @@ public class ThirdEnigmaScript_SP : MonoBehaviour
             playerWeapon.enabled = false;
             playerRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             flowchart.ExecuteBlock(dialogue);
-            check = false;
             text.text = "" + snakeTrigger.WoodPiecesCount;
+            taken = true;
         }
-
     }
 }
